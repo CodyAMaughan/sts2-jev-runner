@@ -1,0 +1,23 @@
+{
+  "character": "ironclad",
+  "display_mode": "headed",
+  "id": "jev-ironclad-overgrowth-v115-01",
+  "seed": "OVERGROWTH02",
+  "policy": "balanced",
+  "mode": "actual_game_engine_remote_controller",
+  "remote_strategy": "balanced",
+  "balance_version": "0.3.9",
+  "build_version": "0.3.9",
+  "hashes": {
+    "cards.json": "8e3f9760a78c5d3781e7fb41253d412e0eea014b8fd520c116248c1662263dd3",
+    "card-tuning.json": "d33c016f261bc1a7edf7a41bc2fe0f1310f8101479063a587de1d60f79072043",
+    "bin/Release/net9.0/Dealmaker.dll": "937e50987639a34a740ed9873eaf43260caf9c5e111d7f3e0dee84e0a26ce2c8",
+    "tests/overnight/bin/Release/net9.0/OvernightHarness.dll": "9a6014b192dfcf03d02a972a2da7a7fb797c0f40d405ef3ae34c4e923b34d68f"
+  },
+  "started_utc": "2026-09-20T20:18:18Z",
+  "recording_requested": true,
+  "recording_audio": false,
+  "steam": false,
+  "save_isolation": "/Users/cmaughan/Library/Application Support/DealmakerPlaytests-20260918",
+  "original_save_sha256": "ef6c66145fbd19211f56b0b0727c73c6d9421ff5bf22c2fc42c76b11a575fef0"
+}

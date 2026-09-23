@@ -1,0 +1,2187 @@
+{
+  "status": "OFFLINE PROPOSAL \u2014 NOT APPROVED OR EXECUTED",
+  "changes": [
+    "Remove internal card IDs and numeric variables already rendered in text.",
+    "Share card definitions across hand/piles/targets, placing target-specific damage on the action.",
+    "Preserve card effect text, costs, keywords, current state, all legal actions and the existing strategy."
+  ],
+  "limits": "JSON character savings are not measured token or billing savings. Jev accuracy with this format has not been tested. Unresolved card text retains variables.",
+  "decisions": [
+    {
+      "decision": "2",
+      "kind": "combat",
+      "old_json_characters": 2860,
+      "proposed_json_characters": 2272,
+      "reduction_pct": 20.6,
+      "reported_original_input_tokens": 1472
+    },
+    {
+      "decision": "3",
+      "kind": "combat",
+      "old_json_characters": 2695,
+      "proposed_json_characters": 2284,
+      "reduction_pct": 15.3,
+      "reported_original_input_tokens": 1395
+    },
+    {
+      "decision": "5",
+      "kind": "combat",
+      "old_json_characters": 2842,
+      "proposed_json_characters": 2446,
+      "reduction_pct": 13.9,
+      "reported_original_input_tokens": 1462
+    },
+    {
+      "decision": "6",
+      "kind": "combat",
+      "old_json_characters": 2704,
+      "proposed_json_characters": 2316,
+      "reduction_pct": 14.3,
+      "reported_original_input_tokens": 1400
+    },
+    {
+      "decision": "7",
+      "kind": "combat",
+      "old_json_characters": 2741,
+      "proposed_json_characters": 2269,
+      "reduction_pct": 17.2,
+      "reported_original_input_tokens": 1436
+    },
+    {
+      "decision": "9",
+      "kind": "combat",
+      "old_json_characters": 2876,
+      "proposed_json_characters": 2407,
+      "reduction_pct": 16.3,
+      "reported_original_input_tokens": 1495
+    },
+    {
+      "decision": "10",
+      "kind": "combat",
+      "old_json_characters": 2787,
+      "proposed_json_characters": 2322,
+      "reduction_pct": 16.7,
+      "reported_original_input_tokens": 1463
+    },
+    {
+      "decision": "11",
+      "kind": "combat",
+      "old_json_characters": 2650,
+      "proposed_json_characters": 2193,
+      "reduction_pct": 17.2,
+      "reported_original_input_tokens": 1402
+    },
+    {
+      "decision": "13",
+      "kind": "combat",
+      "old_json_characters": 2947,
+      "proposed_json_characters": 2359,
+      "reduction_pct": 20.0,
+      "reported_original_input_tokens": 1508
+    },
+    {
+      "decision": "14",
+      "kind": "combat",
+      "old_json_characters": 2758,
+      "proposed_json_characters": 2347,
+      "reduction_pct": 14.9,
+      "reported_original_input_tokens": 1418
+    },
+    {
+      "decision": "16",
+      "kind": "combat",
+      "old_json_characters": 2941,
+      "proposed_json_characters": 2545,
+      "reduction_pct": 13.5,
+      "reported_original_input_tokens": 1501
+    },
+    {
+      "decision": "17",
+      "kind": "combat",
+      "old_json_characters": 2852,
+      "proposed_json_characters": 2460,
+      "reduction_pct": 13.7,
+      "reported_original_input_tokens": 1469
+    },
+    {
+      "decision": "18",
+      "kind": "combat",
+      "old_json_characters": 2715,
+      "proposed_json_characters": 2331,
+      "reduction_pct": 14.1,
+      "reported_original_input_tokens": 1408
+    },
+    {
+      "decision": "19",
+      "kind": "rewards",
+      "old_json_characters": 1420,
+      "proposed_json_characters": 1398,
+      "reduction_pct": 1.5,
+      "reported_original_input_tokens": 677
+    },
+    {
+      "decision": "20",
+      "kind": "rewards",
+      "old_json_characters": 1339,
+      "proposed_json_characters": 1317,
+      "reduction_pct": 1.6,
+      "reported_original_input_tokens": 648
+    },
+    {
+      "decision": "21",
+      "kind": "rewards",
+      "old_json_characters": 1414,
+      "proposed_json_characters": 1392,
+      "reduction_pct": 1.6,
+      "reported_original_input_tokens": 701
+    },
+    {
+      "decision": "22",
+      "kind": "card_reward",
+      "old_json_characters": 2620,
+      "proposed_json_characters": 2070,
+      "reduction_pct": 21.0,
+      "reported_original_input_tokens": 1311
+    },
+    {
+      "decision": "23",
+      "kind": "rewards",
+      "old_json_characters": 1318,
+      "proposed_json_characters": 1296,
+      "reduction_pct": 1.7,
+      "reported_original_input_tokens": 667
+    },
+    {
+      "decision": "24",
+      "kind": "map",
+      "old_json_characters": 4766,
+      "proposed_json_characters": 4441,
+      "reduction_pct": 6.8,
+      "reported_original_input_tokens": 2914
+    },
+    {
+      "decision": "25",
+      "kind": "combat",
+      "old_json_characters": 4047,
+      "proposed_json_characters": 3632,
+      "reduction_pct": 10.3,
+      "reported_original_input_tokens": 1977
+    },
+    {
+      "decision": "26",
+      "kind": "combat",
+      "old_json_characters": 5137,
+      "proposed_json_characters": 4624,
+      "reduction_pct": 10.0,
+      "reported_original_input_tokens": 2425
+    },
+    {
+      "decision": "27",
+      "kind": "combat",
+      "old_json_characters": 4920,
+      "proposed_json_characters": 4388,
+      "reduction_pct": 10.8,
+      "reported_original_input_tokens": 2346
+    },
+    {
+      "decision": "28",
+      "kind": "combat",
+      "old_json_characters": 3382,
+      "proposed_json_characters": 3033,
+      "reduction_pct": 10.3,
+      "reported_original_input_tokens": 1728
+    },
+    {
+      "decision": "29",
+      "kind": "combat",
+      "old_json_characters": 4750,
+      "proposed_json_characters": 4167,
+      "reduction_pct": 12.3,
+      "reported_original_input_tokens": 2316
+    },
+    {
+      "decision": "30",
+      "kind": "combat",
+      "old_json_characters": 3993,
+      "proposed_json_characters": 3420,
+      "reduction_pct": 14.4,
+      "reported_original_input_tokens": 2002
+    },
+    {
+      "decision": "31",
+      "kind": "combat",
+      "old_json_characters": 3892,
+      "proposed_json_characters": 3323,
+      "reduction_pct": 14.6,
+      "reported_original_input_tokens": 1964
+    },
+    {
+      "decision": "32",
+      "kind": "combat",
+      "old_json_characters": 3226,
+      "proposed_json_characters": 2757,
+      "reduction_pct": 14.5,
+      "reported_original_input_tokens": 1695
+    },
+    {
+      "decision": "33",
+      "kind": "combat",
+      "old_json_characters": 4212,
+      "proposed_json_characters": 3623,
+      "reduction_pct": 14.0,
+      "reported_original_input_tokens": 2115
+    },
+    {
+      "decision": "34",
+      "kind": "combat",
+      "old_json_characters": 3975,
+      "proposed_json_characters": 3356,
+      "reduction_pct": 15.6,
+      "reported_original_input_tokens": 2017
+    },
+    {
+      "decision": "35",
+      "kind": "combat",
+      "old_json_characters": 3458,
+      "proposed_json_characters": 2973,
+      "reduction_pct": 14.0,
+      "reported_original_input_tokens": 1769
+    },
+    {
+      "decision": "36",
+      "kind": "combat",
+      "old_json_characters": 3118,
+      "proposed_json_characters": 2649,
+      "reduction_pct": 15.0,
+      "reported_original_input_tokens": 1631
+    },
+    {
+      "decision": "37",
+      "kind": "combat",
+      "old_json_characters": 3761,
+      "proposed_json_characters": 3105,
+      "reduction_pct": 17.4,
+      "reported_original_input_tokens": 1885
+    },
+    {
+      "decision": "38",
+      "kind": "combat",
+      "old_json_characters": 3594,
+      "proposed_json_characters": 3113,
+      "reduction_pct": 13.4,
+      "reported_original_input_tokens": 1806
+    },
+    {
+      "decision": "39",
+      "kind": "combat",
+      "old_json_characters": 3291,
+      "proposed_json_characters": 2822,
+      "reduction_pct": 14.3,
+      "reported_original_input_tokens": 1692
+    },
+    {
+      "decision": "40",
+      "kind": "combat",
+      "old_json_characters": 3507,
+      "proposed_json_characters": 3030,
+      "reduction_pct": 13.6,
+      "reported_original_input_tokens": 1795
+    },
+    {
+      "decision": "41",
+      "kind": "combat",
+      "old_json_characters": 3835,
+      "proposed_json_characters": 3329,
+      "reduction_pct": 13.2,
+      "reported_original_input_tokens": 1925
+    },
+    {
+      "decision": "42",
+      "kind": "combat",
+      "old_json_characters": 3872,
+      "proposed_json_characters": 3282,
+      "reduction_pct": 15.2,
+      "reported_original_input_tokens": 1961
+    },
+    {
+      "decision": "43",
+      "kind": "combat",
+      "old_json_characters": 3734,
+      "proposed_json_characters": 3129,
+      "reduction_pct": 16.2,
+      "reported_original_input_tokens": 1899
+    },
+    {
+      "decision": "44",
+      "kind": "rewards",
+      "old_json_characters": 1496,
+      "proposed_json_characters": 1474,
+      "reduction_pct": 1.5,
+      "reported_original_input_tokens": 731
+    },
+    {
+      "decision": "45",
+      "kind": "rewards",
+      "old_json_characters": 1414,
+      "proposed_json_characters": 1392,
+      "reduction_pct": 1.6,
+      "reported_original_input_tokens": 701
+    },
+    {
+      "decision": "46",
+      "kind": "card_reward",
+      "old_json_characters": 2805,
+      "proposed_json_characters": 2175,
+      "reduction_pct": 22.5,
+      "reported_original_input_tokens": 1409
+    },
+    {
+      "decision": "47",
+      "kind": "rewards",
+      "old_json_characters": 1318,
+      "proposed_json_characters": 1296,
+      "reduction_pct": 1.7,
+      "reported_original_input_tokens": 667
+    },
+    {
+      "decision": "49",
+      "kind": "shop",
+      "old_json_characters": 4464,
+      "proposed_json_characters": 3610,
+      "reduction_pct": 19.1,
+      "reported_original_input_tokens": 2129
+    },
+    {
+      "decision": "50",
+      "kind": "shop",
+      "old_json_characters": 4130,
+      "proposed_json_characters": 3353,
+      "reduction_pct": 18.8,
+      "reported_original_input_tokens": 1990
+    },
+    {
+      "decision": "51",
+      "kind": "shop",
+      "old_json_characters": 3152,
+      "proposed_json_characters": 2574,
+      "reduction_pct": 18.3,
+      "reported_original_input_tokens": 1582
+    },
+    {
+      "decision": "53",
+      "kind": "combat",
+      "old_json_characters": 4231,
+      "proposed_json_characters": 3311,
+      "reduction_pct": 21.7,
+      "reported_original_input_tokens": 2086
+    },
+    {
+      "decision": "54",
+      "kind": "combat",
+      "old_json_characters": 4066,
+      "proposed_json_characters": 3321,
+      "reduction_pct": 18.3,
+      "reported_original_input_tokens": 2009
+    },
+    {
+      "decision": "55",
+      "kind": "combat",
+      "old_json_characters": 3634,
+      "proposed_json_characters": 2983,
+      "reduction_pct": 17.9,
+      "reported_original_input_tokens": 1847
+    },
+    {
+      "decision": "56",
+      "kind": "combat",
+      "old_json_characters": 5099,
+      "proposed_json_characters": 3974,
+      "reduction_pct": 22.1,
+      "reported_original_input_tokens": 2475
+    },
+    {
+      "decision": "57",
+      "kind": "combat",
+      "old_json_characters": 4697,
+      "proposed_json_characters": 3856,
+      "reduction_pct": 17.9,
+      "reported_original_input_tokens": 2313
+    },
+    {
+      "decision": "58",
+      "kind": "rewards",
+      "old_json_characters": 1495,
+      "proposed_json_characters": 1473,
+      "reduction_pct": 1.5,
+      "reported_original_input_tokens": 730
+    },
+    {
+      "decision": "59",
+      "kind": "rewards",
+      "old_json_characters": 1413,
+      "proposed_json_characters": 1391,
+      "reduction_pct": 1.6,
+      "reported_original_input_tokens": 700
+    },
+    {
+      "decision": "60",
+      "kind": "card_reward",
+      "old_json_characters": 3444,
+      "proposed_json_characters": 2629,
+      "reduction_pct": 23.7,
+      "reported_original_input_tokens": 1742
+    },
+    {
+      "decision": "61",
+      "kind": "rewards",
+      "old_json_characters": 1317,
+      "proposed_json_characters": 1295,
+      "reduction_pct": 1.7,
+      "reported_original_input_tokens": 666
+    },
+    {
+      "decision": "63",
+      "kind": "combat",
+      "old_json_characters": 5423,
+      "proposed_json_characters": 4498,
+      "reduction_pct": 17.1,
+      "reported_original_input_tokens": 2622
+    },
+    {
+      "decision": "64",
+      "kind": "combat",
+      "old_json_characters": 5673,
+      "proposed_json_characters": 4799,
+      "reduction_pct": 15.4,
+      "reported_original_input_tokens": 2727
+    },
+    {
+      "decision": "65",
+      "kind": "combat",
+      "old_json_characters": 6570,
+      "proposed_json_characters": 5526,
+      "reduction_pct": 15.9,
+      "reported_original_input_tokens": 3104
+    },
+    {
+      "decision": "66",
+      "kind": "combat",
+      "old_json_characters": 4577,
+      "proposed_json_characters": 3906,
+      "reduction_pct": 14.7,
+      "reported_original_input_tokens": 2293
+    },
+    {
+      "decision": "67",
+      "kind": "combat",
+      "old_json_characters": 5898,
+      "proposed_json_characters": 4968,
+      "reduction_pct": 15.8,
+      "reported_original_input_tokens": 2804
+    },
+    {
+      "decision": "68",
+      "kind": "combat",
+      "old_json_characters": 4875,
+      "proposed_json_characters": 4142,
+      "reduction_pct": 15.0,
+      "reported_original_input_tokens": 2385
+    },
+    {
+      "decision": "69",
+      "kind": "card_selection",
+      "old_json_characters": 3820,
+      "proposed_json_characters": 3141,
+      "reduction_pct": 17.8,
+      "reported_original_input_tokens": 1965
+    },
+    {
+      "decision": "70",
+      "kind": "combat",
+      "old_json_characters": 4147,
+      "proposed_json_characters": 3416,
+      "reduction_pct": 17.6,
+      "reported_original_input_tokens": 2117
+    },
+    {
+      "decision": "71",
+      "kind": "combat",
+      "old_json_characters": 5336,
+      "proposed_json_characters": 4334,
+      "reduction_pct": 18.8,
+      "reported_original_input_tokens": 2618
+    },
+    {
+      "decision": "72",
+      "kind": "combat",
+      "old_json_characters": 5246,
+      "proposed_json_characters": 4248,
+      "reduction_pct": 19.0,
+      "reported_original_input_tokens": 2585
+    },
+    {
+      "decision": "73",
+      "kind": "combat",
+      "old_json_characters": 4713,
+      "proposed_json_characters": 3886,
+      "reduction_pct": 17.5,
+      "reported_original_input_tokens": 2349
+    },
+    {
+      "decision": "74",
+      "kind": "combat",
+      "old_json_characters": 5628,
+      "proposed_json_characters": 4316,
+      "reduction_pct": 23.3,
+      "reported_original_input_tokens": 2730
+    },
+    {
+      "decision": "75",
+      "kind": "combat",
+      "old_json_characters": 6175,
+      "proposed_json_characters": 4889,
+      "reduction_pct": 20.8,
+      "reported_original_input_tokens": 2938
+    },
+    {
+      "decision": "76",
+      "kind": "combat",
+      "old_json_characters": 6036,
+      "proposed_json_characters": 4758,
+      "reduction_pct": 21.2,
+      "reported_original_input_tokens": 2875
+    },
+    {
+      "decision": "77",
+      "kind": "combat",
+      "old_json_characters": 5021,
+      "proposed_json_characters": 4190,
+      "reduction_pct": 16.6,
+      "reported_original_input_tokens": 2457
+    },
+    {
+      "decision": "78",
+      "kind": "card_selection",
+      "old_json_characters": 4123,
+      "proposed_json_characters": 3376,
+      "reduction_pct": 18.1,
+      "reported_original_input_tokens": 2108
+    },
+    {
+      "decision": "79",
+      "kind": "combat",
+      "old_json_characters": 4356,
+      "proposed_json_characters": 3626,
+      "reduction_pct": 16.8,
+      "reported_original_input_tokens": 2190
+    },
+    {
+      "decision": "80",
+      "kind": "combat",
+      "old_json_characters": 5566,
+      "proposed_json_characters": 4440,
+      "reduction_pct": 20.2,
+      "reported_original_input_tokens": 2718
+    },
+    {
+      "decision": "81",
+      "kind": "combat",
+      "old_json_characters": 5476,
+      "proposed_json_characters": 4354,
+      "reduction_pct": 20.5,
+      "reported_original_input_tokens": 2685
+    },
+    {
+      "decision": "82",
+      "kind": "combat",
+      "old_json_characters": 4139,
+      "proposed_json_characters": 3409,
+      "reduction_pct": 17.6,
+      "reported_original_input_tokens": 2119
+    },
+    {
+      "decision": "83",
+      "kind": "combat",
+      "old_json_characters": 5772,
+      "proposed_json_characters": 4381,
+      "reduction_pct": 24.1,
+      "reported_original_input_tokens": 2848
+    },
+    {
+      "decision": "84",
+      "kind": "combat",
+      "old_json_characters": 4560,
+      "proposed_json_characters": 3684,
+      "reduction_pct": 19.2,
+      "reported_original_input_tokens": 2287
+    },
+    {
+      "decision": "85",
+      "kind": "combat",
+      "old_json_characters": 3957,
+      "proposed_json_characters": 3223,
+      "reduction_pct": 18.5,
+      "reported_original_input_tokens": 2031
+    },
+    {
+      "decision": "86",
+      "kind": "combat",
+      "old_json_characters": 4624,
+      "proposed_json_characters": 3604,
+      "reduction_pct": 22.1,
+      "reported_original_input_tokens": 2259
+    },
+    {
+      "decision": "87",
+      "kind": "combat",
+      "old_json_characters": 4104,
+      "proposed_json_characters": 3366,
+      "reduction_pct": 18.0,
+      "reported_original_input_tokens": 2051
+    },
+    {
+      "decision": "88",
+      "kind": "combat",
+      "old_json_characters": 3825,
+      "proposed_json_characters": 3099,
+      "reduction_pct": 19.0,
+      "reported_original_input_tokens": 1948
+    },
+    {
+      "decision": "89",
+      "kind": "combat",
+      "old_json_characters": 4041,
+      "proposed_json_characters": 3307,
+      "reduction_pct": 18.2,
+      "reported_original_input_tokens": 2051
+    },
+    {
+      "decision": "90",
+      "kind": "combat",
+      "old_json_characters": 4906,
+      "proposed_json_characters": 3668,
+      "reduction_pct": 25.2,
+      "reported_original_input_tokens": 2456
+    },
+    {
+      "decision": "91",
+      "kind": "combat",
+      "old_json_characters": 4508,
+      "proposed_json_characters": 3642,
+      "reduction_pct": 19.2,
+      "reported_original_input_tokens": 2266
+    },
+    {
+      "decision": "92",
+      "kind": "rewards",
+      "old_json_characters": 1495,
+      "proposed_json_characters": 1473,
+      "reduction_pct": 1.5,
+      "reported_original_input_tokens": 730
+    },
+    {
+      "decision": "93",
+      "kind": "rewards",
+      "old_json_characters": 1413,
+      "proposed_json_characters": 1391,
+      "reduction_pct": 1.6,
+      "reported_original_input_tokens": 700
+    },
+    {
+      "decision": "94",
+      "kind": "card_reward",
+      "old_json_characters": 3428,
+      "proposed_json_characters": 2604,
+      "reduction_pct": 24.0,
+      "reported_original_input_tokens": 1749
+    },
+    {
+      "decision": "95",
+      "kind": "rewards",
+      "old_json_characters": 1317,
+      "proposed_json_characters": 1295,
+      "reduction_pct": 1.7,
+      "reported_original_input_tokens": 666
+    },
+    {
+      "decision": "97",
+      "kind": "combat",
+      "old_json_characters": 4471,
+      "proposed_json_characters": 3627,
+      "reduction_pct": 18.9,
+      "reported_original_input_tokens": 2224
+    },
+    {
+      "decision": "98",
+      "kind": "card_selection",
+      "old_json_characters": 3671,
+      "proposed_json_characters": 2932,
+      "reduction_pct": 20.1,
+      "reported_original_input_tokens": 1898
+    },
+    {
+      "decision": "99",
+      "kind": "combat",
+      "old_json_characters": 4688,
+      "proposed_json_characters": 3615,
+      "reduction_pct": 22.9,
+      "reported_original_input_tokens": 2354
+    },
+    {
+      "decision": "100",
+      "kind": "combat",
+      "old_json_characters": 4422,
+      "proposed_json_characters": 3498,
+      "reduction_pct": 20.9,
+      "reported_original_input_tokens": 2232
+    },
+    {
+      "decision": "101",
+      "kind": "combat",
+      "old_json_characters": 3954,
+      "proposed_json_characters": 3167,
+      "reduction_pct": 19.9,
+      "reported_original_input_tokens": 2035
+    },
+    {
+      "decision": "102",
+      "kind": "combat",
+      "old_json_characters": 5027,
+      "proposed_json_characters": 3759,
+      "reduction_pct": 25.2,
+      "reported_original_input_tokens": 2496
+    },
+    {
+      "decision": "103",
+      "kind": "combat",
+      "old_json_characters": 4332,
+      "proposed_json_characters": 3525,
+      "reduction_pct": 18.6,
+      "reported_original_input_tokens": 2199
+    },
+    {
+      "decision": "104",
+      "kind": "combat",
+      "old_json_characters": 4029,
+      "proposed_json_characters": 3234,
+      "reduction_pct": 19.7,
+      "reported_original_input_tokens": 2085
+    },
+    {
+      "decision": "105",
+      "kind": "combat",
+      "old_json_characters": 5110,
+      "proposed_json_characters": 3986,
+      "reduction_pct": 22.0,
+      "reported_original_input_tokens": 2523
+    },
+    {
+      "decision": "106",
+      "kind": "combat",
+      "old_json_characters": 5008,
+      "proposed_json_characters": 4078,
+      "reduction_pct": 18.6,
+      "reported_original_input_tokens": 2471
+    },
+    {
+      "decision": "107",
+      "kind": "combat",
+      "old_json_characters": 4514,
+      "proposed_json_characters": 3719,
+      "reduction_pct": 17.6,
+      "reported_original_input_tokens": 2261
+    },
+    {
+      "decision": "108",
+      "kind": "combat",
+      "old_json_characters": 4656,
+      "proposed_json_characters": 3861,
+      "reduction_pct": 17.1,
+      "reported_original_input_tokens": 2316
+    },
+    {
+      "decision": "109",
+      "kind": "combat",
+      "old_json_characters": 4945,
+      "proposed_json_characters": 3946,
+      "reduction_pct": 20.2,
+      "reported_original_input_tokens": 2440
+    },
+    {
+      "decision": "110",
+      "kind": "combat",
+      "old_json_characters": 4842,
+      "proposed_json_characters": 4035,
+      "reduction_pct": 16.7,
+      "reported_original_input_tokens": 2387
+    },
+    {
+      "decision": "111",
+      "kind": "combat",
+      "old_json_characters": 4401,
+      "proposed_json_characters": 3614,
+      "reduction_pct": 17.9,
+      "reported_original_input_tokens": 2211
+    },
+    {
+      "decision": "112",
+      "kind": "combat",
+      "old_json_characters": 5510,
+      "proposed_json_characters": 3960,
+      "reduction_pct": 28.1,
+      "reported_original_input_tokens": 2694
+    },
+    {
+      "decision": "113",
+      "kind": "rewards",
+      "old_json_characters": 1657,
+      "proposed_json_characters": 1635,
+      "reduction_pct": 1.3,
+      "reported_original_input_tokens": 784
+    },
+    {
+      "decision": "114",
+      "kind": "rewards",
+      "old_json_characters": 1575,
+      "proposed_json_characters": 1553,
+      "reduction_pct": 1.4,
+      "reported_original_input_tokens": 754
+    },
+    {
+      "decision": "115",
+      "kind": "rewards",
+      "old_json_characters": 1610,
+      "proposed_json_characters": 1588,
+      "reduction_pct": 1.4,
+      "reported_original_input_tokens": 787
+    },
+    {
+      "decision": "116",
+      "kind": "card_reward",
+      "old_json_characters": 3922,
+      "proposed_json_characters": 2956,
+      "reduction_pct": 24.6,
+      "reported_original_input_tokens": 1999
+    },
+    {
+      "decision": "117",
+      "kind": "rewards",
+      "old_json_characters": 1514,
+      "proposed_json_characters": 1492,
+      "reduction_pct": 1.5,
+      "reported_original_input_tokens": 753
+    },
+    {
+      "decision": "119",
+      "kind": "event",
+      "old_json_characters": 4128,
+      "proposed_json_characters": 3356,
+      "reduction_pct": 18.7,
+      "reported_original_input_tokens": 2026
+    },
+    {
+      "decision": "120",
+      "kind": "event",
+      "old_json_characters": 3760,
+      "proposed_json_characters": 2988,
+      "reduction_pct": 20.5,
+      "reported_original_input_tokens": 1899
+    },
+    {
+      "decision": "122",
+      "kind": "combat",
+      "old_json_characters": 5991,
+      "proposed_json_characters": 5178,
+      "reduction_pct": 13.6,
+      "reported_original_input_tokens": 2896
+    },
+    {
+      "decision": "123",
+      "kind": "combat",
+      "old_json_characters": 6003,
+      "proposed_json_characters": 5190,
+      "reduction_pct": 13.5,
+      "reported_original_input_tokens": 2902
+    },
+    {
+      "decision": "124",
+      "kind": "card_selection",
+      "old_json_characters": 4283,
+      "proposed_json_characters": 3483,
+      "reduction_pct": 18.7,
+      "reported_original_input_tokens": 2228
+    },
+    {
+      "decision": "125",
+      "kind": "combat",
+      "old_json_characters": 6208,
+      "proposed_json_characters": 5170,
+      "reduction_pct": 16.7,
+      "reported_original_input_tokens": 3026
+    },
+    {
+      "decision": "126",
+      "kind": "combat",
+      "old_json_characters": 4964,
+      "proposed_json_characters": 4112,
+      "reduction_pct": 17.2,
+      "reported_original_input_tokens": 2512
+    },
+    {
+      "decision": "127",
+      "kind": "combat",
+      "old_json_characters": 5252,
+      "proposed_json_characters": 4396,
+      "reduction_pct": 16.3,
+      "reported_original_input_tokens": 2619
+    },
+    {
+      "decision": "128",
+      "kind": "combat",
+      "old_json_characters": 6764,
+      "proposed_json_characters": 5334,
+      "reduction_pct": 21.1,
+      "reported_original_input_tokens": 3265
+    },
+    {
+      "decision": "129",
+      "kind": "combat",
+      "old_json_characters": 5409,
+      "proposed_json_characters": 4373,
+      "reduction_pct": 19.2,
+      "reported_original_input_tokens": 2689
+    },
+    {
+      "decision": "130",
+      "kind": "combat",
+      "old_json_characters": 4777,
+      "proposed_json_characters": 3921,
+      "reduction_pct": 17.9,
+      "reported_original_input_tokens": 2432
+    },
+    {
+      "decision": "131",
+      "kind": "combat",
+      "old_json_characters": 5924,
+      "proposed_json_characters": 4762,
+      "reduction_pct": 19.6,
+      "reported_original_input_tokens": 2911
+    },
+    {
+      "decision": "132",
+      "kind": "combat",
+      "old_json_characters": 5819,
+      "proposed_json_characters": 4653,
+      "reduction_pct": 20.0,
+      "reported_original_input_tokens": 2875
+    },
+    {
+      "decision": "133",
+      "kind": "combat",
+      "old_json_characters": 4982,
+      "proposed_json_characters": 4126,
+      "reduction_pct": 17.2,
+      "reported_original_input_tokens": 2517
+    },
+    {
+      "decision": "134",
+      "kind": "combat",
+      "old_json_characters": 6576,
+      "proposed_json_characters": 5064,
+      "reduction_pct": 23.0,
+      "reported_original_input_tokens": 3218
+    },
+    {
+      "decision": "135",
+      "kind": "combat",
+      "old_json_characters": 5318,
+      "proposed_json_characters": 4321,
+      "reduction_pct": 18.7,
+      "reported_original_input_tokens": 2632
+    },
+    {
+      "decision": "136",
+      "kind": "combat",
+      "old_json_characters": 4850,
+      "proposed_json_characters": 3990,
+      "reduction_pct": 17.7,
+      "reported_original_input_tokens": 2435
+    },
+    {
+      "decision": "137",
+      "kind": "combat",
+      "old_json_characters": 5064,
+      "proposed_json_characters": 4208,
+      "reduction_pct": 16.9,
+      "reported_original_input_tokens": 2494
+    },
+    {
+      "decision": "138",
+      "kind": "combat",
+      "old_json_characters": 5959,
+      "proposed_json_characters": 4317,
+      "reduction_pct": 27.6,
+      "reported_original_input_tokens": 2885
+    },
+    {
+      "decision": "139",
+      "kind": "combat",
+      "old_json_characters": 5276,
+      "proposed_json_characters": 4095,
+      "reduction_pct": 22.4,
+      "reported_original_input_tokens": 2594
+    },
+    {
+      "decision": "140",
+      "kind": "card_selection",
+      "old_json_characters": 4020,
+      "proposed_json_characters": 3172,
+      "reduction_pct": 21.1,
+      "reported_original_input_tokens": 2077
+    },
+    {
+      "decision": "141",
+      "kind": "combat",
+      "old_json_characters": 4606,
+      "proposed_json_characters": 3766,
+      "reduction_pct": 18.2,
+      "reported_original_input_tokens": 2305
+    },
+    {
+      "decision": "142",
+      "kind": "combat",
+      "old_json_characters": 5421,
+      "proposed_json_characters": 4400,
+      "reduction_pct": 18.8,
+      "reported_original_input_tokens": 2673
+    },
+    {
+      "decision": "143",
+      "kind": "combat",
+      "old_json_characters": 6149,
+      "proposed_json_characters": 4932,
+      "reduction_pct": 19.8,
+      "reported_original_input_tokens": 2952
+    },
+    {
+      "decision": "144",
+      "kind": "combat",
+      "old_json_characters": 6035,
+      "proposed_json_characters": 5010,
+      "reduction_pct": 17.0,
+      "reported_original_input_tokens": 2893
+    },
+    {
+      "decision": "145",
+      "kind": "rewards",
+      "old_json_characters": 1692,
+      "proposed_json_characters": 1670,
+      "reduction_pct": 1.3,
+      "reported_original_input_tokens": 817
+    },
+    {
+      "decision": "146",
+      "kind": "rewards",
+      "old_json_characters": 1611,
+      "proposed_json_characters": 1589,
+      "reduction_pct": 1.4,
+      "reported_original_input_tokens": 788
+    },
+    {
+      "decision": "147",
+      "kind": "card_reward",
+      "old_json_characters": 4151,
+      "proposed_json_characters": 3167,
+      "reduction_pct": 23.7,
+      "reported_original_input_tokens": 2112
+    },
+    {
+      "decision": "148",
+      "kind": "rewards",
+      "old_json_characters": 1515,
+      "proposed_json_characters": 1493,
+      "reduction_pct": 1.5,
+      "reported_original_input_tokens": 754
+    },
+    {
+      "decision": "150",
+      "kind": "rest",
+      "old_json_characters": 3938,
+      "proposed_json_characters": 3092,
+      "reduction_pct": 21.5,
+      "reported_original_input_tokens": 2016
+    },
+    {
+      "decision": "151",
+      "kind": "rest",
+      "old_json_characters": 3817,
+      "proposed_json_characters": 2971,
+      "reduction_pct": 22.2,
+      "reported_original_input_tokens": 1976
+    },
+    {
+      "decision": "153",
+      "kind": "treasure",
+      "old_json_characters": 3978,
+      "proposed_json_characters": 3132,
+      "reduction_pct": 21.3,
+      "reported_original_input_tokens": 2027
+    },
+    {
+      "decision": "154",
+      "kind": "treasure",
+      "old_json_characters": 3928,
+      "proposed_json_characters": 3082,
+      "reduction_pct": 21.5,
+      "reported_original_input_tokens": 2015
+    },
+    {
+      "decision": "156",
+      "kind": "rest",
+      "old_json_characters": 4009,
+      "proposed_json_characters": 3163,
+      "reduction_pct": 21.1,
+      "reported_original_input_tokens": 2048
+    },
+    {
+      "decision": "157",
+      "kind": "rest",
+      "old_json_characters": 3888,
+      "proposed_json_characters": 3042,
+      "reduction_pct": 21.8,
+      "reported_original_input_tokens": 2008
+    },
+    {
+      "decision": "159",
+      "kind": "combat",
+      "old_json_characters": 6723,
+      "proposed_json_characters": 5265,
+      "reduction_pct": 21.7,
+      "reported_original_input_tokens": 3160
+    },
+    {
+      "decision": "160",
+      "kind": "combat",
+      "old_json_characters": 5424,
+      "proposed_json_characters": 4570,
+      "reduction_pct": 15.7,
+      "reported_original_input_tokens": 2610
+    },
+    {
+      "decision": "161",
+      "kind": "combat",
+      "old_json_characters": 6244,
+      "proposed_json_characters": 5245,
+      "reduction_pct": 16.0,
+      "reported_original_input_tokens": 2936
+    },
+    {
+      "decision": "162",
+      "kind": "combat",
+      "old_json_characters": 5574,
+      "proposed_json_characters": 4720,
+      "reduction_pct": 15.3,
+      "reported_original_input_tokens": 2663
+    },
+    {
+      "decision": "163",
+      "kind": "combat",
+      "old_json_characters": 6791,
+      "proposed_json_characters": 5676,
+      "reduction_pct": 16.4,
+      "reported_original_input_tokens": 3225
+    },
+    {
+      "decision": "164",
+      "kind": "combat",
+      "old_json_characters": 6652,
+      "proposed_json_characters": 5545,
+      "reduction_pct": 16.6,
+      "reported_original_input_tokens": 3162
+    },
+    {
+      "decision": "165",
+      "kind": "combat",
+      "old_json_characters": 6383,
+      "proposed_json_characters": 5440,
+      "reduction_pct": 14.8,
+      "reported_original_input_tokens": 3053
+    },
+    {
+      "decision": "166",
+      "kind": "combat",
+      "old_json_characters": 5475,
+      "proposed_json_characters": 4609,
+      "reduction_pct": 15.8,
+      "reported_original_input_tokens": 2681
+    },
+    {
+      "decision": "167",
+      "kind": "combat",
+      "old_json_characters": 6294,
+      "proposed_json_characters": 5287,
+      "reduction_pct": 16.0,
+      "reported_original_input_tokens": 2995
+    },
+    {
+      "decision": "168",
+      "kind": "combat",
+      "old_json_characters": 6306,
+      "proposed_json_characters": 5299,
+      "reduction_pct": 16.0,
+      "reported_original_input_tokens": 3001
+    },
+    {
+      "decision": "169",
+      "kind": "card_selection",
+      "old_json_characters": 4788,
+      "proposed_json_characters": 3914,
+      "reduction_pct": 18.3,
+      "reported_original_input_tokens": 2436
+    },
+    {
+      "decision": "170",
+      "kind": "combat",
+      "old_json_characters": 6346,
+      "proposed_json_characters": 5279,
+      "reduction_pct": 16.8,
+      "reported_original_input_tokens": 3042
+    },
+    {
+      "decision": "171",
+      "kind": "combat",
+      "old_json_characters": 5676,
+      "proposed_json_characters": 4754,
+      "reduction_pct": 16.2,
+      "reported_original_input_tokens": 2768
+    },
+    {
+      "decision": "172",
+      "kind": "combat",
+      "old_json_characters": 6924,
+      "proposed_json_characters": 5713,
+      "reduction_pct": 17.5,
+      "reported_original_input_tokens": 3296
+    },
+    {
+      "decision": "173",
+      "kind": "combat",
+      "old_json_characters": 6785,
+      "proposed_json_characters": 5582,
+      "reduction_pct": 17.7,
+      "reported_original_input_tokens": 3233
+    },
+    {
+      "decision": "174",
+      "kind": "combat",
+      "old_json_characters": 6720,
+      "proposed_json_characters": 5713,
+      "reduction_pct": 15.0,
+      "reported_original_input_tokens": 3202
+    },
+    {
+      "decision": "175",
+      "kind": "combat",
+      "old_json_characters": 5844,
+      "proposed_json_characters": 4910,
+      "reduction_pct": 16.0,
+      "reported_original_input_tokens": 2849
+    },
+    {
+      "decision": "176",
+      "kind": "combat",
+      "old_json_characters": 6021,
+      "proposed_json_characters": 5091,
+      "reduction_pct": 15.4,
+      "reported_original_input_tokens": 2892
+    },
+    {
+      "decision": "177",
+      "kind": "combat",
+      "old_json_characters": 6551,
+      "proposed_json_characters": 5152,
+      "reduction_pct": 21.4,
+      "reported_original_input_tokens": 3190
+    },
+    {
+      "decision": "178",
+      "kind": "combat",
+      "old_json_characters": 6461,
+      "proposed_json_characters": 5066,
+      "reduction_pct": 21.6,
+      "reported_original_input_tokens": 3157
+    },
+    {
+      "decision": "179",
+      "kind": "combat",
+      "old_json_characters": 5381,
+      "proposed_json_characters": 4459,
+      "reduction_pct": 17.1,
+      "reported_original_input_tokens": 2687
+    },
+    {
+      "decision": "180",
+      "kind": "combat",
+      "old_json_characters": 6514,
+      "proposed_json_characters": 5299,
+      "reduction_pct": 18.7,
+      "reported_original_input_tokens": 3179
+    },
+    {
+      "decision": "181",
+      "kind": "combat",
+      "old_json_characters": 6375,
+      "proposed_json_characters": 5168,
+      "reduction_pct": 18.9,
+      "reported_original_input_tokens": 3116
+    },
+    {
+      "decision": "182",
+      "kind": "combat",
+      "old_json_characters": 5926,
+      "proposed_json_characters": 4706,
+      "reduction_pct": 20.6,
+      "reported_original_input_tokens": 2922
+    },
+    {
+      "decision": "183",
+      "kind": "combat",
+      "old_json_characters": 5091,
+      "proposed_json_characters": 4161,
+      "reduction_pct": 18.3,
+      "reported_original_input_tokens": 2565
+    },
+    {
+      "decision": "184",
+      "kind": "combat",
+      "old_json_characters": 5986,
+      "proposed_json_characters": 4615,
+      "reduction_pct": 22.9,
+      "reported_original_input_tokens": 2918
+    },
+    {
+      "decision": "185",
+      "kind": "combat",
+      "old_json_characters": 5584,
+      "proposed_json_characters": 4497,
+      "reduction_pct": 19.5,
+      "reported_original_input_tokens": 2756
+    },
+    {
+      "decision": "186",
+      "kind": "rewards",
+      "old_json_characters": 1988,
+      "proposed_json_characters": 1966,
+      "reduction_pct": 1.1,
+      "reported_original_input_tokens": 915
+    },
+    {
+      "decision": "187",
+      "kind": "rewards",
+      "old_json_characters": 1906,
+      "proposed_json_characters": 1884,
+      "reduction_pct": 1.2,
+      "reported_original_input_tokens": 885
+    },
+    {
+      "decision": "188",
+      "kind": "rewards",
+      "old_json_characters": 1994,
+      "proposed_json_characters": 1972,
+      "reduction_pct": 1.1,
+      "reported_original_input_tokens": 932
+    },
+    {
+      "decision": "189",
+      "kind": "card_reward",
+      "old_json_characters": 4657,
+      "proposed_json_characters": 3580,
+      "reduction_pct": 23.1,
+      "reported_original_input_tokens": 2348
+    },
+    {
+      "decision": "190",
+      "kind": "rewards",
+      "old_json_characters": 1898,
+      "proposed_json_characters": 1876,
+      "reduction_pct": 1.2,
+      "reported_original_input_tokens": 898
+    },
+    {
+      "decision": "192",
+      "kind": "rest",
+      "old_json_characters": 4527,
+      "proposed_json_characters": 3604,
+      "reduction_pct": 20.4,
+      "reported_original_input_tokens": 2273
+    },
+    {
+      "decision": "193",
+      "kind": "rest",
+      "old_json_characters": 4406,
+      "proposed_json_characters": 3483,
+      "reduction_pct": 20.9,
+      "reported_original_input_tokens": 2233
+    },
+    {
+      "decision": "195",
+      "kind": "combat",
+      "old_json_characters": 7491,
+      "proposed_json_characters": 6135,
+      "reduction_pct": 18.1,
+      "reported_original_input_tokens": 3361
+    },
+    {
+      "decision": "196",
+      "kind": "combat",
+      "old_json_characters": 7101,
+      "proposed_json_characters": 6029,
+      "reduction_pct": 15.1,
+      "reported_original_input_tokens": 3205
+    },
+    {
+      "decision": "197",
+      "kind": "combat",
+      "old_json_characters": 6531,
+      "proposed_json_characters": 5600,
+      "reduction_pct": 14.3,
+      "reported_original_input_tokens": 2969
+    },
+    {
+      "decision": "198",
+      "kind": "card_selection",
+      "old_json_characters": 5168,
+      "proposed_json_characters": 4032,
+      "reduction_pct": 22.0,
+      "reported_original_input_tokens": 2649
+    },
+    {
+      "decision": "199",
+      "kind": "combat",
+      "old_json_characters": 5806,
+      "proposed_json_characters": 4875,
+      "reduction_pct": 16.0,
+      "reported_original_input_tokens": 2729
+    },
+    {
+      "decision": "200",
+      "kind": "combat",
+      "old_json_characters": 6675,
+      "proposed_json_characters": 5587,
+      "reduction_pct": 16.3,
+      "reported_original_input_tokens": 3109
+    },
+    {
+      "decision": "201",
+      "kind": "combat",
+      "old_json_characters": 6574,
+      "proposed_json_characters": 5490,
+      "reduction_pct": 16.5,
+      "reported_original_input_tokens": 3071
+    },
+    {
+      "decision": "202",
+      "kind": "combat",
+      "old_json_characters": 6439,
+      "proposed_json_characters": 5363,
+      "reduction_pct": 16.7,
+      "reported_original_input_tokens": 3012
+    },
+    {
+      "decision": "203",
+      "kind": "combat",
+      "old_json_characters": 6035,
+      "proposed_json_characters": 5096,
+      "reduction_pct": 15.6,
+      "reported_original_input_tokens": 2829
+    },
+    {
+      "decision": "204",
+      "kind": "combat",
+      "old_json_characters": 6249,
+      "proposed_json_characters": 5310,
+      "reduction_pct": 15.0,
+      "reported_original_input_tokens": 2896
+    },
+    {
+      "decision": "205",
+      "kind": "combat",
+      "old_json_characters": 6951,
+      "proposed_json_characters": 5508,
+      "reduction_pct": 20.8,
+      "reported_original_input_tokens": 3231
+    },
+    {
+      "decision": "206",
+      "kind": "combat",
+      "old_json_characters": 6764,
+      "proposed_json_characters": 5498,
+      "reduction_pct": 18.7,
+      "reported_original_input_tokens": 3143
+    },
+    {
+      "decision": "207",
+      "kind": "combat",
+      "old_json_characters": 5973,
+      "proposed_json_characters": 5042,
+      "reduction_pct": 15.6,
+      "reported_original_input_tokens": 2797
+    },
+    {
+      "decision": "208",
+      "kind": "combat",
+      "old_json_characters": 6890,
+      "proposed_json_characters": 5639,
+      "reduction_pct": 18.2,
+      "reported_original_input_tokens": 3202
+    },
+    {
+      "decision": "209",
+      "kind": "combat",
+      "old_json_characters": 6606,
+      "proposed_json_characters": 5532,
+      "reduction_pct": 16.3,
+      "reported_original_input_tokens": 3070
+    },
+    {
+      "decision": "210",
+      "kind": "combat",
+      "old_json_characters": 6173,
+      "proposed_json_characters": 5173,
+      "reduction_pct": 16.2,
+      "reported_original_input_tokens": 2907
+    },
+    {
+      "decision": "211",
+      "kind": "combat",
+      "old_json_characters": 6702,
+      "proposed_json_characters": 5351,
+      "reduction_pct": 20.2,
+      "reported_original_input_tokens": 3210
+    },
+    {
+      "decision": "212",
+      "kind": "rewards",
+      "old_json_characters": 2069,
+      "proposed_json_characters": 2047,
+      "reduction_pct": 1.1,
+      "reported_original_input_tokens": 946
+    },
+    {
+      "decision": "213",
+      "kind": "rewards",
+      "old_json_characters": 1987,
+      "proposed_json_characters": 1965,
+      "reduction_pct": 1.1,
+      "reported_original_input_tokens": 916
+    },
+    {
+      "decision": "214",
+      "kind": "rewards",
+      "old_json_characters": 1884,
+      "proposed_json_characters": 1862,
+      "reduction_pct": 1.2,
+      "reported_original_input_tokens": 893
+    },
+    {
+      "decision": "215",
+      "kind": "card_reward",
+      "old_json_characters": 4626,
+      "proposed_json_characters": 3522,
+      "reduction_pct": 23.9,
+      "reported_original_input_tokens": 2343
+    },
+    {
+      "decision": "216",
+      "kind": "rewards",
+      "old_json_characters": 1788,
+      "proposed_json_characters": 1766,
+      "reduction_pct": 1.2,
+      "reported_original_input_tokens": 859
+    },
+    {
+      "decision": "218",
+      "kind": "combat",
+      "old_json_characters": 6628,
+      "proposed_json_characters": 5262,
+      "reduction_pct": 20.6,
+      "reported_original_input_tokens": 3167
+    },
+    {
+      "decision": "219",
+      "kind": "combat",
+      "old_json_characters": 6462,
+      "proposed_json_characters": 5273,
+      "reduction_pct": 18.4,
+      "reported_original_input_tokens": 3089
+    },
+    {
+      "decision": "220",
+      "kind": "combat",
+      "old_json_characters": 6201,
+      "proposed_json_characters": 5202,
+      "reduction_pct": 16.1,
+      "reported_original_input_tokens": 2939
+    },
+    {
+      "decision": "221",
+      "kind": "combat",
+      "old_json_characters": 6608,
+      "proposed_json_characters": 5440,
+      "reduction_pct": 17.7,
+      "reported_original_input_tokens": 3155
+    },
+    {
+      "decision": "222",
+      "kind": "combat",
+      "old_json_characters": 6470,
+      "proposed_json_characters": 5310,
+      "reduction_pct": 17.9,
+      "reported_original_input_tokens": 3093
+    },
+    {
+      "decision": "223",
+      "kind": "card_selection",
+      "old_json_characters": 5075,
+      "proposed_json_characters": 4064,
+      "reduction_pct": 19.9,
+      "reported_original_input_tokens": 2572
+    },
+    {
+      "decision": "224",
+      "kind": "combat",
+      "old_json_characters": 6512,
+      "proposed_json_characters": 5292,
+      "reduction_pct": 18.7,
+      "reported_original_input_tokens": 3136
+    },
+    {
+      "decision": "225",
+      "kind": "combat",
+      "old_json_characters": 6244,
+      "proposed_json_characters": 5173,
+      "reduction_pct": 17.2,
+      "reported_original_input_tokens": 3012
+    },
+    {
+      "decision": "226",
+      "kind": "combat",
+      "old_json_characters": 6106,
+      "proposed_json_characters": 5043,
+      "reduction_pct": 17.4,
+      "reported_original_input_tokens": 2950
+    },
+    {
+      "decision": "227",
+      "kind": "combat",
+      "old_json_characters": 6081,
+      "proposed_json_characters": 5082,
+      "reduction_pct": 16.4,
+      "reported_original_input_tokens": 2892
+    },
+    {
+      "decision": "228",
+      "kind": "combat",
+      "old_json_characters": 7262,
+      "proposed_json_characters": 5830,
+      "reduction_pct": 19.7,
+      "reported_original_input_tokens": 3357
+    },
+    {
+      "decision": "229",
+      "kind": "combat",
+      "old_json_characters": 6393,
+      "proposed_json_characters": 5382,
+      "reduction_pct": 15.8,
+      "reported_original_input_tokens": 2999
+    },
+    {
+      "decision": "230",
+      "kind": "combat",
+      "old_json_characters": 6607,
+      "proposed_json_characters": 5596,
+      "reduction_pct": 15.3,
+      "reported_original_input_tokens": 3066
+    },
+    {
+      "decision": "231",
+      "kind": "combat",
+      "old_json_characters": 7034,
+      "proposed_json_characters": 5505,
+      "reduction_pct": 21.7,
+      "reported_original_input_tokens": 3322
+    },
+    {
+      "decision": "232",
+      "kind": "combat",
+      "old_json_characters": 6750,
+      "proposed_json_characters": 5586,
+      "reduction_pct": 17.2,
+      "reported_original_input_tokens": 3177
+    },
+    {
+      "decision": "233",
+      "kind": "combat",
+      "old_json_characters": 6216,
+      "proposed_json_characters": 5209,
+      "reduction_pct": 16.2,
+      "reported_original_input_tokens": 2964
+    },
+    {
+      "decision": "234",
+      "kind": "combat",
+      "old_json_characters": 6814,
+      "proposed_json_characters": 5292,
+      "reduction_pct": 22.3,
+      "reported_original_input_tokens": 3303
+    },
+    {
+      "decision": "235",
+      "kind": "rewards",
+      "old_json_characters": 2188,
+      "proposed_json_characters": 2166,
+      "reduction_pct": 1.0,
+      "reported_original_input_tokens": 988
+    },
+    {
+      "decision": "236",
+      "kind": "rewards",
+      "old_json_characters": 2106,
+      "proposed_json_characters": 2084,
+      "reduction_pct": 1.0,
+      "reported_original_input_tokens": 958
+    },
+    {
+      "decision": "237",
+      "kind": "rewards",
+      "old_json_characters": 2193,
+      "proposed_json_characters": 2171,
+      "reduction_pct": 1.0,
+      "reported_original_input_tokens": 1004
+    },
+    {
+      "decision": "238",
+      "kind": "card_reward",
+      "old_json_characters": 5005,
+      "proposed_json_characters": 3907,
+      "reduction_pct": 21.9,
+      "reported_original_input_tokens": 2505
+    },
+    {
+      "decision": "239",
+      "kind": "rewards",
+      "old_json_characters": 2097,
+      "proposed_json_characters": 2075,
+      "reduction_pct": 1.0,
+      "reported_original_input_tokens": 970
+    },
+    {
+      "decision": "241",
+      "kind": "rest",
+      "old_json_characters": 5186,
+      "proposed_json_characters": 4129,
+      "reduction_pct": 20.4,
+      "reported_original_input_tokens": 2578
+    },
+    {
+      "decision": "242",
+      "kind": "rest",
+      "old_json_characters": 5065,
+      "proposed_json_characters": 4008,
+      "reduction_pct": 20.9,
+      "reported_original_input_tokens": 2538
+    },
+    {
+      "decision": "244",
+      "kind": "combat",
+      "old_json_characters": 7890,
+      "proposed_json_characters": 6488,
+      "reduction_pct": 17.8,
+      "reported_original_input_tokens": 3625
+    },
+    {
+      "decision": "245",
+      "kind": "combat",
+      "old_json_characters": 7800,
+      "proposed_json_characters": 6402,
+      "reduction_pct": 17.9,
+      "reported_original_input_tokens": 3592
+    },
+    {
+      "decision": "246",
+      "kind": "combat",
+      "old_json_characters": 7388,
+      "proposed_json_characters": 6166,
+      "reduction_pct": 16.5,
+      "reported_original_input_tokens": 3411
+    },
+    {
+      "decision": "247",
+      "kind": "combat",
+      "old_json_characters": 7086,
+      "proposed_json_characters": 6017,
+      "reduction_pct": 15.1,
+      "reported_original_input_tokens": 3267
+    },
+    {
+      "decision": "248",
+      "kind": "combat",
+      "old_json_characters": 7359,
+      "proposed_json_characters": 6294,
+      "reduction_pct": 14.5,
+      "reported_original_input_tokens": 3333
+    },
+    {
+      "decision": "249",
+      "kind": "combat",
+      "old_json_characters": 8296,
+      "proposed_json_characters": 6502,
+      "reduction_pct": 21.6,
+      "reported_original_input_tokens": 3784
+    },
+    {
+      "decision": "250",
+      "kind": "combat",
+      "old_json_characters": 8157,
+      "proposed_json_characters": 6371,
+      "reduction_pct": 21.9,
+      "reported_original_input_tokens": 3721
+    },
+    {
+      "decision": "251",
+      "kind": "combat",
+      "old_json_characters": 7966,
+      "proposed_json_characters": 6357,
+      "reduction_pct": 20.2,
+      "reported_original_input_tokens": 3629
+    },
+    {
+      "decision": "252",
+      "kind": "combat",
+      "old_json_characters": 8087,
+      "proposed_json_characters": 6738,
+      "reduction_pct": 16.7,
+      "reported_original_input_tokens": 3610
+    },
+    {
+      "decision": "253",
+      "kind": "combat",
+      "old_json_characters": 7088,
+      "proposed_json_characters": 6023,
+      "reduction_pct": 15.0,
+      "reported_original_input_tokens": 3273
+    },
+    {
+      "decision": "254",
+      "kind": "combat",
+      "old_json_characters": 8072,
+      "proposed_json_characters": 6682,
+      "reduction_pct": 17.2,
+      "reported_original_input_tokens": 3716
+    },
+    {
+      "decision": "255",
+      "kind": "combat",
+      "old_json_characters": 8428,
+      "proposed_json_characters": 7042,
+      "reduction_pct": 16.4,
+      "reported_original_input_tokens": 3809
+    },
+    {
+      "decision": "256",
+      "kind": "card_selection",
+      "old_json_characters": 5783,
+      "proposed_json_characters": 4698,
+      "reduction_pct": 18.8,
+      "reported_original_input_tokens": 2891
+    },
+    {
+      "decision": "257",
+      "kind": "combat",
+      "old_json_characters": 8336,
+      "proposed_json_characters": 6951,
+      "reduction_pct": 16.6,
+      "reported_original_input_tokens": 3780
+    },
+    {
+      "decision": "258",
+      "kind": "combat",
+      "old_json_characters": 7805,
+      "proposed_json_characters": 6667,
+      "reduction_pct": 14.6,
+      "reported_original_input_tokens": 3554
+    },
+    {
+      "decision": "259",
+      "kind": "combat",
+      "old_json_characters": 8268,
+      "proposed_json_characters": 6759,
+      "reduction_pct": 18.3,
+      "reported_original_input_tokens": 3847
+    },
+    {
+      "decision": "260",
+      "kind": "combat",
+      "old_json_characters": 8178,
+      "proposed_json_characters": 6653,
+      "reduction_pct": 18.6,
+      "reported_original_input_tokens": 3814
+    },
+    {
+      "decision": "261",
+      "kind": "combat",
+      "old_json_characters": 7766,
+      "proposed_json_characters": 6437,
+      "reduction_pct": 17.1,
+      "reported_original_input_tokens": 3633
+    },
+    {
+      "decision": "262",
+      "kind": "combat",
+      "old_json_characters": 7366,
+      "proposed_json_characters": 6194,
+      "reduction_pct": 15.9,
+      "reported_original_input_tokens": 3454
+    },
+    {
+      "decision": "263",
+      "kind": "combat",
+      "old_json_characters": 7911,
+      "proposed_json_characters": 6224,
+      "reduction_pct": 21.3,
+      "reported_original_input_tokens": 3773
+    },
+    {
+      "decision": "264",
+      "kind": "card_selection",
+      "old_json_characters": 5784,
+      "proposed_json_characters": 4600,
+      "reduction_pct": 20.5,
+      "reported_original_input_tokens": 2937
+    },
+    {
+      "decision": "265",
+      "kind": "combat",
+      "old_json_characters": 7814,
+      "proposed_json_characters": 6129,
+      "reduction_pct": 21.6,
+      "reported_original_input_tokens": 3741
+    },
+    {
+      "decision": "266",
+      "kind": "combat",
+      "old_json_characters": 7104,
+      "proposed_json_characters": 5751,
+      "reduction_pct": 19.0,
+      "reported_original_input_tokens": 3414
+    },
+    {
+      "decision": "267",
+      "kind": "combat",
+      "old_json_characters": 6740,
+      "proposed_json_characters": 5568,
+      "reduction_pct": 17.4,
+      "reported_original_input_tokens": 3261
+    },
+    {
+      "decision": "268",
+      "kind": "combat",
+      "old_json_characters": 7483,
+      "proposed_json_characters": 6011,
+      "reduction_pct": 19.7,
+      "reported_original_input_tokens": 3562
+    },
+    {
+      "decision": "269",
+      "kind": "combat",
+      "old_json_characters": 7509,
+      "proposed_json_characters": 5957,
+      "reduction_pct": 20.7,
+      "reported_original_input_tokens": 3570
+    },
+    {
+      "decision": "270",
+      "kind": "combat",
+      "old_json_characters": 6973,
+      "proposed_json_characters": 5713,
+      "reduction_pct": 18.1,
+      "reported_original_input_tokens": 3350
+    },
+    {
+      "decision": "271",
+      "kind": "combat",
+      "old_json_characters": 6569,
+      "proposed_json_characters": 5466,
+      "reduction_pct": 16.8,
+      "reported_original_input_tokens": 3167
+    },
+    {
+      "decision": "272",
+      "kind": "combat",
+      "old_json_characters": 7449,
+      "proposed_json_characters": 5898,
+      "reduction_pct": 20.8,
+      "reported_original_input_tokens": 3522
+    },
+    {
+      "decision": "273",
+      "kind": "combat",
+      "old_json_characters": 7855,
+      "proposed_json_characters": 6308,
+      "reduction_pct": 19.7,
+      "reported_original_input_tokens": 3636
+    },
+    {
+      "decision": "274",
+      "kind": "combat",
+      "old_json_characters": 8079,
+      "proposed_json_characters": 6788,
+      "reduction_pct": 16.0,
+      "reported_original_input_tokens": 3657
+    },
+    {
+      "decision": "275",
+      "kind": "combat",
+      "old_json_characters": 7152,
+      "proposed_json_characters": 6049,
+      "reduction_pct": 15.4,
+      "reported_original_input_tokens": 3338
+    },
+    {
+      "decision": "276",
+      "kind": "combat",
+      "old_json_characters": 7486,
+      "proposed_json_characters": 6383,
+      "reduction_pct": 14.7,
+      "reported_original_input_tokens": 3439
+    },
+    {
+      "decision": "277",
+      "kind": "combat",
+      "old_json_characters": 7947,
+      "proposed_json_characters": 6062,
+      "reduction_pct": 23.7,
+      "reported_original_input_tokens": 3773
+    },
+    {
+      "decision": "278",
+      "kind": "combat",
+      "old_json_characters": 7808,
+      "proposed_json_characters": 5931,
+      "reduction_pct": 24.0,
+      "reported_original_input_tokens": 3710
+    },
+    {
+      "decision": "279",
+      "kind": "combat",
+      "old_json_characters": 8220,
+      "proposed_json_characters": 6534,
+      "reduction_pct": 20.5,
+      "reported_original_input_tokens": 3826
+    },
+    {
+      "decision": "280",
+      "kind": "combat",
+      "old_json_characters": 6599,
+      "proposed_json_characters": 5492,
+      "reduction_pct": 16.8,
+      "reported_original_input_tokens": 3186
+    },
+    {
+      "decision": "281",
+      "kind": "combat",
+      "old_json_characters": 7274,
+      "proposed_json_characters": 6002,
+      "reduction_pct": 17.5,
+      "reported_original_input_tokens": 3462
+    },
+    {
+      "decision": "282",
+      "kind": "combat",
+      "old_json_characters": 7274,
+      "proposed_json_characters": 6002,
+      "reduction_pct": 17.5,
+      "reported_original_input_tokens": 3462
+    },
+    {
+      "decision": "283",
+      "kind": "combat",
+      "old_json_characters": 7139,
+      "proposed_json_characters": 5875,
+      "reduction_pct": 17.7,
+      "reported_original_input_tokens": 3403
+    },
+    {
+      "decision": "284",
+      "kind": "combat",
+      "old_json_characters": 7077,
+      "proposed_json_characters": 5974,
+      "reduction_pct": 15.6,
+      "reported_original_input_tokens": 3320
+    },
+    {
+      "decision": "285",
+      "kind": "combat",
+      "old_json_characters": 7347,
+      "proposed_json_characters": 5823,
+      "reduction_pct": 20.7,
+      "reported_original_input_tokens": 3497
+    },
+    {
+      "decision": "286",
+      "kind": "combat",
+      "old_json_characters": 6945,
+      "proposed_json_characters": 5705,
+      "reduction_pct": 17.9,
+      "reported_original_input_tokens": 3335
+    },
+    {
+      "decision": "287",
+      "kind": "combat",
+      "old_json_characters": 6541,
+      "proposed_json_characters": 5438,
+      "reduction_pct": 16.9,
+      "reported_original_input_tokens": 3152
+    },
+    {
+      "decision": "288",
+      "kind": "combat",
+      "old_json_characters": 6827,
+      "proposed_json_characters": 5712,
+      "reduction_pct": 16.3,
+      "reported_original_input_tokens": 3272
+    },
+    {
+      "decision": "289",
+      "kind": "combat",
+      "old_json_characters": 6738,
+      "proposed_json_characters": 5627,
+      "reduction_pct": 16.5,
+      "reported_original_input_tokens": 3240
+    },
+    {
+      "decision": "290",
+      "kind": "combat",
+      "old_json_characters": 7502,
+      "proposed_json_characters": 6234,
+      "reduction_pct": 16.9,
+      "reported_original_input_tokens": 3534
+    },
+    {
+      "decision": "291",
+      "kind": "combat",
+      "old_json_characters": 7863,
+      "proposed_json_characters": 6599,
+      "reduction_pct": 16.1,
+      "reported_original_input_tokens": 3632
+    },
+    {
+      "decision": "292",
+      "kind": "combat",
+      "old_json_characters": 7597,
+      "proposed_json_characters": 6482,
+      "reduction_pct": 14.7,
+      "reported_original_input_tokens": 3511
+    }
+  ]
+}

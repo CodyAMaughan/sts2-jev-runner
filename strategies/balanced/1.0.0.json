@@ -1,0 +1,232 @@
+{
+  "id": "balanced",
+  "name": "Adaptive Survival",
+  "version": "1.0.0",
+  "description": "A general strategy that adapts to encounter difficulty and builds from the cards offered.",
+  "goal": "Maximize survival and the chance of winning the run. Build a coherent deck from the offers; do not force an archetype.",
+  "modules": [
+    {
+      "id": "boss.kaiser-crab",
+      "name": "Kaiser Crab",
+      "version": "1.0.0",
+      "priority": 100,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "CRUSHER",
+          "ROCKET"
+        ]
+      },
+      "prompt": "Inspect Crusher and Rocket separately: compare incoming damage and whether defeating either component removes a threat. Build sustained damage while surviving the current intents. Read current power descriptions before assuming how components interact. Use potions before unavoidable lethal.",
+      "rationale": "Exact identity wins over the generic boss module. Uses visible mechanics rather than hardcoded phase assumptions."
+    },
+    {
+      "id": "elite.phrog-parasite",
+      "name": "Phrog Parasite",
+      "version": "1.0.0",
+      "priority": 100,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "PHROG_PARASITE"
+        ]
+      },
+      "prompt": "Compare removing visible Wrigglers against damaging the Phrog Parasite. Prioritize a kill that removes imminent damage, and avoid repeated cleanup without making progress against the main threat. Read active powers before committing to a target. Spend a potion if it prevents a costly extra turn.",
+      "rationale": "This exact elite module handles the tradeoff between adds and the main enemy. It is matched using observed monster identity, not inferred map position."
+    },
+    {
+      "id": "combat.boss",
+      "name": "Boss fight",
+      "version": "1.0.0",
+      "priority": 70,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ]
+      },
+      "prompt": "Plan for a long fight: establish sustainable damage and defense without taking avoidable early damage. Compare scaling setup against the current attack. Spend consumables when they materially improve survival; do not hoard through lethal.",
+      "rationale": "Sustained scaling matters more than preserving every consumable."
+    },
+    {
+      "id": "combat.elite",
+      "name": "Elite fight",
+      "version": "1.0.0",
+      "priority": 70,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ]
+      },
+      "prompt": "Treat health as a scarce resource. Identify the most dangerous visible threat and compare a fast kill against blocking. Use potions aggressively when they prevent substantial damage or a dangerous additional turn.",
+      "rationale": "Dangerous fights need a different resource policy than routine encounters."
+    },
+    {
+      "id": "combat.group",
+      "name": "Multiple enemies",
+      "version": "1.0.0",
+      "priority": 50,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Monster"
+        ],
+        "min_enemies": 2
+      },
+      "prompt": "Compare total incoming damage after each possible kill. Focus down a threat when doing so removes an attack; compare that with area damage. Avoid spreading damage without a payoff. Preserve enough defense against survivors.",
+      "rationale": "An encounter group covers many normal fights without requiring every enemy to be named."
+    },
+    {
+      "id": "combat.normal",
+      "name": "Normal encounter",
+      "version": "1.0.0",
+      "priority": 30,
+      "match": {
+        "kind": [
+          "combat"
+        ]
+      },
+      "prompt": "Check immediate lethal and preventable incoming damage. Prefer efficient kills and avoid unnecessary setup if the fight is nearly over. Preserve health and consumables for harder rooms, but use a potion when the saving is substantial.",
+      "rationale": "Generic combat fallback, including unrecognized enemies."
+    },
+    {
+      "id": "choice.cards",
+      "name": "Pending card choice",
+      "version": "1.0.0",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "card_selection",
+          "simple_select"
+        ]
+      },
+      "prompt": "Resolve the originating card\u2019s purpose. Respect selection limits and already selected cards. For exhaust or discard, compare each card\u2019s remaining value and trigger effects; do not treat removal from hand as automatically bad.",
+      "rationale": "Nested choices need source context, not a fresh combat plan."
+    },
+    {
+      "id": "draft.cards",
+      "name": "Card rewards",
+      "version": "1.0.0",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "card_reward",
+          "choose_card",
+          "bundle"
+        ]
+      },
+      "prompt": "Draft for the deck\u2019s current weaknesses: reliable damage, defense, consistency and late-game scaling. Reward synergy without forcing it. Skip when every card reduces consistency. Compare the full effect of offered bundles.",
+      "rationale": "Avoid archetype lock-in and automatic deck growth."
+    },
+    {
+      "id": "deck.improve",
+      "name": "Upgrade / remove / transform",
+      "version": "1.0.0",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "upgrade",
+          "deck_select",
+          "transform",
+          "enchant"
+        ]
+      },
+      "prompt": "Read the selection purpose first. Upgrade a frequently useful card with a material payoff; remove a liability; transform an expendable card. Consider draw consistency and the deck\u2019s current curve. Do not confuse removal with upgrade.",
+      "rationale": "Purpose-sensitive permanent deck decisions."
+    },
+    {
+      "id": "reward.collect",
+      "name": "Collect rewards",
+      "version": "1.0.0",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "rewards",
+          "treasure",
+          "relic"
+        ]
+      },
+      "prompt": "Collect free gold and useful rewards before leaving. Take a potion when offered and useful; compare swaps against existing potions. Evaluate relic drawbacks against this deck rather than assuming every relic is beneficial.",
+      "rationale": "Explicitly prevents accidental gold/potion skips without hardcoding model choices."
+    },
+    {
+      "id": "route.map",
+      "name": "Map route",
+      "version": "1.0.0",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "map"
+        ]
+      },
+      "prompt": "Use current health, deck readiness and reachable future rooms. Seek upgrades and elite rewards when survivable, preserve access to healing when needed, and visit shops when gold supports meaningful purchases. Avoid choosing solely by the next room.",
+      "rationale": "Plans routes from the reachable graph."
+    },
+    {
+      "id": "shop.value",
+      "name": "Shop",
+      "version": "1.0.0",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "shop"
+        ]
+      },
+      "prompt": "Compare removal, cards, relics and potions by marginal benefit to this deck. Keep the actual gold budget in mind. Purchase immediate survival if necessary; otherwise prioritize consistency and scaling. Leaving without buying is valid.",
+      "rationale": "Gold is a budget, not an obligation to purchase."
+    },
+    {
+      "id": "rest.recover",
+      "name": "Rest site",
+      "version": "1.0.0",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "rest"
+        ]
+      },
+      "prompt": "Compare healing against upgrade value and current survival margin. Do not rest automatically at a fixed health percentage; account for available options and relic effects.",
+      "rationale": "Uses health and deck context rather than a rigid threshold."
+    },
+    {
+      "id": "event.generic",
+      "name": "Event fallback",
+      "version": "1.0.0",
+      "priority": 30,
+      "match": {
+        "kind": [
+          "event",
+          "crystal_sphere"
+        ]
+      },
+      "prompt": "Read the actual event text and explicit costs. Value health, gold, deck changes and permanent rewards together. Avoid paying for weak additions. Treat unknown outcomes as uncertain rather than inventing rewards or probabilities.",
+      "rationale": "Safe fallback until an event has an exact authored module."
+    },
+    {
+      "id": "fallback",
+      "name": "Other decision",
+      "version": "1.0.0",
+      "priority": 0,
+      "match": {},
+      "prompt": "Choose the legal action that best improves survival and the chance of winning. Use the supplied rules and do not invent hidden information.",
+      "rationale": "Fail-safe strategy selection; prompt projection still rejects unsupported game decision kinds."
+    }
+  ]
+}

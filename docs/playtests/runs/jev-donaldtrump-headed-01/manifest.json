@@ -1,0 +1,20 @@
+{
+  "display_mode": "headed",
+  "id": "jev-donaldtrump-headed-01",
+  "seed": "DONALDTRUMP",
+  "policy": "balanced",
+  "mode": "actual_game_engine_remote_controller",
+  "remote_strategy": "balanced",
+  "balance_version": "0.3.8",
+  "build_version": "0.3.8",
+  "hashes": {
+    "cards.json": "8e3f9760a78c5d3781e7fb41253d412e0eea014b8fd520c116248c1662263dd3",
+    "card-tuning.json": "d33c016f261bc1a7edf7a41bc2fe0f1310f8101479063a587de1d60f79072043",
+    "bin/Release/net9.0/Dealmaker.dll": "8f0ab0d5054e662da5524106919e44c60d22c7ef78bf1123507800653a28f53a",
+    "tests/overnight/bin/Release/net9.0/OvernightHarness.dll": "47a57af1aa86180bcd73abc1289a7b57c3ac4a19456c901378fc5e90c68a6aec"
+  },
+  "started_utc": "2026-09-19T18:49:52Z",
+  "steam": false,
+  "save_isolation": "/Users/cmaughan/Library/Application Support/DealmakerPlaytests-20260918",
+  "original_save_sha256": "3e1ca7a88b7c1da14840c4ab0d4d04f7de7b80a7d1e5052f2fbbc5ad69863482"
+}

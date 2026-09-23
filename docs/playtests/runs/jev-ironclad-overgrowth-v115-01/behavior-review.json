@@ -1,0 +1,177 @@
+{
+  "potions": [],
+  "ended_with_affordable_attack": [],
+  "draft_choices": [
+    {
+      "decision": "15",
+      "floor": 2,
+      "turn": 3,
+      "hp": 73,
+      "action": {
+        "action": "select_card",
+        "card": {
+          "id": "FIGHT_ME",
+          "name": "Fight Me!",
+          "type": "Attack",
+          "upgraded": false,
+          "cost": 2,
+          "text": "Deal 5 damage twice.\nGain 3 [gold]Strength[/gold].\nThe enemy gains 1 [gold]Strength[/gold].",
+          "keywords": [],
+          "preview_damage_per_hit": null,
+          "variables": {
+            "Damage": 5,
+            "Repeat": 2,
+            "StrengthPower": 3,
+            "EnemyStrength": 1
+          }
+        },
+        "selected": null
+      }
+    },
+    {
+      "decision": "34",
+      "floor": 4,
+      "turn": 4,
+      "hp": 71,
+      "action": {
+        "action": "select_card",
+        "card": {
+          "id": "BURNING_PACT",
+          "name": "Burning Pact",
+          "type": "Skill",
+          "upgraded": false,
+          "cost": 1,
+          "text": "[gold]Exhaust[/gold] 1 card.\nDraw 2 cards.",
+          "keywords": [],
+          "preview_damage_per_hit": null,
+          "variables": {
+            "Cards": 2
+          }
+        },
+        "selected": null
+      }
+    },
+    {
+      "decision": "45",
+      "floor": 5,
+      "turn": 2,
+      "hp": 77,
+      "action": {
+        "action": "select_card",
+        "card": {
+          "id": "ANGER",
+          "name": "Anger",
+          "type": "Attack",
+          "upgraded": false,
+          "cost": 0,
+          "text": "Deal 6 damage.\nAdd a copy of this card into your [gold]Discard Pile[/gold].",
+          "keywords": [],
+          "preview_damage_per_hit": null,
+          "variables": {
+            "Damage": 6
+          }
+        },
+        "selected": null
+      }
+    },
+    {
+      "decision": "59",
+      "floor": 6,
+      "turn": 3,
+      "hp": 64,
+      "action": {
+        "action": "reward_alternative",
+        "text": "Skip"
+      }
+    },
+    {
+      "decision": "82",
+      "floor": 8,
+      "turn": 4,
+      "hp": 64,
+      "action": {
+        "action": "select_card",
+        "card": {
+          "id": "PILLAGE",
+          "name": "Pillage",
+          "type": "Attack",
+          "upgraded": false,
+          "cost": 1,
+          "text": "Deal 6 damage.\nDraw cards until you draw a non-Attack card.",
+          "keywords": [],
+          "preview_damage_per_hit": null,
+          "variables": {
+            "Damage": 6
+          }
+        },
+        "selected": null
+      }
+    },
+    {
+      "decision": "111",
+      "floor": 12,
+      "turn": 4,
+      "hp": 48,
+      "action": {
+        "action": "reward_alternative",
+        "text": "Skip"
+      }
+    },
+    {
+      "decision": "113",
+      "floor": 12,
+      "turn": 4,
+      "hp": 48,
+      "action": {
+        "action": "reward_alternative",
+        "text": "Skip"
+      }
+    },
+    {
+      "decision": "130",
+      "floor": 14,
+      "turn": 3,
+      "hp": 45,
+      "action": {
+        "action": "select_card",
+        "card": {
+          "id": "BURNING_PACT",
+          "name": "Burning Pact",
+          "type": "Skill",
+          "upgraded": false,
+          "cost": 1,
+          "text": "[gold]Exhaust[/gold] 1 card.\nDraw 2 cards.",
+          "keywords": [],
+          "preview_damage_per_hit": null,
+          "variables": {
+            "Cards": 2
+          }
+        },
+        "selected": null
+      }
+    },
+    {
+      "decision": "151",
+      "floor": 15,
+      "turn": 4,
+      "hp": 32,
+      "action": {
+        "action": "select_card",
+        "card": {
+          "id": "ANGER",
+          "name": "Anger",
+          "type": "Attack",
+          "upgraded": false,
+          "cost": 0,
+          "text": "Deal 6 damage.\nAdd a copy of this card into your [gold]Discard Pile[/gold].",
+          "keywords": [],
+          "preview_damage_per_hit": null,
+          "variables": {
+            "Damage": 6
+          }
+        },
+        "selected": null
+      }
+    }
+  ]
+}

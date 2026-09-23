@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net9.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><GameDir>/Users/cmaughan/Library/Application Support/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_arm64</GameDir><NoWarn>MSB3270</NoWarn></PropertyGroup>
+  <ItemGroup>
+    <Reference Include="sts2" HintPath="$(GameDir)/sts2.dll" Private="false"/>
+    <Reference Include="GodotSharp" HintPath="$(GameDir)/GodotSharp.dll" Private="false"/>
+    <Reference Include="0Harmony" HintPath="$(GameDir)/0Harmony.dll" Private="false"/>
+    <Reference Include="BaseLib" HintPath="../../../slay-the-spire-2-dealmaker/.tooling/baselib/BaseLib.dll" Private="false"/>
+    <!-- Temporary: the bridge still loads a character mod DLL. Points at the sibling
+         slay-the-spire-2-dealmaker checkout until the harness is decoupled from any
+         specific character mod (tracked in README "Known coupling to remove"). -->
+    <Reference Include="Dealmaker" HintPath="../../../slay-the-spire-2-dealmaker/bin/Release/net9.0/Dealmaker.dll" Private="false"/>
+  </ItemGroup>
+</Project>

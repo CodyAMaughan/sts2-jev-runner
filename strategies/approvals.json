@@ -1,0 +1,42 @@
+{
+  "40d0d12299d1de9ad848c994f34b84b0cf7f35264fef1f7cad00a0780fc425c6": {
+    "version": "1.1.0",
+    "status": "approved",
+    "reason": "User authorized initial baseline runs on existing strategy, Ironclad Overgrowth Act 1; future changes require diff approval."
+  },
+  "93373720f44f560a455d52fad48ecc48acdcd13be8f1cab137281f6552bcb706": {
+    "version": "1.1.1",
+    "status": "approved",
+    "reason": "User explicitly approved 1.1.1 and a run on the same seed OVERGROWTH01, Ironclad Overgrowth Act 1."
+  },
+  "74614dabb0a05b5a28a96c875814ebef7119b8854ae191a53e249fa0b3dc9681": {
+    "version": "1.1.2",
+    "status": "approved",
+    "reason": "User approved the reviewed 1.1.2 draft: one headed, recorded Ironclad Overgrowth Act 1 run on OVERGROWTH02."
+  },
+  "49ae8bd21b1def825ebb844bb4b3624ee7f64a6d88a6d04896c93debfbd54cc7": {
+    "version": "1.1.3",
+    "status": "approved",
+    "reason": "User explicitly authorized reviewing logs, testing revised prompts, and going straight to the next recorded run without further strategy review; no artificial decision delay."
+  },
+  "74b5320f12fe31bf48e4151d52a8259decdf8c4b1d4df299fa2f6dd5b4c99d32": {
+    "version": "1.1.4",
+    "status": "approved",
+    "reason": "User authorized this strategy update followed by exactly one live playtest and analysis; no additional runs."
+  },
+  "38ad35dddfd5ca51cdf5be9dd5b822e75e4e68dde9c28decc9e67b51be99922b": {
+    "version": "1.1.5",
+    "status": "approved",
+    "reason": "User explicitly requested contextual status definitions and hints followed by one run and comparison."
+  },
+  "15b04134a3dd5d5cbd527753738d98c6f5db57cb81d8cca05bfb03302a735e1f": {
+    "version": "1.1.6",
+    "status": "approved",
+    "reason": "User approved numeric lethal/severe survival-check overrides, a rewritten boss.vantom, tightened Ironclad turn-1 potion timing, and a new multi-enemy targeting hint, followed by a 5-seed Ironclad batch (ACT2PUSHA-E) for comparison against the same seeds' earlier Dealmaker run."
+  },
+  "76f081dc5af1d4be79918b69272cac74498a76d54a9aa6f1798704f1dad7cd5b": {
+    "version": "1.1.7",
+    "status": "approved",
+    "reason": "User approved fixing the 1.1.6 bug where no_block silently masked the lethal/severe warning, plus turn-1 potion reinforcement in elite.decimillipede, followed by a 10-seed Ironclad batch (ACT2PUSHA-J) focused on Act 1 consistency."
+  }
+}

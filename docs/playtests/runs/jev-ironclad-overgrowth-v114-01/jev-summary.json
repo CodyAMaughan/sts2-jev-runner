@@ -1,0 +1,36 @@
+{
+  "mode": "jev",
+  "result": {
+    "outcome": "act1_victory",
+    "process_exit": 1,
+    "elapsed_seconds": 186.68,
+    "completed_run": false,
+    "original_save_unchanged": true,
+    "completed_scope": "overgrowth_act1"
+  },
+  "decision_count": 207,
+  "decision_kinds": {
+    "event": 4,
+    "map": 16,
+    "combat": 130,
+    "rewards": 32,
+    "card_reward": 9,
+    "shop": 3,
+    "card_selection": 4,
+    "rest": 8,
+    "treasure": 1
+  },
+  "model_call_count": 176,
+  "action_sources": {
+    "jev": 176,
+    "sole_legal_action": 31
+  },
+  "models_reported": [
+    "jev-1.13.0"
+  ],
+  "input_tokens": 195630,
+  "output_tokens": 11201,
+  "median_decision_seconds": 0.20511508348863572,
+  "low_confidence_count": 89,
+  "notes": "Confidence is model certainty, not win probability. Mock and replay runs are not new Jev balance evidence."
+}

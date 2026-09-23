@@ -1,0 +1,1048 @@
+{
+  "sha256": "70674302acf8220a3b59d4c60e4e43c235cbacb4c5a202fe3e42afb1eec0987e",
+  "packet": {
+    "id": "balanced",
+    "name": "Adaptive Survival",
+    "version": "1.1.5",
+    "description": "Conditional rules and tactics for visible debuffs, temporary potion buffs, and exhaust choices; same-seed comparison with 1.1.4.",
+    "goal": "Win this run.",
+    "modules": [
+      {
+        "id": "boss.vantom",
+        "name": "Vantom",
+        "version": "1.1.4",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 1,
+        "region": "Overgrowth",
+        "encounter": "VantomBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "VANTOM"
+          ]
+        },
+        "prompt": "Vantom starts with 8 Slippery: first 8 HP-damaging hits deal 1 each and remove a stack. Clear these quickly with cheap/multihit attacks; then big attacks deal full damage. Spend spare energy hitting even while incoming damage remains. Do not prioritize Bash for Vulnerable while capped. Use buff turns for maximum hits/setup. Dismember adds Wounds; protect HP, but stalling lets Strength and Wounds overwhelm you.",
+        "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion."
+      },
+      {
+        "id": "boss.ceremonial-beast",
+        "name": "Ceremonial Beast",
+        "version": "1.1.1",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 1,
+        "region": "Overgrowth",
+        "encounter": "CeremonialBeastBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "CEREMONIAL_BEAST"
+          ]
+        },
+        "prompt": "First check lethal against the last enemy before Block. Plow is an HP threshold: unblocked damage that leaves the Beast at or below its current Plow amount stuns it and removes its Strength and Plow. Compare current HP minus that threshold with your available damage; partial progress does not interrupt. Beast Cry applies Ringing: after your first card play that turn, Ringing-afflicted cards cannot be played. Plan that first card for the largest useful effect; do not start with a low-value setup card expecting to play several more. Read current powers and legal actions because the fight changes after the stun.",
+        "rationale": "User-requested self-contained definitions of Plow and Beast Cry/Ringing. This fight was not reached in the baseline; this correction is sourced from the installed rules, not claimed playtest evidence."
+      },
+      {
+        "id": "boss.the-kin",
+        "name": "The Kin",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 1,
+        "region": "Overgrowth",
+        "encounter": "TheKinBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "KIN_PRIEST",
+            "KIN_FOLLOWER"
+          ]
+        },
+        "prompt": "Compare killing Kin Followers to prevent their attacks against focusing the Kin Priest. Followers are minions; a reachable priest kill can end their threat. Account for the priest alternating Frail and Weak attacks before its multi-hit Beam. Establish damage before repeated Ritual Strength ramps. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.bygone-effigy",
+        "name": "Bygone Effigy",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 1,
+        "region": "Overgrowth",
+        "encounter": "BygoneEffigyElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "BYGONE_EFFIGY"
+          ]
+        },
+        "prompt": "Exploit Slow: each card played increases subsequent powered attack damage this turn. Play useful low-cost setup before heavy attacks when doing so still leaves enough energy. The opening sleep and wake moves are a setup window; the effigy then gains Strength and repeatedly slashes. Damage does not control its wake timing, so use the opening to build damage rather than waiting for a supposedly safer wake-up. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.byrdonis",
+        "name": "Byrdonis",
+        "version": "1.1.2",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 1,
+        "region": "Overgrowth",
+        "encounter": "ByrdonisElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "BYRDONIS"
+          ]
+        },
+        "prompt": "Byrdonis gains Strength each enemy turn, increasing every hit. Race it while surviving. Take lethal before Block; prefer Iron Wave over equal-cost/equal-Block Defend. Setup Strike before other attacks. Use potions early to shorten this scaling fight.",
+        "rationale": "Baseline floor 8, move 112: chose Defend with 1 energy despite lethal Strike; suffered 25 avoidable HP loss. Move 93: Defend instead of equal-cost/equal-Block Iron Wave left damage unused. Applies only to this enemy, which has no attack retaliation in the installed implementation."
+      },
+      {
+        "id": "elite.phrog-parasite",
+        "name": "Phrog Parasite",
+        "version": "1.1.1",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 1,
+        "region": "Overgrowth",
+        "encounter": "PhrogParasiteElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "PHROG_PARASITE",
+            "WRIGGLER"
+          ]
+        },
+        "prompt": "Check whether an offered attack kills an enemy before spending energy on Block. Phrog Parasite alternates adding Infection to discard and a four-hit Lash. Killing it spawns four Wrigglers; that is not victory. Wrigglers start stunned: spend that window killing them or setting up efficient damage, not gaining Block against zero incoming damage. Focus on removing a Wriggler that would otherwise attack; consider area damage. Play temporary Strength before other attacks and prefer damage-plus-Block over equal-cost equal-Block defense when there is no harmful attack trigger.",
+        "rationale": "Baseline died on floor 12 after taking excessive elite damage. Explicitly separates parasite phase from stunned Wriggler cleanup and tells the stateless model what to do during that window."
+      },
+      {
+        "id": "boss.waterfall-giant",
+        "name": "Waterfall Giant",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 1,
+        "region": "Underdocks",
+        "encounter": "WaterfallGiantBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "WATERFALL_GIANT"
+          ]
+        },
+        "prompt": "Pressure grows throughout this fight. Zero HP does not immediately end combat: Steam Eruption keeps the giant present for its explosion. Kill promptly to limit pressure, then respect the displayed death-blow intent and keep enough defense for the explosion. Do not end turn assuming the kill made you safe. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "boss.soul-fysh",
+        "name": "Soul Fysh",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 1,
+        "region": "Underdocks",
+        "encounter": "SoulFyshBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "SOUL_FYSH"
+          ]
+        },
+        "prompt": "Use Fade/Intangible turns for setup, defense and clearing statuses rather than wasting large hits. Save burst for when Intangible expires. Beckon and Gaze add statuses; use available exhaust or draw to preserve useful hands. Scream applies Vulnerable, so account for increased damage on following turns. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "boss.lagavulin-matriarch",
+        "name": "Lagavulin Matriarch",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 1,
+        "region": "Underdocks",
+        "encounter": "LagavulinMatriarchBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "LAGAVULIN_MATRIARCH"
+          ]
+        },
+        "prompt": "Exploit Asleep turns to establish powers and retained resources before waking it; check Plating and the damage needed to wake it rather than spending weak attacks casually. After waking, race repeated Soul Siphon: it lowers your Strength and Dexterity while raising hers. Plan defense around Disembowel multi-hits and spend useful potions before the stat loss compounds. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.phantasmal-gardeners",
+        "name": "Phantasmal Gardeners",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 1,
+        "region": "Underdocks",
+        "encounter": "PhantasmalGardenersElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "PHANTASMAL_GARDENER"
+          ]
+        },
+        "prompt": "Skittish grants Block after the first damaging card attack each turn. Lead with a substantial attack or multi-hit card rather than a tiny chip that activates its protection before your main hit. Compare focusing one gardener to remove an attack with efficient area damage. Their Enlarge turns increase Strength; use the opening without allowing endless scaling. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.skulking-colony",
+        "name": "Skulking Colony",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 1,
+        "region": "Underdocks",
+        "encounter": "SkulkingColonyElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "SKULKING_COLONY"
+          ]
+        },
+        "prompt": "Hardened Shell limits HP damage per turn. Reach the remaining damage allowance efficiently, then spend remaining resources on defense, setup or future turns instead of attacks that cannot remove more HP. Watch the displayed remaining allowance and current Block separately. Inertia adds Strength, so plan sustained defense across the unavoidable multiple turns. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.terror-eel",
+        "name": "Terror Eel",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 1,
+        "region": "Underdocks",
+        "encounter": "TerrorEelElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "TERROR_EEL"
+          ]
+        },
+        "prompt": "Check Shriek: crossing its HP threshold with unblocked damage stuns the eel. Calculate whether burst can reach that threshold this turn before spending energy on Block. The stun leads toward Terror and severe Vulnerable, so use the window to finish or prepare defense; do not assume the interruption permanently removes the threat. Respect Thrash multi-hits and Vigor. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "boss.the-insatiable",
+        "name": "The Insatiable",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 2,
+        "region": "Hive",
+        "encounter": "TheInsatiableBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "THE_INSATIABLE"
+          ]
+        },
+        "prompt": "Sandpit is a lethal countdown, not ordinary damage that Block can solve. Prioritize ending the fight before it expires. Read generated card effects for any way to extend the countdown; only take setup that pays back before the deadline. Balance Lunging Bite/Thrash defense against the damage race and spend damage potions early enough to matter. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "boss.knowledge-demon",
+        "name": "Knowledge Demon",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 2,
+        "region": "Hive",
+        "encounter": "KnowledgeDemonBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "KNOWLEDGE_DEMON"
+          ]
+        },
+        "prompt": "Curse of Knowledge forces a choice: compare the exact offered curse effects with your deck, exhaust access and remaining fight length. The attack cycle includes a three-hit Knowledge Overwhelming and Ponder, which attacks, heals and gains Strength. Aim burst before Ponder when lethal is possible; do not sacrifice survival chasing damage that its heal will erase. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "boss.kaiser-crab",
+        "name": "Kaiser Crab",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 2,
+        "region": "Hive",
+        "encounter": "KaiserCrabBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "CRUSHER",
+            "ROCKET"
+          ]
+        },
+        "prompt": "Inspect Crusher and Rocket separately. Killing one triggers Crab Rage on the survivor, granting Strength and a large Block burst: compare softening both before the first kill with removing an immediate threat. Account for Surrounded and current facing through displayed damage; sequence your final targeted attack accordingly when useful. Use Rocket charge/recharge windows to prepare for its laser; Crusher multi-hits and Weak/Frail can make that turn worse. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.decimillipede",
+        "name": "Decimillipede",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 2,
+        "region": "Hive",
+        "encounter": "DecimillipedeElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "DECIMILLIPEDE_SEGMENT_FRONT",
+            "DECIMILLIPEDE_SEGMENT_MIDDLE",
+            "DECIMILLIPEDE_SEGMENT_BACK"
+          ]
+        },
+        "prompt": "Segments reattach after being downed. Coordinate damage so all segments can be defeated before revivals, using area damage and finishing low-HP segments close together. Temporarily downing a segment can prevent an attack, but repeated isolated kills waste resources. Account for Constrict Weak and Bulk Strength when choosing the kill order. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.entomancer",
+        "name": "Entomancer",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 2,
+        "region": "Hive",
+        "encounter": "EntomancerElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "ENTOMANCER"
+          ]
+        },
+        "prompt": "Personal Hive adds Dazed to draw when powered attacks hit it; repeated small hits, including multi-hits, can flood future hands. Prefer damage per hit and non-attack damage where available, and avoid chip attacks with poor payoff. Hive and Strength ramp over time, so balance that restraint with a prompt kill; do not block indefinitely while the deck clogs. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.infested-prisms",
+        "name": "Infested Prisms",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 2,
+        "region": "Hive",
+        "encounter": "InfestedPrismsElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "INFESTED_PRISM"
+          ]
+        },
+        "prompt": "Vital Spark afflicts Skills with Tainted, and playing affected Skills applies Tainted to you, adding damage to each powered hit received until the enemy turn ends. Multi-hit intents make this especially costly. Compare each defensive or draw Skill against its displayed penalty rather than automatically playing it. Pulsate increases the pressure while attacking and blocking. Favor efficient attacks or other damage sources, and only pay the Skill penalty when survival or a strong payoff justifies it. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "boss.queen",
+        "name": "Queen",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 3,
+        "region": "Glory",
+        "encounter": "QueenBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "QUEEN",
+            "TORCH_HEAD_AMALGAM"
+          ]
+        },
+        "prompt": "Read Chains of Binding and the changed card text before sequencing plays. Prepare for You Are Mine applying long-lasting Weak, Frail and Vulnerable; use available prevention when it materially helps. Compare removing Torch Head Amalgams against advancing damage on Queen, who buffs her allies. Once her direct attack phase starts, protect against the five-hit Off With Your Head and Execution instead of assuming the earlier support pattern continues. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "boss.test-subject",
+        "name": "Test Subject",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 3,
+        "region": "Glory",
+        "encounter": "TestSubjectBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "TEST_SUBJECT"
+          ]
+        },
+        "prompt": "Plan for three forms: the first apparent kill is not victory. Preserve enough resources for the later forms while exploiting a reachable phase transition to avoid an attack. Read current Adaptable and Enrage before playing setup cards. Later phases add Painful Stabs and Nemesis; reassess damage and status pressure after each revival rather than reusing the first-form plan. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "boss.aeonglass",
+        "name": "Aeonglass",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Boss prompts",
+        "act": 3,
+        "region": "Glory",
+        "encounter": "AeonglassBoss",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ],
+          "enemy_any": [
+            "AEONGLASS"
+          ]
+        },
+        "prompt": "Track Withering Presence: every six card plays creates Wither in hand. Avoid low-value filler that crosses the counter without meaningful payoff; inspect the current Wither effect because it upgrades during the fight. Artifact initially blocks debuffs, so do not assume Weak or Vulnerable lands. Balance efficient high-impact plays against Eye Lasers multi-hits and its increasing Strength. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.knights",
+        "name": "Knights",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 3,
+        "region": "Glory",
+        "encounter": "KnightsElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "FLAIL_KNIGHT",
+            "SPECTRAL_KNIGHT",
+            "MAGI_KNIGHT"
+          ]
+        },
+        "prompt": "Evaluate Flail, Spectral and Magi Knight separately rather than spreading damage evenly. Flail Knight War Chant ramps its Strength; Spectral Knight adds Hex and later multi-hit Soul Flame. Prioritize a reachable kill that removes the most dangerous current or next-turn threat, use area damage efficiently, and watch Magi Knight\u2019s Prep Block before Magic Bomb: preserve enough defense for that burst or remove it before the bomb. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.mecha-knight",
+        "name": "Mecha Knight",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 3,
+        "region": "Glory",
+        "encounter": "MechaKnightElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "MECHA_KNIGHT"
+          ]
+        },
+        "prompt": "Its initial Artifact stacks can absorb crucial debuffs. Strip them deliberately only if the later debuff payoff is worth the cards. Flamethrower puts Burns directly into hand, so plan status handling and end-turn damage. Windup grants Block and Strength before Heavy Cleave: use the setup window to prepare a kill or strong defense rather than mistaking it for a harmless turn. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "elite.soul-nexus",
+        "name": "Soul Nexus",
+        "version": "1.1.0",
+        "priority": 100,
+        "category": "Elite prompts",
+        "act": 3,
+        "region": "Glory",
+        "encounter": "SoulNexusElite",
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ],
+          "enemy_any": [
+            "SOUL_NEXUS"
+          ]
+        },
+        "prompt": "Distinguish Soul Burn single-hit burst from Maelstrom multi-hits when valuing mitigation. Drain Life applies both Weak and Vulnerable, so prepare for reduced damage output and increased incoming damage afterwards; the move name is not evidence that it heals. Use the current intent rather than assuming a fixed attack order, and spend potions when they prevent a dangerous debuffed turn. Use the observed intent values and current card/power text over fixed damage assumptions.",
+        "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+      },
+      {
+        "id": "combat.boss",
+        "name": "Boss fight",
+        "version": "1.0.0",
+        "priority": 70,
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Boss"
+          ]
+        },
+        "prompt": "Plan for a long fight: establish sustainable damage and defense without taking avoidable early damage. Compare scaling setup against the current attack. Spend consumables when they materially improve survival; do not hoard through lethal.",
+        "rationale": "Sustained scaling matters more than preserving every consumable.",
+        "category": "Boss prompts",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "combat.elite",
+        "name": "Elite fight",
+        "version": "1.0.0",
+        "priority": 70,
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Elite"
+          ]
+        },
+        "prompt": "Treat health as a scarce resource. Identify the most dangerous visible threat and compare a fast kill against blocking. Use potions aggressively when they prevent substantial damage or a dangerous additional turn.",
+        "rationale": "Dangerous fights need a different resource policy than routine encounters.",
+        "category": "Elite prompts",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "combat.group",
+        "name": "Multiple enemies",
+        "version": "1.1.4",
+        "priority": 50,
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "room": [
+            "Monster"
+          ],
+          "min_enemies": 2
+        },
+        "prompt": "Focus affordable threat-removing kills. Otherwise block major surviving attacks and use remaining energy to damage one target. Never spread damage needlessly or leave useful energy unspent.",
+        "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion.",
+        "category": "Normal encounter prompts",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "combat.normal",
+        "name": "Normal encounter",
+        "version": "1.1.4",
+        "priority": 30,
+        "match": {
+          "kind": [
+            "combat"
+          ]
+        },
+        "prompt": "Make damage progress while preserving HP. Use defense against incoming damage, then spare energy on attacks. Use safe turns for damage/setup. Check kill before spending energy on Block.",
+        "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion.",
+        "category": "Normal encounter prompts",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "choice.cards",
+        "name": "Pending card choice",
+        "version": "1.1.3",
+        "priority": 40,
+        "match": {
+          "kind": [
+            "card_selection",
+            "simple_select"
+          ]
+        },
+        "prompt": "Read selection PURPOSE: adding to hand means fetch a card you can use now, NOT discard/exhaust it. Match remaining energy: fetch a cheap lethal attack or needed Block; avoid an unusable expensive card. For exhaust/discard, instead remove the least useful card for this turn; keep cards needed for kills or Block. Respect min/max and already selected cards. For an upgrade, compare the upgraded effect.",
+        "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions.",
+        "category": "Other decisions",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "draft.cards",
+        "name": "Card rewards",
+        "version": "1.1.4",
+        "priority": 40,
+        "match": {
+          "kind": [
+            "card_reward",
+            "choose_card",
+            "bundle"
+          ]
+        },
+        "prompt": "Read the full current deck and known-boss plan. Early: take immediate useful damage/defense/draw beyond starters. Later: fill missing boss answers, not redundant strengths. For Vantom, Anger/cheap multihits remove Slippery; another expensive single hit does not solve that. Do not assume a combo works: Juggling needs 3 attacks played per turn, difficult with many 2-cost attacks. Skip weak/unsupported additions; do not take every card.",
+        "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion.",
+        "category": "Other decisions",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "deck.improve",
+        "name": "Upgrade / remove / transform",
+        "version": "1.0.0",
+        "priority": 40,
+        "match": {
+          "kind": [
+            "upgrade",
+            "deck_select",
+            "transform",
+            "enchant"
+          ]
+        },
+        "prompt": "Read the selection purpose first. Upgrade a frequently useful card with a material payoff; remove a liability; transform an expendable card. Consider draw consistency and the deck\u2019s current curve. Do not confuse removal with upgrade.",
+        "rationale": "Purpose-sensitive permanent deck decisions.",
+        "category": "Other decisions",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "reward.collect",
+        "name": "Collect rewards",
+        "version": "1.1.4",
+        "priority": 40,
+        "match": {
+          "kind": [
+            "rewards",
+            "treasure",
+            "relic"
+          ]
+        },
+        "prompt": "Collect ALL free gold and relics. If potion space is free, TAKE the offered combat potion before Proceed; saving it costs nothing. Inspect every uninspected CardReward for free, then choose a card or Skip. Do not reopen already declined offers. Discard only to replace a held potion with a better offered one when the belt is full; disposal grants no effect.",
+        "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion.",
+        "category": "Other decisions",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "route.map",
+        "name": "Map route",
+        "version": "1.1.2",
+        "priority": 40,
+        "match": {
+          "kind": [
+            "map"
+          ]
+        },
+        "prompt": "Plan along reachable routes, not just the next room. Seek elites for relics when damage, upgrades, HP and potions support winning; prefer recovery or an escape branch when unprepared. A stocked potion belt increases elite readiness. Prefer shops when current gold plus plausible intervening rewards can buy useful improvements; do not assume exact future rewards. Prefer upgrades when healthy. Reassess after each fight.",
+        "rationale": "Run review: missing Skip, excessive resting, limited route planning and unspent potions. Requires corrected action descriptions; evaluate against run evidence.",
+        "category": "Other decisions",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "shop.value",
+        "name": "Shop",
+        "version": "1.1.3",
+        "priority": 40,
+        "match": {
+          "kind": [
+            "shop"
+          ]
+        },
+        "prompt": "Compare affordable BUNDLES, not just one impressive card. With a starter deck, efficient damage plus Block/draw is valuable: e.g. two useful 1-cost cards may beat one expensive purchase. Buy immediate improvements; avoid unsupported powers. Remove curses or bad cards when better than additions. Save for a better affordable purchase; do not buy merely because affordable. Potion value is HP it can save.",
+        "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions.",
+        "category": "Other decisions",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "rest.recover",
+        "name": "Rest site",
+        "version": "1.1.3",
+        "priority": 40,
+        "match": {
+          "kind": [
+            "rest"
+          ]
+        },
+        "prompt": "Rest heals; Smith permanently upgrades. Rest if HP is too low for likely damage before the next rest, especially with weak defense. Do not count Burning Blood as preventing death. Smith when there is a safe health buffer and a useful upgrade; at high HP avoid wasted healing. Compare actual upgrade effects and visible upcoming rooms.",
+        "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions.",
+        "category": "Other decisions",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "event.generic",
+        "name": "Event fallback",
+        "version": "1.0.0",
+        "priority": 30,
+        "match": {
+          "kind": [
+            "event",
+            "crystal_sphere"
+          ]
+        },
+        "prompt": "Read the actual event text and explicit costs. Value health, gold, deck changes and permanent rewards together. Avoid paying for weak additions. Treat unknown outcomes as uncertain rather than inventing rewards or probabilities.",
+        "rationale": "Safe fallback until an event has an exact authored module.",
+        "category": "Event prompts",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "fallback",
+        "name": "Other decision",
+        "version": "1.0.0",
+        "priority": 0,
+        "match": {},
+        "prompt": "Choose the legal action that best improves survival and the chance of winning. Use the supplied rules and do not invent hidden information.",
+        "rationale": "Fail-safe strategy selection; prompt projection still rejects unsupported game decision kinds.",
+        "category": "Other decisions",
+        "act": 0,
+        "region": "All acts / fallback"
+      },
+      {
+        "id": "combat.normal.inklets",
+        "name": "Inklets",
+        "version": "1.1.5",
+        "priority": 60,
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "enemy_any": [
+            "INKLET"
+          ]
+        },
+        "prompt": "Slippery caps the next HP loss to 1, then is consumed. Strip it with a cheap hit before a big attack; never spend 2 energy on a big hit into Slippery when a cheap hit is available. Speed Potion only helps if Block cards are still playable this turn. Kill exposed enemies if affordable; otherwise block the group.",
+        "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions.",
+        "category": "Normal encounter prompts",
+        "act": 1,
+        "region": "Overgrowth",
+        "encounter": "inklets"
+      },
+      {
+        "id": "combat.normal.ruby-raiders",
+        "name": "Ruby Raiders",
+        "version": "1.1.3",
+        "priority": 60,
+        "match": {
+          "kind": [
+            "combat"
+          ],
+          "enemy_any": [
+            "TRACKER_RUBY_RAIDER",
+            "AXE_RUBY_RAIDER",
+            "BRUTE_RUBY_RAIDER"
+          ]
+        },
+        "prompt": "Budget the whole turn. Kill the attacker you can actually finish; a large hit that leaves it alive prevents nothing. Bash then a 1-cost attack can beat the reverse order. With no affordable kill, block surviving attacks. Attack freely on buff-only turns.",
+        "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions.",
+        "category": "Normal encounter prompts",
+        "act": 1,
+        "region": "Overgrowth",
+        "encounter": "ruby-raiders"
+      }
+    ],
+    "prompt_format": "decision-v3",
+    "character_advice": {
+      "ironclad": {
+        "potion_policy": "Take free potions into empty slots. Use lasting buffs BEFORE affected cards in hard fights. Spend potions to prevent ~10+ HP loss or secure kills; if safe, reserve a useful boss answer. Never hoard through death or a full-belt replacement.",
+        "groups": [
+          {
+            "ids": [
+              "STRENGTH_POTION",
+              "FYSH_OIL",
+              "DEXTERITY_POTION"
+            ],
+            "priority": 1,
+            "when": "hard-fight setup",
+            "advice": "Lasting Strength/Dexterity/Fysh Oil: use early in elites/bosses, before affected cards."
+          },
+          {
+            "ids": [
+              "FIRE_POTION",
+              "EXPLOSIVE_AMPOULE",
+              "BLOCK_POTION",
+              "VULNERABLE_POTION"
+            ],
+            "priority": 1,
+            "when": "immediate HP saved",
+            "advice": "Damage/Block/Vulnerable: prioritize threat-removing kills and HP saved; Vulnerable before damage."
+          },
+          {
+            "ids": [
+              "SPEED_POTION",
+              "FLEX_POTION"
+            ],
+            "priority": 2,
+            "when": "matching hand",
+            "advice": "Temporary Strength/Dexterity: use before matching cards; expires this turn."
+          },
+          {
+            "ids": [
+              "ATTACK_POTION",
+              "POWER_POTION"
+            ],
+            "priority": 2,
+            "when": "free-card payoff",
+            "advice": "Attack/Power potion cards are free this turn, even at zero energy. Power is better early in long fights."
+          },
+          {
+            "ids": [
+              "SWIFT_POTION",
+              "GAMBLERS_BREW",
+              "LIQUID_MEMORIES"
+            ],
+            "priority": 3,
+            "when": "usable follow-up",
+            "advice": "Draw/retrieval: use when energy or free effects let you play the result."
+          }
+        ]
+      }
+    },
+    "compression_contract": {
+      "target": "Under 1000 measured input tokens per model decision on average, not a hard truncation cap.",
+      "combat": "Current hand/effects once, indexed enemies, powers and intents; compact legal actions; unordered pile name/count summaries. Effects of offered retrieval cards remain in actions. No hidden draw order.",
+      "other": "Retain deck effects for drafting, shop, route and rest decisions; retain selection constraints and event rules.",
+      "limits": "Pile cards not currently actionable have names/counts only during combat. Unknown interactions may need targeted expansion. Actual provider token counts and performance must be measured after approval."
+    },
+    "observation_policy": "observed-history-v1",
+    "combat_basics": "Win while preserving HP across the WHOLE fight. First take efficient kills; then useful defense; spend remaining energy attacking or setting up. Nonlethal damage still advances the fight. Never End Turn with useful affordable attacks just because they cannot kill. Avoid unnecessary Block before lethal. Enemy powers override generic card sequencing.",
+    "turn_advice": {
+      "no_incoming": "No enemy attacks now: spend energy on damage/setup, not ordinary Block. Do not end with useful attacks available.",
+      "one_energy": "With 1 energy: take a kill if possible; otherwise useful Block, otherwise ATTACK. If no Block can be played, damage is better than wasting energy.",
+      "under_attack": "Compare kill/Weak/Block prevention; avoid buying small chip damage with large HP loss when defense is available. After defensive plays, SPEND leftover energy on attacks even if some damage remains unblocked. Taking damage is not a reason to pass.",
+      "bash_setup": "",
+      "no_block": "No playable card here grants Block. Use attacks/setup with remaining energy rather than End Turn; nonlethal attacks are useful. Check potions too.",
+      "slippery": "Slippery: each HP-damaging hit removes ONE stack and deals 1 HP. Cheap/multihit attacks are progress, not wasted damage. Strip stacks with spare energy EVERY turn. Do not save attacks only for lethal. Prefer cheap hits over Bash while capped; defend major hits but keep making progress."
+    },
+    "planning_context": true,
+    "boss_plans": {
+      "VANTOM_BOSS": "Vantom: remove 8 Slippery stacks with cheap/multihit attacks, then burst. Draft a few 0-cost/multihit attacks (e.g. Anger), draw and defense; avoid only expensive single hits. Save a useful attack/draw potion if current fights are safe. Do not refuse a life-saving potion now.",
+      "CEREMONIAL_BEAST_BOSS": "Ceremonial Beast: build enough burst to cross its Plow HP threshold and stun it; strong single-card effects matter when Ringing restricts follow-up plays. Preserve a useful burst potion if safe.",
+      "THE_KIN_BOSS": "The Kin: efficient attacks/area damage remove followers; secure damage before Ritual Strength ramps, and enough defense for the priest. Keep a useful damage potion if current fights are safe."
+    },
+    "mechanic_hints": [
+      {
+        "id": "weak",
+        "terms": [
+          "weak",
+          "weak_power",
+          "weak_potion"
+        ],
+        "text": "Weak: normally 25% less Attack damage, rounded down per hit. Stacks are duration, not stronger reduction. Use Weak before a large incoming attack; a potion costs no energy, so consider it even just before End Turn. Saving ~7+ HP now is valuable; do not hoard it through the boss.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "vulnerable",
+        "terms": [
+          "vulnerable",
+          "vulnerable_power"
+        ],
+        "text": "Vulnerable: normally 50% more Attack damage taken; stacks extend duration. Apply BEFORE follow-up attacks (including free Anger) if the target is not already Vulnerable. Existing debuffs are already included in attack previews: do not multiply twice. Bash setup is not mandatory: prefer immediate lethal or needed Block over setup that exposes you to a huge hit. Slippery caps override this.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "temporary-dex",
+        "terms": [
+          "speed_potion"
+        ],
+        "text": "Speed Potion: temporary Dexterity boosts Block from cards THIS turn, then expires. Use before useful Block cards; save it if you cannot play any. Energy 0 with no free Block card means no benefit.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "temporary-strength",
+        "terms": [
+          "flex_potion"
+        ],
+        "text": "Flex Potion: temporary Strength adds damage to EACH Attack hit this turn. Drink before attacks; save it if no attacks remain playable. Slippery can nullify the extra damage.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "exhaust",
+        "terms": [
+          "exhaust",
+          "burning_pact",
+          "true_grit"
+        ],
+        "text": "Exhaust removes a card for this combat; discarding only delays its redraw. For chosen exhaust, prefer an unusable Wound or other low-value card, preserving needed defense/lethal attacks. Exhaust-draw can find answers but consumes energy; do not spend your last energy cycling when a known useful play is better.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "wound",
+        "terms": [
+          "wound"
+        ],
+        "text": "Wound is unplayable and clogs future draws. Good chosen-exhaust target; drawing one does not itself hurt HP.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "dazed",
+        "terms": [
+          "dazed"
+        ],
+        "text": "Dazed is unplayable and Ethereal: if held at end of turn it exhausts automatically.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "slimed",
+        "terms": [
+          "slimed"
+        ],
+        "text": "Slimed costs 1, draws 1, and Exhausts. Useful cleanup with spare energy; do not sacrifice necessary defense or lethal for it.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "frail",
+        "terms": [
+          "frail",
+          "frail_power"
+        ],
+        "text": "Frail normally reduces Block gained from cards by 25%. Read current card effects; do not apply the reduction twice.",
+        "kinds": [
+          "combat",
+          "card_selection"
+        ]
+      },
+      {
+        "id": "plating",
+        "terms": [
+          "plating",
+          "plating_power"
+        ],
+        "text": "Plating grants its current amount of Block at end of your turn and loses 1 on following turns. Free helpful relics are worth collecting.",
+        "kinds": [
+          "combat",
+          "rewards",
+          "relic_reward"
+        ]
+      }
+    ],
+    "current_turn_hints": {
+      "no_speed_target": "CURRENT TURN: no Block card is playable. Speed Potion cannot help now: SAVE it. If no useful card or other potion is available, End Turn.",
+      "large_attack_weak": "CURRENT TURN: at least 20 damage exceeds your Block, and you hold Weak Potion. Use Weak Potion on the major attacker NOW before spending energy on damage; it reduces this attack and later attacks during its duration."
+    },
+    "profile": "balanced",
+    "prompt_builder": {
+      "decision_prompts.py": "\"\"\"Versioned, provider-neutral decision projections. Raw replay evidence is never changed.\"\"\"\nimport json,re\nfrom collections import Counter\n\nVERSION='decision-v2'\nCOMBAT=('player','energy','turn','boast','boast_attacks','hand','draw_pile_unordered','discard','exhaust','relics','potions','enemies','stars','orb_slots','orbs_in_order','osty')\nRUN=('floor','act','player','gold','deck','relics','potions')\nDRAFT={'card_reward','upgrade','transform','enchant','deck_select','choose_card','bundle','relic','shop','rest','event','treasure','crystal_sphere'}\nSELECTION={'card_selection','simple_select'}\nINSTRUCTIONS={\n 'combat':'Choose the best legal play, potion action, or end turn. Check incoming damage and lethal first.',\n 'map':'Choose a route for survival and deck development. Only reachable future nodes are supplied.',\n 'rewards':'Claim useful rewards before leaving. Free gold and potions with space are normally worth taking.',\n 'card_reward':'Choose a card or skip. Compare its contribution with the current deck; a larger deck is not always better.',\n 'shop':'Choose a purchase, potion action, or leave. Weigh removal, synergy, gold and survival.',\n 'rest':'Choose healing or improvement based on health, deck and relics.',\n 'event':'Compare the stated rewards and costs against health, gold and deck.',\n 'card_selection':'Resolve the pending selection using its source, prompt, bounds and already selected cards.',\n}\n\nMECHANICS={\n 'boast':'Boast N stacks promises and resets progress. Two later attacks this turn grant N Strength; failure puts N Embarrassment atop draw.',\n 'wall':'Wall persists between turns; ordinary Block expires.',\n 'favor':'Favors Retain; choose damage or Block.',\n 'iou':'An IOU in hand prevents non-Spin attacks; settle it for 1 energy.',\n 'bargain':'Bargain triggers once per card per combat when another card or Power exhausts it from hand on your turn: play it free, leave it exhausted. Self-exhaust/Ethereal do not trigger it.',\n}\ndef rules_for(obs,character):\n    base='Choose one offered action. Card text is authoritative. Draw order and future RNG are unknown.'\n    if character!='dealmaker':return base\n    decision=project(obs)\n    evidence=json.dumps([decision,obs['actions']]).lower()\n    return base+' '+' '.join(text for keyword,text in MECHANICS.items() if keyword in evidence and (obs['kind']!='rewards'))\n\ndef clean(v):\n    if isinstance(v,str):return re.sub(r'\\[/?(?:gold|blue|red|green|purple|orange|gray|b|i)\\]','',v)\n    if isinstance(v,list):return [clean(x) for x in v] # Keep indexed empty potion slots, etc.\n    if isinstance(v,dict):\n        return {k:clean(x) for k,x in v.items() if x is not None and x!='' and x!=[] and x!={}}\n    return v\n\ndef bag(cards):\n    values={};counts=Counter()\n    for c in cards:\n        key=json.dumps(c,sort_keys=True);values[key]=c;counts[key]+=1\n    return [dict(card=values[k],count=n) for k,n in counts.items()]\n\ndef project(obs):\n    kind=obs['kind'];state=obs['state'];game=state.get('game',state)\n    combat=kind=='combat' or (kind in SELECTION and bool(game.get('enemies')))\n    if combat: keys=COMBAT\n    elif kind=='rewards':keys=('player','gold','relics','potions')\n    elif kind=='map':keys=RUN\n    elif kind in DRAFT or kind in SELECTION:keys=RUN\n    else:raise ValueError('No prompt template for decision kind: '+kind)\n    context={k:game[k] for k in keys if k in game}\n    if not combat and isinstance(context.get('player'),dict):\n        context['player']={k:v for k,v in context['player'].items() if k in ('hp','max_hp')}\n    for k in ('deck','draw_pile_unordered','discard','exhaust'):\n        if k in context:context[k]=bag(context[k])\n    # Map: compact reachable future graph, never previous/unreachable nodes or UI text.\n    # Keeping connections avoids throwing away the ability to plan beyond one room.\n    if kind=='map':\n        nodes={(n['row'],n['col']):n for n in state.get('map') or []}\n        frontier=[(a['option']['row'],a['option']['col']) for a in obs['actions'] if a['option'].get('action')=='map'];reachable=set()\n        while frontier:\n            key=frontier.pop()\n            if key in reachable or key not in nodes:continue\n            reachable.add(key);frontier += [(c['row'],c['col']) for c in nodes[key].get('children',[])]\n        context['routes']=[{'node':f'{r},{c}','type':nodes[r,c]['type'],'next':[f\"{n['row']},{n['col']}\" for n in nodes[r,c].get('children',[])]} for r,c in sorted(reachable)]\n    for k in ('prompt','source','min','max','selected','upgrades'):\n        if k in state:context[k]=state[k]\n    # Events/selection screens may contain unique rules not repeated in options.\n    if kind in {'event','crystal_sphere','simple_select','deck_select','transform','enchant','choose_card','bundle'} and state.get('text'):\n        context['prompt']=state['text']\n    return {'kind':kind,'state':clean(context)}\n\ndef build(obs,strategy,character,rules,prompt_format=None):\n    import os\n    from strategy_registry import version_packet\n    if (prompt_format or version_packet(os.environ.get(\"DEALMAKER_STRATEGY_VERSION\",\"1.1.0\")).get(\"prompt_format\"))==\"decision-v3\":\n        from compact_decisions import build as compact_build\n        return compact_build(obs,strategy,character,rules)\n    decision=project(obs);definitions={};references={}\n    def compact(v):\n        if isinstance(v,list):return [compact(x) for x in v]\n        if not isinstance(v,dict):return v\n        if {'id','name','type','text','cost'}<=v.keys():\n            v=clean(v);key=json.dumps(v,sort_keys=True,separators=(',',':'))\n            if key not in references:\n                ref='c'+str(len(references));references[key]=ref;definitions[ref]=v\n            return {'card_ref':references[key]}\n        return {k:compact(x) for k,x in clean(v).items()}\n    decision=compact(decision)\n    actions={}\n    for a in obs['actions']:\n        option=dict(a['option'])\n        if isinstance(option.get('enemy_index'),int) and option['enemy_index']>=0 and obs['kind'] in {'combat','card_selection'}:\n            option.pop('target',None)\n        actions[a['id']]=compact(option)\n    return {'rules':rules,'strategy':strategy,'character':character,'format':VERSION+'; card_ref uses card_definitions; omitted collections are empty; unordered piles list card/count; enemy_index refers to enemies.',\n            **({'card_definitions':definitions} if definitions else {}),'decision':decision},actions\n",
+      "strategy_registry.py": "\"\"\"Content-addressed strategy packets. A run freezes the full module catalog.\"\"\"\nfrom dataclasses import dataclass\nfrom pathlib import Path\nimport copy,hashlib,json,os\n\nROOT=Path(__file__).resolve().parent.parent\n\ndef digest(value):return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()\n\n@dataclass(frozen=True)\nclass StrategyModule:\n    id:str\n    name:str\n    version:str\n    priority:int\n    match:dict\n    prompt:str\n    rationale:str\n    category:str=\"Other decisions\"\n    act:int=0\n    region:str=\"All acts / fallback\"\n    encounter:str=\"\"\n    def matches(self,obs):\n        state=obs['state'];game=state.get('game',state)\n        enemies={e.get('creature',{}).get('name','') for e in game.get('enemies') or []}\n        for key,value in self.match.items():\n            if key=='kind' and obs['kind'] not in value:return False\n            if key=='room' and game.get('room') not in value:return False\n            if key=='enemy_any' and not enemies.intersection(value):return False\n            if key=='min_enemies' and len(game.get('enemies') or [])<value:return False\n            if key=='event_id' and state.get('event_id',game.get('event_id')) not in value:return False\n        return True\n\nclass Strategy:\n    def __init__(self,packet):\n        self._packet=copy.deepcopy(packet)\n        self.modules=tuple(StrategyModule(**m) for m in packet['modules'])\n        if len({m.id for m in self.modules})!=len(self.modules):raise ValueError('Duplicate strategy module')\n        for m in self.modules:\n            if set(m.match)-{'kind','room','enemy_any','min_enemies','event_id'}:raise ValueError('Unknown strategy matcher')\n        self.sha256=digest(self._packet)\n    @classmethod\n    def load(cls,goal=None,profile='balanced'):\n        packet=version_packet(os.environ.get('DEALMAKER_STRATEGY_VERSION','1.1.0'))\n        if goal is not None:packet['goal']=goal\n        packet['profile']=profile\n        # Freeze actual prompt-generation source as well as prose; later edits must\n        # not retroactively change which packet a historical run reports.\n        packet['prompt_builder']={name:(ROOT/'scripts'/name).read_text() for name in ('decision_prompts.py','strategy_registry.py','compact_decisions.py','decision_memory.py','jev_playtest.py')}\n        return cls(packet)\n    @property\n    def packet(self):return copy.deepcopy(self._packet)\n    def save(self,path):\n        path=Path(path)\n        with path.open('x') as f:json.dump({'sha256':self.sha256,'packet':self._packet},f,indent=2)\n    def select(self,obs):\n        matches=sorted((m for m in self.modules if m.matches(obs)),key=lambda m:(-m.priority,m.id))\n        if not matches:raise ValueError('No strategy fallback for '+obs['kind'])\n        module=matches[0]\n        return module,{'packet_sha256':self.sha256,'strategy_id':self._packet['id'],'strategy_version':self._packet['version'],\n                       'module_id':module.id,'module_version':module.version,'route':'deterministic','matched':module.match}\n    def prompt(self,obs,character=None):\n        module,selection=self.select(obs)\n        advice=self._packet.get('character_advice',{}).get(character,{})\n        game=obs['state'].get('game',obs['state'])\n        held={p.get('id') for p in game.get('potions',[]) if p}\n        additions=[]\n        if obs['kind']=='combat' and self._packet.get('combat_basics'):\n            additions.append(self._packet['combat_basics'])\n        if held and obs['kind'] in {'combat','rewards','shop','map'} and advice:\n            additions.append(advice['potion_policy'])\n            if obs['kind']=='combat':\n                additions += [g['advice'] for g in advice['groups'] if held.intersection(g['ids'])]\n        turn_advice=self._packet.get('turn_advice',{})\n        if obs['kind']=='combat' and turn_advice:\n            incoming=sum(i.get('total_damage',0) for e in game.get('enemies') or [] for i in e.get('intents',[]))\n            energy=game.get('energy',0)\n            hand=[h['card'] for h in game.get('hand') or []]\n            slippery=any(p.get('id')=='SLIPPERY_POWER' and p.get('amount',0)>0 for e in game.get('enemies') or [] for p in e['creature'].get('powers',[]))\n            block_available=any(a['option'].get('action')=='play_card' and a['option'].get('card',{}).get('variables',{}).get('Block',0)>0 for a in obs['actions'])\n            if slippery and turn_advice.get('slippery'):additions.append(turn_advice['slippery'])\n            elif not block_available and turn_advice.get('no_block'):additions.append(turn_advice['no_block'])\n            elif incoming==0:additions.append(turn_advice['no_incoming'])\n            elif incoming>game.get('player',{}).get('block',0):\n                additions.append(turn_advice['one_energy'] if energy==1 else turn_advice['under_attack'])\n            bash=next((c for c in hand if c.get('id')=='BASH'),None)\n            if bash and not (slippery and turn_advice.get('slippery')) and any(c is not bash and c.get('type')=='Attack' and isinstance(c.get('cost'),(int,float)) and isinstance(bash.get('cost'),(int,float)) and 0<=c['cost']<=energy-bash['cost'] for c in hand):\n                additions.append(turn_advice['bash_setup'])\n        # Only visible, immediately relevant objects trigger definitions: never the whole deck.\n        if self._packet.get('mechanic_hints'):\n            import re\n            objects=[a.get('option',{}) for a in obs.get('actions',[])]\n            objects.append(obs['state'].get('source') or {})\n            if obs['kind']=='combat':\n                objects += [h['card'] for h in game.get('hand') or []]\n                objects += list(game.get('potions') or [])\n                objects += list(game.get('player',{}).get('powers') or [])\n                objects += [p for e in game.get('enemies') or [] for p in e.get('creature',{}).get('powers') or []]\n            if obs['kind']=='combat' and self._packet.get('current_turn_hints'):\n                opts=[a['option'] for a in obs.get('actions',[])]\n                block_cards=[o for o in opts if o.get('action')=='play_card' and (o.get('card') or {}).get('variables',{}).get('Block',0)>0]\n                incoming=sum(i.get('total_damage',0) for e in game.get('enemies') or [] for i in e.get('intents',[]))\n                if 'SPEED_POTION' in held and not block_cards:\n                    additions.append(self._packet['current_turn_hints']['no_speed_target'])\n                if 'WEAK_POTION' in held and incoming-game.get('player',{}).get('block',0)>=20:\n                    additions.append(self._packet['current_turn_hints']['large_attack_weak'])\n            visible=json.dumps(objects).lower()\n            for hint in self._packet['mechanic_hints']:\n                if obs['kind'] in hint['kinds'] and any(re.search(r'(?<![a-z])'+re.escape(term)+r'(?![a-z])',visible) for term in hint['terms']):\n                    additions.append(hint['text'])\n        plan=obs.get('run_plan',{})\n        if obs['kind'] in {'card_reward','choose_card','bundle','shop','rest','map','upgrade'}:\n            boss_advice=self._packet.get('boss_plans',{}).get(plan.get('known_boss'))\n            if boss_advice:additions.append(boss_advice)\n        selection['addenda']=additions\n        return '\\n'.join([self._packet['goal'],module.prompt,*additions]),selection\n\ndef version_packet(version):\n    import re\n    if not re.fullmatch(r'\\d+\\.\\d+\\.\\d+',version):raise ValueError('Invalid strategy version')\n    return json.loads((ROOT/'strategies/balanced'/f'{version}.json').read_text())\n\ndef require_approved(version=None):\n    packet=version_packet(version or os.environ.get('DEALMAKER_STRATEGY_VERSION','1.1.0'))\n    approvals=json.loads((ROOT/'strategies/approvals.json').read_text())\n    if digest(packet) not in approvals:raise ValueError('Strategy is not approved. Review its diff before authorizing a run.')\n\ndef strategy_diff(before,after):\n    import difflib\n    a=version_packet(before);b=version_packet(after)\n    def display(value):\n        return value if isinstance(value,str) else json.dumps(value,indent=2) if value is not None else ''\n    def field_diff(key,left,right):\n        import re\n        l=re.findall(r'\\s+|[^\\s]+',display(left));r=re.findall(r'\\s+|[^\\s]+',display(right))\n        ls=[];rs=[]\n        for tag,i,j,x,y in difflib.SequenceMatcher(None,l,r,autojunk=False).get_opcodes():\n            ls.append({'text':''.join(l[i:j]),'changed':tag!='equal'})\n            rs.append({'text':''.join(r[x:y]),'changed':tag!='equal'})\n        return {'field':key,'left':ls,'right':rs}\n    sections=[]\n    package=[field_diff(k,a.get(k),b.get(k)) for k in ('name','version','description','goal','prompt_format') if a.get(k)!=b.get(k)]\n    if package:sections.append({'id':'package','name':'Package details','status':'modified','metadata':True,'fields':package})\n    for key,name in [('current_turn_hints','Current-turn potion tactics'),('mechanic_hints','Conditional mechanic definitions and tactics'),('planning_context','Run-planning context enabled'),('boss_plans','Boss-specific drafting and potion plans'),('turn_advice','Turn-specific advice routing'),('combat_basics','Combat decision fundamentals'),('observation_policy','Observed decision history'),('character_advice','Ironclad potion priorities'),('compression_contract','Context compression and tradeoffs')]:\n        if a.get(key)!=b.get(key):sections.append({'id':key,'name':name,'status':'modified','fields':[field_diff(key,a.get(key),b.get(key))]})\n    left={m['id']:m for m in a['modules']};right={m['id']:m for m in b['modules']}\n    unchanged=0\n    for key in dict.fromkeys([*right,*left]):\n        l=left.get(key,{});r=right.get(key,{})\n        if l==r:unchanged+=1;continue\n        fields=[field_diff(k,l.get(k),r.get(k)) for k in ('prompt','rationale','match','priority','name','version','category','act','region','encounter') if l.get(k)!=r.get(k)]\n        sections.append({'id':key,'name':r.get('name',l.get('name',key)),'status':'added' if not l else 'removed' if not r else 'modified','fields':fields})\n    return {'before':before,'after':after,'sections':sections,'unchanged_modules':unchanged,\n            'diff':'\\n'.join(difflib.unified_diff(json.dumps(a,indent=2).splitlines(),json.dumps(b,indent=2).splitlines(),fromfile=before,tofile=after,lineterm=''))}\n\ndef catalog():\n    active=Strategy.load();entries=[]\n    approvals=json.loads((ROOT/'strategies/approvals.json').read_text())\n    for path in sorted((ROOT/'strategies/balanced').glob('*.json'),reverse=True):\n        p=json.loads(path.read_text());sha=active.sha256 if p['version']==active.packet['version'] else digest(p)\n        entries.append({**p,'sha256':sha,'approval':approvals.get(digest(p)),\n          'selection_order':['Exact encounter','Encounter group','Boss / elite / normal fallback','Decision-type fallback','Generic fallback'],\n          'model_router':{'enabled':False}})\n    return entries\n",
+      "compact_decisions.py": "\"\"\"Decision-v3. Stateless compact observations; raw trace/actions remain untouched.\"\"\"\nimport json,re\nfrom collections import Counter\nfrom decision_prompts import clean, project\n\nVERSION='decision-v3'\n\ndef label(value):\n    return str(value).removesuffix('_POWER').replace('_',' ').title()\n\ndef readable(value):\n    if isinstance(value,str):\n        return re.sub(r'\\[img\\]([^[]+)\\[/img\\]',lambda m:'1 Energy' if 'energy_icon' in m[1] else 'icon '+m[1].split('/')[-1].split('.')[0],value)\n    if isinstance(value,list):return [readable(v) for v in value]\n    if isinstance(value,dict):return {k:readable(v) for k,v in value.items()}\n    return value\n\ndef build(obs, strategy, character, rules):\n    projected=project(obs)\n    game=projected['state']\n    combat=obs['kind']=='combat' or (obs['kind'] in {'card_selection','simple_select'} and 'enemies' in game)\n    definitions={}; refs={}\n    def card(c):\n        # Target-specific effects stay separate when text differs. Never merge by name alone.\n        d=clean({k:c[k] for k in ('name','cost','type','text','keywords') if k in c})\n        if '{' in d.get('text',''):d['variables']=c.get('variables',{})\n        key=json.dumps(d,sort_keys=True)\n        if key not in refs:\n            ref='c'+str(len(refs));refs[key]=ref;definitions[ref]=d\n        return refs[key]\n    def compact(v):\n        if isinstance(v,list):return [compact(x) for x in v]\n        if not isinstance(v,dict):return v\n        if {'name','type','text','cost'}<=v.keys():return {'card':card(v)}\n        return {k:compact(x) for k,x in clean(v).items()}\n    if combat:\n        for pile in ('draw_pile_unordered','discard','exhaust'):\n            if pile in game:\n                counts=Counter()\n                for entry in game[pile]:counts[entry['card']['name']]+=entry['count']\n                game[pile]=dict(counts)\n        # These resources belong to the mod, not base Ironclad.\n        if character=='ironclad':\n            for k in ('boast','boast_attacks','stars','orb_slots','orbs_in_order','osty'):game.pop(k,None)\n        # Hand index remains the exact engine index, including duplicates.\n        game['hand']={str(h['index']):card(h['card']) for h in game.get('hand',[])}\n    actions={}\n    for a in obs['actions']:\n        op=clean(dict(a['option'])); kind=op.get('action')\n        if kind=='play_card':\n            c=op.get('card',{});target=op.get('enemy_index',-1)\n            # Card definitions preserve modified costs and full current effect text.\n            value={'play':op['hand_index'],'card':card(c)}\n            if target>=0:value['enemy']=target\n            damage=c.get('preview_damage_per_hit')\n            if damage is not None:value['damage_before_hp_caps']=damage\n            actions[a['id']]='h'+str(value['play'])+((' '+value['card']) if game.get('hand',{}).get(str(value['play']))!=value['card'] else '')+((' -> e'+str(target)) if target>=0 else '')+(('; hit '+str(damage)) if damage is not None else '')\n            if obs.get('context_policy') == 'observed-history-v1':\n                enemy=next((e for e in game.get('enemies',[]) if e['index']==target),None)\n                target_text=''\n                if enemy:\n                    creature=enemy['creature']\n                    target_text=f\" Target e{target}: HP {creature['hp']}, Block {creature.get('block',0)}; current hit {damage} before caps.\"\n                actions[a['id']]=f\"Play {c.get('name')} (hand {op['hand_index']}, cost {c.get('cost')}): {c.get('text','')}\"+target_text\n        elif kind in {'use_potion','discard_potion'}:\n            value={'action':kind,'slot':op['slot'],'effect':op.get('text'),'potion':op.get('id')}\n            if op.get('enemy_index',-1)>=0:value['enemy']=op['enemy_index']\n            elif op.get('target'):value['target']='self'\n            actions[a['id']]=kind+' slot '+str(op['slot'])+' '+label(op.get('id'))+((' on enemy '+str(op['enemy_index'])) if op.get('enemy_index',-1)>=0 else '')\n        elif kind=='end_turn':actions[a['id']]='end turn'\n        else:\n            if obs.get('context_policy') == 'observed-history-v1':\n                if kind=='claim_reward' and op.get('type')=='CardReward':\n                    op['text']='Inspect free card offers; adds no card yet. You may Skip after inspection.'\n                if kind=='proceed' and obs['kind']=='rewards':\n                    op['text']='Leave remaining rewards.'\n            actions[a['id']]=compact(op)\n            if obs.get('context_policy') == 'observed-history-v1' and kind=='claim_reward' and op.get('type')=='CardReward' and obs.get('observed_history'):\n                actions[a['id']]['history']='Card offers were already inspected and declined here. Reopening is not a reroll.'\n    context=compact(game)\n    if combat:\n        # Compact text avoids repeating JSON scaffolding; values and power rules remain.\n        def creature(c):\n            base=f\"HP {c.get('hp')}/{c.get('max_hp','?')} Block {c.get('block',0)}\"\n            powers=['%s %s: %s'%(label(p.get('id')),p.get('amount'),p.get('text','')) for p in c.get('powers',[])]\n            return base+(' | '+'; '.join(powers) if powers else '')\n        lines=[f\"You: {creature(game.get('player',{}))}\",f\"Energy {game.get('energy')} Turn {game.get('turn')}\",\n               'Hand '+', '.join(f'h{i}={ref}' for i,ref in game.get('hand',{}).items())]\n        if obs.get('context_policy') == 'observed-history-v1':\n            incoming=sum(i.get('total_damage',0) for e in game.get('enemies',[]) for i in e.get('intents',[]))\n            lines.insert(0,f\"TOTAL enemy attack damage this turn: {incoming}. Current Block: {game.get('player',{}).get('block',0)}.\")\n        for e in game.get('enemies',[]):\n            c=e['creature'];intents='; '.join(' '.join(f'{k}={v}' for k,v in i.items()) for i in e.get('intents',[]))\n            lines.append(f\"e{e['index']} {c['name']}: {creature(c)} | {intents}\")\n        for pile in ('draw_pile_unordered','discard','exhaust'):\n            if game.get(pile):lines.append(pile+': '+', '.join(f'{name} x{n}' for name,n in game[pile].items()))\n        if game.get('relics'):lines.append('Relics: '+'; '.join(f\"{label(r['id'])}: {r.get('text','')}\" for r in game['relics']))\n        if game.get('potions'):lines.append('Potions: '+'; '.join(f\"{label(p.get('id'))}: {p.get('text','')}\" for p in game['potions'] if p))\n        # Preserve less common resources and selection constraints without guessing meanings.\n        other={k:v for k,v in context.items() if k not in {'player','energy','turn','hand','enemies','draw_pile_unordered','discard','exhaust','relics','potions'}}\n        if other:lines.append(json.dumps(other,separators=(',',':')))\n        context='\\n'.join(lines)\n    # Effects once per distinct card; no repeated JSON field names in each definition.\n    definitions={ref:f\"{d['name']} | {d['cost']} energy | {d['type']} | {d.get('text','')}\"+((' | '+','.join(d['keywords'])) if d.get('keywords') else '')+((' | variables '+json.dumps(d['variables'])) if d.get('variables') else '') for ref,d in definitions.items()}\n    result={'rules':'Hidden draws/RNG unknown.' if character=='ironclad' else rules,'strategy':strategy,'format':VERSION+'; h=hand,e=enemy; hit=damage before HP caps; piles unordered; absent lists empty.',\n            'cards':definitions,'kind':obs['kind'],'state':context}\n    if obs.get('run_plan'):result['run_plan']=obs['run_plan']\n    if obs.get('observed_history'):result['history']=obs['observed_history']\n    return readable(result),readable(actions)\n",
+      "decision_memory.py": "\"\"\"Small factual history for a stateless pilot; never chooses or hides actions.\"\"\"\nimport copy\n\nclass DecisionMemory:\n    def __init__(self, planning=False):\n        self.planning = planning\n        self.seen_elites = set()\n        self.act = None\n        self.room = None\n        self.declined = []\n\n    def enrich(self, obs):\n        game = obs['state'].get('game', obs['state'])\n        room = (game.get('act'), game.get('floor'))\n        if room != self.room:\n            self.room, self.declined = room, []\n        if self.act != game.get('act'):\n            self.act = game.get('act')\n            self.seen_elites.clear()\n        if self.planning and obs['kind']=='combat' and game.get('room')=='Elite':\n            self.seen_elites.update(e['creature']['name'] for e in game.get('enemies') or [])\n        result = copy.deepcopy(obs)\n        if self.planning:\n            result['planning_context']=True\n            if obs['kind'] in {'card_reward','choose_card','bundle','shop','rest','map','event','upgrade','card_selection','rewards'}:\n                plan={k:game[k] for k in ('known_boss','potion_slots_free') if k in game}\n                if self.seen_elites:plan['seen_elite_enemies_this_act']=sorted(self.seen_elites)\n                if plan:result['run_plan']=plan\n        if self.declined and obs['kind'] in {'rewards', 'card_reward'}:\n            result['observed_history'] = {'declined_card_offers_this_room': self.declined,\n                'meaning': 'These offers were inspected and skipped already. Reopening the same reward does not reroll it. Other rewards may differ.'}\n        return result\n\n    def observe(self, obs, chosen):\n        self.enrich(obs)  # Also resets when called during prefix reconstruction.\n        action = next(a['option'] for a in obs['actions'] if a['id'] == chosen)\n        if obs['kind'] == 'card_reward' and action.get('action') in {'skip', 'reward_alternative'} and 'skip' in action.get('text', 'skip').lower():\n            offer = [a['option']['card'].get('name', a['option']['card'].get('id'))\n                     for a in obs['actions'] if isinstance(a['option'].get('card'), dict)]\n            if offer and offer not in self.declined:\n                self.declined.append(offer)\n",
+      "jev_playtest.py": "#!/usr/bin/env python3\n\"\"\"Jev decision controller for the isolated, real-engine Dealmaker harness.\"\"\"\nimport argparse\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport time\nimport urllib.request\nimport urllib.error\nfrom playtest_config import typesafe_key\n\nAPI = 'https://api.typesafe.ai/v1/systemone'\nSTRATEGIES = {\n    'balanced': 'Maximize survival and the chance of winning the run. Build a coherent deck from the offers; do not force an archetype.',\n    'boast': 'Explore Strength and Boast scaling. Complete active promises when worthwhile; avoid resetting a nearly completed promise without enough attacks. Still draft defense and support.',\n    'wall': 'Explore Wall as persistent defense and its conversion/payoff cards. Avoid excessive defense when enemies need to die. Still draft damage and scaling.',\n    'favor': 'Explore retained Favors and their offensive and defensive uses. Compare cash-out payoffs against individual Favor plays and preservation for later turns.',\n    'bargain': 'Explore exhaust, Bargain, Spin and debt synergies. Clear IOUs to unlock attacks. Judge whether the exhaust outlet and the payoff support each other; do not force bad picks.',\n}\nRULES = ('Play Slay the Spire 2 with the Dealmaker mod. Card text in the observation is authoritative. '\n         'Boast N stacks a promise, resets its attack counter, and requires two subsequent attacks this turn; '\n         'success gives N Strength, failure adds N Embarrassment to the top of the draw pile. '\n         'Wall persists; ordinary Block normally expires. Favors retain and offer damage or Block. '\n         'IOUs restrict non-Spin attacks while in hand and cost 1 energy to settle. Bargain: once per card per combat, when another card or Power exhausts it from hand during your turn, play it free then leave it exhausted. Self-exhaust and Ethereal do not trigger it. '\n         'Use only visible information: draw-pile order and future RNG are unknown. '\n         'Choose ONE offered action now, including its target. Re-evaluate after every action. '\n         'Do not treat confidence as a probability of winning. Prioritize avoiding preventable lethal damage.')\n\n\ndef request(url, token, payload=None, timeout=35):\n    data = None if payload is None else json.dumps(payload).encode()\n    req = urllib.request.Request(url, data=data, headers={'Authorization': 'Bearer '+token, 'Content-Type': 'application/json'})\n    with urllib.request.urlopen(req, timeout=timeout) as response:\n        return json.load(response)\n\n\ndef fingerprint(observation):\n    return hashlib.sha256(json.dumps(observation, sort_keys=True, separators=(',', ':')).encode()).hexdigest()\n\n\ndef replay_fingerprint(observation):\n    # The map's decorative act title fades in asynchronously. It is duplicated\n    # by structured act/room/map data and does not change legal decisions.\n    # Shop animations likewise change label text; inventory/legal choices and\n    # player gold/deck remain strictly fingerprinted.\n    state = observation.get('state', {})\n    if state.get('screen') == 'NMapScreen' or observation.get('kind')=='shop':\n        observation = {**observation, 'state': {k:v for k,v in state.items() if k != 'text'}}\n    return fingerprint(observation)\n\n\ndef make_request(obs, strategy, model, character='dealmaker',prompt_format=None):\n    options = obs['actions']\n    if not 1 <= len(options) <= 255:\n        raise ValueError('Decision needs 1\u2013255 options; split larger selections into sequential decisions')\n    ids = [a['id'] for a in options]\n    if len(set(ids)) != len(ids):\n        raise ValueError('Duplicate action IDs')\n    from decision_prompts import build, INSTRUCTIONS, rules_for\n    rules = rules_for(obs,character)\n    state, actions = build(obs, strategy, character, rules,prompt_format)\n    instruction = 'Choose one offered action.' if state.get('format','').startswith('decision-v3') else INSTRUCTIONS.get(obs['kind'], 'Choose the best offered action for the strategy.')\n    if obs.get('context_policy') == 'observed-history-v1':\n        instruction = state.pop('strategy') + '\\nChoose one offered action using the current state.'\n    return {'model': model, 'state': state, 'questions': {'action': {\n        'type': 'choice', 'instructions': instruction,\n        'criteria': {key: value if isinstance(value,str) else json.dumps(value, separators=(',', ':')) for key,value in actions.items()}}}}\n\n\ndef parse_answer(response, obs):\n    answer = response['answers']['action']\n    if answer.get('type') != 'choice' or answer.get('choice') not in {a['id'] for a in obs['actions']}:\n        raise ValueError('Model returned an unoffered action; refusing to act')\n    return answer['choice']\n\n\ndef mock_choice(obs):\n    \"\"\"Transport smoke only; deliberately not advertised as Jev or a balance pilot.\"\"\"\n    opts = obs['actions']\n    priority = ['confirm_selection','play_card','select_card','claim_reward','take_relic','confirm','event_option','map','rest_option','leave_shop','proceed','skip','end_turn']\n    for kind in priority:\n        matching = [a for a in opts if a['option'].get('action') == kind]\n        if matching:\n            return matching[0]['id']\n    return opts[0]['id']\n\n\ndef main():\n    ap = argparse.ArgumentParser(description=__doc__)\n    ap.add_argument('--port', type=int, default=18765)\n    ap.add_argument('--strategy', choices=STRATEGIES, default='balanced')\n    ap.add_argument('--strategy-file', type=Path)\n    ap.add_argument('--model')\n    ap.add_argument('--backend', choices=['jev','bifrost','codex','claude'], default='jev')\n    ap.add_argument('--character',default='dealmaker',choices=['dealmaker','ironclad','silent','regent','necrobinder','defect'])\n    ap.add_argument('--log', type=Path, required=True)\n    ap.add_argument('--max-decisions', type=int, default=1000)\n    ap.add_argument('--max-seconds', type=int, default=3600)\n    ap.add_argument('--mock', action='store_true', help='No API calls: protocol smoke, NOT a Jev playtest')\n    ap.add_argument('--replay', type=Path, help='Replay recorded decisions, aborting on observation mismatch')\n    ap.add_argument('--replay-controls', type=Path)\n    ap.add_argument('--seek-index', type=int, default=0)\n    ap.add_argument('--decision-delay', type=float, default=0, help='Seconds to pause before each action')\n    args = ap.parse_args()\n    if not args.model:\n        if args.backend!='jev':ap.error('Specify --model for this backend')\n        args.model='jev-latest'\n    if not 0 <= args.decision_delay <= 60:\n        ap.error('--decision-delay must be between 0 and 60 seconds')\n    token = os.environ.get('DEALMAKER_BRIDGE_TOKEN', '')\n    if len(token) < 24:\n        ap.error('Set DEALMAKER_BRIDGE_TOKEN to the same random token used by the game runner')\n    if not args.mock and not args.replay:\n        from strategy_registry import require_approved\n        require_approved()\n    api_key = typesafe_key() if not args.mock and not args.replay and args.backend=='jev' else ''\n    if not args.mock and not args.replay and args.backend=='jev' and not api_key:\n        ap.error('Set TYPESAFE_API_KEY locally; do not paste it into chat')\n    if args.mock and args.replay:\n        ap.error('Choose mock or replay, not both')\n    from decision_models import JevModel,BifrostModel,CliModel,InvalidDecision\n    adapter=None\n    if not args.mock and not args.replay:\n        if args.backend=='jev':adapter=JevModel(request,api_key)\n        elif args.backend=='bifrost':\n            if not os.environ.get('BIFROST_BASE_URL'):ap.error('Set BIFROST_BASE_URL including /v1')\n            adapter=BifrostModel(request,os.environ['BIFROST_BASE_URL'],os.environ.get('BIFROST_API_KEY',''))\n        else:adapter=CliModel(args.backend)\n    strategy = args.strategy_file.read_text() if args.strategy_file else STRATEGIES[args.strategy]\n    from strategy_registry import Strategy\n    strategy_package=Strategy.load(strategy if args.strategy_file or args.strategy!='balanced' else None,args.strategy)\n    from decision_memory import DecisionMemory\n    memory=DecisionMemory(planning=strategy_package.packet.get('planning_context',False))\n    context_policy=strategy_package.packet.get('observation_policy')\n    replay_rows = [json.loads(line) for line in args.replay.read_text().splitlines() if json.loads(line).get('kind') == 'decision'] if args.replay else []\n    replay = iter(replay_rows) if args.replay else None\n    controls = None\n    if args.replay_controls:\n        if not args.replay: ap.error('--replay-controls requires --replay')\n        from replay_controls import ReplayControls\n        controls = ReplayControls(args.replay_controls, args.seek_index)\n    args.log.parent.mkdir(parents=True, exist_ok=True)\n    if not args.replay:strategy_package.save(args.log.parent/'strategy-packet.json')\n    start = time.monotonic()\n    with args.log.open('x') as log:\n        def record(data):\n            log.write(json.dumps({'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()), **data})+'\\n'); log.flush()\n        record({'kind':'controller', 'mode':'replay' if replay else 'mock_transport_test' if args.mock else args.backend, 'backend':args.backend, 'prompt_version':strategy_package.packet.get('prompt_format','decision-v2'), 'model':args.model, 'strategy':strategy, 'character':args.character, 'decision_delay_seconds':args.decision_delay,'planning_context':strategy_package.packet.get('planning_context',False),'strategy_packet_sha256':strategy_package.sha256 if not args.replay else None})\n        seen = set()\n        count=0\n        while count < args.max_decisions:\n            while True:\n                if time.monotonic()-start > args.max_seconds:\n                    record({'kind':'stopped','reason':'time_budget'}); return\n                try:\n                    obs = request(f'http://127.0.0.1:{args.port}/state', token, timeout=5)\n                except (urllib.error.URLError, TimeoutError, ConnectionError):\n                    time.sleep(.2); continue\n                if obs.get('status') == 'decision' and obs['decision_id'] not in seen:\n                    break\n                if obs.get('status') in ('stopped','terminal'):\n                    record({'kind':'stopped','state':obs}); return\n                time.sleep(.1)\n            if os.environ.get('DEALMAKER_ACT1_OVERGROWTH')=='1':\n                game=obs['state'].get('game',obs['state'])\n                if game.get('act',1)>1:\n                    record({'kind':'scope_complete','outcome':'act1_victory','observation':obs});return\n                if game.get('act_id')!='OVERGROWTH':\n                    raise RuntimeError('Expected Overgrowth; refusing model calls in a different act')\n            digest = fingerprint(obs)\n            model_obs=memory.enrich(obs) if context_policy else obs\n            if context_policy:model_obs['context_policy']=context_policy\n            active_strategy,strategy_selection=strategy_package.prompt(model_obs,args.character)\n            payload = None\n            before = time.monotonic()\n            source = args.backend\n            model_meta={'cost_usd':0,'cost_basis':'no model call'}\n            if replay is not None:\n                if count>=len(replay_rows):\n                    record({'kind':'replay_trace_complete','decisions':count})\n                    return\n                previous = replay_rows[count]\n                if previous['observation_sha256'] != fingerprint(previous['observation']):\n                    raise RuntimeError('Recorded observation hash is invalid')\n                if replay_fingerprint(previous['observation']) != replay_fingerprint(obs):\n                    raise RuntimeError('Replay diverged; no action submitted')\n                if controls:\n                    from replay_controls import ReplaySeek\n                    try: controls.wait(count, len(replay_rows), obs)\n                    except ReplaySeek as seek:\n                        ack=request(f'http://127.0.0.1:{args.port}/reset',token,{})\n                        if not ack.get('accepted'): raise RuntimeError('Game refused in-process replay reset')\n                        record({'kind':'replay_seek','from_index':count,'to_index':seek.args[0]})\n                        count=0;seen.clear();controls.status(0,len(replay_rows),'Reconstructing')\n                        continue\n                chosen = previous['action_id']; response = None\n                source = 'replay'\n            elif args.mock:\n                chosen = mock_choice(obs); response = None\n                source = 'mock'\n            elif len(obs['actions']) == 1:\n                chosen = obs['actions'][0]['id']; response = None\n                source = 'sole_legal_action'\n            else:\n                payload = make_request(model_obs, active_strategy, args.model, args.character, strategy_package.packet.get('prompt_format'))\n                # A failed request stops this controller. No silent heuristic fallback.\n                try:chosen,response,model_meta=adapter.decide(payload)\n                except InvalidDecision as error:\n                    record({'kind':'model_failure','decision_id':obs['decision_id'],'attempts':error.attempts})\n                    raise\n            if chosen not in {a['id'] for a in obs['actions']}:\n                raise ValueError('Replay selected an unoffered action')\n            record({'kind':'decision','decision_id':obs['decision_id'],'observation_sha256':digest,'observation':obs,\n                    'request':payload,'response':response,'action_id':chosen,'source':source,'strategy_selection':strategy_selection if not args.replay else previous.get('strategy_selection'),'latency_seconds':time.monotonic()-before,**model_meta})\n            if args.decision_delay:\n                time.sleep(args.decision_delay)\n            ack = request(f'http://127.0.0.1:{args.port}/action',token,{'decision_id':obs['decision_id'],'action_id':chosen})\n            if not ack.get('accepted'):\n                raise RuntimeError('Game rejected action')\n            memory.observe(obs,chosen)\n            seen.add(obs['decision_id'])\n            print(f\"{count+1}: {obs['kind']} {chosen}\", flush=True)\n            count+=1\n        record({'kind':'stopped','reason':'decision_budget','decisions':args.max_decisions})\n\nif __name__ == '__main__':\n    from replay_controls import ReplaySeek, ReplayStop\n    try: main()\n    except ReplaySeek: raise SystemExit(75)\n    except ReplayStop: raise SystemExit(0)\n"
+    }
+  }
+}

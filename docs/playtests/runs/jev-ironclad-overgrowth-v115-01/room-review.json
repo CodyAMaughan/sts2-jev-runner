@@ -1,0 +1,422 @@
+{
+  "run": "jev-ironclad-overgrowth-v115-01",
+  "result": {
+    "outcome": "death",
+    "process_exit": 0,
+    "elapsed_seconds": 182.56,
+    "completed_run": true,
+    "original_save_unchanged": true
+  },
+  "rooms": [
+    {
+      "act": 1,
+      "floor": 1,
+      "room": "Event",
+      "decision_kinds": {
+        "event": 2,
+        "map": 1
+      },
+      "decisions": 3,
+      "model_calls": 2,
+      "input_tokens": 3602,
+      "output_tokens": 76,
+      "estimated_cost_usd": 0.000151284,
+      "mean_input_tokens": 1801.0
+    },
+    {
+      "act": 1,
+      "floor": 2,
+      "room": "Monster",
+      "decision_kinds": {
+        "combat": 9,
+        "rewards": 4,
+        "card_reward": 1,
+        "map": 1
+      },
+      "decisions": 15,
+      "model_calls": 12,
+      "input_tokens": 10725,
+      "output_tokens": 648,
+      "estimated_cost_usd": 0.0004504500000000001,
+      "mean_input_tokens": 893.8,
+      "enemies": [
+        "NIBBIT"
+      ],
+      "turns": 3,
+      "starting_hp": 80,
+      "last_combat_hp": 67,
+      "post_combat_hp": 73,
+      "observed_hp_loss": 13,
+      "combat_complete": true,
+      "death": false,
+      "assessment": "review"
+    },
+    {
+      "act": 1,
+      "floor": 3,
+      "room": "Shop",
+      "decision_kinds": {
+        "shop": 3,
+        "map": 1
+      },
+      "decisions": 4,
+      "model_calls": 3,
+      "input_tokens": 4056,
+      "output_tokens": 232,
+      "estimated_cost_usd": 0.00017035200000000003,
+      "mean_input_tokens": 1352.0
+    },
+    {
+      "act": 1,
+      "floor": 4,
+      "room": "Monster",
+      "decision_kinds": {
+        "combat": 10,
+        "rewards": 3,
+        "card_reward": 1,
+        "map": 1
+      },
+      "decisions": 15,
+      "model_calls": 14,
+      "input_tokens": 15920,
+      "output_tokens": 950,
+      "estimated_cost_usd": 0.0006686400000000001,
+      "mean_input_tokens": 1137.1,
+      "enemies": [
+        "TWIG_SLIME_S",
+        "LEAF_SLIME_M",
+        "LEAF_SLIME_S"
+      ],
+      "turns": 4,
+      "starting_hp": 73,
+      "last_combat_hp": 65,
+      "post_combat_hp": 71,
+      "observed_hp_loss": 8,
+      "combat_complete": true,
+      "death": false,
+      "assessment": "clean_candidate"
+    },
+    {
+      "act": 1,
+      "floor": 5,
+      "room": "Monster",
+      "decision_kinds": {
+        "combat": 6,
+        "rewards": 3,
+        "card_reward": 1,
+        "map": 1
+      },
+      "decisions": 11,
+      "model_calls": 10,
+      "input_tokens": 10378,
+      "output_tokens": 596,
+      "estimated_cost_usd": 0.0004358760000000001,
+      "mean_input_tokens": 1037.8,
+      "enemies": [
+        "SHRINKER_BEETLE"
+      ],
+      "turns": 2,
+      "starting_hp": 71,
+      "last_combat_hp": 71,
+      "post_combat_hp": 77,
+      "observed_hp_loss": 0,
+      "combat_complete": true,
+      "death": false,
+      "assessment": "clean_candidate"
+    },
+    {
+      "act": 1,
+      "floor": 6,
+      "room": "Monster",
+      "decision_kinds": {
+        "combat": 9,
+        "rewards": 2,
+        "card_reward": 1,
+        "map": 1
+      },
+      "decisions": 13,
+      "model_calls": 12,
+      "input_tokens": 15570,
+      "output_tokens": 937,
+      "estimated_cost_usd": 0.0006539400000000001,
+      "mean_input_tokens": 1297.5,
+      "enemies": [
+        "INKLET",
+        "INKLET",
+        "INKLET"
+      ],
+      "turns": 3,
+      "starting_hp": 77,
+      "last_combat_hp": 58,
+      "post_combat_hp": 64,
+      "observed_hp_loss": 19,
+      "combat_complete": true,
+      "death": false,
+      "assessment": "review"
+    },
+    {
+      "act": 1,
+      "floor": 7,
+      "room": "Event",
+      "decision_kinds": {
+        "event": 2,
+        "card_selection": 1,
+        "map": 1
+      },
+      "decisions": 4,
+      "model_calls": 3,
+      "input_tokens": 4027,
+      "output_tokens": 219,
+      "estimated_cost_usd": 0.000169134,
+      "mean_input_tokens": 1342.3
+    },
+    {
+      "act": 1,
+      "floor": 8,
+      "room": "Monster",
+      "decision_kinds": {
+        "combat": 14,
+        "rewards": 4,
+        "card_reward": 1,
+        "map": 1
+      },
+      "decisions": 20,
+      "model_calls": 19,
+      "input_tokens": 21495,
+      "output_tokens": 1174,
+      "estimated_cost_usd": 0.0009027900000000001,
+      "mean_input_tokens": 1131.3,
+      "enemies": [
+        "MAWLER"
+      ],
+      "turns": 4,
+      "starting_hp": 73,
+      "last_combat_hp": 58,
+      "post_combat_hp": 64,
+      "observed_hp_loss": 15,
+      "combat_complete": true,
+      "death": false,
+      "assessment": "review"
+    },
+    {
+      "act": 1,
+      "floor": 9,
+      "room": "RestSite",
+      "decision_kinds": {
+        "rest": 2,
+        "card_selection": 1,
+        "map": 1
+      },
+      "decisions": 4,
+      "model_calls": 3,
+      "input_tokens": 5728,
+      "output_tokens": 235,
+      "estimated_cost_usd": 0.00024057600000000002,
+      "mean_input_tokens": 1909.3
+    },
+    {
+      "act": 1,
+      "floor": 10,
+      "room": "Treasure",
+      "decision_kinds": {
+        "treasure": 1,
+        "map": 1
+      },
+      "decisions": 2,
+      "model_calls": 1,
+      "input_tokens": 1252,
+      "output_tokens": 50,
+      "estimated_cost_usd": 5.258400000000001e-05,
+      "mean_input_tokens": 1252.0
+    },
+    {
+      "act": 1,
+      "floor": 11,
+      "room": "RestSite",
+      "decision_kinds": {
+        "rest": 2,
+        "card_selection": 1,
+        "map": 1
+      },
+      "decisions": 4,
+      "model_calls": 3,
+      "input_tokens": 5576,
+      "output_tokens": 227,
+      "estimated_cost_usd": 0.00023419200000000004,
+      "mean_input_tokens": 1858.7
+    },
+    {
+      "act": 1,
+      "floor": 12,
+      "room": "Monster",
+      "decision_kinds": {
+        "combat": 13,
+        "rewards": 4,
+        "card_reward": 2,
+        "map": 1
+      },
+      "decisions": 20,
+      "model_calls": 19,
+      "input_tokens": 25311,
+      "output_tokens": 1624,
+      "estimated_cost_usd": 0.001063062,
+      "mean_input_tokens": 1332.2,
+      "enemies": [
+        "TRACKER_RUBY_RAIDER",
+        "AXE_RUBY_RAIDER",
+        "BRUTE_RUBY_RAIDER"
+      ],
+      "turns": 4,
+      "starting_hp": 64,
+      "last_combat_hp": 42,
+      "post_combat_hp": 48,
+      "observed_hp_loss": 22,
+      "combat_complete": true,
+      "death": false,
+      "assessment": "review"
+    },
+    {
+      "act": 1,
+      "floor": 13,
+      "room": "RestSite",
+      "decision_kinds": {
+        "rest": 2,
+        "map": 1
+      },
+      "decisions": 3,
+      "model_calls": 2,
+      "input_tokens": 3888,
+      "output_tokens": 92,
+      "estimated_cost_usd": 0.00016329600000000003,
+      "mean_input_tokens": 1944.0
+    },
+    {
+      "act": 1,
+      "floor": 14,
+      "room": "Elite",
+      "decision_kinds": {
+        "combat": 9,
+        "rewards": 4,
+        "card_reward": 1,
+        "map": 1
+      },
+      "decisions": 15,
+      "model_calls": 14,
+      "input_tokens": 17233,
+      "output_tokens": 1079,
+      "estimated_cost_usd": 0.0007237860000000001,
+      "mean_input_tokens": 1230.9,
+      "enemies": [
+        "BYRDONIS"
+      ],
+      "turns": 3,
+      "starting_hp": 72,
+      "last_combat_hp": 39,
+      "post_combat_hp": 45,
+      "observed_hp_loss": 33,
+      "combat_complete": true,
+      "death": false,
+      "assessment": "costly"
+    },
+    {
+      "act": 1,
+      "floor": 15,
+      "room": "Monster",
+      "decision_kinds": {
+        "combat": 15,
+        "rewards": 3,
+        "card_reward": 1,
+        "map": 1
+      },
+      "decisions": 20,
+      "model_calls": 19,
+      "input_tokens": 24715,
+      "output_tokens": 1627,
+      "estimated_cost_usd": 0.0010380300000000001,
+      "mean_input_tokens": 1300.8,
+      "enemies": [
+        "NIBBIT",
+        "NIBBIT"
+      ],
+      "turns": 4,
+      "starting_hp": 45,
+      "last_combat_hp": 26,
+      "post_combat_hp": 32,
+      "observed_hp_loss": 19,
+      "combat_complete": true,
+      "death": false,
+      "assessment": "review"
+    },
+    {
+      "act": 1,
+      "floor": 16,
+      "room": "RestSite",
+      "decision_kinds": {
+        "rest": 2,
+        "map": 1
+      },
+      "decisions": 3,
+      "model_calls": 2,
+      "input_tokens": 4116,
+      "output_tokens": 92,
+      "estimated_cost_usd": 0.00017287200000000002,
+      "mean_input_tokens": 2058.0
+    },
+    {
+      "act": 1,
+      "floor": 17,
+      "room": "Boss",
+      "decision_kinds": {
+        "combat": 33,
+        "card_selection": 1
+      },
+      "decisions": 34,
+      "model_calls": 34,
+      "input_tokens": 45705,
+      "output_tokens": 2628,
+      "estimated_cost_usd": 0.0019196100000000002,
+      "mean_input_tokens": 1344.3,
+      "enemies": [
+        "VANTOM"
+      ],
+      "turns": 7,
+      "starting_hp": 56,
+      "last_combat_hp": 0,
+      "post_combat_hp": 0,
+      "observed_hp_loss": 56,
+      "combat_complete": true,
+      "death": true,
+      "assessment": "failed"
+    }
+  ],
+  "total_input_tokens": 219297,
+  "total_output_tokens": 12486,
+  "model_calls": 172,
+  "estimated_cost_usd": 0.009210474000000001,
+  "pricing": {
+    "input_per_million_usd": 0.042,
+    "output_per_million_usd": 0,
+    "source": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+    "basis": "Reported API usage times published rate; not an invoice"
+  },
+  "prompt_component_characters": {
+    "strategy": 688,
+    "rules_and_format": 24252,
+    "card_definitions": 344,
+    "game_state": 688,
+    "legal_actions": 335168
+  },
+  "review_flags": [
+    {
+      "floor": 8,
+      "decision": "72",
+      "type": "defend_without_attack_intent",
+      "hand": [
+        "Defend",
+        "Fight Me!"
+      ],
+      "caveat": "Block-to-damage, retained Block, statuses, or other on-play effects may justify this."
+    }
+  ],
+  "limits": "HP loss sums observed combat HP decreases, including fatal loss, excluding healing. Engine combat-end HP can include Burning Blood. Component sizes are JSON character counts, not tokenizer counts. Clean candidates are not certified solved encounters."
+}

@@ -1,0 +1,303 @@
+{
+  "status": "OFFLINE PROPOSAL \u2014 NOT APPROVED OR EXECUTED",
+  "decision": "2",
+  "before": {
+    "model": "jev-latest",
+    "state": {
+      "rules": "Choose one offered action. Card text is authoritative. Draw order and future RNG are unknown.",
+      "strategy": "Maximize survival and the chance of winning the run. Build a coherent deck from the offers; do not force an archetype.\nCheck immediate lethal and preventable incoming damage. Prefer efficient kills and avoid unnecessary setup if the fight is nearly over. Preserve health and consumables for harder rooms, but use a potion when the saving is substantial.",
+      "character": "ironclad",
+      "format": "decision-v2; card_ref uses card_definitions; omitted collections are empty; unordered piles list card/count; enemy_index refers to enemies.",
+      "card_definitions": {
+        "c0": {
+          "id": "BASH",
+          "name": "Bash",
+          "type": "Attack",
+          "upgraded": false,
+          "cost": 2,
+          "text": "Deal 8 damage.\nApply 2 Vulnerable.",
+          "variables": {
+            "Damage": 8,
+            "VulnerablePower": 2
+          }
+        },
+        "c1": {
+          "id": "STRIKE_IRONCLAD",
+          "name": "Strike",
+          "type": "Attack",
+          "upgraded": false,
+          "cost": 1,
+          "text": "Deal 6 damage.",
+          "variables": {
+            "Damage": 6
+          }
+        },
+        "c2": {
+          "id": "DEFEND_IRONCLAD",
+          "name": "Defend",
+          "type": "Skill",
+          "upgraded": false,
+          "cost": 1,
+          "text": "Gain 5 Block.",
+          "variables": {
+            "Block": 5
+          }
+        },
+        "c3": {
+          "id": "BASH",
+          "name": "Bash",
+          "type": "Attack",
+          "upgraded": false,
+          "cost": 2,
+          "text": "Deal 8 damage.\nApply 2 Vulnerable.",
+          "preview_damage_per_hit": 8,
+          "variables": {
+            "Damage": 8,
+            "VulnerablePower": 2
+          }
+        },
+        "c4": {
+          "id": "STRIKE_IRONCLAD",
+          "name": "Strike",
+          "type": "Attack",
+          "upgraded": false,
+          "cost": 1,
+          "text": "Deal 6 damage.",
+          "preview_damage_per_hit": 6,
+          "variables": {
+            "Damage": 6
+          }
+        }
+      },
+      "decision": {
+        "kind": "combat",
+        "state": {
+          "player": {
+            "name": "player",
+            "hp": 80,
+            "max_hp": 80,
+            "block": 0
+          },
+          "energy": 3,
+          "turn": 1,
+          "boast": 0,
+          "boast_attacks": 0,
+          "hand": [
+            {
+              "index": 0,
+              "card": {
+                "card_ref": "c0"
+              }
+            },
+            {
+              "index": 1,
+              "card": {
+                "card_ref": "c1"
+              }
+            },
+            {
+              "index": 2,
+              "card": {
+                "card_ref": "c2"
+              }
+            },
+            {
+              "index": 3,
+              "card": {
+                "card_ref": "c1"
+              }
+            },
+            {
+              "index": 4,
+              "card": {
+                "card_ref": "c2"
+              }
+            }
+          ],
+          "draw_pile_unordered": [
+            {
+              "card": {
+                "card_ref": "c2"
+              },
+              "count": 2
+            },
+            {
+              "card": {
+                "card_ref": "c1"
+              },
+              "count": 3
+            }
+          ],
+          "relics": [
+            {
+              "id": "BURNING_BLOOD",
+              "text": "At the end of combat, heal 6 HP."
+            }
+          ],
+          "enemies": [
+            {
+              "index": 0,
+              "creature": {
+                "name": "NIBBIT",
+                "hp": 42,
+                "max_hp": 42,
+                "block": 0
+              },
+              "intents": [
+                {
+                  "type": "Attack",
+                  "total_damage": 12
+                }
+              ]
+            }
+          ],
+          "stars": 0,
+          "orb_slots": 0
+        }
+      }
+    },
+    "questions": {
+      "action": {
+        "type": "choice",
+        "instructions": "Choose the best legal play, potion action, or end turn. Check incoming damage and lethal first.",
+        "criteria": {
+          "a0": "{\"action\":\"play_card\",\"hand_index\":0,\"card\":{\"card_ref\":\"c3\"},\"enemy_index\":0}",
+          "a1": "{\"action\":\"play_card\",\"hand_index\":1,\"card\":{\"card_ref\":\"c4\"},\"enemy_index\":0}",
+          "a2": "{\"action\":\"play_card\",\"hand_index\":2,\"card\":{\"card_ref\":\"c2\"},\"enemy_index\":-1}",
+          "a3": "{\"action\":\"play_card\",\"hand_index\":3,\"card\":{\"card_ref\":\"c4\"},\"enemy_index\":0}",
+          "a4": "{\"action\":\"play_card\",\"hand_index\":4,\"card\":{\"card_ref\":\"c2\"},\"enemy_index\":-1}",
+          "a5": "{\"action\":\"end_turn\"}"
+        }
+      }
+    }
+  },
+  "after": {
+    "state": {
+      "rules": "Choose one offered action. Card text is authoritative. Draw order and future RNG are unknown.",
+      "strategy": "Maximize survival and the chance of winning the run. Build a coherent deck from the offers; do not force an archetype.\nCheck immediate lethal and preventable incoming damage. Prefer efficient kills and avoid unnecessary setup if the fight is nearly over. Preserve health and consumables for harder rooms, but use a potion when the saving is substantial.",
+      "character": "ironclad",
+      "format": "card references cards; unordered piles use counts; enemy_index indexes enemies; omitted collections empty.",
+      "cards": {
+        "c0": {
+          "name": "Bash",
+          "type": "Attack",
+          "cost": 2,
+          "text": "Deal 8 damage.\nApply 2 Vulnerable."
+        },
+        "c1": {
+          "name": "Strike",
+          "type": "Attack",
+          "cost": 1,
+          "text": "Deal 6 damage."
+        },
+        "c2": {
+          "name": "Defend",
+          "type": "Skill",
+          "cost": 1,
+          "text": "Gain 5 Block."
+        }
+      },
+      "decision": {
+        "kind": "combat",
+        "state": {
+          "player": {
+            "name": "player",
+            "hp": 80,
+            "max_hp": 80,
+            "block": 0
+          },
+          "energy": 3,
+          "turn": 1,
+          "boast": 0,
+          "boast_attacks": 0,
+          "hand": [
+            {
+              "index": 0,
+              "card": {
+                "card": "c0"
+              }
+            },
+            {
+              "index": 1,
+              "card": {
+                "card": "c1"
+              }
+            },
+            {
+              "index": 2,
+              "card": {
+                "card": "c2"
+              }
+            },
+            {
+              "index": 3,
+              "card": {
+                "card": "c1"
+              }
+            },
+            {
+              "index": 4,
+              "card": {
+                "card": "c2"
+              }
+            }
+          ],
+          "draw_pile_unordered": [
+            {
+              "card": {
+                "card": "c2"
+              },
+              "count": 2
+            },
+            {
+              "card": {
+                "card": "c1"
+              },
+              "count": 3
+            }
+          ],
+          "relics": [
+            {
+              "id": "BURNING_BLOOD",
+              "text": "At the end of combat, heal 6 HP."
+            }
+          ],
+          "enemies": [
+            {
+              "index": 0,
+              "creature": {
+                "name": "NIBBIT",
+                "hp": 42,
+                "max_hp": 42,
+                "block": 0
+              },
+              "intents": [
+                {
+                  "type": "Attack",
+                  "total_damage": 12
+                }
+              ]
+            }
+          ],
+          "stars": 0,
+          "orb_slots": 0
+        }
+      }
+    },
+    "questions": {
+      "action": {
+        "type": "choice",
+        "instructions": "Choose the best legal play, potion action, or end turn. Check incoming damage and lethal first.",
+        "criteria": {
+          "a0": "{\"action\":\"play_card\",\"hand_index\":0,\"card\":{\"card\":\"c0\"},\"enemy_index\":0,\"damage_per_hit\":8}",
+          "a1": "{\"action\":\"play_card\",\"hand_index\":1,\"card\":{\"card\":\"c1\"},\"enemy_index\":0,\"damage_per_hit\":6}",
+          "a2": "{\"action\":\"play_card\",\"hand_index\":2,\"card\":{\"card\":\"c2\"},\"enemy_index\":-1}",
+          "a3": "{\"action\":\"play_card\",\"hand_index\":3,\"card\":{\"card\":\"c1\"},\"enemy_index\":0,\"damage_per_hit\":6}",
+          "a4": "{\"action\":\"play_card\",\"hand_index\":4,\"card\":{\"card\":\"c2\"},\"enemy_index\":-1}",
+          "a5": "{\"action\":\"end_turn\"}"
+        }
+      }
+    },
+    "model": "jev-latest"
+  }
+}

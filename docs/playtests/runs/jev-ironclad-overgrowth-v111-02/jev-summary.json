@@ -1,0 +1,35 @@
+{
+  "mode": "jev",
+  "result": {
+    "outcome": "death",
+    "process_exit": 0,
+    "elapsed_seconds": 303.68,
+    "completed_run": true,
+    "original_save_unchanged": true
+  },
+  "decision_count": 292,
+  "decision_kinds": {
+    "map": 17,
+    "combat": 209,
+    "rewards": 32,
+    "card_reward": 9,
+    "shop": 3,
+    "card_selection": 10,
+    "event": 2,
+    "rest": 8,
+    "treasure": 2
+  },
+  "model_call_count": 272,
+  "action_sources": {
+    "sole_legal_action": 20,
+    "jev": 272
+  },
+  "models_reported": [
+    "jev-1.13.0"
+  ],
+  "input_tokens": 668006,
+  "output_tokens": 21013,
+  "median_decision_seconds": 0.21238660457311198,
+  "low_confidence_count": 111,
+  "notes": "Confidence is model certainty, not win probability. Mock and replay runs are not new Jev balance evidence."
+}

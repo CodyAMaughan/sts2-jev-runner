@@ -1,0 +1,9 @@
+{
+  "path": "game.mp4",
+  "exit_code": 0,
+  "audio": false,
+  "status": "incomplete",
+  "duration_seconds": 8.2,
+  "expected_capture_seconds": 179.506,
+  "reason": "Video duration is shorter than the capture interval; successful encoder exit was insufficient."
+}

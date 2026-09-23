@@ -1,0 +1,104 @@
+{
+  "ended_with_affordable_attack": [],
+  "draft_choices": [
+    {
+      "decision": "15",
+      "floor": 2,
+      "chosen": "Fight Me!",
+      "options": [
+        "Perfected Strike",
+        "Battle Trance",
+        "Fight Me!",
+        "Skip"
+      ]
+    },
+    {
+      "decision": "37",
+      "floor": 4,
+      "chosen": "Burning Pact",
+      "options": [
+        "True Grit",
+        "Burning Pact",
+        "Forgotten Ritual",
+        "Skip"
+      ]
+    },
+    {
+      "decision": "51",
+      "floor": 5,
+      "chosen": "Anger",
+      "options": [
+        "Bully",
+        "Uppercut",
+        "Anger",
+        "Skip"
+      ]
+    },
+    {
+      "decision": "73",
+      "floor": 6,
+      "chosen": "Skip",
+      "options": [
+        "Perfected Strike",
+        "Vicious",
+        "Body Slam",
+        "Skip"
+      ]
+    },
+    {
+      "decision": "100",
+      "floor": 8,
+      "chosen": "Thunderclap",
+      "options": [
+        "Body Slam",
+        "Pillage",
+        "Thunderclap",
+        "Skip"
+      ]
+    },
+    {
+      "decision": "128",
+      "floor": 12,
+      "chosen": "Skip",
+      "options": [
+        "Stampede",
+        "Brand",
+        "Juggling",
+        "Skip"
+      ]
+    },
+    {
+      "decision": "148",
+      "floor": 14,
+      "chosen": "Burning Pact",
+      "options": [
+        "Burning Pact",
+        "Breakthrough",
+        "Perfected Strike",
+        "Skip"
+      ]
+    },
+    {
+      "decision": "170",
+      "floor": 15,
+      "chosen": "Anger",
+      "options": [
+        "Body Slam",
+        "Armaments",
+        "Anger",
+        "Skip"
+      ]
+    },
+    {
+      "decision": "206",
+      "floor": 17,
+      "chosen": "Skip",
+      "options": [
+        "Feed",
+        "Crimson Mantle",
+        "Juggernaut",
+        "Skip"
+      ]
+    }
+  ]
+}
