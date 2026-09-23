@@ -28,11 +28,35 @@ RULES = ('Play Slay the Spire 2 with the Dealmaker mod. Card text in the observa
          'Do not treat confidence as a probability of winning. Prioritize avoiding preventable lethal damage.')
 
 
-def request(url, token, payload=None, timeout=35):
+# Transient failures (network blips, upstream 5xx like Cloudflare's 520/522/524) are
+# retried with backoff. Anything else — 4xx, a malformed response — is not: retrying
+# a bad request or a rejected key forever just burns time without becoming valid.
+RETRYABLE_HTTP_CODES = {500, 502, 503, 504, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530}
+RETRY_ATTEMPTS = 4
+RETRY_BACKOFF_SECONDS = 2
+
+
+def request(url, token, payload=None, timeout=35, retries=RETRY_ATTEMPTS, backoff=RETRY_BACKOFF_SECONDS):
     data = None if payload is None else json.dumps(payload).encode()
-    req = urllib.request.Request(url, data=data, headers={'Authorization': 'Bearer '+token, 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (compatible; Dealmaker-Jev-Controller/1.0)'})
-    with urllib.request.urlopen(req, timeout=timeout) as response:
-        return json.load(response)
+    headers = {'Authorization': 'Bearer '+token, 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (compatible; Dealmaker-Jev-Controller/1.0)'}
+    last_error = None
+    for attempt in range(1, retries + 1):
+        req = urllib.request.Request(url, data=data, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                return json.load(response)
+        except urllib.error.HTTPError as error:
+            if error.code not in RETRYABLE_HTTP_CODES or attempt == retries:
+                raise
+            last_error = error
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as error:
+            if attempt == retries:
+                raise
+            last_error = error
+        wait = backoff * (2 ** (attempt - 1))
+        print(f'request retry {attempt}/{retries - 1} after {type(last_error).__name__}: {last_error} (waiting {wait}s)', flush=True)
+        time.sleep(wait)
+    raise last_error  # pragma: no cover — loop always returns or raises above
 
 
 def fingerprint(observation):
@@ -154,7 +178,7 @@ def main():
                 if time.monotonic()-start > args.max_seconds:
                     record({'kind':'stopped','reason':'time_budget'}); return
                 try:
-                    obs = request(f'http://127.0.0.1:{args.port}/state', token, timeout=5)
+                    obs = request(f'http://127.0.0.1:{args.port}/state', token, timeout=5, retries=1)
                 except (urllib.error.URLError, TimeoutError, ConnectionError):
                     time.sleep(.2); continue
                 if obs.get('status') == 'decision' and obs['decision_id'] not in seen:
@@ -189,7 +213,7 @@ def main():
                     from replay_controls import ReplaySeek
                     try: controls.wait(count, len(replay_rows), obs)
                     except ReplaySeek as seek:
-                        ack=request(f'http://127.0.0.1:{args.port}/reset',token,{})
+                        ack=request(f'http://127.0.0.1:{args.port}/reset',token,{},retries=1)
                         if not ack.get('accepted'): raise RuntimeError('Game refused in-process replay reset')
                         record({'kind':'replay_seek','from_index':count,'to_index':seek.args[0]})
                         count=0;seen.clear();controls.status(0,len(replay_rows),'Reconstructing')
@@ -215,7 +239,7 @@ def main():
                     'request':payload,'response':response,'action_id':chosen,'source':source,'strategy_selection':strategy_selection if not args.replay else previous.get('strategy_selection'),'latency_seconds':time.monotonic()-before,**model_meta})
             if args.decision_delay:
                 time.sleep(args.decision_delay)
-            ack = request(f'http://127.0.0.1:{args.port}/action',token,{'decision_id':obs['decision_id'],'action_id':chosen})
+            ack = request(f'http://127.0.0.1:{args.port}/action',token,{'decision_id':obs['decision_id'],'action_id':chosen},retries=1)
             if not ack.get('accepted'):
                 raise RuntimeError('Game rejected action')
             memory.observe(obs,chosen)
