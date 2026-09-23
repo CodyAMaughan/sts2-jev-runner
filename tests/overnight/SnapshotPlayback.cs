@@ -45,25 +45,10 @@ static class SnapshotPlayback
         Harness.Log("snapshot_loaded",new{index,decision_id=envelope.DecisionId,kind=envelope.Kind,milliseconds=watch.Elapsed.TotalMilliseconds,earlier_actions_executed=0,native_state_verified=true});
     }
     static async Task Present(RunState run,DecisionSnapshots.Envelope envelope) {
-        await PreloadManager.LoadRunAssets(run.Players.Select(p=>p.Character));
-        await PreloadManager.LoadActAssets(run.Act);
-        NGame.Instance!.RootSceneContainer.SetCurrentScene(NRun.Create(run));
-        if(run.CurrentRoom is CombatRoom combatRoom && combatRoom.CombatState!=null && envelope.Kind is "combat" or "card_selection") {
-            await PreloadManager.LoadRoomCombatAssets(combatRoom.Encounter,run);
-            var scene=NCombatRoom.Create(combatRoom,CombatRoomMode.ActiveCombat)!;
-            // SetCurrentRoom publishes an active-screen event immediately;
-            // suppress its combat Enable callback until Ui.Activate has bound state.
-            AccessTools.Property(typeof(CombatManager),"IsInProgress").SetValue(CombatManager.Instance,false);
-            try {NRun.Instance!.SetCurrentRoom(scene);scene.SetUpBackground(run);scene.Ui.Activate(combatRoom.CombatState);}
-            finally {AccessTools.Property(typeof(CombatManager),"IsInProgress").SetValue(CombatManager.Instance,envelope.CombatInProgress);}
-            foreach(var card in run.Players[0].PlayerCombatState?.Hand.Cards ?? Enumerable.Empty<MegaCrit.Sts2.Core.Models.CardModel>()) {
-                var node=NCard.Create(card)!;scene.Ui.Hand.Add(node);
-                if(scene.Ui.Hand.GetCard(card)==null)throw new InvalidDataException("Snapshot card failed to bind into hand");
-            }
-            foreach(var creature in combatRoom.CombatState.Creatures)if(scene.GetCreatureNode(creature)==null)throw new InvalidDataException("Snapshot creature failed to bind into combat room");
+        var scene=await DecisionSnapshots.PresentCombatScene(run,envelope);
+        if(scene!=null) {
             // Recorded playback controls own navigation; avoid accidental live actions.
             var shield=new Control{MouseFilter=Control.MouseFilterEnum.Stop};shield.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);scene.AddChild(shield);
-            Harness.Log("snapshot_scene_verified",new{decision_id=envelope.DecisionId,kind=envelope.Kind,hand=run.Players[0].PlayerCombatState?.Hand.Cards.Count,creatures=combatRoom.CombatState.Creatures.Count});
         } else {
             // Other decision types retain their complete native state. Render
             // the recorded choice text without executing event/shop callbacks.

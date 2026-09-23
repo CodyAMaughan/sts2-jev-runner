@@ -3,9 +3,15 @@ using System.Text.Json;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Multiplayer;
 using MegaCrit.Sts2.Core.Multiplayer.Game.PeerInput;
+using MegaCrit.Sts2.Core.Nodes;
+using MegaCrit.Sts2.Core.Nodes.Cards;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Rooms;
 namespace OvernightHarness;
 public static class DecisionSnapshots
 {
@@ -50,9 +56,65 @@ public static class DecisionSnapshots
         var combat=run.Players[0].Creature.CombatState;
         AccessTools.Field(typeof(CombatManager),"_state").SetValue(CombatManager.Instance,combat);
         AccessTools.Property(typeof(CombatManager),"IsInProgress").SetValue(CombatManager.Instance,envelope.CombatInProgress);
+        // A normal combat start registers every card's network ID as a side
+        // effect (NetCombatCardDb.StartCombat, called from the real combat-start
+        // path we never ran). Without it, PlayCardAction throws the moment a
+        // resumed run tries to actually play a restored card: "could not be
+        // found in combat ID database." Read-only playback never hits this
+        // (it never submits an action), but any live-interaction consumer needs
+        // it. StartCombat resets and re-registers, so it's safe to call again.
+        if(envelope.CombatInProgress)NetCombatCardDb.Instance.StartCombat(run.Players);
+        // Same pattern, a second subsystem: the game's own action-replay/checksum
+        // writer (CombatReplayWriter) subscribes to every enqueued action and
+        // requires RecordInitialState() first — normally called from the same
+        // real combat/room-entry code we bypass. Without it, actions are enqueued
+        // and accepted by our bridge, but the game's internal handler throws
+        // ("RecordInitialState must be called first"), catches its own exception,
+        // and the action never actually applies — no crash, no error surfaced to
+        // us, just a state that silently never changes.
+        if(manager.CombatReplayWriter.IsEnabled)manager.CombatReplayWriter.RecordInitialState(manager.ToSave(null));
+        // Third instance of the same pattern: ActionQueueSynchronizer tracks its
+        // own CombatState (NotInCombat/PlayPhase/NotPlayPhase/...), normally
+        // driven by SetCombatState() calls as combat/turns begin and end. It
+        // defaults to NotInCombat/NotPlayPhase — and RequestEnqueue silently
+        // *defers* any CombatPlayPhaseOnly action (i.e. every card play) into a
+        // holding queue whenever CombatState isn't PlayPhase, with no error. A
+        // snapshot is only ever captured at a decision point (a live choice was
+        // offered), and play_card is only ever offered during the player's own
+        // turn, so PlayPhase is always the correct state for an injected combat.
+        if(envelope.CombatInProgress)manager.ActionQueueSynchronizer.SetCombatState(ActionSynchronizerCombatState.PlayPhase);
         string actual=JsonSerializer.Serialize(NetFullCombatState.FromRun(run,null),Json);
         if(Comparable(actual)!=Comparable(envelope.NativeState))throw new InvalidDataException("Injected snapshot differs from captured native state at "+envelope.DecisionId);
         return run;
+    }
+    // Shared by SnapshotPlayback (adds a shield to keep this read-only) and
+    // SnapshotResume (uses it as-is, for real input). A real Godot NCombatRoom
+    // scene — card/creature nodes bound in — turns out to not just be for
+    // display: PlayCardAction's execution itself reaches into the scene
+    // (CardPileCmd.CreateCardNodeAndUpdateVisuals) and throws a
+    // NullReferenceException without it, even headless. A normal run builds
+    // this scene as a side effect of its own real combat-start; injection skips
+    // that too, same pattern as everything else in Inject(). Returns null for
+    // a non-combat decision (nothing to build here).
+    public static async Task<NCombatRoom?> PresentCombatScene(RunState run,Envelope envelope) {
+        await PreloadManager.LoadRunAssets(run.Players.Select(p=>p.Character));
+        await PreloadManager.LoadActAssets(run.Act);
+        NGame.Instance!.RootSceneContainer.SetCurrentScene(NRun.Create(run));
+        if(run.CurrentRoom is not CombatRoom combatRoom || combatRoom.CombatState==null || envelope.Kind is not ("combat" or "card_selection"))return null;
+        await PreloadManager.LoadRoomCombatAssets(combatRoom.Encounter,run);
+        var scene=NCombatRoom.Create(combatRoom,CombatRoomMode.ActiveCombat)!;
+        // SetCurrentRoom publishes an active-screen event immediately;
+        // suppress its combat Enable callback until Ui.Activate has bound state.
+        AccessTools.Property(typeof(CombatManager),"IsInProgress").SetValue(CombatManager.Instance,false);
+        try {NRun.Instance!.SetCurrentRoom(scene);scene.SetUpBackground(run);scene.Ui.Activate(combatRoom.CombatState);}
+        finally {AccessTools.Property(typeof(CombatManager),"IsInProgress").SetValue(CombatManager.Instance,envelope.CombatInProgress);}
+        foreach(var card in run.Players[0].PlayerCombatState?.Hand.Cards ?? Enumerable.Empty<MegaCrit.Sts2.Core.Models.CardModel>()) {
+            var node=NCard.Create(card)!;scene.Ui.Hand.Add(node);
+            if(scene.Ui.Hand.GetCard(card)==null)throw new InvalidDataException("Snapshot card failed to bind into hand");
+        }
+        foreach(var creature in combatRoom.CombatState.Creatures)if(scene.GetCreatureNode(creature)==null)throw new InvalidDataException("Snapshot creature failed to bind into combat room");
+        Harness.Log("snapshot_scene_verified",new{decision_id=envelope.DecisionId,kind=envelope.Kind,hand=run.Players[0].PlayerCombatState?.Hand.Cards.Count,creatures=combatRoom.CombatState.Creatures.Count});
+        return scene;
     }
     public static string Comparable(string json) {
         var obj=System.Text.Json.Nodes.JsonNode.Parse(json)!.AsObject();
