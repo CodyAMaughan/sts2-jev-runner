@@ -19,6 +19,10 @@ def main():
     p.add_argument('--max-decisions',type=int,default=1000);p.add_argument('--timeout',type=int,default=3600)
     p.add_argument('--port',type=int,default=18765);p.add_argument('--mock',action='store_true');p.add_argument('--replay',type=Path)
     p.add_argument('--replay-controls',type=Path);p.add_argument('--seek-index',type=int,default=0)
+    p.add_argument('--snapshot-resume',type=Path,help='Inject this captured <n>.json.gz snapshot into the fresh '
+                    'game instead of starting normally, landing it exactly at --seek-index instantly instead of '
+                    'replaying every earlier decision to get there. Requires --replay (the actions from '
+                    '--seek-index onward are still replayed normally, with real animation, from that point).')
     p.add_argument('--no-snapshots',action='store_true',help='Disable native decision snapshots for this run')
     display=p.add_mutually_exclusive_group()
     display.add_argument('--headed',action='store_true',help='Watch play in a 1280×720 game window')
@@ -38,6 +42,7 @@ def main():
     if not 0 <= delay <= 60:p.error('--decision-delay must be between 0 and 60 seconds')
     if not a.mock and not a.replay and a.backend=='jev' and not typesafe_key():p.error('Set TYPESAFE_API_KEY in .env.local or your environment before starting a live run')
     if a.mock and a.replay:p.error('Choose mock or replay, not both')
+    if a.snapshot_resume and not a.replay:p.error('--snapshot-resume requires --replay')
     artifact=root/'docs/playtests/runs'/a.id
     if artifact.exists():p.error('Run ID already exists; choose a new ID')
     env=os.environ.copy();env.update(DEALMAKER_REMOTE='1',DEALMAKER_REMOTE_STRATEGY=a.strategy,DEALMAKER_BRIDGE_PORT=str(a.port),DEALMAKER_BRIDGE_TOKEN=secrets.token_hex(24))
@@ -64,6 +69,7 @@ def main():
     elif version_packet(a.strategy_version).get('prompt_format')=='decision-v3':env['DEALMAKER_RULES_V2']='1'
     if not a.replay and version_packet(a.strategy_version).get('planning_context'):env['DEALMAKER_PLANNING_CONTEXT']='1'
     if a.replay_controls:env['DEALMAKER_REPLAY_CONTROLS']=str(a.replay_controls.resolve())
+    if a.snapshot_resume:env['DEALMAKER_SNAPSHOT_RESUME']=str(a.snapshot_resume.resolve())
     game_env=env.copy()
     for key in ('TYPESAFE_API_KEY','BIFROST_API_KEY','OPENAI_API_KEY','ANTHROPIC_API_KEY','CODEX_API_KEY'):game_env.pop(key,None)
     game=subprocess.Popen([sys.executable,str(root/'scripts/run_playtest.py'),'--id',a.id,'--seed',a.seed,'--policy','balanced','--timeout',str(a.timeout),'--headed' if a.headed else '--headless'],cwd=root,env=game_env)
@@ -85,6 +91,7 @@ def main():
         if a.mock:args.append('--mock')
         if a.replay:args+=['--replay',str(a.replay.resolve())]
         if a.replay_controls:args+=['--replay-controls',str(a.replay_controls.resolve()),'--seek-index',str(a.seek_index)]
+        if a.snapshot_resume:args+=['--replay-start-index',str(a.seek_index)]
         if a.strategy_file:args+=['--strategy-file',str(a.strategy_file.resolve())]
         args+=['--character',a.character,'--backend',a.backend]
         with (artifact/'controller.log').open('x') as output:

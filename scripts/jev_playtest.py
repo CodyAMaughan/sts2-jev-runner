@@ -125,6 +125,12 @@ def main():
     ap.add_argument('--replay', type=Path, help='Replay recorded decisions, aborting on observation mismatch')
     ap.add_argument('--replay-controls', type=Path)
     ap.add_argument('--seek-index', type=int, default=0)
+    ap.add_argument('--replay-start-index', type=int, default=0,
+                     help='Start replaying from this recorded-decision index instead of 0. '
+                          'For pairing with a game launched via DEALMAKER_SNAPSHOT_RESUME, which '
+                          'already lands the live game at this exact position — replaying decisions '
+                          '0..N-1 first would be redundant (and diverge, since they never happened '
+                          'in this process).')
     ap.add_argument('--decision-delay', type=float, default=0, help='Seconds to pause before each action')
     args = ap.parse_args()
     if not args.model:
@@ -143,6 +149,8 @@ def main():
         ap.error('Set TYPESAFE_API_KEY locally; do not paste it into chat')
     if args.mock and args.replay:
         ap.error('Choose mock or replay, not both')
+    if args.replay_start_index and not args.replay:
+        ap.error('--replay-start-index requires --replay')
     from decision_models import JevModel,BifrostModel,CliModel,InvalidDecision
     adapter=None
     if not args.mock and not args.replay:
@@ -172,7 +180,7 @@ def main():
             log.write(json.dumps({'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()), **data})+'\n'); log.flush()
         record({'kind':'controller', 'mode':'replay' if replay else 'mock_transport_test' if args.mock else args.backend, 'backend':args.backend, 'prompt_version':strategy_package.packet.get('prompt_format','decision-v2'), 'model':args.model, 'strategy':strategy, 'character':args.character, 'decision_delay_seconds':args.decision_delay,'planning_context':strategy_package.packet.get('planning_context',False),'strategy_packet_sha256':strategy_package.sha256 if not args.replay else None})
         seen = set()
-        count=0
+        count=args.replay_start_index
         while count < args.max_decisions:
             while True:
                 if time.monotonic()-start > args.max_seconds:

@@ -86,7 +86,7 @@ def current_replay():
     if not paths:return None
     path=paths[0];state=read_json(path,{})
     meta=read_json(path.parent/'session.json',{})
-    state.update(session=path.parent.name,source=Path(meta.get('source','')).name,
+    state.update(session=path.parent.name,source=Path(meta.get('source','')).name,mechanism=meta.get('mechanism','direct_snapshot'),
                  connected=time.time()-path.stat().st_mtime<8 and state.get('mode') not in ('Stopped','Failed','Finished'),updated=path.stat().st_mtime)
     return state
 
@@ -181,16 +181,30 @@ class Handler(BaseHTTPRequestHandler):
             if path=='/api/replay/launch':
                 directory=run_dir(data['run']);at=int(data.get('at',1))
                 if not 1<=at<=sum(r.get('kind')=='decision' for r in records(directory/'jev-decisions.jsonl')):raise ValueError('Move outside recorded run')
+                mode=data.get('mode','snapshot')
+                mechanism={'snapshot':'direct_snapshot','live':'legacy_reconstruction','resume':'snapshot_resume'}.get(mode)
+                if mechanism is None:raise ValueError('Invalid replay mode')
                 current=current_replay()
-                if current and current['connected'] and current['source']==directory.name:
+                # A running snapshot session can seek in place instantly; a live
+                # session's "seek" is itself a reset-and-refastforward, so route it
+                # through the same in-place command rather than spawning a second one.
+                # A resume session can't seek in place at all — landing anywhere new
+                # is itself a fresh injection, so every launch spawns its own process.
+                if mode!='resume' and current and current['connected'] and current['source']==directory.name and current.get('mechanism')==mechanism:
                     atomic_json(REPLAYS/current['session']/'command.json',dict(action='seek',index=at-1,nonce=secrets.token_hex(12)))
                     return self.send(200,{'accepted':True,'seeking':True})
-                return self.send(200,spawn(['scripts/watch_replay.py',str(directory),'--at',str(at),'--headed' if data.get('headed',False) else '--headless'],'replay'))
+                script={'snapshot':'scripts/watch_replay.py','live':'scripts/watch_replay_live.py','resume':'scripts/watch_replay_resume.py'}[mode]
+                return self.send(200,spawn([script,str(directory),'--at',str(at),'--headed' if data.get('headed',False) else '--headless'],'replay'))
             if path=='/api/replay/control':
                 replay=current_replay()
                 if not replay or not replay['connected']:raise ValueError('No connected replay. Launch one from a recorded run.')
                 action=data.get('action');command=dict(action=action,nonce=secrets.token_hex(12))
                 if action not in ('back','step','play','pause','rate','seek','stop'):raise ValueError('Invalid replay action')
+                # A resume session was launched by injecting one specific snapshot;
+                # there's no in-process reset path back to a different position (that
+                # only exists for the seed-replay mechanism). Landing somewhere else
+                # means relaunching via /api/replay/launch, not seeking in place.
+                if action in ('back','seek') and replay.get('mechanism')=='snapshot_resume':raise ValueError('A resumed session can\'t seek to a different move in place — use "Load selected move" with the new target instead')
                 if action=='rate':
                     seconds=float(data.get('seconds',1))
                     if not 0<=seconds<=60:raise ValueError('Invalid delay')
