@@ -1,8 +1,11 @@
 using System.IO.Compression;
 using System.Text.Json;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
+using MegaCrit.Sts2.Core.Multiplayer;
+using MegaCrit.Sts2.Core.Multiplayer.Game.PeerInput;
 namespace OvernightHarness;
 public static class DecisionSnapshots
 {
@@ -25,6 +28,36 @@ public static class DecisionSnapshots
         string hash=Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(typeof(RunState).Assembly.Location)));
         if(hash!=envelope.GameAssemblyHash)throw new InvalidDataException("Snapshot game assembly differs");
         return envelope;
+    }
+    // Shared by SnapshotPlayback (read-only viewing) and SnapshotResume (hands
+    // control back to the live decision loop). Restores the captured RunState and
+    // installs it as the live RunManager/CombatManager state via the same
+    // reflection path, then verifies the injected state matches what was captured
+    // — this is the same round-trip check DecisionSnapshotGraph.Capture already
+    // performs at capture time, re-run here against the actual live singletons
+    // rather than a throwaway comparison object.
+    public static RunState Inject(Envelope envelope) {
+        var run=(RunState)envelope.Graph.Restore();
+        var manager=RunManager.Instance;
+        bool initialize=manager.DebugOnlyGetState()==null;
+        AccessTools.Property(typeof(RunManager),"State").SetValue(manager,run);
+        if(initialize) {
+            var net=new NetSingleplayerGameService();
+            AccessTools.Method(typeof(RunManager),"InitializeShared").Invoke(manager,new object?[]{net,new PeerInputSynchronizer(net),false,null,0L,0L,0L,0});
+            AccessTools.Method(typeof(RunManager),"InitializeRunLobby").Invoke(manager,new object[]{net,run});
+            MegaCrit.Sts2.Core.Context.LocalContext.NetId=net.NetId;
+        }
+        var combat=run.Players[0].Creature.CombatState;
+        AccessTools.Field(typeof(CombatManager),"_state").SetValue(CombatManager.Instance,combat);
+        AccessTools.Property(typeof(CombatManager),"IsInProgress").SetValue(CombatManager.Instance,envelope.CombatInProgress);
+        string actual=JsonSerializer.Serialize(NetFullCombatState.FromRun(run,null),Json);
+        if(Comparable(actual)!=Comparable(envelope.NativeState))throw new InvalidDataException("Injected snapshot differs from captured native state at "+envelope.DecisionId);
+        return run;
+    }
+    public static string Comparable(string json) {
+        var obj=System.Text.Json.Nodes.JsonNode.Parse(json)!.AsObject();
+        foreach(string key in new[]{"nextChoiceIds","nextRewardIds","lastExecutedHookId","lastExecutedActionId"})obj.Remove(key);
+        return obj.ToJsonString();
     }
     public static void Capture(string id,string kind,object observation)
     {

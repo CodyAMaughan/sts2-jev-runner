@@ -31,33 +31,14 @@ static class SnapshotPlayback
         Directory.CreateDirectory(controls);string path=Path.Combine(controls,"status.json");
         File.WriteAllText(path+".tmp",JsonSerializer.Serialize(new{index=current,total,mode,seconds=delay,mechanism="direct_snapshot",reconstruction_index=(int?)null}));File.Move(path+".tmp",path,true);
     }
-    static string Comparable(string json) {
-        var obj=JsonNode.Parse(json)!.AsObject();
-        foreach(string key in new[]{"nextChoiceIds","nextRewardIds","lastExecutedHookId","lastExecutedActionId"})obj.Remove(key);
-        return obj.ToJsonString();
-    }
     static async Task Load(int index) {
         var watch=Stopwatch.StartNew();
         var envelope=DecisionSnapshots.Read(Path.Combine(directory,(index+1)+".json.gz"));
-        var run=(RunState)envelope.Graph.Restore();
-        var manager=RunManager.Instance;
-        bool initialize=manager.DebugOnlyGetState()==null;
-        AccessTools.Property(typeof(RunManager),"State").SetValue(manager,run);
-        if(initialize) {
-            var net=new NetSingleplayerGameService();
-            AccessTools.Method(typeof(RunManager),"InitializeShared").Invoke(manager,new object?[]{net,new PeerInputSynchronizer(net),false,null,0L,0L,0L,0});
-            AccessTools.Method(typeof(RunManager),"InitializeRunLobby").Invoke(manager,new object[]{net,run});
-            MegaCrit.Sts2.Core.Context.LocalContext.NetId=net.NetId;
-        }
-        var combat=run.Players[0].Creature.CombatState;
-        AccessTools.Field(typeof(CombatManager),"_state").SetValue(CombatManager.Instance,combat);
-        AccessTools.Property(typeof(CombatManager),"IsInProgress").SetValue(CombatManager.Instance,envelope.CombatInProgress);
-        string actual=JsonSerializer.Serialize(NetFullCombatState.FromRun(run,null),Json);
-        if(Comparable(actual)!=Comparable(envelope.NativeState))throw new InvalidDataException("Loaded snapshot differs from captured native state at "+envelope.DecisionId);
+        var run=DecisionSnapshots.Inject(envelope);
         if(Environment.GetEnvironmentVariable("DEALMAKER_HEADED")=="1" || Environment.GetEnvironmentVariable("DEALMAKER_SNAPSHOT_VALIDATE_SCENES")=="1") {
             await Present(run,envelope);
             string afterScene=JsonSerializer.Serialize(NetFullCombatState.FromRun(run,null),Json);
-            if(Comparable(afterScene)!=Comparable(envelope.NativeState))throw new InvalidDataException("Scene presentation changed recorded model state");
+            if(DecisionSnapshots.Comparable(afterScene)!=DecisionSnapshots.Comparable(envelope.NativeState))throw new InvalidDataException("Scene presentation changed recorded model state");
         }
         DecisionBridge.SetPlaybackObservation(envelope.Observation.GetRawText());
         current=index;
