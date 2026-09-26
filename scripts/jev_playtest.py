@@ -147,6 +147,50 @@ def wasted_energy_note(obs, chosen):
             +'. End Turn is withheld for this one choice: play the most useful card now (Block first if the hit matters, otherwise damage).')
 
 
+def planner_hint(obs, history):
+    """The planner's numbers as one prompt line, so Jev sees the HP-exchange math too."""
+    from turn_planner import plan
+    res=plan(obs,history=history)
+    if not res.get('supported') or not res.get('best_plan'):return ''
+    acts={a['id']:a['option'] for a in obs['actions']}
+    def name(a):
+        o=acts.get(a,{});c=o.get('card') or {}
+        return (c.get('name') or c.get('id') or o.get('action','?'))+(f" -> e{o['enemy_index']}" if c and o.get('enemy_index',-1)>=0 else '')
+    rates='; '.join(f"{n} deals ~{x:g}/turn" for n,x in res['X'].items())
+    end=next((v for k,v in res['scores'].items() if acts.get(k,{}).get('action')=='end_turn'),None)
+    return (f"Turn math (goal: least total HP lost this fight = HP lost now + enemy damage/turn x turns left; you deal ~{res['P']:g}/turn; {rates}). "
+            f"Best line by this math: {', '.join(name(a) for a in res['best_plan'])} (about {res['best_hp_now']:g} HP lost this turn, expected fight cost {res['best_score']:g}"
+            +(f"; ending the turn now costs {end:g}" if end is not None else '')+"). Potions and card effects the math can't see (draw results, powers) are yours to weigh.")
+
+
+def planner_override(obs, chosen, response, history, cfg, source):
+    """Turn planner (opt-in via the packet's turn_planner): Jev's probabilities mark the
+    plausible actions; among those the planner picks the one whose best whole-turn line
+    minimizes expected fight HP loss, overriding Jev only when that saves >= cfg margin.
+    Potions, powers and cards the simulator cannot price stay Jev's call."""
+    from turn_planner import plan, OPAQUE
+    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0))
+    info={'supported':res.get('supported'),'reason':res.get('reason'),'jev_choice':chosen}
+    if not res.get('supported'):return chosen,source,info
+    acts={a['id']:a['option'] for a in obs['actions']}
+    jopt=acts.get(chosen,{});jcard=jopt.get('card') or {}
+    # Potions Jev chooses are kept: much of their value (permanent Strength/Dexterity, saving
+    # an elite) lies beyond this turn, which the planner does not credit. The planner may
+    # still propose a potion when this turn alone repays its cost.
+    priced=jopt.get('action') in ('play_card','end_turn')
+    if not priced or jcard.get('type')=='Power' or jcard.get('id') in OPAQUE or chosen not in res['scores']:
+        info['kept']='jev choice outside planner model';return chosen,source,info
+    probs=(((response or {}).get('answers') or {}).get('action') or {}).get('probabilities') or {}
+    cands=[a for a in res['scores'] if a==chosen or probs.get(a,0)>=cfg.get('min_prob',0.05)]
+    best=min(cands,key=lambda a:(res['scores'][a],-probs.get(a,0)))
+    gain=res['scores'][chosen]-res['scores'][best]
+    info.update(decided=True,best=best,gain=round(gain,2),best_plan=res['best_plan'],scores=res['scores'],P=res['P'],X=res['X'],nodes=res['nodes'])
+    if gain>=cfg.get('margin',1.0):
+        info['override']=True
+        return best,'jev+planner',info
+    return chosen,source,info
+
+
 def mock_choice(obs):
     """Transport smoke only; deliberately not advertised as Jev or a balance pilot."""
     opts = obs['actions']
@@ -232,6 +276,7 @@ def main():
         seen_combat=False
         skipped_card_reward=False
         last_sphere_size=False
+        intent_hist={};hist_turn=None
         count=args.replay_start_index
         while count < args.max_decisions:
             while True:
@@ -269,6 +314,16 @@ def main():
                 # "Small Divination" 150 times until the harness gave up (jev-ironclad-1118-03).
                 kept=[a for a in model_obs['actions'] if a['option'].get('action')!='divination_size']
                 if kept and len(kept)<len(model_obs['actions']):model_obs=dict(model_obs,actions=kept)
+            planner_info=None
+            if obs['kind']=='combat':
+                st_=obs.get('state') or {}
+                turn_key=(st_.get('floor'),st_.get('turn'))
+                if turn_key!=hist_turn:
+                    hist_turn=turn_key
+                    for e_ in st_.get('enemies') or []:
+                        if (e_.get('creature') or {}).get('hp',0)>0:
+                            intent_hist.setdefault(e_['creature'].get('name'),[]).append(sum(i.get('total_damage') or 0 for i in e_.get('intents') or [] if i.get('type')=='Attack'))
+            elif obs['kind']!='card_selection':intent_hist={};hist_turn=None
             active_strategy,strategy_selection=strategy_package.prompt(model_obs,args.character)
             payload = None
             before = time.monotonic()
@@ -302,12 +357,18 @@ def main():
                 source = 'sole_legal_action'
             else:
                 payload = make_request(model_obs, active_strategy, args.model, args.character, strategy_package.packet.get('prompt_format'))
+                if (strategy_package.packet.get('turn_planner') or {}).get('hint') and obs['kind']=='combat':
+                    hint=planner_hint(model_obs,intent_hist)
+                    if hint:payload['questions']['action']['instructions']+='\n'+hint
                 # A failed request stops this controller. No silent heuristic fallback.
                 try:chosen,response,model_meta=adapter.decide(payload)
                 except InvalidDecision as error:
                     record({'kind':'model_failure','decision_id':obs['decision_id'],'attempts':error.attempts})
                     raise
-                note=strategy_package.packet.get('end_turn_guard') and wasted_energy_note(model_obs,chosen)
+                planner_cfg=strategy_package.packet.get('turn_planner')
+                if planner_cfg and obs['kind']=='combat':
+                    chosen,source,planner_info=planner_override(model_obs,chosen,response,intent_hist,planner_cfg,source)
+                note=strategy_package.packet.get('end_turn_guard') and not (planner_info or {}).get('decided') and wasted_energy_note(model_obs,chosen)
                 if note:
                     guarded=dict(model_obs,actions=[a for a in model_obs['actions'] if a['option'].get('action')!='end_turn'])
                     retry_payload=make_request(guarded,active_strategy,args.model,args.character,strategy_package.packet.get('prompt_format'))
@@ -322,7 +383,7 @@ def main():
             if chosen not in {a['id'] for a in obs['actions']}:
                 raise ValueError('Replay selected an unoffered action')
             record({'kind':'decision','decision_id':obs['decision_id'],'observation_sha256':digest,'observation':obs,
-                    'request':payload,'response':response,'action_id':chosen,'source':source,'strategy_selection':strategy_selection if not args.replay else previous.get('strategy_selection'),'latency_seconds':time.monotonic()-before,**model_meta})
+                    'request':payload,'response':response,'action_id':chosen,'source':source,'strategy_selection':strategy_selection if not args.replay else previous.get('strategy_selection'),'latency_seconds':time.monotonic()-before,**({'planner':planner_info} if planner_info else {}),**model_meta})
             if args.decision_delay:
                 time.sleep(args.decision_delay)
             ack = request(f'http://127.0.0.1:{args.port}/action',token,{'decision_id':obs['decision_id'],'action_id':chosen},retries=1)

@@ -88,5 +88,15 @@
     "version": "1.1.18",
     "status": "approved",
     "reason": "User-delegated autonomous tuning session: 1.1.17 plus route summary from the visible map (elite counts/rest sites per option); no hidden info."
+  },
+  "97ed356d38e9c8be6e055c1779320232f3a5643e08ba021565113535fab5fde3": {
+    "version": "1.1.19",
+    "status": "approved",
+    "reason": "User asked to optimize HP lost per fight via a per-turn HP-exchange heuristic and simulated card-play lines guided by Jev's probabilities (2026-09-26 second 2-hour session). Visible state only."
+  },
+  "f31f54c7738a4e74bd62ab15e6ac29919177d9286c496f0af00f0332d980265d": {
+    "version": "1.1.20",
+    "status": "approved",
+    "reason": "User-directed HP-per-fight optimization session (2026-09-26 12:05-14:05): turn planner rev 3. Visible state and recorded-fight priors only."
   }
 }

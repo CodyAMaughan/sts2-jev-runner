@@ -30,17 +30,19 @@ def result(run_id):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--tag', required=True); p.add_argument('--floor', type=int, required=True)
+    p.add_argument('--tag', required=True); p.add_argument('--floor', type=int, default=17)
     p.add_argument('--runs', nargs='+', required=True); p.add_argument('--strategy-version', required=True)
     p.add_argument('--character', default='ironclad'); p.add_argument('--slots', nargs='+', default=['', '2'])
     a = p.parse_args()
     work = queue.Queue(); ids = []
     for src in a.runs:
-        did = fight_start(src, a.floor)
+        floor = a.floor
+        if '@' in src: src, floor = src.split('@'); floor = int(floor)  # run@floor picks a fight per run
+        did = fight_start(src, floor)
         snap = RUNS/src/'snapshots'/f'{did}.json.gz'
         if not did or not snap.is_file(): print('skip', src, 'no snapshot for floor', a.floor); continue
         seed = json.loads((RUNS/src/'manifest.json').read_text())['seed']
-        rid = f'fb-{a.tag}-{src}'; ids.append((src, rid)); work.put((rid, seed, snap))
+        rid = f'fb-{a.tag}-{src}-f{floor}'; ids.append((src, rid)); work.put((rid, seed, snap))
     def worker(slot, port):
         while True:
             try: rid, seed, snap = work.get_nowait()
@@ -51,7 +53,7 @@ def main():
                    '--stop-after-combat', '--no-snapshots', '--headless', '--timeout', '900']
             with (RUNS/f'.{rid}.log').open('w') as out: subprocess.run(cmd, cwd=ROOT, env=env, stdout=out, stderr=subprocess.STDOUT)
             print(time.strftime('%H:%M:%S'), 'done', rid, flush=True)
-    ts = [threading.Thread(target=worker, args=(s, 18765 + 10*i)) for i, s in enumerate(a.slots)]
+    ts = [threading.Thread(target=worker, args=(s, 18765 + 10*(int(s or 1)-1))) for s in a.slots]
     for t in ts: t.start(); time.sleep(3)
     for t in ts: t.join()
     wins = 0; lost = []

@@ -32,6 +32,10 @@ static class SnapshotResume
     {
         try
         {
+            // A resumed fight lands mid-run on a fresh profile, so first-time tutorial
+            // popups (e.g. the first reshuffle) would appear mid-combat, and nothing in this
+            // loop dismisses them: the fight hangs. The original run saw them long before.
+            MegaCrit.Sts2.Core.Saves.SaveManager.Instance.SetFtuesEnabled(false);
             string path=Environment.GetEnvironmentVariable("DEALMAKER_SNAPSHOT_RESUME")!;
             var envelope=DecisionSnapshots.Read(path);
             var run=DecisionSnapshots.Inject(envelope);

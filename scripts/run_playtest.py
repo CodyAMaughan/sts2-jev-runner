@@ -47,7 +47,9 @@ try:
         archive=base/'previous-userdata'/str(time.time_ns())
         archive.parent.mkdir(parents=True,exist_ok=True);shutil.move(userdata,archive)
     settings=userdata/'default/1/settings.save';settings.parent.mkdir(parents=True)
-    settings.write_text(json.dumps({'schema_version':5,'seen_ea_disclaimer':True,'mod_settings':{'mods_enabled':True,'mod_list':[]}}))
+    # Silent runners: every volume at 0 (playtests run unattended, often several at once).
+    settings.write_text(json.dumps({'schema_version':5,'seen_ea_disclaimer':True,'mod_settings':{'mods_enabled':True,'mod_list':[]},
+                                    'volume_master':0.0,'volume_bgm':0.0,'volume_sfx':0.0,'volume_ambience':0.0}))
     expected={name:sha(root/name) for name in ['cards.json','card-tuning.json','bin/Release/net9.0/Dealmaker.dll','tests/overnight/bin/Release/net9.0/OvernightHarness.dll']}
     # Deploy only to the disposable clone.
     for name in ['Dealmaker.dll','Dealmaker.json']:
