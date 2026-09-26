@@ -38,11 +38,42 @@ def item_stats(item_type, item_id, timeout=3):
     return result
 
 
+_ELO = None
+
+
+def _elo_table():
+    """Ironclad Codex Elo cached in data/spire_codex_ironclad_cards.json (fetched once from
+    /api/runs/scores/cards?character=ironclad; the API allows 15 requests/minute unkeyed)."""
+    global _ELO
+    if _ELO is None:
+        from pathlib import Path
+        path = Path(__file__).resolve().parent.parent / 'data/spire_codex_ironclad_cards.json'
+        try: _ELO = json.loads(path.read_text())
+        except (OSError, ValueError): _ELO = {}
+    return _ELO
+
+
+def elo_note(offered_card_ids, min_picks=2000):
+    """Offered cards ranked by Ironclad Codex Elo: Spire Codex's less-confounded pick-strength
+    rating (its raw win-rate score favours cards that merely appear in long runs)."""
+    table = _elo_table(); cards = table.get('cards') or {}
+    rows = [(cid, cards[cid]['elo']) for cid in offered_card_ids
+            if cid in cards and cards[cid].get('elo') and (cards[cid].get('elo_picks') or 0) >= min_picks]
+    if not rows: return ''
+    mid = table.get('elo_median', 1520)
+    def band(e): return 'strong' if e >= mid + 100 else 'above typical' if e >= mid + 30 else 'typical' if e > mid - 30 else 'below typical' if e > mid - 100 else 'weak'
+    rows.sort(key=lambda r: -r[1])
+    return ("Community pick strength for Ironclad (Spire Codex Elo over {:,} Ironclad runs; about {:.0f} is a typical card): ".format(table.get('ironclad_runs') or 0, mid)
+            + '; '.join(f"{cid} {e:.0f} ({band(e)})" for cid, e in rows)
+            + ". Use it alongside what this deck needs (see deck math); it is not a reason to skip while the deck is still mostly starter cards.")
+
+
 def card_reward_note(offered_card_ids, min_samples=200, wording=1):
     """One addenda-ready line per offered card with enough community sample
     size to be meaningful, plus a closing note that skipping remains legal.
     Empty string if no card cleared the sample threshold (new/rare cards, or
     the API was unreachable this call) — callers should skip adding it then."""
+    if wording >= 3: return elo_note(offered_card_ids)
     lines = []
     for card_id in offered_card_ids:
         stats = item_stats('cards', card_id)

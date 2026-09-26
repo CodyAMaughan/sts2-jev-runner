@@ -103,5 +103,25 @@
     "version": "1.1.21",
     "status": "approved",
     "reason": "User-directed HP-per-fight session: planner rev 4 adds Sandpit/Frantic Escape modeling for the Act 2 boss."
+  },
+  "b39f9b0371d1996778ce9441d7d9382201674b7b889a3966e2d7edadf43e3971": {
+    "version": "1.1.22",
+    "status": "approved",
+    "reason": "User-directed session 3 (2026-09-26 15:36-17:35): planner rev 5 covers previously deferred fights."
+  },
+  "89cf953428b70d5c25103297d6ddd451163318c0dd1955f5998fff291ec8d99b": {
+    "version": "1.1.91",
+    "status": "approved",
+    "reason": "Session 3 threshold-tuning experiment for fight benches only."
+  },
+  "ca7929d5834b60767fe9cd56c90f8fae356e21d94eeffe7bddd8f20837e51e81": {
+    "version": "1.1.92",
+    "status": "approved",
+    "reason": "Session 3 threshold-tuning experiment for fight benches only."
+  },
+  "28eeff4b61507a0b1b3f265e19e5c8825b6f9a7b58206c52f2f393bdeaae1ee1": {
+    "version": "1.1.23",
+    "status": "approved",
+    "reason": "Session 3: Codex Elo + deck math on card rewards; shop prompt prioritizes removal; permanent-removal note."
   }
 }

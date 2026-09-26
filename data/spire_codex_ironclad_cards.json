@@ -1,0 +1,9831 @@
+{
+ "source": "https://spire-codex.com/api/runs/metrics/cards?character=IRONCLAD (bracket all and wr50)",
+ "fetched_utc": "2026-09-26T21:38:31Z",
+ "ironclad_runs": 428359,
+ "ironclad_win_rate": 25.1,
+ "wr50_runs": 3818,
+ "cards": {
+  "UP_MY_SLEEVE": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.2,
+   "picks": 13926,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1640.8,
+   "elo_picks": 13926
+  },
+  "POISONED_STAB": {
+   "tier": "B",
+   "score": 66,
+   "win_rate": 47.7,
+   "picks": 11728,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1422.8,
+   "elo_picks": 11728
+  },
+  "WHIRLWIND": {
+   "tier": "F",
+   "score": 29,
+   "win_rate": 36.5,
+   "picks": 55570,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1498.0,
+   "elo_picks": 55570
+  },
+  "CHILD_OF_THE_STARS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.7,
+   "picks": 12416,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1607.6,
+   "elo_picks": 12416
+  },
+  "MANGLE": {
+   "tier": "B",
+   "score": 72,
+   "win_rate": 49.4,
+   "picks": 32290,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1572.5,
+   "elo_picks": 32290
+  },
+  "SPEEDSTER": {
+   "tier": "S",
+   "score": 94,
+   "win_rate": 56.0,
+   "picks": 7769,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1409.7,
+   "elo_picks": 7769
+  },
+  "ULTIMATE_STRIKE": {
+   "tier": "C",
+   "score": 53,
+   "win_rate": 43.8,
+   "picks": 20068,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1178.8,
+   "elo_picks": 20068
+  },
+  "PIERCING_WAIL": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.3,
+   "picks": 29541,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1629.8,
+   "elo_picks": 29541
+  },
+  "DEFLECT": {
+   "tier": "A",
+   "score": 84,
+   "win_rate": 53.0,
+   "picks": 17364,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1489.1,
+   "elo_picks": 17364
+  },
+  "SNEAKY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 65.8,
+   "picks": 8857,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1735.8,
+   "elo_picks": 8857
+  },
+  "EXPERTISE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.4,
+   "picks": 5859,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1411.1,
+   "elo_picks": 5859
+  },
+  "THUNDERCLAP": {
+   "tier": "F",
+   "score": 20,
+   "win_rate": 33.8,
+   "picks": 100787,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1457.5,
+   "elo_picks": 100787
+  },
+  "DEFRAGMENT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.2,
+   "picks": 6488,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1809.9,
+   "elo_picks": 6488
+  },
+  "ORBIT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.7,
+   "picks": 14467,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1642.2,
+   "elo_picks": 14467
+  },
+  "COUNTDOWN": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.2,
+   "picks": 9546,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1593.8,
+   "elo_picks": 9546
+  },
+  "INVOKE": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 53.8,
+   "picks": 22210,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1584.9,
+   "elo_picks": 22210
+  },
+  "BOUNCING_FLASK": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.2,
+   "picks": 6961,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1510.3,
+   "elo_picks": 6961
+  },
+  "HIDDEN_CACHE": {
+   "tier": "A",
+   "score": 89,
+   "win_rate": 54.5,
+   "picks": 21256,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1584.2,
+   "elo_picks": 21256
+  },
+  "CHAOS": {
+   "tier": "B",
+   "score": 71,
+   "win_rate": 49.2,
+   "picks": 4957,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1483.3,
+   "elo_picks": 4957
+  },
+  "END_OF_DAYS": {
+   "tier": "S",
+   "score": 92,
+   "win_rate": 55.5,
+   "picks": 5437,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1675.4,
+   "elo_picks": 5437
+  },
+  "ROYAL_GAMBLE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.3,
+   "picks": 9705,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1624.7,
+   "elo_picks": 9705
+  },
+  "LIGHTNING_ROD": {
+   "tier": "C",
+   "score": 61,
+   "win_rate": 46.1,
+   "picks": 15900,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1551.4,
+   "elo_picks": 15900
+  },
+  "WROUGHT_IN_WAR": {
+   "tier": "B",
+   "score": 75,
+   "win_rate": 50.2,
+   "picks": 10739,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1420.5,
+   "elo_picks": 10739
+  },
+  "GLITTERSTREAM": {
+   "tier": "A",
+   "score": 82,
+   "win_rate": 52.3,
+   "picks": 11993,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1431.4,
+   "elo_picks": 11993
+  },
+  "BULLET_TIME": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.1,
+   "picks": 6973,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1630.9,
+   "elo_picks": 6973
+  },
+  "ITERATION": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.7,
+   "picks": 6691,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1486.9,
+   "elo_picks": 6691
+  },
+  "BUBBLE_BUBBLE": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 53.9,
+   "picks": 7333,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1547.6,
+   "elo_picks": 7333
+  },
+  "THUNDER": {
+   "tier": "A",
+   "score": 78,
+   "win_rate": 51.2,
+   "picks": 9796,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1617.2,
+   "elo_picks": 9796
+  },
+  "NO_ESCAPE": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.6,
+   "picks": 9333,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1657.3,
+   "elo_picks": 9333
+  },
+  "COLLISION_COURSE": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.2,
+   "picks": 6789,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1336.6,
+   "elo_picks": 6789
+  },
+  "REAP": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 50.9,
+   "picks": 5965,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1303.1,
+   "elo_picks": 5965
+  },
+  "DEBILITATE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 65.7,
+   "picks": 13203,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1626.3,
+   "elo_picks": 13203
+  },
+  "FUSION": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 50.8,
+   "picks": 6293,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1517.0,
+   "elo_picks": 6293
+  },
+  "FINISHER": {
+   "tier": "S",
+   "score": 99,
+   "win_rate": 57.6,
+   "picks": 9593,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1503.8,
+   "elo_picks": 9593
+  },
+  "SOLAR_STRIKE": {
+   "tier": "A",
+   "score": 80,
+   "win_rate": 51.8,
+   "picks": 10751,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1424.7,
+   "elo_picks": 10751
+  },
+  "TAUNT": {
+   "tier": "D",
+   "score": 39,
+   "win_rate": 39.4,
+   "picks": 110763,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1640.9,
+   "elo_picks": 110763
+  },
+  "SEVERANCE": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 56.9,
+   "picks": 6123,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1481.0,
+   "elo_picks": 6123
+  },
+  "BURST": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.6,
+   "picks": 8464,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1700.5,
+   "elo_picks": 8464
+  },
+  "AFTERIMAGE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.0,
+   "picks": 11450,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1840.4,
+   "elo_picks": 11450
+  },
+  "DANSE_MACABRE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.6,
+   "picks": 5421,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1412.6,
+   "elo_picks": 5421
+  },
+  "PAGESTORM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.0,
+   "picks": 5016,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1392.4,
+   "elo_picks": 5016
+  },
+  "TACTICIAN": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.7,
+   "picks": 11114,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1604.5,
+   "elo_picks": 11114
+  },
+  "HUDDLE_UP": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.1,
+   "picks": 8478,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1386.0,
+   "elo_picks": 8478
+  },
+  "BOOST_AWAY": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 51.0,
+   "picks": 12416,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1499.0,
+   "elo_picks": 12416
+  },
+  "UNTOUCHABLE": {
+   "tier": "S",
+   "score": 91,
+   "win_rate": 55.0,
+   "picks": 14667,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1459.9,
+   "elo_picks": 14667
+  },
+  "BOMBARDMENT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.4,
+   "picks": 5358,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1630.0,
+   "elo_picks": 5358
+  },
+  "ROCKET_PUNCH": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.7,
+   "picks": 4652,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1458.2,
+   "elo_picks": 4652
+  },
+  "CELESTIAL_MIGHT": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 50.9,
+   "picks": 5251,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1241.5,
+   "elo_picks": 5251
+  },
+  "SUNDER": {
+   "tier": "C",
+   "score": 57,
+   "win_rate": 44.8,
+   "picks": 2935,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1344.6,
+   "elo_picks": 2935
+  },
+  "BRAND": {
+   "tier": "C",
+   "score": 61,
+   "win_rate": 46.1,
+   "picks": 43784,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1648.2,
+   "elo_picks": 43784
+  },
+  "OFFERING": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.5,
+   "picks": 62255,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1784.6,
+   "elo_picks": 62255
+  },
+  "MOLTEN_FIST": {
+   "tier": "F",
+   "score": 29,
+   "win_rate": 36.6,
+   "picks": 128257,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1580.7,
+   "elo_picks": 128257
+  },
+  "HOLOGRAM": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.3,
+   "picks": 18089,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1584.9,
+   "elo_picks": 18089
+  },
+  "DRUM_OF_BATTLE": {
+   "tier": "C",
+   "score": 53,
+   "win_rate": 43.7,
+   "picks": 31166,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1411.4,
+   "elo_picks": 31166
+  },
+  "VICIOUS": {
+   "tier": "C",
+   "score": 55,
+   "win_rate": 44.4,
+   "picks": 68523,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1497.4,
+   "elo_picks": 68523
+  },
+  "AUTOMATION": {
+   "tier": "S",
+   "score": 92,
+   "win_rate": 55.4,
+   "picks": 10109,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1423.7,
+   "elo_picks": 10109
+  },
+  "DISCOVERY": {
+   "tier": "B",
+   "score": 76,
+   "win_rate": 50.6,
+   "picks": 11254,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1421.1,
+   "elo_picks": 11254
+  },
+  "FETCH": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.1,
+   "picks": 7705,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1566.6,
+   "elo_picks": 7705
+  },
+  "ACROBATICS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.0,
+   "picks": 18380,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1697.5,
+   "elo_picks": 18380
+  },
+  "TIMES_UP": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.6,
+   "picks": 4241,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1603.1,
+   "elo_picks": 4241
+  },
+  "REAPER_FORM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.1,
+   "picks": 7062,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1727.7,
+   "elo_picks": 7062
+  },
+  "DOUBLE_ENERGY": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.5,
+   "picks": 8608,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1612.3,
+   "elo_picks": 8608
+  },
+  "BURNING_PACT": {
+   "tier": "C",
+   "score": 53,
+   "win_rate": 43.7,
+   "picks": 69333,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1571.8,
+   "elo_picks": 69333
+  },
+  "CINDER": {
+   "tier": "F",
+   "score": 0,
+   "win_rate": 27.1,
+   "picks": 29214,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1201.3,
+   "elo_picks": 29214
+  },
+  "BLUR": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 57.8,
+   "picks": 12571,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1633.3,
+   "elo_picks": 12571
+  },
+  "ALIGNMENT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.1,
+   "picks": 9095,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1584.9,
+   "elo_picks": 9095
+  },
+  "ESCAPE_PLAN": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.4,
+   "picks": 13276,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1659.5,
+   "elo_picks": 13276
+  },
+  "ECHOING_SLASH": {
+   "tier": "A",
+   "score": 83,
+   "win_rate": 52.8,
+   "picks": 4356,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1477.9,
+   "elo_picks": 4356
+  },
+  "PRODUCTION": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.2,
+   "picks": 17048,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1507.7,
+   "elo_picks": 17048
+  },
+  "IRON_WAVE": {
+   "tier": "F",
+   "score": 18,
+   "win_rate": 33.1,
+   "picks": 75399,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1413.4,
+   "elo_picks": 75399
+  },
+  "SCOURGE": {
+   "tier": "B",
+   "score": 72,
+   "win_rate": 49.4,
+   "picks": 13108,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1503.5,
+   "elo_picks": 13108
+  },
+  "GATHER_LIGHT": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.5,
+   "picks": 22518,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1621.7,
+   "elo_picks": 22518
+  },
+  "DREDGE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.7,
+   "picks": 6549,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1505.4,
+   "elo_picks": 6549
+  },
+  "PULL_AGGRO": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 50.9,
+   "picks": 11679,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1430.9,
+   "elo_picks": 11679
+  },
+  "DECISIONS_DECISIONS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.0,
+   "picks": 7059,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1715.8,
+   "elo_picks": 7059
+  },
+  "BACKFLIP": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 56.8,
+   "picks": 25385,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1591.8,
+   "elo_picks": 25385
+  },
+  "NEUROSURGE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.8,
+   "picks": 6625,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1724.5,
+   "elo_picks": 6625
+  },
+  "HAND_OF_GREED": {
+   "tier": "C",
+   "score": 57,
+   "win_rate": 45.0,
+   "picks": 2372,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 998.7,
+   "elo_picks": 2372
+  },
+  "HIDDEN_DAGGERS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.6,
+   "picks": 11811,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1706.2,
+   "elo_picks": 11811
+  },
+  "SHATTER": {
+   "tier": "A",
+   "score": 85,
+   "win_rate": 53.4,
+   "picks": 4355,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1625.1,
+   "elo_picks": 4355
+  },
+  "SHOCKWAVE": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.7,
+   "picks": 11005,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1355.1,
+   "elo_picks": 11005
+  },
+  "INFERNO": {
+   "tier": "F",
+   "score": 30,
+   "win_rate": 36.8,
+   "picks": 47393,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1468.9,
+   "elo_picks": 47393
+  },
+  "GRAVE_WARDEN": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.2,
+   "picks": 23064,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1618.8,
+   "elo_picks": 23064
+  },
+  "BIG_BANG": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.7,
+   "picks": 10779,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1910.5,
+   "elo_picks": 10779
+  },
+  "LETHALITY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.3,
+   "picks": 13522,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1656.3,
+   "elo_picks": 13522
+  },
+  "BLADE_DANCE": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.8,
+   "picks": 26427,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1632.9,
+   "elo_picks": 26427
+  },
+  "TANK": {
+   "tier": "S",
+   "score": 96,
+   "win_rate": 56.7,
+   "picks": 6560,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1369.6,
+   "elo_picks": 6560
+  },
+  "UNMOVABLE": {
+   "tier": "B",
+   "score": 75,
+   "win_rate": 50.3,
+   "picks": 48952,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1730.0,
+   "elo_picks": 48952
+  },
+  "CALCIFY": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.9,
+   "picks": 5364,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1476.9,
+   "elo_picks": 5364
+  },
+  "STORM": {
+   "tier": "A",
+   "score": 89,
+   "win_rate": 54.7,
+   "picks": 8312,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1568.5,
+   "elo_picks": 8312
+  },
+  "SUMMON_FORTH": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.4,
+   "picks": 9361,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1621.8,
+   "elo_picks": 9361
+  },
+  "SUPERCRITICAL": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.0,
+   "picks": 6914,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1747.5,
+   "elo_picks": 6914
+  },
+  "DEATH_MARCH": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 57.2,
+   "picks": 3996,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1388.3,
+   "elo_picks": 3996
+  },
+  "SHADOW_STEP": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.6,
+   "picks": 6316,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1581.5,
+   "elo_picks": 6316
+  },
+  "FAN_OF_KNIVES": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.8,
+   "picks": 10015,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1755.9,
+   "elo_picks": 10015
+  },
+  "BEAT_INTO_SHAPE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.1,
+   "picks": 4991,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1594.5,
+   "elo_picks": 4991
+  },
+  "SWORD_SAGE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 65.4,
+   "picks": 5969,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1710.1,
+   "elo_picks": 5969
+  },
+  "OMNISLICE": {
+   "tier": "D",
+   "score": 47,
+   "win_rate": 42.0,
+   "picks": 9066,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1300.8,
+   "elo_picks": 9066
+  },
+  "PURITY": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 55.0,
+   "picks": 6654,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1294.5,
+   "elo_picks": 6654
+  },
+  "SPLASH": {
+   "tier": "A",
+   "score": 78,
+   "win_rate": 51.1,
+   "picks": 9684,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1401.6,
+   "elo_picks": 9684
+  },
+  "STAMPEDE": {
+   "tier": "F",
+   "score": 31,
+   "win_rate": 37.0,
+   "picks": 80532,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1545.7,
+   "elo_picks": 80532
+  },
+  "COLOSSUS": {
+   "tier": "D",
+   "score": 49,
+   "win_rate": 42.4,
+   "picks": 89005,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1692.0,
+   "elo_picks": 89005
+  },
+  "FOCUSED_STRIKE": {
+   "tier": "C",
+   "score": 59,
+   "win_rate": 45.3,
+   "picks": 7764,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1400.0,
+   "elo_picks": 7764
+  },
+  "DAGGER_THROW": {
+   "tier": "A",
+   "score": 84,
+   "win_rate": 53.1,
+   "picks": 17103,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1485.3,
+   "elo_picks": 17103
+  },
+  "OVERCLOCK": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.1,
+   "picks": 7808,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1622.0,
+   "elo_picks": 7808
+  },
+  "DYING_STAR": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.0,
+   "picks": 6438,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1685.1,
+   "elo_picks": 6438
+  },
+  "CLEANSE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.5,
+   "picks": 6176,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1491.5,
+   "elo_picks": 6176
+  },
+  "SCRAPE": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.4,
+   "picks": 4386,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1421.9,
+   "elo_picks": 4386
+  },
+  "SHRUG_IT_OFF": {
+   "tier": "F",
+   "score": 28,
+   "win_rate": 36.3,
+   "picks": 185454,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1603.2,
+   "elo_picks": 185454
+  },
+  "GLASSWORK": {
+   "tier": "B",
+   "score": 65,
+   "win_rate": 47.3,
+   "picks": 4960,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1522.7,
+   "elo_picks": 4960
+  },
+  "RUPTURE": {
+   "tier": "D",
+   "score": 39,
+   "win_rate": 39.4,
+   "picks": 72383,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1518.6,
+   "elo_picks": 72383
+  },
+  "PACTS_END": {
+   "tier": "C",
+   "score": 59,
+   "win_rate": 45.4,
+   "picks": 27020,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1569.7,
+   "elo_picks": 27020
+  },
+  "PRECISE_CUT": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.6,
+   "picks": 4219,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1340.3,
+   "elo_picks": 4219
+  },
+  "HELIX_DRILL": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.5,
+   "picks": 2563,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1555.5,
+   "elo_picks": 2563
+  },
+  "GOLD_AXE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.8,
+   "picks": 7884,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1361.0,
+   "elo_picks": 7884
+  },
+  "SLICE": {
+   "tier": "B",
+   "score": 76,
+   "win_rate": 50.5,
+   "picks": 10018,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1350.5,
+   "elo_picks": 10018
+  },
+  "KNOCKDOWN": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 71.9,
+   "picks": 4747,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1320.9,
+   "elo_picks": 4747
+  },
+  "CHARGE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.6,
+   "picks": 8393,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1577.8,
+   "elo_picks": 8393
+  },
+  "CONVERGENCE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.6,
+   "picks": 10564,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1644.0,
+   "elo_picks": 10564
+  },
+  "GANG_UP": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.3,
+   "picks": 9517,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1389.9,
+   "elo_picks": 9517
+  },
+  "IMPERVIOUS": {
+   "tier": "B",
+   "score": 72,
+   "win_rate": 49.3,
+   "picks": 40873,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1645.3,
+   "elo_picks": 40873
+  },
+  "HIGH_FIVE": {
+   "tier": "S",
+   "score": 93,
+   "win_rate": 55.7,
+   "picks": 6614,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1525.8,
+   "elo_picks": 6614
+  },
+  "BREAKTHROUGH": {
+   "tier": "F",
+   "score": 8,
+   "win_rate": 30.1,
+   "picks": 88852,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1394.0,
+   "elo_picks": 88852
+  },
+  "BORROWED_TIME": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.8,
+   "picks": 9634,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1614.4,
+   "elo_picks": 9634
+  },
+  "RALLY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 69.1,
+   "picks": 5903,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1364.8,
+   "elo_picks": 5903
+  },
+  "DARKNESS": {
+   "tier": "B",
+   "score": 70,
+   "win_rate": 48.8,
+   "picks": 5061,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1524.7,
+   "elo_picks": 5061
+  },
+  "NEUTRON_AEGIS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.8,
+   "picks": 3586,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1555.3,
+   "elo_picks": 3586
+  },
+  "SWORD_BOOMERANG": {
+   "tier": "F",
+   "score": 28,
+   "win_rate": 36.2,
+   "picks": 58406,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1332.8,
+   "elo_picks": 58406
+  },
+  "ETERNAL_ARMOR": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.4,
+   "picks": 4474,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1183.0,
+   "elo_picks": 4474
+  },
+  "CRESCENT_SPEAR": {
+   "tier": "A",
+   "score": 82,
+   "win_rate": 52.3,
+   "picks": 8509,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1403.2,
+   "elo_picks": 8509
+  },
+  "STRATAGEM": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 53.8,
+   "picks": 4467,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1293.9,
+   "elo_picks": 4467
+  },
+  "PROLONG": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.0,
+   "picks": 10007,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1367.9,
+   "elo_picks": 10007
+  },
+  "SERPENT_FORM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.2,
+   "picks": 7245,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1673.9,
+   "elo_picks": 7245
+  },
+  "MANIFEST_AUTHORITY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.8,
+   "picks": 7777,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1566.9,
+   "elo_picks": 7777
+  },
+  "IGNITION": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.2,
+   "picks": 5870,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1645.8,
+   "elo_picks": 5870
+  },
+  "WISP": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.1,
+   "picks": 21956,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1599.1,
+   "elo_picks": 21956
+  },
+  "CONCOCT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.0,
+   "picks": 2202,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1634.0,
+   "elo_picks": 2202
+  },
+  "SALVO": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.0,
+   "picks": 3202,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1096.3,
+   "elo_picks": 3202
+  },
+  "BARRAGE": {
+   "tier": "C",
+   "score": 64,
+   "win_rate": 47.0,
+   "picks": 5149,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1368.8,
+   "elo_picks": 5149
+  },
+  "SIC_EM": {
+   "tier": "A",
+   "score": 83,
+   "win_rate": 52.8,
+   "picks": 5721,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1486.3,
+   "elo_picks": 5721
+  },
+  "BULWARK": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.1,
+   "picks": 11484,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1691.9,
+   "elo_picks": 11484
+  },
+  "VOID_FORM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.5,
+   "picks": 9509,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1843.8,
+   "elo_picks": 9509
+  },
+  "BELIEVE_IN_YOU": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.9,
+   "picks": 15532,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1536.1,
+   "elo_picks": 15532
+  },
+  "ANGER": {
+   "tier": "F",
+   "score": 14,
+   "win_rate": 31.9,
+   "picks": 89732,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1439.9,
+   "elo_picks": 89732
+  },
+  "SEANCE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.2,
+   "picks": 5066,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1617.3,
+   "elo_picks": 5066
+  },
+  "DELAY": {
+   "tier": "S",
+   "score": 99,
+   "win_rate": 57.5,
+   "picks": 8031,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1578.1,
+   "elo_picks": 8031
+  },
+  "CONSUMING_SHADOW": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.8,
+   "picks": 2720,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1518.9,
+   "elo_picks": 2720
+  },
+  "SEEKER_STRIKE": {
+   "tier": "B",
+   "score": 72,
+   "win_rate": 49.4,
+   "picks": 5373,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1202.5,
+   "elo_picks": 5373
+  },
+  "FORGOTTEN_RITUAL": {
+   "tier": "C",
+   "score": 53,
+   "win_rate": 43.6,
+   "picks": 48937,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1500.2,
+   "elo_picks": 48937
+  },
+  "NECRO_MASTERY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.4,
+   "picks": 5136,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1662.2,
+   "elo_picks": 5136
+  },
+  "CATASTROPHE": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 50.9,
+   "picks": 4790,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1233.7,
+   "elo_picks": 4790
+  },
+  "ASHEN_STRIKE": {
+   "tier": "D",
+   "score": 44,
+   "win_rate": 40.8,
+   "picks": 48183,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1495.7,
+   "elo_picks": 48183
+  },
+  "RESTLESSNESS": {
+   "tier": "A",
+   "score": 82,
+   "win_rate": 52.4,
+   "picks": 5537,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1262.1,
+   "elo_picks": 5537
+  },
+  "MACHINE_LEARNING": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.9,
+   "picks": 7021,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1769.5,
+   "elo_picks": 7021
+  },
+  "COOLANT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.0,
+   "picks": 3394,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1576.0,
+   "elo_picks": 3394
+  },
+  "SPUR": {
+   "tier": "S",
+   "score": 91,
+   "win_rate": 55.2,
+   "picks": 8126,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1580.1,
+   "elo_picks": 8126
+  },
+  "LIFT": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.2,
+   "picks": 4874,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1261.2,
+   "elo_picks": 4874
+  },
+  "FINESSE": {
+   "tier": "A",
+   "score": 85,
+   "win_rate": 53.2,
+   "picks": 15558,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1483.1,
+   "elo_picks": 15558
+  },
+  "TURBO": {
+   "tier": "S",
+   "score": 93,
+   "win_rate": 55.6,
+   "picks": 12932,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1582.0,
+   "elo_picks": 12932
+  },
+  "DIRGE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.8,
+   "picks": 9821,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1625.8,
+   "elo_picks": 9821
+  },
+  "SECOND_WIND": {
+   "tier": "D",
+   "score": 49,
+   "win_rate": 42.5,
+   "picks": 46154,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1461.7,
+   "elo_picks": 46154
+  },
+  "CLOAK_AND_DAGGER": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.7,
+   "picks": 24835,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1597.8,
+   "elo_picks": 24835
+  },
+  "WELL_LAID_PLANS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.5,
+   "picks": 1487,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1559.7,
+   "elo_picks": 1487
+  },
+  "MURDER": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.6,
+   "picks": 4431,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1487.9,
+   "elo_picks": 4431
+  },
+  "BULLY": {
+   "tier": "D",
+   "score": 48,
+   "win_rate": 42.3,
+   "picks": 66793,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1597.8,
+   "elo_picks": 66793
+  },
+  "HEIRLOOM_HAMMER": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.1,
+   "picks": 3162,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1484.2,
+   "elo_picks": 3162
+  },
+  "SCARE": {
+   "tier": "A",
+   "score": 85,
+   "win_rate": 53.5,
+   "picks": 3927,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1506.5,
+   "elo_picks": 3927
+  },
+  "GLOW": {
+   "tier": "S",
+   "score": 99,
+   "win_rate": 57.6,
+   "picks": 19923,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1582.4,
+   "elo_picks": 19923
+  },
+  "DEFILE": {
+   "tier": "B",
+   "score": 76,
+   "win_rate": 50.7,
+   "picks": 6585,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1332.4,
+   "elo_picks": 6585
+  },
+  "EXPECT_A_FIGHT": {
+   "tier": "D",
+   "score": 40,
+   "win_rate": 39.6,
+   "picks": 53858,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1501.0,
+   "elo_picks": 53858
+  },
+  "NIGHTMARE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.9,
+   "picks": 5931,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1579.1,
+   "elo_picks": 5931
+  },
+  "CALCULATED_GAMBLE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.7,
+   "picks": 13886,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1661.0,
+   "elo_picks": 13886
+  },
+  "CONFLAGRATION": {
+   "tier": "C",
+   "score": 55,
+   "win_rate": 44.4,
+   "picks": 42273,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1627.3,
+   "elo_picks": 42273
+  },
+  "CHARGE_BATTERY": {
+   "tier": "B",
+   "score": 65,
+   "win_rate": 47.3,
+   "picks": 20788,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1616.7,
+   "elo_picks": 20788
+  },
+  "RICOCHET": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 53.9,
+   "picks": 12665,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1424.3,
+   "elo_picks": 12665
+  },
+  "ONE_TWO_PUNCH": {
+   "tier": "C",
+   "score": 56,
+   "win_rate": 44.7,
+   "picks": 42944,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1653.8,
+   "elo_picks": 42944
+  },
+  "JUGGLING": {
+   "tier": "D",
+   "score": 44,
+   "win_rate": 41.1,
+   "picks": 41456,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1398.8,
+   "elo_picks": 41456
+  },
+  "PILLAR_OF_CREATION": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.1,
+   "picks": 6666,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1461.4,
+   "elo_picks": 6666
+  },
+  "ABRASIVE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.6,
+   "picks": 7807,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1726.7,
+   "elo_picks": 7807
+  },
+  "ENFEEBLING_TOUCH": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.8,
+   "picks": 13360,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1724.5,
+   "elo_picks": 13360
+  },
+  "GUARDS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.4,
+   "picks": 4682,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1587.2,
+   "elo_picks": 4682
+  },
+  "SUBROUTINE": {
+   "tier": "S",
+   "score": 96,
+   "win_rate": 56.6,
+   "picks": 10964,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1637.4,
+   "elo_picks": 10964
+  },
+  "INFLAME": {
+   "tier": "F",
+   "score": 28,
+   "win_rate": 36.3,
+   "picks": 88213,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1569.8,
+   "elo_picks": 88213
+  },
+  "ASSASSINATE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.1,
+   "picks": 8473,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1665.9,
+   "elo_picks": 8473
+  },
+  "MODDED": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.5,
+   "picks": 6548,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1760.7,
+   "elo_picks": 6548
+  },
+  "POUNCE": {
+   "tier": "A",
+   "score": 79,
+   "win_rate": 51.6,
+   "picks": 4805,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1377.2,
+   "elo_picks": 4805
+  },
+  "HEMOKINESIS": {
+   "tier": "F",
+   "score": 19,
+   "win_rate": 33.5,
+   "picks": 31492,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1365.7,
+   "elo_picks": 31492
+  },
+  "SHARED_FATE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 69.5,
+   "picks": 3470,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1534.1,
+   "elo_picks": 3470
+  },
+  "TAG_TEAM": {
+   "tier": "A",
+   "score": 84,
+   "win_rate": 53.1,
+   "picks": 5652,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1274.9,
+   "elo_picks": 5652
+  },
+  "BLOOD_WALL": {
+   "tier": "F",
+   "score": 26,
+   "win_rate": 35.7,
+   "picks": 92912,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1470.9,
+   "elo_picks": 92912
+  },
+  "CALAMITY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.9,
+   "picks": 2964,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1145.0,
+   "elo_picks": 2964
+  },
+  "REFLECT": {
+   "tier": "S",
+   "score": 96,
+   "win_rate": 56.8,
+   "picks": 10732,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1670.4,
+   "elo_picks": 10732
+  },
+  "SCRAWL": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.8,
+   "picks": 4240,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1177.8,
+   "elo_picks": 4240
+  },
+  "CASCADE": {
+   "tier": "B",
+   "score": 75,
+   "win_rate": 50.4,
+   "picks": 35551,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1614.5,
+   "elo_picks": 35551
+  },
+  "VEILPIERCER": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.2,
+   "picks": 3346,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1445.5,
+   "elo_picks": 3346
+  },
+  "SCULPTING_STRIKE": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.2,
+   "picks": 4451,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1307.3,
+   "elo_picks": 4451
+  },
+  "BUFFER": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.6,
+   "picks": 4782,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1657.4,
+   "elo_picks": 4782
+  },
+  "BLUDGEON": {
+   "tier": "F",
+   "score": 24,
+   "win_rate": 34.9,
+   "picks": 48857,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1475.1,
+   "elo_picks": 48857
+  },
+  "GUNK_UP": {
+   "tier": "B",
+   "score": 71,
+   "win_rate": 49.1,
+   "picks": 6721,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1378.1,
+   "elo_picks": 6721
+  },
+  "SETUP_STRIKE": {
+   "tier": "F",
+   "score": 14,
+   "win_rate": 31.9,
+   "picks": 90377,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1446.3,
+   "elo_picks": 90377
+  },
+  "HYPERBEAM": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.9,
+   "picks": 2372,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1411.5,
+   "elo_picks": 2372
+  },
+  "PILLAGE": {
+   "tier": "D",
+   "score": 45,
+   "win_rate": 41.3,
+   "picks": 43319,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1455.7,
+   "elo_picks": 43319
+  },
+  "CRASH_LANDING": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.2,
+   "picks": 2852,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1484.2,
+   "elo_picks": 2852
+  },
+  "GLIMPSE_BEYOND": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.3,
+   "picks": 7198,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1739.9,
+   "elo_picks": 7198
+  },
+  "DEVASTATE": {
+   "tier": "A",
+   "score": 84,
+   "win_rate": 53.2,
+   "picks": 4709,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1411.6,
+   "elo_picks": 4709
+  },
+  "DEMON_FORM": {
+   "tier": "C",
+   "score": 55,
+   "win_rate": 44.3,
+   "picks": 47290,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1696.3,
+   "elo_picks": 47290
+  },
+  "SHADOW_SHIELD": {
+   "tier": "B",
+   "score": 70,
+   "win_rate": 48.8,
+   "picks": 5614,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1541.5,
+   "elo_picks": 5614
+  },
+  "VOLLEY": {
+   "tier": "C",
+   "score": 57,
+   "win_rate": 44.9,
+   "picks": 4842,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "A",
+   "elo": 1178.0,
+   "elo_picks": 4842
+  },
+  "STORM_OF_STEEL": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.8,
+   "picks": 7131,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1629.1,
+   "elo_picks": 7131
+  },
+  "MAYHEM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.4,
+   "picks": 8027,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1306.1,
+   "elo_picks": 8027
+  },
+  "STRANGLE": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 57.0,
+   "picks": 8291,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1487.2,
+   "elo_picks": 8291
+  },
+  "HELLRAISER": {
+   "tier": "D",
+   "score": 48,
+   "win_rate": 42.1,
+   "picks": 43433,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1662.8,
+   "elo_picks": 43433
+  },
+  "AFTERLIFE": {
+   "tier": "A",
+   "score": 85,
+   "win_rate": 53.3,
+   "picks": 9792,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1453.2,
+   "elo_picks": 9792
+  },
+  "BACKSTAB": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 54.1,
+   "picks": 10788,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1572.3,
+   "elo_picks": 10788
+  },
+  "GLACIER": {
+   "tier": "A",
+   "score": 83,
+   "win_rate": 52.8,
+   "picks": 8235,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1641.1,
+   "elo_picks": 8235
+  },
+  "LEG_SWEEP": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.0,
+   "picks": 9476,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1552.8,
+   "elo_picks": 9476
+  },
+  "SUPERMASSIVE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.2,
+   "picks": 3740,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1421.7,
+   "elo_picks": 3740
+  },
+  "BUNDLE_OF_JOY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 65.2,
+   "picks": 3887,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1539.0,
+   "elo_picks": 3887
+  },
+  "THE_BALL": {
+   "tier": "S",
+   "score": 93,
+   "win_rate": 56.0,
+   "picks": 3082,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1567.5,
+   "elo_picks": 3082
+  },
+  "MALAISE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.5,
+   "picks": 4975,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1545.8,
+   "elo_picks": 4975
+  },
+  "SOUL_STORM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.0,
+   "picks": 4034,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1551.7,
+   "elo_picks": 4034
+  },
+  "METEOR_STRIKE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.8,
+   "picks": 2929,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1469.0,
+   "elo_picks": 2929
+  },
+  "SWEEPING_BEAM": {
+   "tier": "C",
+   "score": 62,
+   "win_rate": 46.4,
+   "picks": 7675,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1384.7,
+   "elo_picks": 7675
+  },
+  "MONOLOGUE": {
+   "tier": "S",
+   "score": 93,
+   "win_rate": 55.6,
+   "picks": 5471,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1450.5,
+   "elo_picks": 5471
+  },
+  "PARSE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.6,
+   "picks": 5742,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1476.0,
+   "elo_picks": 5742
+  },
+  "THRASH": {
+   "tier": "C",
+   "score": 57,
+   "win_rate": 44.8,
+   "picks": 40549,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1597.0,
+   "elo_picks": 40549
+  },
+  "VOLTAIC": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.2,
+   "picks": 5318,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1680.5,
+   "elo_picks": 5318
+  },
+  "HAND_TRICK": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 55.0,
+   "picks": 5765,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1491.4,
+   "elo_picks": 5765
+  },
+  "SEVEN_STARS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.0,
+   "picks": 4711,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1594.1,
+   "elo_picks": 4711
+  },
+  "TEMPEST": {
+   "tier": "A",
+   "score": 82,
+   "win_rate": 52.4,
+   "picks": 6490,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1542.9,
+   "elo_picks": 6490
+  },
+  "THRUMMING_HATCHET": {
+   "tier": "D",
+   "score": 41,
+   "win_rate": 40.0,
+   "picks": 5425,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1170.2,
+   "elo_picks": 5425
+  },
+  "IMITATION_LEARNING": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.9,
+   "picks": 1347,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1786.8,
+   "elo_picks": 1347
+  },
+  "PANACHE": {
+   "tier": "A",
+   "score": 80,
+   "win_rate": 51.7,
+   "picks": 7897,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1374.1,
+   "elo_picks": 7897
+  },
+  "BEAT_DOWN": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.0,
+   "picks": 2687,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1087.7,
+   "elo_picks": 2687
+  },
+  "SACRIFICE": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 57.3,
+   "picks": 1792,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1423.6,
+   "elo_picks": 1792
+  },
+  "RIGHT_HAND_HAND": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 57.0,
+   "picks": 5979,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1490.0,
+   "elo_picks": 5979
+  },
+  "ACCELERANT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.5,
+   "picks": 7014,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1660.3,
+   "elo_picks": 7014
+  },
+  "EIDOLON": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.7,
+   "picks": 1433,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1295.6,
+   "elo_picks": 1433
+  },
+  "SKEWER": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 54.0,
+   "picks": 3060,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1239.8,
+   "elo_picks": 3060
+  },
+  "OUTRAGE": {
+   "tier": "B",
+   "score": 70,
+   "win_rate": 48.9,
+   "picks": 4368,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1475.0,
+   "elo_picks": 4368
+  },
+  "CACOPHONY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 69.2,
+   "picks": 1406,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1759.7,
+   "elo_picks": 1406
+  },
+  "GRAND_FINALE": {
+   "tier": "S",
+   "score": 91,
+   "win_rate": 55.2,
+   "picks": 2420,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1336.7,
+   "elo_picks": 2420
+  },
+  "MIDNIGHT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.7,
+   "picks": 5509,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1777.1,
+   "elo_picks": 5509
+  },
+  "HAUNT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.5,
+   "picks": 8037,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1525.2,
+   "elo_picks": 8037
+  },
+  "OBLIVION": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.9,
+   "picks": 5548,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1684.5,
+   "elo_picks": 5548
+  },
+  "PULL_FROM_BELOW": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.3,
+   "picks": 3934,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1398.2,
+   "elo_picks": 3934
+  },
+  "ACCURACY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.7,
+   "picks": 20040,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1682.8,
+   "elo_picks": 20040
+  },
+  "POKE": {
+   "tier": "B",
+   "score": 75,
+   "win_rate": 50.2,
+   "picks": 11834,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1472.5,
+   "elo_picks": 11834
+  },
+  "MOMENTUM_STRIKE": {
+   "tier": "C",
+   "score": 63,
+   "win_rate": 46.6,
+   "picks": 8552,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1406.0,
+   "elo_picks": 8552
+  },
+  "ASTRAL_PULSE": {
+   "tier": "B",
+   "score": 74,
+   "win_rate": 50.1,
+   "picks": 9429,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1397.3,
+   "elo_picks": 9429
+  },
+  "PYRE": {
+   "tier": "C",
+   "score": 62,
+   "win_rate": 46.3,
+   "picks": 66789,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1821.3,
+   "elo_picks": 66789
+  },
+  "RAGE": {
+   "tier": "F",
+   "score": 32,
+   "win_rate": 37.5,
+   "picks": 78420,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1597.0,
+   "elo_picks": 78420
+  },
+  "FLAME_BARRIER": {
+   "tier": "F",
+   "score": 32,
+   "win_rate": 37.3,
+   "picks": 82296,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1603.3,
+   "elo_picks": 82296
+  },
+  "ARMAMENTS": {
+   "tier": "F",
+   "score": 22,
+   "win_rate": 34.3,
+   "picks": 135688,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1503.8,
+   "elo_picks": 135688
+  },
+  "MELANCHOLY": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.7,
+   "picks": 3402,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1404.3,
+   "elo_picks": 3402
+  },
+  "DEMESNE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.7,
+   "picks": 8853,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1835.6,
+   "elo_picks": 8853
+  },
+  "HIDDEN_GEM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.1,
+   "picks": 16784,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1455.2,
+   "elo_picks": 16784
+  },
+  "DARK_SHACKLES": {
+   "tier": "S",
+   "score": 95,
+   "win_rate": 56.3,
+   "picks": 12290,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1440.0,
+   "elo_picks": 12290
+  },
+  "CLOAK_OF_STARS": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.5,
+   "picks": 15213,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1492.7,
+   "elo_picks": 15213
+  },
+  "UPPERCUT": {
+   "tier": "D",
+   "score": 42,
+   "win_rate": 40.3,
+   "picks": 66014,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1534.4,
+   "elo_picks": 66014
+  },
+  "DAGGER_SPRAY": {
+   "tier": "B",
+   "score": 67,
+   "win_rate": 47.9,
+   "picks": 9907,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1358.7,
+   "elo_picks": 9907
+  },
+  "ENVENOM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.9,
+   "picks": 7897,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1706.0,
+   "elo_picks": 7897
+  },
+  "CAPACITOR": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.2,
+   "picks": 12639,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1686.2,
+   "elo_picks": 12639
+  },
+  "DEADLY_POISON": {
+   "tier": "B",
+   "score": 72,
+   "win_rate": 49.4,
+   "picks": 13160,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1470.1,
+   "elo_picks": 13160
+  },
+  "BEAM_CELL": {
+   "tier": "B",
+   "score": 73,
+   "win_rate": 49.5,
+   "picks": 13271,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1509.3,
+   "elo_picks": 13271
+  },
+  "SNAKEBITE": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 50.8,
+   "picks": 10202,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1414.1,
+   "elo_picks": 10202
+  },
+  "DISMANTLE": {
+   "tier": "F",
+   "score": 31,
+   "win_rate": 37.0,
+   "picks": 62208,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1529.6,
+   "elo_picks": 62208
+  },
+  "HAZE": {
+   "tier": "S",
+   "score": 92,
+   "win_rate": 55.5,
+   "picks": 8655,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1564.6,
+   "elo_picks": 8655
+  },
+  "OUTBREAK": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.6,
+   "picks": 8877,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1492.0,
+   "elo_picks": 8877
+  },
+  "GO_FOR_THE_EYES": {
+   "tier": "B",
+   "score": 75,
+   "win_rate": 50.4,
+   "picks": 14521,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1517.8,
+   "elo_picks": 14521
+  },
+  "MISERY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.3,
+   "picks": 7044,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1699.5,
+   "elo_picks": 7044
+  },
+  "COLD_SNAP": {
+   "tier": "C",
+   "score": 61,
+   "win_rate": 46.1,
+   "picks": 10531,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1457.7,
+   "elo_picks": 10531
+  },
+  "PARTICLE_WALL": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.1,
+   "picks": 8871,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1589.2,
+   "elo_picks": 8871
+  },
+  "BLIGHT_STRIKE": {
+   "tier": "C",
+   "score": 60,
+   "win_rate": 45.9,
+   "picks": 9053,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1411.7,
+   "elo_picks": 9053
+  },
+  "BEGONE": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 57.0,
+   "picks": 10544,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1460.5,
+   "elo_picks": 10544
+  },
+  "SPOILS_OF_BATTLE": {
+   "tier": "A",
+   "score": 89,
+   "win_rate": 54.4,
+   "picks": 12999,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1466.0,
+   "elo_picks": 12999
+  },
+  "SEEKING_EDGE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.2,
+   "picks": 6255,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1688.1,
+   "elo_picks": 6255
+  },
+  "GAMMA_BLAST": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.8,
+   "picks": 7137,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1521.7,
+   "elo_picks": 7137
+  },
+  "PREPARED": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 56.8,
+   "picks": 30450,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1680.1,
+   "elo_picks": 30450
+  },
+  "GRAVEBLAST": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.0,
+   "picks": 12244,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1449.7,
+   "elo_picks": 12244
+  },
+  "NEGATIVE_PULSE": {
+   "tier": "B",
+   "score": 66,
+   "win_rate": 47.6,
+   "picks": 17540,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1586.9,
+   "elo_picks": 17540
+  },
+  "COSMIC_INDIFFERENCE": {
+   "tier": "S",
+   "score": 95,
+   "win_rate": 56.3,
+   "picks": 18549,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1539.5,
+   "elo_picks": 18549
+  },
+  "DEMONIC_SHIELD": {
+   "tier": "A",
+   "score": 83,
+   "win_rate": 52.7,
+   "picks": 26941,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1508.1,
+   "elo_picks": 26941
+  },
+  "SKIM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.5,
+   "picks": 7274,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1566.6,
+   "elo_picks": 7274
+  },
+  "ECHO_FORM": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.0,
+   "picks": 9317,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1915.1,
+   "elo_picks": 9317
+  },
+  "SHROUD": {
+   "tier": "S",
+   "score": 93,
+   "win_rate": 55.7,
+   "picks": 7553,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1521.2,
+   "elo_picks": 7553
+  },
+  "THE_SMITH": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.0,
+   "picks": 6692,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1678.1,
+   "elo_picks": 6692
+  },
+  "COOLHEADED": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.2,
+   "picks": 16351,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1550.7,
+   "elo_picks": 16351
+  },
+  "SIGNAL_BOOST": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.3,
+   "picks": 6273,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1707.1,
+   "elo_picks": 6273
+  },
+  "KNOW_THY_PLACE": {
+   "tier": "S",
+   "score": 92,
+   "win_rate": 55.3,
+   "picks": 16979,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1517.3,
+   "elo_picks": 16979
+  },
+  "FEEL_NO_PAIN": {
+   "tier": "C",
+   "score": 59,
+   "win_rate": 45.4,
+   "picks": 59236,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1482.2,
+   "elo_picks": 59236
+  },
+  "ENTROPY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.0,
+   "picks": 3993,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1198.2,
+   "elo_picks": 3993
+  },
+  "RAMPAGE": {
+   "tier": "F",
+   "score": 13,
+   "win_rate": 31.7,
+   "picks": 44282,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1457.6,
+   "elo_picks": 44282
+  },
+  "I_AM_INVINCIBLE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.2,
+   "picks": 4313,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1568.6,
+   "elo_picks": 4313
+  },
+  "PARRY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.0,
+   "picks": 9609,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1540.0,
+   "elo_picks": 9609
+  },
+  "REFINE_BLADE": {
+   "tier": "A",
+   "score": 85,
+   "win_rate": 53.2,
+   "picks": 16226,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1520.0,
+   "elo_picks": 16226
+  },
+  "NULL": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.7,
+   "picks": 4566,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1445.9,
+   "elo_picks": 4566
+  },
+  "DEVOUR_LIFE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.6,
+   "picks": 4871,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1641.2,
+   "elo_picks": 4871
+  },
+  "DEFY": {
+   "tier": "S",
+   "score": 95,
+   "win_rate": 56.3,
+   "picks": 20332,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1584.1,
+   "elo_picks": 20332
+  },
+  "REANIMATE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.0,
+   "picks": 5527,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1660.4,
+   "elo_picks": 5527
+  },
+  "NOXIOUS_FUMES": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.9,
+   "picks": 15533,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1637.3,
+   "elo_picks": 15533
+  },
+  "BURY": {
+   "tier": "S",
+   "score": 95,
+   "win_rate": 56.5,
+   "picks": 3575,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1346.2,
+   "elo_picks": 3575
+  },
+  "SPECTRUM_SHIFT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.2,
+   "picks": 9017,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1516.4,
+   "elo_picks": 9017
+  },
+  "BLACK_HOLE": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 56.9,
+   "picks": 10420,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1574.0,
+   "elo_picks": 10420
+  },
+  "COMET": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.9,
+   "picks": 5073,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1632.7,
+   "elo_picks": 5073
+  },
+  "PATTER": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.9,
+   "picks": 10303,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1484.0,
+   "elo_picks": 10303
+  },
+  "FRIENDSHIP": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.6,
+   "picks": 12938,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1653.3,
+   "elo_picks": 12938
+  },
+  "HAVOC": {
+   "tier": "D",
+   "score": 36,
+   "win_rate": 38.6,
+   "picks": 41728,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1259.2,
+   "elo_picks": 41728
+  },
+  "FTL": {
+   "tier": "A",
+   "score": 85,
+   "win_rate": 53.2,
+   "picks": 7578,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1551.0,
+   "elo_picks": 7578
+  },
+  "BEACON_OF_HOPE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 72.7,
+   "picks": 10264,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1480.2,
+   "elo_picks": 10264
+  },
+  "DRAIN_POWER": {
+   "tier": "B",
+   "score": 71,
+   "win_rate": 49.2,
+   "picks": 10208,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1408.2,
+   "elo_picks": 10208
+  },
+  "ICE_LANCE": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.3,
+   "picks": 3970,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1577.2,
+   "elo_picks": 3970
+  },
+  "NOSTALGIA": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.5,
+   "picks": 4620,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1235.6,
+   "elo_picks": 4620
+  },
+  "MAKE_IT_SO": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.5,
+   "picks": 4839,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1612.7,
+   "elo_picks": 4839
+  },
+  "SENTRY_MODE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.3,
+   "picks": 4749,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1625.5,
+   "elo_picks": 4749
+  },
+  "SLEIGHT_OF_FLESH": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.3,
+   "picks": 7886,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1530.3,
+   "elo_picks": 7886
+  },
+  "HEAVENLY_DRILL": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.2,
+   "picks": 3290,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1568.3,
+   "elo_picks": 3290
+  },
+  "PUTREFY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.5,
+   "picks": 8752,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1591.7,
+   "elo_picks": 8752
+  },
+  "RESONANCE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.5,
+   "picks": 4937,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1441.6,
+   "elo_picks": 4937
+  },
+  "SMOKESTACK": {
+   "tier": "A",
+   "score": 84,
+   "win_rate": 53.2,
+   "picks": 4813,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1494.4,
+   "elo_picks": 4813
+  },
+  "INFINITE_BLADES": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.4,
+   "picks": 17868,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1621.8,
+   "elo_picks": 17868
+  },
+  "CHILL": {
+   "tier": "A",
+   "score": 84,
+   "win_rate": 52.9,
+   "picks": 7734,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1604.0,
+   "elo_picks": 7734
+  },
+  "MEMENTO_MORI": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.8,
+   "picks": 3816,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1314.5,
+   "elo_picks": 3816
+  },
+  "TYRANNY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.8,
+   "picks": 4300,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1585.7,
+   "elo_picks": 4300
+  },
+  "KNOCKOUT_BLOW": {
+   "tier": "B",
+   "score": 76,
+   "win_rate": 50.8,
+   "picks": 3297,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1349.4,
+   "elo_picks": 3297
+  },
+  "SYNCHRONIZE": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.7,
+   "picks": 3958,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1447.2,
+   "elo_picks": 3958
+  },
+  "ADAPTIVE_STRIKE": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 54.1,
+   "picks": 3849,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1562.1,
+   "elo_picks": 3849
+  },
+  "CRUSH_UNDER": {
+   "tier": "A",
+   "score": 79,
+   "win_rate": 51.6,
+   "picks": 11099,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1416.4,
+   "elo_picks": 11099
+  },
+  "BANSHEES_CRY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.1,
+   "picks": 2496,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1561.8,
+   "elo_picks": 2496
+  },
+  "EXPOSE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.8,
+   "picks": 17602,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1702.8,
+   "elo_picks": 17602
+  },
+  "FOOTWORK": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.3,
+   "picks": 18036,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1655.3,
+   "elo_picks": 18036
+  },
+  "CREATIVE_AI": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.8,
+   "picks": 7089,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1772.0,
+   "elo_picks": 7089
+  },
+  "FEED": {
+   "tier": "D",
+   "score": 37,
+   "win_rate": 38.9,
+   "picks": 33686,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1541.9,
+   "elo_picks": 33686
+  },
+  "HOTFIX": {
+   "tier": "B",
+   "score": 71,
+   "win_rate": 49.1,
+   "picks": 13622,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1513.0,
+   "elo_picks": 13622
+  },
+  "GUIDING_STAR": {
+   "tier": "S",
+   "score": 93,
+   "win_rate": 55.7,
+   "picks": 7964,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1343.5,
+   "elo_picks": 7964
+  },
+  "PREDATOR": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.1,
+   "picks": 4944,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1252.3,
+   "elo_picks": 4944
+  },
+  "CONQUEROR": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.2,
+   "picks": 8632,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1587.5,
+   "elo_picks": 8632
+  },
+  "HAMMER_TIME": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.1,
+   "picks": 4635,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1635.0,
+   "elo_picks": 4635
+  },
+  "SECRET_TECHNIQUE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.2,
+   "picks": 5346,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1228.8,
+   "elo_picks": 5346
+  },
+  "LEAP": {
+   "tier": "C",
+   "score": 61,
+   "win_rate": 46.0,
+   "picks": 11785,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1457.5,
+   "elo_picks": 11785
+  },
+  "PERFECTED_STRIKE": {
+   "tier": "F",
+   "score": 10,
+   "win_rate": 30.8,
+   "picks": 97832,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1503.4,
+   "elo_picks": 97832
+  },
+  "BLADE_OF_INK": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.5,
+   "picks": 6916,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1737.9,
+   "elo_picks": 6916
+  },
+  "SHADOWMELD": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.2,
+   "picks": 5541,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1566.2,
+   "elo_picks": 5541
+  },
+  "ALL_FOR_ONE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.8,
+   "picks": 5341,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1661.4,
+   "elo_picks": 5341
+  },
+  "UNRELENTING": {
+   "tier": "F",
+   "score": 24,
+   "win_rate": 34.9,
+   "picks": 46761,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1477.5,
+   "elo_picks": 46761
+  },
+  "LEADING_STRIKE": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 53.8,
+   "picks": 22692,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1556.4,
+   "elo_picks": 22692
+  },
+  "BOOT_SEQUENCE": {
+   "tier": "A",
+   "score": 82,
+   "win_rate": 52.5,
+   "picks": 9320,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1651.0,
+   "elo_picks": 9320
+  },
+  "FLANKING": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.3,
+   "picks": 13305,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1649.8,
+   "elo_picks": 13305
+  },
+  "FLATTEN": {
+   "tier": "B",
+   "score": 73,
+   "win_rate": 49.6,
+   "picks": 11086,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1467.7,
+   "elo_picks": 11086
+  },
+  "JACKPOT": {
+   "tier": "S",
+   "score": 98,
+   "win_rate": 57.3,
+   "picks": 7465,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1282.2,
+   "elo_picks": 7465
+  },
+  "CALL_OF_THE_VOID": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.2,
+   "picks": 6117,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1688.3,
+   "elo_picks": 6117
+  },
+  "REAVE": {
+   "tier": "B",
+   "score": 73,
+   "win_rate": 49.8,
+   "picks": 9622,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1404.7,
+   "elo_picks": 9622
+  },
+  "CAPTURE_SPIRIT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.6,
+   "picks": 9560,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1619.1,
+   "elo_picks": 9560
+  },
+  "MIRAGE": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.8,
+   "picks": 5556,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1458.7,
+   "elo_picks": 5556
+  },
+  "SUCKER_PUNCH": {
+   "tier": "A",
+   "score": 79,
+   "win_rate": 51.6,
+   "picks": 9907,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1330.2,
+   "elo_picks": 9907
+  },
+  "TRANSFIGURE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.7,
+   "picks": 6566,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1687.7,
+   "elo_picks": 6566
+  },
+  "SHINING_STRIKE": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.8,
+   "picks": 8447,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1556.1,
+   "elo_picks": 8447
+  },
+  "TESLA_COIL": {
+   "tier": "C",
+   "score": 64,
+   "win_rate": 47.0,
+   "picks": 7013,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1535.3,
+   "elo_picks": 7013
+  },
+  "STONE_ARMOR": {
+   "tier": "D",
+   "score": 42,
+   "win_rate": 40.3,
+   "picks": 66670,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1518.0,
+   "elo_picks": 66670
+  },
+  "FEAR": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.1,
+   "picks": 9952,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1423.9,
+   "elo_picks": 9952
+  },
+  "ARSENAL": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.1,
+   "picks": 4019,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1655.2,
+   "elo_picks": 4019
+  },
+  "ULTIMATE_DEFEND": {
+   "tier": "C",
+   "score": 63,
+   "win_rate": 46.6,
+   "picks": 20159,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1323.7,
+   "elo_picks": 20159
+  },
+  "BODY_SLAM": {
+   "tier": "D",
+   "score": 44,
+   "win_rate": 41.0,
+   "picks": 72054,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1427.7,
+   "elo_picks": 72054
+  },
+  "LARGESSE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.5,
+   "picks": 6426,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1515.6,
+   "elo_picks": 6426
+  },
+  "DEATHS_DOOR": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.5,
+   "picks": 6334,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1548.2,
+   "elo_picks": 6334
+  },
+  "EVIL_EYE": {
+   "tier": "D",
+   "score": 43,
+   "win_rate": 40.8,
+   "picks": 55866,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1515.9,
+   "elo_picks": 55866
+  },
+  "FLASH_OF_STEEL": {
+   "tier": "A",
+   "score": 82,
+   "win_rate": 52.4,
+   "picks": 13554,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1424.6,
+   "elo_picks": 13554
+  },
+  "CLAW": {
+   "tier": "C",
+   "score": 64,
+   "win_rate": 47.1,
+   "picks": 13030,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1594.7,
+   "elo_picks": 13030
+  },
+  "SPITE": {
+   "tier": "D",
+   "score": 38,
+   "win_rate": 39.1,
+   "picks": 36543,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1410.1,
+   "elo_picks": 36543
+  },
+  "SPIRIT_OF_ASH": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.6,
+   "picks": 3283,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1538.4,
+   "elo_picks": 3283
+  },
+  "SOULBOUND": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.8,
+   "picks": 1843,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1549.6,
+   "elo_picks": 1843
+  },
+  "POMMEL_STRIKE": {
+   "tier": "F",
+   "score": 29,
+   "win_rate": 36.6,
+   "picks": 165512,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1616.3,
+   "elo_picks": 165512
+  },
+  "PROPHESIZE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.3,
+   "picks": 3047,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1310.1,
+   "elo_picks": 3047
+  },
+  "REFLEX": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.3,
+   "picks": 7392,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1548.3,
+   "elo_picks": 7392
+  },
+  "TRASH_TO_TREASURE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.2,
+   "picks": 4056,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1635.9,
+   "elo_picks": 4056
+  },
+  "HAILSTORM": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.0,
+   "picks": 6001,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1494.5,
+   "elo_picks": 6001
+  },
+  "UPROAR": {
+   "tier": "B",
+   "score": 71,
+   "win_rate": 49.1,
+   "picks": 5865,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1336.3,
+   "elo_picks": 5865
+  },
+  "SYNTHESIS": {
+   "tier": "A",
+   "score": 78,
+   "win_rate": 51.3,
+   "picks": 3689,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1361.9,
+   "elo_picks": 3689
+  },
+  "THE_BOMB": {
+   "tier": "D",
+   "score": 40,
+   "win_rate": 39.7,
+   "picks": 5253,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "A",
+   "elo": 1226.9,
+   "elo_picks": 5253
+  },
+  "INFERNAL_BLADE": {
+   "tier": "F",
+   "score": 32,
+   "win_rate": 37.3,
+   "picks": 59379,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1551.5,
+   "elo_picks": 59379
+  },
+  "KNIFE_TRAP": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.8,
+   "picks": 9756,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1744.2,
+   "elo_picks": 9756
+  },
+  "CORROSIVE_WAVE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.7,
+   "picks": 5495,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1607.7,
+   "elo_picks": 5495
+  },
+  "WHITE_NOISE": {
+   "tier": "A",
+   "score": 83,
+   "win_rate": 52.8,
+   "picks": 11607,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1735.9,
+   "elo_picks": 11607
+  },
+  "BATTLE_TRANCE": {
+   "tier": "C",
+   "score": 54,
+   "win_rate": 44.1,
+   "picks": 99275,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1655.3,
+   "elo_picks": 99275
+  },
+  "SCAVENGE": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 57.1,
+   "picks": 4886,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1544.7,
+   "elo_picks": 4886
+  },
+  "PALE_BLUE_DOT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.0,
+   "picks": 4655,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1341.7,
+   "elo_picks": 4655
+  },
+  "DEATHBRINGER": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 53.8,
+   "picks": 9130,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1638.8,
+   "elo_picks": 9130
+  },
+  "TOOLS_OF_THE_TRADE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.2,
+   "picks": 8600,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1729.4,
+   "elo_picks": 8600
+  },
+  "BALL_LIGHTNING": {
+   "tier": "C",
+   "score": 53,
+   "win_rate": 43.8,
+   "picks": 11093,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1489.1,
+   "elo_picks": 11093
+  },
+  "BLOODLETTING": {
+   "tier": "F",
+   "score": 32,
+   "win_rate": 37.3,
+   "picks": 174407,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1603.2,
+   "elo_picks": 174407
+  },
+  "FLECHETTES": {
+   "tier": "S",
+   "score": 93,
+   "win_rate": 55.8,
+   "picks": 4504,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1357.3,
+   "elo_picks": 4504
+  },
+  "REND": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.8,
+   "picks": 1529,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1024.6,
+   "elo_picks": 1529
+  },
+  "STARDUST": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 57.9,
+   "picks": 9021,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1539.9,
+   "elo_picks": 9021
+  },
+  "GENETIC_ALGORITHM": {
+   "tier": "S",
+   "score": 91,
+   "win_rate": 55.2,
+   "picks": 4260,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1613.5,
+   "elo_picks": 4260
+  },
+  "LOOP": {
+   "tier": "B",
+   "score": 76,
+   "win_rate": 50.5,
+   "picks": 9533,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1613.2,
+   "elo_picks": 9533
+  },
+  "REBOOT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 63.3,
+   "picks": 5179,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1659.9,
+   "elo_picks": 5179
+  },
+  "SOW": {
+   "tier": "C",
+   "score": 58,
+   "win_rate": 45.0,
+   "picks": 6635,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1335.0,
+   "elo_picks": 6635
+  },
+  "KINGLY_KICK": {
+   "tier": "A",
+   "score": 80,
+   "win_rate": 51.9,
+   "picks": 3809,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1371.0,
+   "elo_picks": 3809
+  },
+  "DOMINATE": {
+   "tier": "C",
+   "score": 54,
+   "win_rate": 43.9,
+   "picks": 90665,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1734.6,
+   "elo_picks": 90665
+  },
+  "IMPATIENCE": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 55.0,
+   "picks": 4379,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1224.0,
+   "elo_picks": 4379
+  },
+  "QUASAR": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.6,
+   "picks": 5773,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1484.8,
+   "elo_picks": 5773
+  },
+  "UNDERWORLD": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.4,
+   "picks": 1694,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1566.9,
+   "elo_picks": 1694
+  },
+  "FERAL": {
+   "tier": "S",
+   "score": 92,
+   "win_rate": 55.4,
+   "picks": 8286,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1558.3,
+   "elo_picks": 8286
+  },
+  "TWIN_STRIKE": {
+   "tier": "F",
+   "score": 18,
+   "win_rate": 33.1,
+   "picks": 83612,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1427.4,
+   "elo_picks": 83612
+  },
+  "HEGEMONY": {
+   "tier": "S",
+   "score": 93,
+   "win_rate": 55.8,
+   "picks": 5534,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1439.7,
+   "elo_picks": 5534
+  },
+  "KINGLY_PUNCH": {
+   "tier": "B",
+   "score": 69,
+   "win_rate": 48.4,
+   "picks": 4087,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1390.5,
+   "elo_picks": 4087
+  },
+  "JUGGERNAUT": {
+   "tier": "C",
+   "score": 54,
+   "win_rate": 44.0,
+   "picks": 28063,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1579.8,
+   "elo_picks": 28063
+  },
+  "FIGHT_ME": {
+   "tier": "F",
+   "score": 22,
+   "win_rate": 34.4,
+   "picks": 42406,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1431.6,
+   "elo_picks": 42406
+  },
+  "TRACKING": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 65.8,
+   "picks": 7969,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1690.9,
+   "elo_picks": 7969
+  },
+  "MASTER_OF_STRATEGY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.0,
+   "picks": 10388,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1332.9,
+   "elo_picks": 10388
+  },
+  "MULTI_CAST": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 55.0,
+   "picks": 3025,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1513.6,
+   "elo_picks": 3025
+  },
+  "FIGHT_THROUGH": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.2,
+   "picks": 5496,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1528.8,
+   "elo_picks": 5496
+  },
+  "HEADBUTT": {
+   "tier": "F",
+   "score": 33,
+   "win_rate": 37.6,
+   "picks": 88996,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1425.2,
+   "elo_picks": 88996
+  },
+  "ALCHEMIZE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.0,
+   "picks": 4858,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1234.1,
+   "elo_picks": 4858
+  },
+  "ENERGY_SURGE": {
+   "tier": "S",
+   "score": 99,
+   "win_rate": 57.5,
+   "picks": 12923,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1791.0,
+   "elo_picks": 12923
+  },
+  "TRUE_GRIT": {
+   "tier": "F",
+   "score": 32,
+   "win_rate": 37.5,
+   "picks": 101774,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1431.9,
+   "elo_picks": 101774
+  },
+  "ANTICIPATE": {
+   "tier": "A",
+   "score": 79,
+   "win_rate": 51.5,
+   "picks": 12455,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1389.4,
+   "elo_picks": 12455
+  },
+  "DODGE_AND_ROLL": {
+   "tier": "A",
+   "score": 84,
+   "win_rate": 53.1,
+   "picks": 11531,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1398.4,
+   "elo_picks": 11531
+  },
+  "GLIMMER": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.7,
+   "picks": 5691,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1454.9,
+   "elo_picks": 5691
+  },
+  "NOT_YET": {
+   "tier": "C",
+   "score": 59,
+   "win_rate": 45.5,
+   "picks": 33819,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1655.6,
+   "elo_picks": 33819
+  },
+  "DRAMATIC_ENTRANCE": {
+   "tier": "C",
+   "score": 52,
+   "win_rate": 43.4,
+   "picks": 10769,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1348.8,
+   "elo_picks": 10769
+  },
+  "COMPACT": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.4,
+   "picks": 8530,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1626.7,
+   "elo_picks": 8530
+  },
+  "ERADICATE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.1,
+   "picks": 4603,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1566.3,
+   "elo_picks": 4603
+  },
+  "MIND_BLAST": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 51.0,
+   "picks": 4793,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1222.3,
+   "elo_picks": 4793
+  },
+  "FURNACE": {
+   "tier": "S",
+   "score": 94,
+   "win_rate": 56.2,
+   "picks": 11466,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1600.0,
+   "elo_picks": 11466
+  },
+  "STOKE": {
+   "tier": "B",
+   "score": 72,
+   "win_rate": 49.3,
+   "picks": 31645,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1564.2,
+   "elo_picks": 31645
+  },
+  "FIEND_FIRE": {
+   "tier": "C",
+   "score": 62,
+   "win_rate": 46.5,
+   "picks": 27673,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1507.1,
+   "elo_picks": 27673
+  },
+  "TERRAFORMING": {
+   "tier": "A",
+   "score": 89,
+   "win_rate": 54.6,
+   "picks": 3994,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1381.1,
+   "elo_picks": 3994
+  },
+  "UNDEATH": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.5,
+   "picks": 5826,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1658.2,
+   "elo_picks": 5826
+  },
+  "JACK_OF_ALL_TRADES": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 50.9,
+   "picks": 6193,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1287.7,
+   "elo_picks": 6193
+  },
+  "CRUELTY": {
+   "tier": "C",
+   "score": 59,
+   "win_rate": 45.5,
+   "picks": 62468,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1741.4,
+   "elo_picks": 62468
+  },
+  "AGGRESSION": {
+   "tier": "B",
+   "score": 70,
+   "win_rate": 48.7,
+   "picks": 35527,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1623.4,
+   "elo_picks": 35527
+  },
+  "COMPILE_DRIVER": {
+   "tier": "S",
+   "score": 90,
+   "win_rate": 54.8,
+   "picks": 6194,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1345.1,
+   "elo_picks": 6194
+  },
+  "MONARCHS_GAZE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 66.0,
+   "picks": 4158,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1561.4,
+   "elo_picks": 4158
+  },
+  "FADE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.2,
+   "picks": 1476,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1493.1,
+   "elo_picks": 1476
+  },
+  "CRIMSON_MANTLE": {
+   "tier": "A",
+   "score": 78,
+   "win_rate": 51.2,
+   "picks": 48329,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1713.3,
+   "elo_picks": 48329
+  },
+  "FLAK_CANNON": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.5,
+   "picks": 4124,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1648.5,
+   "elo_picks": 4124
+  },
+  "ADRENALINE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 65.3,
+   "picks": 13466,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1905.0,
+   "elo_picks": 13466
+  },
+  "ONE_FOR_ALL": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.0,
+   "picks": 964,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1705.8,
+   "elo_picks": 964
+  },
+  "PREP_TIME": {
+   "tier": "C",
+   "score": 58,
+   "win_rate": 45.3,
+   "picks": 6336,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1272.6,
+   "elo_picks": 6336
+  },
+  "FASTEN": {
+   "tier": "C",
+   "score": 56,
+   "win_rate": 44.6,
+   "picks": 14397,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1457.5,
+   "elo_picks": 14397
+  },
+  "PANIC_BUTTON": {
+   "tier": "A",
+   "score": 78,
+   "win_rate": 51.4,
+   "picks": 3197,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1083.4,
+   "elo_picks": 3197
+  },
+  "HANG": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.4,
+   "picks": 5422,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1659.8,
+   "elo_picks": 5422
+  },
+  "PLOT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 70.0,
+   "picks": 1513,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1557.6,
+   "elo_picks": 1513
+  },
+  "THINKING_AHEAD": {
+   "tier": "S",
+   "score": 96,
+   "win_rate": 56.6,
+   "picks": 6427,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1292.8,
+   "elo_picks": 6427
+  },
+  "PRIMAL_FORCE": {
+   "tier": "F",
+   "score": 34,
+   "win_rate": 37.9,
+   "picks": 24382,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1471.5,
+   "elo_picks": 24382
+  },
+  "SPINNER": {
+   "tier": "S",
+   "score": 97,
+   "win_rate": 56.9,
+   "picks": 4825,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1675.1,
+   "elo_picks": 4825
+  },
+  "HOWL_FROM_BEYOND": {
+   "tier": "F",
+   "score": 28,
+   "win_rate": 36.0,
+   "picks": 38918,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1434.7,
+   "elo_picks": 38918
+  },
+  "BULK_UP": {
+   "tier": "S",
+   "score": 91,
+   "win_rate": 55.1,
+   "picks": 7202,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1505.5,
+   "elo_picks": 7202
+  },
+  "ANOINTED": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 69.5,
+   "picks": 1931,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1082.6,
+   "elo_picks": 1931
+  },
+  "RADIATE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.4,
+   "picks": 7023,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1507.1,
+   "elo_picks": 7023
+  },
+  "THE_GAMBIT": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.0,
+   "picks": 2712,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1059.5,
+   "elo_picks": 2712
+  },
+  "HIBERNATE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 67.3,
+   "picks": 1972,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1690.9,
+   "elo_picks": 1972
+  },
+  "LUNAR_BLAST": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.9,
+   "picks": 2767,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1360.3,
+   "elo_picks": 2767
+  },
+  "BARRICADE": {
+   "tier": "B",
+   "score": 72,
+   "win_rate": 49.5,
+   "picks": 42408,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1694.8,
+   "elo_picks": 42408
+  },
+  "TREMBLE": {
+   "tier": "F",
+   "score": 27,
+   "win_rate": 35.9,
+   "picks": 148831,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1532.2,
+   "elo_picks": 148831
+  },
+  "MASTER_PLANNER": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.9,
+   "picks": 5048,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1620.8,
+   "elo_picks": 5048
+  },
+  "EQUILIBRIUM": {
+   "tier": "A",
+   "score": 79,
+   "win_rate": 51.7,
+   "picks": 6859,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1273.6,
+   "elo_picks": 6859
+  },
+  "DARK_EMBRACE": {
+   "tier": "A",
+   "score": 78,
+   "win_rate": 51.2,
+   "picks": 26418,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1551.2,
+   "elo_picks": 26418
+  },
+  "COORDINATE": {
+   "tier": "B",
+   "score": 67,
+   "win_rate": 47.9,
+   "picks": 4831,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1239.3,
+   "elo_picks": 4831
+  },
+  "RAINBOW": {
+   "tier": "A",
+   "score": 89,
+   "win_rate": 54.8,
+   "picks": 3237,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1530.1,
+   "elo_picks": 3237
+  },
+  "PHOTON_CUT": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.2,
+   "picks": 7759,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1332.6,
+   "elo_picks": 7759
+  },
+  "BLADE_SYMPHONY": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.0,
+   "picks": 2672,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1645.1,
+   "elo_picks": 2672
+  },
+  "BOLAS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 59.2,
+   "picks": 4520,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1153.3,
+   "elo_picks": 4520
+  },
+  "PROWESS": {
+   "tier": "C",
+   "score": 64,
+   "win_rate": 46.9,
+   "picks": 11705,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1428.8,
+   "elo_picks": 11705
+  },
+  "BLAZE": {
+   "tier": "S",
+   "score": 94,
+   "win_rate": 56.1,
+   "picks": 5467,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1518.9,
+   "elo_picks": 5467
+  },
+  "TEAR_ASUNDER": {
+   "tier": "B",
+   "score": 67,
+   "win_rate": 48.0,
+   "picks": 24686,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1562.7,
+   "elo_picks": 24686
+  },
+  "ROLLING_BOULDER": {
+   "tier": "A",
+   "score": 82,
+   "win_rate": 52.3,
+   "picks": 6026,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1240.6,
+   "elo_picks": 6026
+  },
+  "INTERCEPT": {
+   "tier": "B",
+   "score": 77,
+   "win_rate": 51.1,
+   "picks": 3278,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1158.5,
+   "elo_picks": 3278
+  },
+  "RATTLE": {
+   "tier": "A",
+   "score": 88,
+   "win_rate": 54.4,
+   "picks": 5027,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1456.3,
+   "elo_picks": 5027
+  },
+  "FOREGONE_CONCLUSION": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 65.0,
+   "picks": 3941,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1532.5,
+   "elo_picks": 3941
+  },
+  "PINPOINT": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.6,
+   "picks": 5219,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1392.5,
+   "elo_picks": 5219
+  },
+  "SECRET_WEAPON": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.3,
+   "picks": 4736,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1169.2,
+   "elo_picks": 4736
+  },
+  "SIDESTEP": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.4,
+   "picks": 1903,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1672.2,
+   "elo_picks": 1903
+  },
+  "THE_HUNT": {
+   "tier": "A",
+   "score": 89,
+   "win_rate": 54.6,
+   "picks": 3686,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1467.1,
+   "elo_picks": 3686
+  },
+  "MIMIC": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 65.3,
+   "picks": 4788,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1301.8,
+   "elo_picks": 4788
+  },
+  "TUTOR": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 68.1,
+   "picks": 842,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1630.4,
+   "elo_picks": 842
+  },
+  "SNAP": {
+   "tier": "A",
+   "score": 86,
+   "win_rate": 53.7,
+   "picks": 9903,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1405.2,
+   "elo_picks": 9903
+  },
+  "FISTICUFFS": {
+   "tier": "B",
+   "score": 71,
+   "win_rate": 49.0,
+   "picks": 10510,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1310.5,
+   "elo_picks": 10510
+  },
+  "STOMP": {
+   "tier": "F",
+   "score": 20,
+   "win_rate": 33.7,
+   "picks": 54245,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1490.6,
+   "elo_picks": 54245
+  },
+  "BONE_SHARDS": {
+   "tier": "A",
+   "score": 82,
+   "win_rate": 52.5,
+   "picks": 3941,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1424.6,
+   "elo_picks": 3941
+  },
+  "REFRACT": {
+   "tier": "B",
+   "score": 69,
+   "win_rate": 48.4,
+   "picks": 3698,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1401.3,
+   "elo_picks": 3698
+  },
+  "LEGION_OF_BONE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 62.1,
+   "picks": 7842,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1577.0,
+   "elo_picks": 7842
+  },
+  "PHANTOM_BLADES": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 58.5,
+   "picks": 10368,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1566.0,
+   "elo_picks": 10368
+  },
+  "FLICK_FLACK": {
+   "tier": "B",
+   "score": 76,
+   "win_rate": 50.6,
+   "picks": 12020,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1408.8,
+   "elo_picks": 12020
+  },
+  "GENESIS": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 64.4,
+   "picks": 7069,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1752.4,
+   "elo_picks": 7069
+  },
+  "THE_SCYTHE": {
+   "tier": "A",
+   "score": 87,
+   "win_rate": 54.1,
+   "picks": 3803,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1516.9,
+   "elo_picks": 3803
+  },
+  "DASH": {
+   "tier": "A",
+   "score": 81,
+   "win_rate": 52.2,
+   "picks": 6777,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1445.5,
+   "elo_picks": 6777
+  },
+  "ROYALTIES": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.1,
+   "picks": 3718,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1552.5,
+   "elo_picks": 3718
+  },
+  "SQUEEZE": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 60.5,
+   "picks": 3967,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1560.6,
+   "elo_picks": 3967
+  },
+  "CONSTELLATION": {
+   "tier": "S",
+   "score": 100,
+   "win_rate": 61.0,
+   "picks": 1453,
+   "pick_rate": null,
+   "pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_pick_rate_by_act": [
+    null,
+    null,
+    null
+   ],
+   "strong_tier": "S",
+   "elo": 1542.5,
+   "elo_picks": 1453
+  }
+ },
+ "source_elo": "https://spire-codex.com/api/runs/scores/cards?character=ironclad",
+ "elo_median": 1521.2
+}

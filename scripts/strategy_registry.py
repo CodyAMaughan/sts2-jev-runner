@@ -160,6 +160,20 @@ class Strategy:
                 from spire_codex import card_reward_note
                 note=card_reward_note(offered,wording=int(self._packet.get('community_card_stats')))
                 if note:additions.append(note)
+        # Permanent card removal (shop service, events) arrives as a generic card_selection whose
+        # prompt says "Remove"; Jev removed Bash 8 times and never a Strike (1.1.20/1.1.21 runs).
+        sel_prompt=str((obs.get('state') or {}).get('prompt') or '')
+        if obs['kind']=='card_selection' and self._packet.get('removal_hint') and 'remove' in sel_prompt.lower() and not (game.get('enemies') or []):
+            additions.append(self._packet['removal_hint'])
+        if obs['kind']=='card_reward' and self._packet.get('deck_math'):
+            offered_cards=[a['option']['card'] for a in obs.get('actions',[]) if a['option'].get('action')=='select_card' and a['option'].get('card')]
+            deck=game.get('deck') or []
+            if offered_cards and deck:
+                from turn_planner import deck_math
+                (d0,b0),after=deck_math(deck,offered_cards,energy=max(3,game.get('energy') or 3))
+                additions.append(f"Deck math (random 5-card hands, 3 energy): your {len(deck)}-card deck averages ~{d0:.1f} damage OR ~{b0:.1f} Block per turn if a turn goes all-in. "
+                    +'; '.join(f"+{cid}: ~{d:.1f} damage / ~{b:.1f} Block" for cid,(d,b) in after.items())
+                    +". Fights cost (enemy damage per turn) x (enemy HP / your damage per turn), so damage per turn is usually the number to raise until it reaches ~20+; Block per turn matters most against big hitters and bosses. Card text effects the math ignores (scaling, draw quality) still count.")
         selection['addenda']=additions
         return '\n'.join([self._packet['goal'],module.prompt,*additions]),selection
 

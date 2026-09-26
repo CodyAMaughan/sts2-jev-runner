@@ -62,6 +62,20 @@ public static class RemoteScreens
                 "shop"=>root.GetNodeOrNull("/root/Game/RootSceneContainer/Run/RoomContainer/MerchantRoom"),
                 "treasure"=>root.GetNodeOrNull("/root/Game/RootSceneContainer/Run/RoomContainer/TreasureRoom"),_=>overlay
             };
+            if(kind=="crystal_sphere" && overlay is NCrystalSphereScreen sphere && GodotObject.IsInstanceValid(sphere)) {
+                // Mirrors the game's CrystalSphereScreenHandler: once divinations are spent the
+                // screen hides while its results animate and then enables Proceed. Returning while
+                // it is merely hidden made the drain loop re-enter three times and abort the run
+                // ("NCrystalSphereScreen not closing after being handled").
+                var proceed=sphere.GetNodeOrNull<NProceedButton>("%ProceedButton");
+                if(proceed!=null && proceed.IsEnabled && proceed.IsVisibleInTree()) {
+                    await UiHelper.Click(proceed);
+                    await WaitHelper.Until(()=>!GodotObject.IsInstanceValid(sphere)||!sphere.IsVisibleInTree()||(NMapScreen.Instance?.IsVisibleInTree()??false),ct,TimeSpan.FromSeconds(10),"Crystal Sphere screen did not close after proceed");
+                    if(GodotObject.IsInstanceValid(sphere) && sphere.IsVisibleInTree() && (NMapScreen.Instance?.IsVisibleInTree()??false))NOverlayStack.Instance?.Remove(sphere);
+                    return;
+                }
+                if(!sphere.IsVisibleInTree()){await Task.Delay(200,ct);continue;}
+            }
             if(scope==null || !GodotObject.IsInstanceValid(scope) || !Visible(scope))return;
             if(kind=="shop" && !openedShop){((NMerchantRoom)scope).OpenInventory();openedShop=true;await Task.Delay(400,ct);}
             if(kind=="treasure" && !openedChest){await UiHelper.Click(scope.GetNode<NClickableControl>("Chest"));openedChest=true;await Task.Delay(800,ct);}

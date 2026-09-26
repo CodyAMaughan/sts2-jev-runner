@@ -16,6 +16,11 @@ the next decision, when the drawn cards are known. Situations the model cannot p
 """
 import re
 
+# Rev 5 prices these instead of deferring (see plan()): revives, sleepers, stun-on-block,
+# Dazed-on-hit, card theft, Tender, free attacks and Juggling.
+REV5_HANDLED = {'ILLUSION_POWER', 'SLUMBER_POWER', 'IMBALANCED_POWER', 'SWIPE_POWER', 'PERSONAL_HIVE_POWER',
+                'TENDER_POWER', 'FREE_ATTACK_POWER', 'JUGGLING_POWER'}
+DAZED_HIT_COST = 1.5  # HP-equivalent of one Dazed shuffled into the draw pile (a dead draw later)
 DEFER_ENEMY_POWERS = {'PERSONAL_HIVE_POWER', 'VITAL_SPARK_POWER', 'ILLUSION_POWER', 'REATTACH_POWER',
                       'SLUMBER_POWER', 'CURL_UP_POWER', 'IMBALANCED_POWER', 'HATCH_POWER', 'INFESTED_POWER', 'SWIPE_POWER'}
 DEFER_PLAYER_POWERS = {'TENDER_POWER', 'NO_BLOCK_POWER', 'TANGLED_POWER', 'DUPLICATION_POWER', 'ONE_TWO_PUNCH_POWER',
@@ -69,7 +74,8 @@ def expected_damage_per_turn(state):
 
 class Line:
     __slots__ = ('energy', 'used', 'hp', 'block', 'vuln', 'slip', 'artifact', 'pblock', 'hploss', 'thorns_taken',
-                 'strength', 'draws', 'opaque', 'plan', 'inflame', 'dex', 'potions', 'weakened', 'shackle', 'sandpit')
+                 'strength', 'draws', 'opaque', 'plan', 'inflame', 'dex', 'potions', 'weakened', 'shackle', 'sandpit',
+                 'free_attack', 'dazed')
 
     def copy(self):
         n = Line()
@@ -101,8 +107,10 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
     if not alive: return {'supported': False, 'reason': 'no enemies'}
     for e in enemies:
         bad = (DEFER_ENEMY_POWERS | ({'SANDPIT_POWER'} if rev < 4 else set())).intersection(_powers(e.get('creature')))
+        if rev >= 5: bad -= REV5_HANDLED
         if bad: return {'supported': False, 'reason': 'enemy power ' + ','.join(sorted(bad))}
     bad = DEFER_PLAYER_POWERS.intersection(ppow)
+    if rev >= 5: bad -= REV5_HANDLED
     if bad: return {'supported': False, 'reason': 'player power ' + ','.join(sorted(bad))}
     hand_ids = [((h.get('card', h)) or {}).get('id') for h in st.get('hand') or []]
     if rev < 4 and 'FRANTIC_ESCAPE' in hand_ids: return {'supported': False, 'reason': 'Frantic Escape'}
@@ -146,6 +154,11 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
     # each Frantic Escape played adds 1 (and costs 1 more next time).
     sandpits = [p.get('SANDPIT_POWER') for p in ep if 'SANDPIT_POWER' in p]
     base.sandpit = min(sandpits) if sandpits else None
+    base.free_attack = 'FREE_ATTACK_POWER' in ppow; base.dazed = 0
+    tender = 'TENDER_POWER' in ppow
+    hive = ['PERSONAL_HIVE_POWER' in p for p in ep]
+    illusion = ['ILLUSION_POWER' in p for p in ep]
+    imbalanced = ['IMBALANCED_POWER' in p for p in ep]
     toxic_in_hand = sum(1 for h in hand_ids if h == 'TOXIC')
     plating = ppow.get('PLATING_POWER') or 0
     if draw_value is None: draw_value = 0.35 * P / 5.0  # damage-equivalent of an unknown drawn card
@@ -206,9 +219,12 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
         cost = c.get('cost')
         x_cost = 'X times' in text or ' X ' in text
         if x_cost: cost = line.energy
+        free = line.free_attack and c.get('type') == 'Attack' and not x_cost
+        if free: cost = 0
         if not isinstance(cost, int) or cost < 0: return None
         if cost > line.energy: return None
         n = line.copy(); n.energy -= cost; n.used.add(hidx); n.plan.append(aid)
+        if free: n.free_attack = False
         if cid in OPAQUE: n.opaque += 1
         if cid == 'FRANTIC_ESCAPE' and n.sandpit is not None: n.sandpit += 1
         n.energy += v.get('Energy') or 0
@@ -247,12 +263,15 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
                 for _ in range(int(h)):
                     hit_damage(n, k, ph)
                     n.thorns_taken += thorns[k]
+                    if hive[k]: n.dazed += 1
         vp = v.get('VulnerablePower') or 0
         if vp:
             vt = alive if 'ALL enemies' in text else ([target] if target is not None and target >= 0 else [])
             for k in vt:
                 if n.artifact[k] > 0: n.artifact[k] -= 1
                 else: n.vuln[k] += vp
+        if tender:  # Tender: every card played costs 1 Strength and 1 Dexterity this turn
+            n.strength -= 1; n.dex -= 1
         sl = v.get('StrengthLoss') or 0  # Dark Shackles: the target hits for less this turn
         if sl and target is not None and target >= 0: n.shackle[target] += sl
         sp = v.get('StrengthPower') or 0
@@ -278,12 +297,18 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
         rate = sum(X[k] for k in alive if k not in dead) / p
         if not combat_over:
             for k in alive:
-                if k in dead: continue
+                if k in dead:
+                    if illusion[k]:  # it only skips a turn reviving, then returns
+                        future += X[k] * max(0.0, sum(line.hp[j] + line.block[j] for j in leaders if j not in dead) / p - 1)
+                    continue
                 # Each Slippery stack left will eat a future hit (it deals 1 instead of ~6).
                 h = line.hp[k] + line.block[k] + SLIPPERY_HIT_VALUE * line.slip[k]
+                if illusion[k]:  # revives at full HP: it attacks for as long as its leader lives
+                    h = sum(line.hp[j] + line.block[j] for j in leaders if j not in dead) or h
                 extra_vuln = max(0, min(line.vuln[k], 3) - max(start_vuln[k] - 1, 0) - 1)
                 h = max(0.0, h - 0.5 * p * extra_vuln / max(1, len(alive) - len(dead)))
                 future += X[k] * h / p
+                if imbalanced[k] and _intent_damage(enemies[k]) > 0 and block >= incoming: future -= X[k]  # stunned a turn
                 if line.weakened[k] and not already_weak[k]: future -= 0.25 * X[k] * min(2.0, h / p)
         future -= line.draws * draw_value * rate
         # HP is not linear at zero: a line that dies this turn loses the run, so any
@@ -293,6 +318,7 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
             if line.sandpit < 2: death = DEATH_PENALTY
             # Surplus Sandpit is a future Frantic Escape (and its energy) not needed later.
             else: future -= (line.sandpit - 2) * (p / 3.0) * rate
+        future += DAZED_HIT_COST * line.dazed
         return hp_now + future + potion_cost * line.potions + death, hp_now, future
 
     best = {}
@@ -333,3 +359,52 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
             'scores': {k: round(v, 2) for k, v in scores.items()}, 'best_plan': top[3], 'best_score': round(top[0], 2),
             'best_hp_now': round(top[1], 2), 'nodes': nodes[0],
             'opaque_in_best': sum(1 for aid in top[3] for o in options if o[0] == aid and o[3].get('id') in OPAQUE)}
+
+
+def _card_numbers(c, energy):
+    """(cost, damage, block, draw, energy_gain) of a deck card, from its own numbers."""
+    c = c.get('card', c)
+    v = c.get('variables') or {}
+    text = c.get('text') or ''
+    cost = c.get('cost')
+    if c.get('type') in ('Status', 'Curse') or 'Unplayable' in text: return None
+    x = 'X times' in text
+    if x: cost = energy
+    if not isinstance(cost, int) or cost < 0: return None
+    dmg = 0
+    if c.get('type') == 'Attack':
+        per = v.get('CalculatedDamage') or v.get('Damage') or 0
+        hits = v.get('Repeat') or (2 if 'twice' in text else 1)
+        if x: hits = energy
+        dmg = per * hits
+    blk = v.get('Block') or 0 if c.get('type') in ('Skill', 'Attack') else 0
+    draw = v.get('Cards') or 0
+    return cost, dmg, blk, draw, v.get('Energy') or 0
+
+
+def deck_math(deck, offered=(), energy=3, hand_size=5, samples=400, seed=7):
+    """Average best all-in damage and all-in Block per turn from random hands of this deck,
+    and the same with each offered card added. Visible deck contents only."""
+    import itertools, random
+    def turn_values(cards):
+        rng = random.Random(seed)
+        nums = [_card_numbers(c, energy) for c in cards]
+        tot_d = tot_b = 0.0
+        for _ in range(samples):
+            order = list(range(len(nums))); rng.shuffle(order)
+            hand = order[:hand_size]; rest = order[hand_size:]
+            # draw cards pull more cards (they are played first, costing their energy)
+            extra = sum((nums[i] or (0, 0, 0, 0, 0))[3] for i in hand)
+            hand += rest[:extra]
+            playable = [nums[i] for i in hand if nums[i]]
+            best_d = best_b = 0
+            for r in range(len(playable) + 1):
+                if r > 7: break
+                for combo in itertools.combinations(playable, r):
+                    e = energy + sum(n[4] for n in combo)
+                    if sum(n[0] for n in combo) > e: continue
+                    best_d = max(best_d, sum(n[1] for n in combo)); best_b = max(best_b, sum(n[2] for n in combo))
+            tot_d += best_d; tot_b += best_b
+        return tot_d / samples, tot_b / samples
+    base = turn_values(deck)
+    return base, {c.get('id'): turn_values(list(deck) + [c]) for c in offered}
