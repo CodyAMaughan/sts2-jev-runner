@@ -63,5 +63,30 @@
     "version": "1.1.13",
     "status": "approved",
     "reason": "User-delegated autonomous tuning session: 1.1.12 plus Codex note wording v2 (stop skip bias), Hunter Killer module (Tender mechanic). Visible/game-knowledge info only."
+  },
+  "8e66f801c4b8ea378433ef955814b2e1faee9f9e41b2ef14a3efdbece486d0b9": {
+    "version": "1.1.14",
+    "status": "approved",
+    "reason": "User-delegated autonomous tuning session: 1.1.13 plus deck-balance drafting guidance, The Insatiable boss plan and explicit Sandpit/Frantic Escape rules (visible card/power text)."
+  },
+  "c67f2cc9732219e2044beb5080c58ceb9baa7301ecb2a75a1e2a47ea2e48a0df": {
+    "version": "1.1.15",
+    "status": "approved",
+    "reason": "User-delegated autonomous tuning session: 1.1.14 plus The Obscura module (Illusion minion revives; kill The Obscura)."
+  },
+  "4b3123bb66b46f464dd04aff7fc38e805103e6ae11dade8eac2e509854519fee": {
+    "version": "1.1.16",
+    "status": "approved",
+    "reason": "User-delegated autonomous tuning session: 1.1.15 plus Toxic hint (Block absorbs it), BIG HIT turn advice (12+ unblocked: Block first), and The Obscura owning its targeting (generic multi-enemy hint skipped)."
+  },
+  "60b929072db292bd8956a55a092740c810bfffad5fdf22d200d3736a3524d8db": {
+    "version": "1.1.17",
+    "status": "approved",
+    "reason": "User-delegated autonomous tuning session: 1.1.16 plus computed rest-site heal amount (Jev rested at full HP and never smithed under 1.1.13)."
+  },
+  "da36f0cc1a6dde16f4bc2b5bcbaf1b11141d5cbc3a6ff57d33c9e7a0a2268830": {
+    "version": "1.1.18",
+    "status": "approved",
+    "reason": "User-delegated autonomous tuning session: 1.1.17 plus route summary from the visible map (elite counts/rest sites per option); no hidden info."
   }
 }

@@ -22,6 +22,10 @@ def main():
         while True:
             try: run_id, seed = work.get_nowait()
             except queue.Empty: return
+            # Claim the run id atomically, so several run_batch invocations given the same
+            # prefix/seeds (e.g. started on different slots at different times) share the work.
+            try: (ROOT/'docs/playtests/runs'/f'.{run_id}.claim').mkdir()
+            except FileExistsError: continue
             env = os.environ.copy(); env['DEALMAKER_SLOT'] = slot
             cmd = [sys.executable, str(ROOT/'scripts/run_jev.py'), '--id', run_id, '--seed', seed, '--port', str(port),
                    '--timeout', str(a.timeout), '--headless', *extra]

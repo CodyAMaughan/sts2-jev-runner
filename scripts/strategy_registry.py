@@ -89,6 +89,9 @@ class Strategy:
             if hp>0 and incoming>block:
                 if deficit>=hp:risk_key='lethal_risk'
                 elif deficit>=hp*0.5:risk_key='severe_risk'
+                # Opt-in (1.1.16+): a hit this size is worth blocking even at high HP;
+                # without it the generic under_attack text told Jev to accept 20+ hits.
+                elif turn_advice.get('big_hit') and deficit>=turn_advice.get('big_hit_min',12):risk_key='big_hit'
             if risk_key and turn_advice.get(risk_key):
                 potions=', '.join(sorted(held)) if held else 'none'
                 additions.append(turn_advice[risk_key].format(incoming=incoming,hp=hp,block=block,deficit=deficit,potions=potions))
@@ -102,7 +105,9 @@ class Strategy:
                 additions.append(turn_advice['bash_setup'])
             # Multi-enemy targeting is also opt-in per packet.
             template=self._packet.get('multi_enemy_template')
-            if template:
+            # An encounter module can own targeting (e.g. The Obscura: its reviving minion is
+            # always the "biggest threat" by intent, but the fight ends only when the summoner dies).
+            if template and module.id not in self._packet.get('multi_enemy_skip_modules',[]):
                 alive=[e for e in game.get('enemies') or [] if e.get('creature',{}).get('hp',0)>0]
                 if len(alive)>=2:
                     ranked=sorted(alive,key=lambda e:-sum(i.get('total_damage',0) for i in e.get('intents',[])))
@@ -131,6 +136,17 @@ class Strategy:
             for hint in self._packet['mechanic_hints']:
                 if obs['kind'] in hint['kinds'] and any(re.search(r'(?<![a-z])'+re.escape(term)+r'(?![a-z])',visible) for term in hint['terms']):
                     additions.append(hint['text'])
+        # Opt-in (1.1.17+): state the real heal Rest would give. Jev rested at 80/80 and
+        # 78/80 under 1.1.13 despite a "Smith at 70%+" rule, never upgrading a card.
+        if obs['kind']=='rest' and self._packet.get('rest_math'):
+            player=game.get('player') or {};hp=player.get('hp');max_hp=player.get('max_hp')
+            offered={a['option'].get('text') for a in obs.get('actions',[]) if a['option'].get('action')=='rest_option'}
+            if isinstance(hp,int) and isinstance(max_hp,int) and max_hp>0 and {'Rest','Smith'}<=offered:
+                heal=min(round(max_hp*0.3),max_hp-hp)
+                additions.append(self._packet['rest_math'].format(hp=hp,max_hp=max_hp,pct=round(100*hp/max_hp),heal=heal))
+        if obs['kind']=='map' and self._packet.get('route_summary'):
+            summary=route_summary(obs)
+            if summary:additions.append(self._packet['route_summary']+'\n'+summary)
         plan=obs.get('run_plan',{})
         if obs['kind'] in {'card_reward','choose_card','bundle','shop','rest','map','upgrade'}:
             boss_advice=self._packet.get('boss_plans',{}).get(plan.get('known_boss'))
@@ -146,6 +162,37 @@ class Strategy:
                 if note:additions.append(note)
         selection['addenda']=additions
         return '\n'.join([self._packet['goal'],module.prompt,*additions]),selection
+
+def route_summary(obs):
+    """Per offered map node, what the visible map allows from there to the end of the act:
+    fewest/most Elites, most rest sites, and the nearest Elite. Pure arithmetic over the map
+    the player already sees (a human reads this off the screen); nothing hidden."""
+    nodes={(n['row'],n['col']):n for n in (obs.get('state') or {}).get('map') or [] if 'row' in n and 'col' in n}
+    if not nodes:return ''
+    memo={}
+    def walk(key):
+        if key in memo:return memo[key]
+        node=nodes.get(key)
+        if node is None:return None
+        elite=node.get('type')=='Elite';rest=node.get('type')=='RestSite'
+        kids=[walk((c['row'],c['col'])) for c in node.get('children') or []]
+        kids=[k for k in kids if k]
+        if kids:
+            lo=min(k[0] for k in kids);hi=max(k[1] for k in kids);rests=max(k[2] for k in kids)
+            near=min((k[3] for k in kids if k[3] is not None),default=None)
+        else:lo=hi=rests=0;near=None
+        memo[key]=(lo+elite,hi+elite,rests+rest,0 if elite else (near+1 if near is not None else None))
+        return memo[key]
+    lines=[]
+    for a in obs.get('actions',[]):
+        o=a['option']
+        if o.get('action')!='map' or 'row' not in o:continue
+        r=walk((o['row'],o['col']))
+        if not r:continue
+        near='none ahead' if r[3] is None else ('this node' if r[3]==0 else f'{r[3]} rooms later at the soonest')
+        lines.append(f"{a['id']} {o.get('type')}: {r[0]}-{r[1]} Elites on the paths ahead (you can steer to {r[0]}), up to {r[2]} rest sites, next Elite {near}.")
+    return '\n'.join(lines)
+
 
 def version_packet(version):
     import re

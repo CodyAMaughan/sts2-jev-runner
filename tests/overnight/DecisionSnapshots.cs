@@ -121,9 +121,17 @@ public static class DecisionSnapshots
         foreach(string key in new[]{"nextChoiceIds","nextRewardIds","lastExecutedHookId","lastExecutedActionId"})obj.Remove(key);
         return obj.ToJsonString();
     }
+    // Capture is diagnostics: a snapshot that fails to serialize or round-trip must
+    // never end the run it is observing (jev-ironclad-1113-04 died at floor 30 to an
+    // NRE inside Restore). Log it and play on without a snapshot for this decision.
     public static void Capture(string id,string kind,object observation)
     {
         if(!CaptureEnabled)return;
+        try {CaptureOrThrow(id,kind,observation);}
+        catch(Exception error) {Harness.Log("snapshot_capture_failed",new{id,kind,error=error.GetType().Name+": "+error.Message});}
+    }
+    static void CaptureOrThrow(string id,string kind,object observation)
+    {
         var run=RunManager.Instance.DebugOnlyGetState()!;
         var graph=DecisionSnapshotGraph.Capture(run);
         graph.ExcludedRuntimeFields=graph.ExcludedRuntimeFields.Distinct().ToList();
