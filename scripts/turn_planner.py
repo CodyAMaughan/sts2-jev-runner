@@ -16,7 +16,7 @@ the next decision, when the drawn cards are known. Situations the model cannot p
 """
 import re
 
-DEFER_ENEMY_POWERS = {'PERSONAL_HIVE_POWER', 'VITAL_SPARK_POWER', 'SANDPIT_POWER', 'ILLUSION_POWER', 'REATTACH_POWER',
+DEFER_ENEMY_POWERS = {'PERSONAL_HIVE_POWER', 'VITAL_SPARK_POWER', 'ILLUSION_POWER', 'REATTACH_POWER',
                       'SLUMBER_POWER', 'CURL_UP_POWER', 'IMBALANCED_POWER', 'HATCH_POWER', 'INFESTED_POWER', 'SWIPE_POWER'}
 DEFER_PLAYER_POWERS = {'TENDER_POWER', 'NO_BLOCK_POWER', 'TANGLED_POWER', 'DUPLICATION_POWER', 'ONE_TWO_PUNCH_POWER',
                        'GIGANTIFICATION_POWER', 'JUGGLING_POWER', 'RUPTURE_POWER', 'VIGOR_POWER', 'FREE_ATTACK_POWER'}
@@ -69,7 +69,7 @@ def expected_damage_per_turn(state):
 
 class Line:
     __slots__ = ('energy', 'used', 'hp', 'block', 'vuln', 'slip', 'artifact', 'pblock', 'hploss', 'thorns_taken',
-                 'strength', 'draws', 'opaque', 'plan', 'inflame', 'dex', 'potions', 'weakened', 'shackle')
+                 'strength', 'draws', 'opaque', 'plan', 'inflame', 'dex', 'potions', 'weakened', 'shackle', 'sandpit')
 
     def copy(self):
         n = Line()
@@ -91,7 +91,7 @@ def _num(text, default=0):
     return int(m.group(1)) if m else default
 
 
-def plan(obs, history=None, draw_value=None, potion_cost=9.0):
+def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
     st = obs.get('state') or {}
     if obs.get('kind') != 'combat': return {'supported': False, 'reason': 'not combat'}
     player = st.get('player') or {}
@@ -100,12 +100,12 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0):
     alive = [i for i, e in enumerate(enemies) if (e.get('creature') or {}).get('hp', 0) > 0]
     if not alive: return {'supported': False, 'reason': 'no enemies'}
     for e in enemies:
-        bad = DEFER_ENEMY_POWERS.intersection(_powers(e.get('creature')))
+        bad = (DEFER_ENEMY_POWERS | ({'SANDPIT_POWER'} if rev < 4 else set())).intersection(_powers(e.get('creature')))
         if bad: return {'supported': False, 'reason': 'enemy power ' + ','.join(sorted(bad))}
     bad = DEFER_PLAYER_POWERS.intersection(ppow)
     if bad: return {'supported': False, 'reason': 'player power ' + ','.join(sorted(bad))}
     hand_ids = [((h.get('card', h)) or {}).get('id') for h in st.get('hand') or []]
-    if 'FRANTIC_ESCAPE' in hand_ids: return {'supported': False, 'reason': 'Frantic Escape'}
+    if rev < 4 and 'FRANTIC_ESCAPE' in hand_ids: return {'supported': False, 'reason': 'Frantic Escape'}
 
     P = expected_damage_per_turn(st)
     dex = ppow.get('DEXTERITY_POWER') or 0
@@ -142,6 +142,10 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0):
     base.hploss = 0; base.thorns_taken = 0; base.strength = 0; base.draws = 0; base.opaque = 0; base.inflame = 0
     base.dex = 0; base.potions = 0; base.weakened = [False] * len(enemies); base.shackle = [0] * len(enemies)
     already_weak = ['WEAK_POWER' in p for p in [_powers(e.get('creature')) for e in enemies]]
+    # The Insatiable's Sandpit: -1 at the start of each enemy turn, instant death at 0;
+    # each Frantic Escape played adds 1 (and costs 1 more next time).
+    sandpits = [p.get('SANDPIT_POWER') for p in ep if 'SANDPIT_POWER' in p]
+    base.sandpit = min(sandpits) if sandpits else None
     toxic_in_hand = sum(1 for h in hand_ids if h == 'TOXIC')
     plating = ppow.get('PLATING_POWER') or 0
     if draw_value is None: draw_value = 0.35 * P / 5.0  # damage-equivalent of an unknown drawn card
@@ -206,6 +210,7 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0):
         if cost > line.energy: return None
         n = line.copy(); n.energy -= cost; n.used.add(hidx); n.plan.append(aid)
         if cid in OPAQUE: n.opaque += 1
+        if cid == 'FRANTIC_ESCAPE' and n.sandpit is not None: n.sandpit += 1
         n.energy += v.get('Energy') or 0
         n.hploss += v.get('HpLoss') or 0
         n.draws += v.get('Cards') or 0 if c.get('type') != 'Status' else 0
@@ -270,6 +275,7 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0):
         hp_now = max(0, incoming - block) + line.hploss
         p = P + 3 * line.inflame
         future = 0.0
+        rate = sum(X[k] for k in alive if k not in dead) / p
         if not combat_over:
             for k in alive:
                 if k in dead: continue
@@ -279,11 +285,14 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0):
                 h = max(0.0, h - 0.5 * p * extra_vuln / max(1, len(alive) - len(dead)))
                 future += X[k] * h / p
                 if line.weakened[k] and not already_weak[k]: future -= 0.25 * X[k] * min(2.0, h / p)
-        rate = sum(X[k] for k in alive if k not in dead) / p
         future -= line.draws * draw_value * rate
         # HP is not linear at zero: a line that dies this turn loses the run, so any
         # surviving line must beat it regardless of the damage math.
         death = DEATH_PENALTY if hp_now >= (player.get('hp') or 0) else 0.0
+        if line.sandpit is not None and not combat_over:
+            if line.sandpit < 2: death = DEATH_PENALTY
+            # Surplus Sandpit is a future Frantic Escape (and its energy) not needed later.
+            else: future -= (line.sandpit - 2) * (p / 3.0) * rate
         return hp_now + future + potion_cost * line.potions + death, hp_now, future
 
     best = {}

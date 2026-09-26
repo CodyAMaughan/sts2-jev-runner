@@ -147,10 +147,11 @@ def wasted_energy_note(obs, chosen):
             +'. End Turn is withheld for this one choice: play the most useful card now (Block first if the hit matters, otherwise damage).')
 
 
-def planner_hint(obs, history):
+def planner_hint(obs, history, cfg=None):
     """The planner's numbers as one prompt line, so Jev sees the HP-exchange math too."""
     from turn_planner import plan
-    res=plan(obs,history=history)
+    cfg=cfg or {}
+    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3))
     if not res.get('supported') or not res.get('best_plan'):return ''
     acts={a['id']:a['option'] for a in obs['actions']}
     def name(a):
@@ -169,7 +170,7 @@ def planner_override(obs, chosen, response, history, cfg, source):
     minimizes expected fight HP loss, overriding Jev only when that saves >= cfg margin.
     Potions, powers and cards the simulator cannot price stay Jev's call."""
     from turn_planner import plan, OPAQUE
-    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0))
+    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3))
     info={'supported':res.get('supported'),'reason':res.get('reason'),'jev_choice':chosen}
     if not res.get('supported'):return chosen,source,info
     acts={a['id']:a['option'] for a in obs['actions']}
@@ -358,7 +359,7 @@ def main():
             else:
                 payload = make_request(model_obs, active_strategy, args.model, args.character, strategy_package.packet.get('prompt_format'))
                 if (strategy_package.packet.get('turn_planner') or {}).get('hint') and obs['kind']=='combat':
-                    hint=planner_hint(model_obs,intent_hist)
+                    hint=planner_hint(model_obs,intent_hist,strategy_package.packet['turn_planner'])
                     if hint:payload['questions']['action']['instructions']+='\n'+hint
                 # A failed request stops this controller. No silent heuristic fallback.
                 try:chosen,response,model_meta=adapter.decide(payload)

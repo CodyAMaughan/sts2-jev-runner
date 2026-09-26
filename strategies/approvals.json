@@ -98,5 +98,10 @@
     "version": "1.1.20",
     "status": "approved",
     "reason": "User-directed HP-per-fight optimization session (2026-09-26 12:05-14:05): turn planner rev 3. Visible state and recorded-fight priors only."
+  },
+  "43c24ea9b832d195c2ea067c6bbfd48e2d6ecf7bca3131b60b76159d233d067c": {
+    "version": "1.1.21",
+    "status": "approved",
+    "reason": "User-directed HP-per-fight session: planner rev 4 adds Sandpit/Frantic Escape modeling for the Act 2 boss."
   }
 }
