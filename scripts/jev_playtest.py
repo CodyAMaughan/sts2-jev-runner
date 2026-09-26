@@ -231,6 +231,7 @@ def main():
         seen = set()
         seen_combat=False
         skipped_card_reward=False
+        last_sphere_size=False
         count=args.replay_start_index
         while count < args.max_decisions:
             while True:
@@ -262,6 +263,11 @@ def main():
                 # Skipping a card reward leaves it claimable; without this Jev can re-claim and
                 # re-skip the same reward forever (jev-ironclad-1111-02 looped ~70 times on floor 30).
                 kept=[a for a in model_obs['actions'] if not (a['option'].get('action')=='claim_reward' and a['option'].get('type')=='CardReward')]
+                if kept and len(kept)<len(model_obs['actions']):model_obs=dict(model_obs,actions=kept)
+            if last_sphere_size and obs['kind']=='crystal_sphere':
+                # Choosing a divination size again changes nothing; without this Jev picked
+                # "Small Divination" 150 times until the harness gave up (jev-ironclad-1118-03).
+                kept=[a for a in model_obs['actions'] if a['option'].get('action')!='divination_size']
                 if kept and len(kept)<len(model_obs['actions']):model_obs=dict(model_obs,actions=kept)
             active_strategy,strategy_selection=strategy_package.prompt(model_obs,args.character)
             payload = None
@@ -325,6 +331,7 @@ def main():
             memory.observe(obs,chosen)
             if obs['kind']=='card_reward':skipped_card_reward=any(a['id']==chosen and a['option'].get('action')=='reward_alternative' for a in obs['actions'])
             elif obs['kind']!='rewards':skipped_card_reward=False
+            last_sphere_size=obs['kind']=='crystal_sphere' and any(a['id']==chosen and a['option'].get('action')=='divination_size' for a in obs['actions'])
             seen.add(obs['decision_id'])
             print(f"{count+1}: {obs['kind']} {chosen}", flush=True)
             count+=1
