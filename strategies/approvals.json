@@ -123,5 +123,10 @@
     "version": "1.1.23",
     "status": "approved",
     "reason": "Session 3: Codex Elo + deck math on card rewards; shop prompt prioritizes removal; permanent-removal note."
+  },
+  "79fa8be7e09b2166e2ef496d6a1041de48bf10268e4ede29eaea66f098cc53fa": {
+    "version": "1.1.24",
+    "status": "approved",
+    "reason": "Session 3: planner rev 5 + shop/removal fixes, without the Elo/deck-math card notes."
   }
 }
