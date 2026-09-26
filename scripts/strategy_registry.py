@@ -135,6 +135,15 @@ class Strategy:
         if obs['kind'] in {'card_reward','choose_card','bundle','shop','rest','map','upgrade'}:
             boss_advice=self._packet.get('boss_plans',{}).get(plan.get('known_boss'))
             if boss_advice:additions.append(boss_advice)
+        # Opt-in per packet, like everything else added this way: older versions
+        # lack the flag and are unaffected. Network call is short-timeout and
+        # fails silent (see spire_codex.py) — never blocks or breaks a run.
+        if obs['kind']=='card_reward' and self._packet.get('community_card_stats'):
+            offered=[a['option']['card']['id'] for a in obs.get('actions',[]) if a['option'].get('action')=='select_card' and a['option'].get('card')]
+            if offered:
+                from spire_codex import card_reward_note
+                note=card_reward_note(offered,wording=int(self._packet.get('community_card_stats')))
+                if note:additions.append(note)
         selection['addenda']=additions
         return '\n'.join([self._packet['goal'],module.prompt,*additions]),selection
 
@@ -164,7 +173,7 @@ def strategy_diff(before,after):
     sections=[]
     package=[field_diff(k,a.get(k),b.get(k)) for k in ('name','version','description','goal','prompt_format') if a.get(k)!=b.get(k)]
     if package:sections.append({'id':'package','name':'Package details','status':'modified','metadata':True,'fields':package})
-    for key,name in [('current_turn_hints','Current-turn potion tactics'),('mechanic_hints','Conditional mechanic definitions and tactics'),('planning_context','Run-planning context enabled'),('boss_plans','Boss-specific drafting and potion plans'),('turn_advice','Turn-specific advice routing'),('combat_basics','Combat decision fundamentals'),('observation_policy','Observed decision history'),('character_advice','Ironclad potion priorities'),('compression_contract','Context compression and tradeoffs'),('multi_enemy_template','Multi-enemy targeting hint')]:
+    for key,name in [('current_turn_hints','Current-turn potion tactics'),('mechanic_hints','Conditional mechanic definitions and tactics'),('planning_context','Run-planning context enabled'),('boss_plans','Boss-specific drafting and potion plans'),('turn_advice','Turn-specific advice routing'),('combat_basics','Combat decision fundamentals'),('observation_policy','Observed decision history'),('character_advice','Ironclad potion priorities'),('compression_contract','Context compression and tradeoffs'),('multi_enemy_template','Multi-enemy targeting hint'),('community_card_stats','Spire Codex community card stats on rewards')]:
         if a.get(key)!=b.get(key):sections.append({'id':key,'name':name,'status':'modified','fields':[field_diff(key,a.get(key),b.get(key))]})
     left={m['id']:m for m in a['modules']};right={m['id']:m for m in b['modules']}
     unchanged=0

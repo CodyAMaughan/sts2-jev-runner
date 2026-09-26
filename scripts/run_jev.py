@@ -23,6 +23,7 @@ def main():
                     'game instead of starting normally, landing it exactly at --seek-index instantly instead of '
                     'replaying every earlier decision to get there. Requires --replay (the actions from '
                     '--seek-index onward are still replayed normally, with real animation, from that point).')
+    p.add_argument('--stop-after-combat',action='store_true',help='With --snapshot-resume and a live backend: end once the resumed fight is over (fight-level benchmark)')
     p.add_argument('--no-snapshots',action='store_true',help='Disable native decision snapshots for this run')
     display=p.add_mutually_exclusive_group()
     display.add_argument('--headed',action='store_true',help='Watch play in a 1280×720 game window')
@@ -42,7 +43,8 @@ def main():
     if not 0 <= delay <= 60:p.error('--decision-delay must be between 0 and 60 seconds')
     if not a.mock and not a.replay and a.backend=='jev' and not typesafe_key():p.error('Set TYPESAFE_API_KEY in .env.local or your environment before starting a live run')
     if a.mock and a.replay:p.error('Choose mock or replay, not both')
-    if a.snapshot_resume and not a.replay:p.error('--snapshot-resume requires --replay')
+    p_stop=a.stop_after_combat
+    if p_stop and not a.snapshot_resume:p.error('--stop-after-combat is for --snapshot-resume fight benchmarks')
     artifact=root/'docs/playtests/runs'/a.id
     if artifact.exists():p.error('Run ID already exists; choose a new ID')
     env=os.environ.copy();env.update(DEALMAKER_REMOTE='1',DEALMAKER_REMOTE_STRATEGY=a.strategy,DEALMAKER_BRIDGE_PORT=str(a.port),DEALMAKER_BRIDGE_TOKEN=secrets.token_hex(24))
@@ -91,7 +93,8 @@ def main():
         if a.mock:args.append('--mock')
         if a.replay:args+=['--replay',str(a.replay.resolve())]
         if a.replay_controls:args+=['--replay-controls',str(a.replay_controls.resolve()),'--seek-index',str(a.seek_index)]
-        if a.snapshot_resume:args+=['--replay-start-index',str(a.seek_index)]
+        if a.snapshot_resume and a.replay:args+=['--replay-start-index',str(a.seek_index)]
+        if a.stop_after_combat:args.append('--stop-after-combat')
         if a.strategy_file:args+=['--strategy-file',str(a.strategy_file.resolve())]
         args+=['--character',a.character,'--backend',a.backend]
         with (artifact/'controller.log').open('x') as output:
@@ -112,7 +115,10 @@ def main():
         if game.returncode:raise RuntimeError('Game launcher reported a failed run/check; inspect '+str(artifact/'result.json'))
         if env.get('DEALMAKER_SNAPSHOT_CAPTURE')=='1':
             from prepare_snapshot_replay import publish_index
-            publish_index(artifact)
+            # A run that ended abnormally can leave gaps; that must not mask the
+            # real failure (e.g. an API error) behind an unrelated index error.
+            try:publish_index(artifact)
+            except ValueError as error:print('Snapshot index not published:',error)
         print('Run artifacts:',artifact)
         print((artifact/'result.json').read_text() if (artifact/'result.json').exists() else 'Run ended before a result was written')
     finally:

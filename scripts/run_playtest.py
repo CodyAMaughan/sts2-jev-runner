@@ -13,12 +13,18 @@ display.add_argument('--headed',action='store_true',help='Watch the isolated gam
 display.add_argument('--headless',action='store_true',help='Run without a window (default)')
 a=p.parse_args()
 if not a.id.replace('-','').replace('_','').isalnum():raise SystemExit('invalid run id')
-runner=root/'.tooling/overnight/Runner.app/Contents/MacOS'
-userdata=root/'.tooling/overnight/userdata'
-logical=Path('/Users/cmaughan/Library/Application Support/DealmakerPlaytests-20260918')
+# DEALMAKER_SLOT selects an independent isolated runner clone (own game copy,
+# profile, lock) so runs can proceed in parallel; empty = the original slot.
+slot=os.environ.get('DEALMAKER_SLOT','')
+if slot and not slot.isdigit():raise SystemExit('invalid DEALMAKER_SLOT')
+base=root/'.tooling'/('overnight'+slot)
+profile='DealmakerPlaytests-20260918'+('-'+slot if slot else '')
+runner=base/'Runner.app/Contents/MacOS'
+userdata=base/'userdata'
+logical=Path('/Users/cmaughan/Library/Application Support')/profile
 if not logical.is_symlink() or logical.resolve()!=userdata:raise SystemExit('save isolation link mismatch')
-if 'config/custom_user_dir_name="DealmakerPlaytests-20260918"' not in (runner/'override.cfg').read_text():raise SystemExit('save isolation config mismatch')
-lock=root/'.tooling/overnight/run.lock'
+if f'config/custom_user_dir_name="{profile}"' not in (runner/'override.cfg').read_text():raise SystemExit('save isolation config mismatch')
+lock=base/'run.lock'
 try: fd=os.open(lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
 except FileExistsError:raise SystemExit('Another run owns isolated profile; inspect run.lock before proceeding')
 os.write(fd,str(os.getpid()).encode());os.close(fd)
@@ -38,7 +44,7 @@ try:
         from replay_environment import isolate_mods
         isolate_mods(runner/'mods',replay_source,mod_stash)
     if userdata.exists():
-        archive=root/'.tooling/overnight/previous-userdata'/str(time.time_ns())
+        archive=base/'previous-userdata'/str(time.time_ns())
         archive.parent.mkdir(parents=True,exist_ok=True);shutil.move(userdata,archive)
     settings=userdata/'default/1/settings.save';settings.parent.mkdir(parents=True)
     settings.write_text(json.dumps({'schema_version':5,'seen_ea_disclaimer':True,'mod_settings':{'mods_enabled':True,'mod_list':[]}}))

@@ -38,5 +38,30 @@
     "version": "1.1.7",
     "status": "approved",
     "reason": "User approved fixing the 1.1.6 bug where no_block silently masked the lethal/severe warning, plus turn-1 potion reinforcement in elite.decimillipede, followed by a 10-seed Ironclad batch (ACT2PUSHA-J) focused on Act 1 consistency."
+  },
+  "e7f07e7bb38dea8b60eac2ea71ab1195f323693178737f82034d549f65d8a7bd": {
+    "version": "1.1.8",
+    "status": "approved",
+    "reason": "User asked to add community card-pick win-rate/sample-size context (from Spire Codex's public API) to card_reward decisions, including explicit acknowledgement that skipping the reward is a legal choice. Verified against a real recorded card_reward decision with a live network call before approval."
+  },
+  "48922bf9fd1ea59e1dbbb295242710299602d084ccdfa79876da89914201c543": {
+    "version": "1.1.10",
+    "status": "approved",
+    "reason": "User delegated a 2-hour autonomous tuning session ('take it from here') on the 10 working seeds, followed by a 10-new-seed control. Encounter move cycles from decompiled monster state machines; no hidden info."
+  },
+  "a95af1eac32b5346c9a83543e9031873fa99f080cba28cb869b87d927af22080": {
+    "version": "1.1.11",
+    "status": "approved",
+    "reason": "User-delegated autonomous tuning session: 1.1.10 plus explicit rest/elite HP thresholds from jev-ironclad-117 evidence."
+  },
+  "fa0d52e9a5ce1fcbd340b18898546b2fa970b4f1f0d3338b2822fa801026e38c": {
+    "version": "1.1.12",
+    "status": "approved",
+    "reason": "User-delegated autonomous tuning session: move cycles for Act 2 boss/elites, Bowlbug/Slime/Ruby Raider modules, and the opt-in end_turn_guard (re-ask Jev once with End Turn withheld when energy and a useful card remain; visible state only)."
+  },
+  "9bdd235df9f4b18885d793783de5523e09262f9bee8a784d93f5c94019036868": {
+    "version": "1.1.13",
+    "status": "approved",
+    "reason": "User-delegated autonomous tuning session: 1.1.12 plus Codex note wording v2 (stop skip bias), Hunter Killer module (Tender mechanic). Visible/game-knowledge info only."
   }
 }

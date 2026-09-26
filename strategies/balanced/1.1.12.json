@@ -1,0 +1,1290 @@
+{
+  "id": "balanced",
+  "name": "Adaptive Survival",
+  "version": "1.1.12",
+  "description": "1.1.11 plus move cycles for the Act 2 boss/elites and the costliest remaining group fights (Bowlbugs/Slumbering Beetle, Slimes, Ruby Raiders), from decompiled monster state machines. Adds end_turn_guard: if Jev ends a combat turn with energy and a still-useful card (Block vs an unblocked incoming attack, or an attack when no enemy has a reactive power), Jev is re-asked once with End Turn withheld.",
+  "goal": "Win this run.",
+  "modules": [
+    {
+      "id": "boss.vantom",
+      "name": "Vantom",
+      "version": "1.1.10",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "VantomBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "VANTOM"
+        ]
+      },
+      "prompt": "Vantom (173 HP) runs a FIXED 4-turn cycle; identify where you are from its intent: Ink Blot (single ~7) -> Inky Lance (2 hits of ~6) -> DISMEMBER (one ~26 hit + 3 Wounds into your discard) -> Prepare (Buff intent: NO attack, it gains +2 Strength) -> repeat, every attack +2 per completed cycle (Dismember 26, then 28, then 30). Starts with 8 Slippery: each hit that gets through deals only 1 and removes one stack, so the first 8 hits are for stripping \u2014 use cheap/multi-hit/0-cost attacks (Anger, Twin Strike, Sword Boomerang), save big single hits until Slippery is 0. Vulnerable applied during Slippery still lasts. Turn plan: Prepare turns are FREE \u2014 spend all energy on damage, no Block. Dismember turns are where runs die \u2014 Block to cover the full hit (check the numeric warning) and only attack with what is left. On Ink Blot/Lance turns the hits are small: block what is cheap and push damage. Drink lasting Strength/Dexterity potions on turn 1. Wounds are unplayable clutter: exhaust them when a card lets you choose. The real clock is the Strength growth, so every free Prepare turn must be full damage.\nAlways apply the numeric LETHAL/SEVERE checks when they appear.",
+      "rationale": "All 4 Vantom deaths in jev-ironclad-117 came on turns 7, 10 and 11: the 28/30 Dismember turns and the ~20-damage Lance turn after Strength stacked. Cycle read from Vantom.cs (InkBlot->InkyLance->Dismember->Prepare(+2 Str))."
+    },
+    {
+      "id": "boss.ceremonial-beast",
+      "name": "Ceremonial Beast",
+      "version": "1.1.1",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "CeremonialBeastBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "CEREMONIAL_BEAST"
+        ]
+      },
+      "prompt": "First check lethal against the last enemy before Block. Plow is an HP threshold: unblocked damage that leaves the Beast at or below its current Plow amount stuns it and removes its Strength and Plow. Compare current HP minus that threshold with your available damage; partial progress does not interrupt. Beast Cry applies Ringing: after your first card play that turn, Ringing-afflicted cards cannot be played. Plan that first card for the largest useful effect; do not start with a low-value setup card expecting to play several more. Read current powers and legal actions because the fight changes after the stun.",
+      "rationale": "User-requested self-contained definitions of Plow and Beast Cry/Ringing. This fight was not reached in the baseline; this correction is sourced from the installed rules, not claimed playtest evidence."
+    },
+    {
+      "id": "boss.the-kin",
+      "name": "The Kin",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "TheKinBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "KIN_PRIEST",
+          "KIN_FOLLOWER"
+        ]
+      },
+      "prompt": "Compare killing Kin Followers to prevent their attacks against focusing the Kin Priest. Followers are minions; a reachable priest kill can end their threat. Account for the priest alternating Frail and Weak attacks before its multi-hit Beam. Establish damage before repeated Ritual Strength ramps. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.bygone-effigy",
+      "name": "Bygone Effigy",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "BygoneEffigyElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "BYGONE_EFFIGY"
+        ]
+      },
+      "prompt": "Exploit Slow: each card played increases subsequent powered attack damage this turn. Play useful low-cost setup before heavy attacks when doing so still leaves enough energy. The opening sleep and wake moves are a setup window; the effigy then gains Strength and repeatedly slashes. Damage does not control its wake timing, so use the opening to build damage rather than waiting for a supposedly safer wake-up. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.byrdonis",
+      "name": "Byrdonis",
+      "version": "1.1.10",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "ByrdonisElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "BYRDONIS"
+        ]
+      },
+      "prompt": "Byrdonis (~83 HP) gains +1 Strength at the end of EVERY one of its turns (Territorial), and alternates Swoop (one ~17 hit, first turn) and Peck (3 hits of ~3), each growing by 1 per hit per turn. The fight gets strictly worse every turn, so damage now is worth more than damage later \u2014 but Swoop turns are the big single hits: Block the Swoop turns fully; on Peck turns (three small hits) block only what one cheap Block card covers and put the rest into damage. Weak (if you have it) cuts all of its hits. Drink lasting Strength/Dexterity potions turn 1.\nAlways apply the numeric LETHAL/SEVERE checks when they appear.",
+      "rationale": "Byrdonis averaged 22.8 HP lost (10-38) over 5 fights in jev-ironclad-117. Cycle read from Byrdonis.cs; Territorial = +1 Str after each of its turns."
+    },
+    {
+      "id": "elite.phrog-parasite",
+      "name": "Phrog Parasite",
+      "version": "1.1.1",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "PhrogParasiteElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "PHROG_PARASITE",
+          "WRIGGLER"
+        ]
+      },
+      "prompt": "Check whether an offered attack kills an enemy before spending energy on Block. Phrog Parasite alternates adding Infection to discard and a four-hit Lash. Killing it spawns four Wrigglers; that is not victory. Wrigglers start stunned: spend that window killing them or setting up efficient damage, not gaining Block against zero incoming damage. Focus on removing a Wriggler that would otherwise attack; consider area damage. Play temporary Strength before other attacks and prefer damage-plus-Block over equal-cost equal-Block defense when there is no harmful attack trigger.",
+      "rationale": "Baseline died on floor 12 after taking excessive elite damage. Explicitly separates parasite phase from stunned Wriggler cleanup and tells the stateless model what to do during that window."
+    },
+    {
+      "id": "boss.waterfall-giant",
+      "name": "Waterfall Giant",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 1,
+      "region": "Underdocks",
+      "encounter": "WaterfallGiantBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "WATERFALL_GIANT"
+        ]
+      },
+      "prompt": "Pressure grows throughout this fight. Zero HP does not immediately end combat: Steam Eruption keeps the giant present for its explosion. Kill promptly to limit pressure, then respect the displayed death-blow intent and keep enough defense for the explosion. Do not end turn assuming the kill made you safe. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "boss.soul-fysh",
+      "name": "Soul Fysh",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 1,
+      "region": "Underdocks",
+      "encounter": "SoulFyshBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "SOUL_FYSH"
+        ]
+      },
+      "prompt": "Use Fade/Intangible turns for setup, defense and clearing statuses rather than wasting large hits. Save burst for when Intangible expires. Beckon and Gaze add statuses; use available exhaust or draw to preserve useful hands. Scream applies Vulnerable, so account for increased damage on following turns. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "boss.lagavulin-matriarch",
+      "name": "Lagavulin Matriarch",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 1,
+      "region": "Underdocks",
+      "encounter": "LagavulinMatriarchBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "LAGAVULIN_MATRIARCH"
+        ]
+      },
+      "prompt": "Exploit Asleep turns to establish powers and retained resources before waking it; check Plating and the damage needed to wake it rather than spending weak attacks casually. After waking, race repeated Soul Siphon: it lowers your Strength and Dexterity while raising hers. Plan defense around Disembowel multi-hits and spend useful potions before the stat loss compounds. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.phantasmal-gardeners",
+      "name": "Phantasmal Gardeners",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 1,
+      "region": "Underdocks",
+      "encounter": "PhantasmalGardenersElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "PHANTASMAL_GARDENER"
+        ]
+      },
+      "prompt": "Skittish grants Block after the first damaging card attack each turn. Lead with a substantial attack or multi-hit card rather than a tiny chip that activates its protection before your main hit. Compare focusing one gardener to remove an attack with efficient area damage. Their Enlarge turns increase Strength; use the opening without allowing endless scaling. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.skulking-colony",
+      "name": "Skulking Colony",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 1,
+      "region": "Underdocks",
+      "encounter": "SkulkingColonyElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "SKULKING_COLONY"
+        ]
+      },
+      "prompt": "Hardened Shell limits HP damage per turn. Reach the remaining damage allowance efficiently, then spend remaining resources on defense, setup or future turns instead of attacks that cannot remove more HP. Watch the displayed remaining allowance and current Block separately. Inertia adds Strength, so plan sustained defense across the unavoidable multiple turns. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.terror-eel",
+      "name": "Terror Eel",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 1,
+      "region": "Underdocks",
+      "encounter": "TerrorEelElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "TERROR_EEL"
+        ]
+      },
+      "prompt": "Check Shriek: crossing its HP threshold with unblocked damage stuns the eel. Calculate whether burst can reach that threshold this turn before spending energy on Block. The stun leads toward Terror and severe Vulnerable, so use the window to finish or prepare defense; do not assume the interruption permanently removes the threat. Respect Thrash multi-hits and Vigor. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "boss.the-insatiable",
+      "name": "The Insatiable",
+      "version": "1.1.12",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "TheInsatiableBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "THE_INSATIABLE"
+        ]
+      },
+      "prompt": "Cycle (read from its intent): opens with Liquify Ground (no attack; adds 6 statuses), then repeats Thrash (2 hits of ~8) -> LUNGING BITE (one ~28 hit) -> Salivate (no attack, +2 Strength). Bite turns are the killers: Block them fully. Salivate turns are free: all damage. Sandpit is a lethal countdown, not ordinary damage that Block can solve. Prioritize ending the fight before it expires. Read generated card effects for any way to extend the countdown; only take setup that pays back before the deadline. Balance Lunging Bite/Thrash defense against the damage race and spend damage potions early enough to matter. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown. 1.1.12: cycle from TheInsatiable.cs (Liquify -> Thrash -> Bite -> Salivate -> Thrash...)."
+    },
+    {
+      "id": "boss.knowledge-demon",
+      "name": "Knowledge Demon",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "KnowledgeDemonBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "KNOWLEDGE_DEMON"
+        ]
+      },
+      "prompt": "Curse of Knowledge forces a choice: compare the exact offered curse effects with your deck, exhaust access and remaining fight length. The attack cycle includes a three-hit Knowledge Overwhelming and Ponder, which attacks, heals and gains Strength. Aim burst before Ponder when lethal is possible; do not sacrifice survival chasing damage that its heal will erase. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "boss.kaiser-crab",
+      "name": "Kaiser Crab",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "KaiserCrabBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "CRUSHER",
+          "ROCKET"
+        ]
+      },
+      "prompt": "Inspect Crusher and Rocket separately. Killing one triggers Crab Rage on the survivor, granting Strength and a large Block burst: compare softening both before the first kill with removing an immediate threat. Account for Surrounded and current facing through displayed damage; sequence your final targeted attack accordingly when useful. Use Rocket charge/recharge windows to prepare for its laser; Crusher multi-hits and Weak/Frail can make that turn worse. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.decimillipede",
+      "name": "Decimillipede",
+      "version": "1.1.1",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "DecimillipedeElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "DECIMILLIPEDE_SEGMENT_FRONT",
+          "DECIMILLIPEDE_SEGMENT_MIDDLE",
+          "DECIMILLIPEDE_SEGMENT_BACK"
+        ]
+      },
+      "prompt": "On turn 1, before your first attack, drink a held lasting Strength/Dexterity potion (Fysh Oil, Strength Potion, Dexterity Potion) \u2014 this fight runs long enough for it to pay off repeatedly. Segments reattach after being downed. Coordinate damage so all segments can be defeated before revivals, using area damage and finishing low-HP segments close together. Temporarily downing a segment can prevent an attack, but repeated isolated kills waste resources. Account for Constrict Weak and Bulk Strength when choosing the kill order. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "jev-ironclad-116-04 (floor 30, this encounter) held Fysh Oil the whole fight, played an attack turn 1 instead, and died turn 4 never having used it. The module had no potion-timing text of its own to reinforce the generic character_advice instruction, which exact-module text otherwise dominates."
+    },
+    {
+      "id": "elite.entomancer",
+      "name": "Entomancer",
+      "version": "1.1.12",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "EntomancerElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "ENTOMANCER"
+        ]
+      },
+      "prompt": "Cycle: Pheromone Spit (no attack; gains Personal Hive/Strength) -> Bees (7 small hits of ~3) -> Spear (one ~18 hit) -> repeat, stronger each cycle. Bees turns: 7 hits are each reduced by Block, so Block is very efficient. Pheromone turns are free damage turns (prefer your biggest single hits). Personal Hive adds Dazed to draw when powered attacks hit it; repeated small hits, including multi-hits, can flood future hands. Prefer damage per hit and non-attack damage where available, and avoid chip attacks with poor payoff. Hive and Strength ramp over time, so balance that restraint with a prompt kill; do not block indefinitely while the deck clogs. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown. 1.1.12: cycle from Entomancer.cs."
+    },
+    {
+      "id": "elite.infested-prisms",
+      "name": "Infested Prisms",
+      "version": "1.1.12",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "InfestedPrismsElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "INFESTED_PRISM"
+        ]
+      },
+      "prompt": "Cycle: Jab (~15) -> Radiate (~11 and it gains ~11 Block) -> Whirlwind (several small hits of ~5) -> Pulsate (~8 and it gains ~20 Block) -> repeat. It keeps gaining Block, so hit hardest on turns right after its Block drops (Jab/Whirlwind turns) and Block the multi-hit Whirlwind. Vital Spark afflicts Skills with Tainted, and playing affected Skills applies Tainted to you, adding damage to each powered hit received until the enemy turn ends. Multi-hit intents make this especially costly. Compare each defensive or draw Skill against its displayed penalty rather than automatically playing it. Pulsate increases the pressure while attacking and blocking. Favor efficient attacks or other damage sources, and only pay the Skill penalty when survival or a strong payoff justifies it. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown. 1.1.12: cycle from InfestedPrism.cs. One recorded fight cost 62 HP."
+    },
+    {
+      "id": "boss.queen",
+      "name": "Queen",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 3,
+      "region": "Glory",
+      "encounter": "QueenBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "QUEEN",
+          "TORCH_HEAD_AMALGAM"
+        ]
+      },
+      "prompt": "Read Chains of Binding and the changed card text before sequencing plays. Prepare for You Are Mine applying long-lasting Weak, Frail and Vulnerable; use available prevention when it materially helps. Compare removing Torch Head Amalgams against advancing damage on Queen, who buffs her allies. Once her direct attack phase starts, protect against the five-hit Off With Your Head and Execution instead of assuming the earlier support pattern continues. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "boss.test-subject",
+      "name": "Test Subject",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 3,
+      "region": "Glory",
+      "encounter": "TestSubjectBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "TEST_SUBJECT"
+        ]
+      },
+      "prompt": "Plan for three forms: the first apparent kill is not victory. Preserve enough resources for the later forms while exploiting a reachable phase transition to avoid an attack. Read current Adaptable and Enrage before playing setup cards. Later phases add Painful Stabs and Nemesis; reassess damage and status pressure after each revival rather than reusing the first-form plan. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "boss.aeonglass",
+      "name": "Aeonglass",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Boss prompts",
+      "act": 3,
+      "region": "Glory",
+      "encounter": "AeonglassBoss",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ],
+        "enemy_any": [
+          "AEONGLASS"
+        ]
+      },
+      "prompt": "Track Withering Presence: every six card plays creates Wither in hand. Avoid low-value filler that crosses the counter without meaningful payoff; inspect the current Wither effect because it upgrades during the fight. Artifact initially blocks debuffs, so do not assume Weak or Vulnerable lands. Balance efficient high-impact plays against Eye Lasers multi-hits and its increasing Strength. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.knights",
+      "name": "Knights",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 3,
+      "region": "Glory",
+      "encounter": "KnightsElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "FLAIL_KNIGHT",
+          "SPECTRAL_KNIGHT",
+          "MAGI_KNIGHT"
+        ]
+      },
+      "prompt": "Evaluate Flail, Spectral and Magi Knight separately rather than spreading damage evenly. Flail Knight War Chant ramps its Strength; Spectral Knight adds Hex and later multi-hit Soul Flame. Prioritize a reachable kill that removes the most dangerous current or next-turn threat, use area damage efficiently, and watch Magi Knight\u2019s Prep Block before Magic Bomb: preserve enough defense for that burst or remove it before the bomb. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.mecha-knight",
+      "name": "Mecha Knight",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 3,
+      "region": "Glory",
+      "encounter": "MechaKnightElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "MECHA_KNIGHT"
+        ]
+      },
+      "prompt": "Its initial Artifact stacks can absorb crucial debuffs. Strip them deliberately only if the later debuff payoff is worth the cards. Flamethrower puts Burns directly into hand, so plan status handling and end-turn damage. Windup grants Block and Strength before Heavy Cleave: use the setup window to prepare a kill or strong defense rather than mistaking it for a harmless turn. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "elite.soul-nexus",
+      "name": "Soul Nexus",
+      "version": "1.1.0",
+      "priority": 100,
+      "category": "Elite prompts",
+      "act": 3,
+      "region": "Glory",
+      "encounter": "SoulNexusElite",
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ],
+        "enemy_any": [
+          "SOUL_NEXUS"
+        ]
+      },
+      "prompt": "Distinguish Soul Burn single-hit burst from Maelstrom multi-hits when valuing mitigation. Drain Life applies both Weak and Vulnerable, so prepare for reduced damage output and increased incoming damage afterwards; the move name is not evidence that it heals. Use the current intent rather than assuming a fixed attack order, and spend potions when they prevent a dangerous debuffed turn. Use the observed intent values and current card/power text over fixed damage assumptions.",
+      "rationale": "Encounter-specific tactics grounded in the installed game\u2019s encounter, monster and power implementations. Re-evaluate after each action; hidden draws and RNG remain unknown."
+    },
+    {
+      "id": "combat.boss",
+      "name": "Boss fight",
+      "version": "1.0.0",
+      "priority": 70,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Boss"
+        ]
+      },
+      "prompt": "Plan for a long fight: establish sustainable damage and defense without taking avoidable early damage. Compare scaling setup against the current attack. Spend consumables when they materially improve survival; do not hoard through lethal.",
+      "rationale": "Sustained scaling matters more than preserving every consumable.",
+      "category": "Boss prompts",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "combat.elite",
+      "name": "Elite fight",
+      "version": "1.0.0",
+      "priority": 70,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Elite"
+        ]
+      },
+      "prompt": "Treat health as a scarce resource. Identify the most dangerous visible threat and compare a fast kill against blocking. Use potions aggressively when they prevent substantial damage or a dangerous additional turn.",
+      "rationale": "Dangerous fights need a different resource policy than routine encounters.",
+      "category": "Elite prompts",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "combat.group",
+      "name": "Multiple enemies",
+      "version": "1.1.4",
+      "priority": 50,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "room": [
+          "Monster"
+        ],
+        "min_enemies": 2
+      },
+      "prompt": "Focus affordable threat-removing kills. Otherwise block major surviving attacks and use remaining energy to damage one target. Never spread damage needlessly or leave useful energy unspent.",
+      "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion.",
+      "category": "Normal encounter prompts",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "combat.normal",
+      "name": "Normal encounter",
+      "version": "1.1.4",
+      "priority": 30,
+      "match": {
+        "kind": [
+          "combat"
+        ]
+      },
+      "prompt": "Make damage progress while preserving HP. Use defense against incoming damage, then spare energy on attacks. Use safe turns for damage/setup. Check kill before spending energy on Block.",
+      "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion.",
+      "category": "Normal encounter prompts",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "choice.cards",
+      "name": "Pending card choice",
+      "version": "1.1.3",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "card_selection",
+          "simple_select"
+        ]
+      },
+      "prompt": "Read selection PURPOSE: adding to hand means fetch a card you can use now, NOT discard/exhaust it. Match remaining energy: fetch a cheap lethal attack or needed Block; avoid an unusable expensive card. For exhaust/discard, instead remove the least useful card for this turn; keep cards needed for kills or Block. Respect min/max and already selected cards. For an upgrade, compare the upgraded effect.",
+      "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions.",
+      "category": "Other decisions",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "draft.cards",
+      "name": "Card rewards",
+      "version": "1.1.4",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "card_reward",
+          "choose_card",
+          "bundle"
+        ]
+      },
+      "prompt": "Read the full current deck and known-boss plan. Early: take immediate useful damage/defense/draw beyond starters. Later: fill missing boss answers, not redundant strengths. For Vantom, Anger/cheap multihits remove Slippery; another expensive single hit does not solve that. Do not assume a combo works: Juggling needs 3 attacks played per turn, difficult with many 2-cost attacks. Skip weak/unsupported additions; do not take every card.",
+      "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion.",
+      "category": "Other decisions",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "deck.improve",
+      "name": "Upgrade / remove / transform",
+      "version": "1.0.0",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "upgrade",
+          "deck_select",
+          "transform",
+          "enchant"
+        ]
+      },
+      "prompt": "Read the selection purpose first. Upgrade a frequently useful card with a material payoff; remove a liability; transform an expendable card. Consider draw consistency and the deck\u2019s current curve. Do not confuse removal with upgrade.",
+      "rationale": "Purpose-sensitive permanent deck decisions.",
+      "category": "Other decisions",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "reward.collect",
+      "name": "Collect rewards",
+      "version": "1.1.4",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "rewards",
+          "treasure",
+          "relic"
+        ]
+      },
+      "prompt": "Collect ALL free gold and relics. If potion space is free, TAKE the offered combat potion before Proceed; saving it costs nothing. Inspect every uninspected CardReward for free, then choose a card or Skip. Do not reopen already declined offers. Discard only to replace a held potion with a better offered one when the belt is full; disposal grants no effect.",
+      "rationale": "Full v113 trace: wasted energy, boss drafting gaps, and skipped potion.",
+      "category": "Other decisions",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "route.map",
+      "name": "Map route",
+      "version": "1.1.11",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "map"
+        ]
+      },
+      "prompt": "Plan along reachable routes, not just the next room. Elites give relics but are the most dangerous rooms: do not choose a path into an Elite when your HP is below 50% of max; between 50% and 70%, only with a strong deck and a potion ready. Prefer routes that pass a rest site shortly before an Elite and before the boss. When HP is low, prefer rest sites, shops, and unknown rooms over monsters and elites. Prefer shops when gold can buy a useful improvement. Reassess after each fight.",
+      "rationale": "jev-ironclad-117-08 entered an elite at 37/80 and reached Vantom at 47; 117-07 entered an Act 2 elite at 25 HP and died there. Adds explicit HP gates.",
+      "category": "Other decisions",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "shop.value",
+      "name": "Shop",
+      "version": "1.1.3",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "shop"
+        ]
+      },
+      "prompt": "Compare affordable BUNDLES, not just one impressive card. With a starter deck, efficient damage plus Block/draw is valuable: e.g. two useful 1-cost cards may beat one expensive purchase. Buy immediate improvements; avoid unsupported powers. Remove curses or bad cards when better than additions. Save for a better affordable purchase; do not buy merely because affordable. Potion value is HP it can save.",
+      "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions.",
+      "category": "Other decisions",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "rest.recover",
+      "name": "Rest site",
+      "version": "1.1.11",
+      "priority": 40,
+      "match": {
+        "kind": [
+          "rest"
+        ]
+      },
+      "prompt": "Rest heals 30% of max HP; Smith permanently upgrades one card. HP is the resource that decides boss fights. The rest site right before a boss (Act 1 floor 16, the last rest before the boss room): Rest unless you are at 90%+ of max HP \u2014 an upgrade almost never outweighs ~24 HP going into the boss. Elsewhere: Rest when below 60% of max HP. Smith only when at 70%+ of max HP and the upgrade materially changes fights (key damage, block or scaling card). Do not count Burning Blood as preventing death. At high HP, avoid wasted healing.",
+      "rationale": "jev-ironclad-117-05 chose Smith at 68/80 on floor 16 and died to Vantom with Vantom at 18 HP; ~24 more HP would likely have won. Replaces vague 'rest if HP is too low' wording with explicit thresholds.",
+      "category": "Other decisions",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "event.generic",
+      "name": "Event fallback",
+      "version": "1.0.0",
+      "priority": 30,
+      "match": {
+        "kind": [
+          "event",
+          "crystal_sphere"
+        ]
+      },
+      "prompt": "Read the actual event text and explicit costs. Value health, gold, deck changes and permanent rewards together. Avoid paying for weak additions. Treat unknown outcomes as uncertain rather than inventing rewards or probabilities.",
+      "rationale": "Safe fallback until an event has an exact authored module.",
+      "category": "Event prompts",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "fallback",
+      "name": "Other decision",
+      "version": "1.0.0",
+      "priority": 0,
+      "match": {},
+      "prompt": "Choose the legal action that best improves survival and the chance of winning. Use the supplied rules and do not invent hidden information.",
+      "rationale": "Fail-safe strategy selection; prompt projection still rejects unsupported game decision kinds.",
+      "category": "Other decisions",
+      "act": 0,
+      "region": "All acts / fallback"
+    },
+    {
+      "id": "combat.normal.inklets",
+      "name": "Inklets",
+      "version": "1.1.5",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "INKLET"
+        ]
+      },
+      "prompt": "Slippery caps the next HP loss to 1, then is consumed. Strip it with a cheap hit before a big attack; never spend 2 energy on a big hit into Slippery when a cheap hit is available. Speed Potion only helps if Block cards are still playable this turn. Kill exposed enemies if affordable; otherwise block the group.",
+      "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions.",
+      "category": "Normal encounter prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "inklets"
+    },
+    {
+      "id": "combat.normal.ruby-raiders",
+      "name": "Ruby Raiders",
+      "version": "1.1.12",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "TRACKER_RUBY_RAIDER",
+          "AXE_RUBY_RAIDER",
+          "BRUTE_RUBY_RAIDER",
+          "ASSASSIN_RUBY_RAIDER",
+          "CROSSBOW_RUBY_RAIDER"
+        ]
+      },
+      "prompt": "Raider roles (fixed per type): Crossbow alternates Fire (~14) and Reload (no attack); Assassin hits ~10 EVERY turn; Brute alternates Beat (~7) and Roar (+3 Strength); Axe cycles small Swings and a Big Swing (~12); Tracker applies Frail (your Block cards give less) then hits 8 times for 1 each turn after. Kill order when affordable: Assassin and Crossbow first (the steady big damage), Brute before it stacks Strength; Tracker's 1-damage hits are nearly all absorbed by any Block. Budget the whole turn. Kill the attacker you can actually finish; a large hit that leaves it alive prevents nothing. Bash then a 1-cost attack can beat the reverse order. With no affordable kill, block surviving attacks. Attack freely on buff-only turns.",
+      "rationale": "Revised from complete 1.1.2 traces: explain action purpose and concrete survival decisions. 1.1.12: roles from the Ruby Raider monster classes; this group cost 23 HP on average over 5 fights in jev-ironclad-117.",
+      "category": "Normal encounter prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "ruby-raiders"
+    },
+    {
+      "id": "combat.normal.spiny-toad",
+      "name": "Spiny Toad",
+      "version": "1.1.11",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "SPINY_TOAD"
+        ]
+      },
+      "prompt": "Spiny Toad (~117 HP) repeats a fixed 3-turn cycle, readable from its intent: Buff (no damage; it gains 5 Thorns at the end of that turn), then a 23-damage Explosion (Thorns still up during YOUR turn, removed after it resolves), then a 17-damage Tongue Lash (no Thorns). While it has Thorns, every attack HIT you land deals 5 damage back to you, taken from your Block first and then HP \u2014 so attacking after you Block throws away the Block you raised for the 23, and multi-hit cards (Twin Strike, Sword Boomerang, Spite) are the worst plays. Buff-intent turn: it cannot hurt you, so spend everything on damage (and Vulnerable/setup) now. Explosion-intent turn: Block the 23 and do NOT attack afterwards unless one hit kills it. Lash-intent turn: Thorns are gone, so Block the 17 and put leftover energy into attacks. The damage windows are the Buff and Lash turns.",
+      "rationale": "jev-ironclad-117-02/03/04: Toad ended two runs and cost 34-40 HP most fights. Recorded fight (117-02 f30): on the Explosion turn the model attacked with Setup Strike, Spite, Anger and Strike, eating 3 Thorns hits (15 HP) on top of the 23 Explosion, dropping 48 -> 10. Its pattern is fully deterministic, so the module states it instead of leaving it to be inferred. 1.1.11: recorded turn shows Thorns consumed Block before HP (blk5 -> Setup Strike -> blk0, HP unchanged), so attacking after blocking wastes the Block.",
+      "category": "Normal encounter prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "spiny-toad"
+    },
+    {
+      "id": "combat.normal.chompers",
+      "name": "Chompers",
+      "version": "1.1.9",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "CHOMPER"
+        ]
+      },
+      "prompt": "Chompers come as a pair, one started out of phase, so something attacks you nearly every turn. Each has ~62 HP and Artifact 2, which cancels its first two debuffs: do not spend Vulnerable/Weak on a Chomper until Artifact is gone (each application only removes a stack). Each Chomper alternates Clamp (2 hits of 8 = 16) and Screech (no damage, adds 3 Dazed to your discard, which clog later hands). Read intents every turn: block the Clamp hits, and on a turn where the attacker is the one about to Screech, its damage is free. Focus one Chomper to death first \u2014 killing it removes its Clamps and its Dazed, which is worth more than spreading damage. Do not open with all-out offense and no Block into a visible 16.",
+      "rationale": "jev-ironclad-117 Act 2: Chomper cost 11-37 HP a fight (22, 33, 31 lost in three runs). Recorded fight (117-02 f22): turn 1 played four attacks with 0 Block into a 16 Clamp, Bash+ landed on Artifact and was wasted, and the second Chomper's Clamps kept coming after the first died. The encounter is code-defined as a pair with ScreamFirst set on one.",
+      "category": "Normal encounter prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "chompers"
+    },
+    {
+      "id": "combat.normal.nibbit",
+      "name": "Nibbit",
+      "version": "1.1.10",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "NIBBIT"
+        ]
+      },
+      "prompt": "Nibbit (~44 HP) cycles Butt (one ~12 hit) -> Slice (~6 hit and it gains 5 Block) -> Hiss (Buff: NO attack, +2 Strength) -> repeat, each cycle +2 damage. Hiss turns are free damage turns. Block Butt turns fully; Slice turns are cheap to block. It is a normal fight: aim to take under 10 HP. Kill it before its second or third Hiss.",
+      "rationale": "Most frequent Act 1 fight (13 in jev-ironclad-117) with HP loss 3-29 \u2014 wide variance for a simple fixed cycle. Read from Nibbit.cs.",
+      "category": "Normal encounter prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "nibbit"
+    },
+    {
+      "id": "combat.normal.mawler",
+      "name": "Mawler",
+      "version": "1.1.10",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "MAWLER"
+        ]
+      },
+      "prompt": "Mawler (~72 HP) picks randomly among Rip and Tear (one ~14 hit), Claw (2 hits of ~4) and Roar (applies 3 Vulnerable to you, no damage). While you are Vulnerable, its hits deal 50% more, so after a Roar the next Rip and Tear (~21) is the danger \u2014 block those fully. Roar turns are free damage turns.",
+      "rationale": "Seen 6 times, up to 21 HP lost. Moves read from Mawler.cs (random branch).",
+      "category": "Normal encounter prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "mawler"
+    },
+    {
+      "id": "combat.normal.shrinker-beetle",
+      "name": "Shrinker Beetle",
+      "version": "1.1.10",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "SHRINKER_BEETLE"
+        ]
+      },
+      "prompt": "Shrinker Beetle (~39 HP) opens with Shrink (debuffs you, no damage), then alternates Chomp (~7) and Stomp (~13). Turn 1 is a free damage turn. Block Stomps; Chomps are cheap.",
+      "rationale": "Read from ShrinkerBeetle.cs.",
+      "category": "Normal encounter prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "shrinker-beetle"
+    },
+    {
+      "id": "combat.normal.tunneler",
+      "name": "Tunneler",
+      "version": "1.1.10",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "TUNNELER"
+        ]
+      },
+      "prompt": "Tunneler (~87 HP): Bite (~13) -> Burrow (gains 32 Block that does NOT expire, plus Burrowed) -> Below (~23) EVERY turn, forever, until its Block is broken. Breaking all of its Block stuns it (it skips its next attack, then returns to Bite). So after it Burrows, the fight is: break the 32 Block as fast as possible \u2014 all damage into it \u2014 while blocking the 23s. Do not leave it burrowed; it hits 23 every turn. On the Burrow turn itself (no attack), hit it with everything BEFORE it gains the Block if you can make it cheaper to finish.",
+      "rationale": "Tunneler.cs: Below loops on itself; BurrowedPower keeps its Block and stuns it when the Block breaks. 16-24 HP lost per Tunneler fight in jev-ironclad-117 Act 2.",
+      "category": "Normal encounter prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "tunneler"
+    },
+    {
+      "id": "combat.normal.exoskeleton",
+      "name": "Exoskeleton",
+      "version": "1.1.10",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "EXOSKELETON"
+        ]
+      },
+      "prompt": "Exoskeletons have Hard To Kill 9: no single hit can deal more than 9 damage to them, so big single-target attacks are wasted \u2014 prefer many hits (multi-hit, 0-cost attacks, area damage). They alternate Skitter (3 small hits), Mandibles (~8) and Enrage (+2 Strength). With several, focus one until dead; block multi-hit turns.",
+      "rationale": "HardToKillPower caps each damage instance at its Amount (9). 3-21 HP lost per fight in Act 2.",
+      "category": "Normal encounter prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "exoskeleton"
+    },
+    {
+      "id": "combat.normal.myte",
+      "name": "Myte",
+      "version": "1.1.10",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "MYTE"
+        ]
+      },
+      "prompt": "Myte (~64 HP) cycles Toxic (adds 2 Toxic cards to your hand: each deals 5 to you at end of turn if still in hand \u2014 play or exhaust them), Bite (~13), Suck (~4 and it gains +2 Strength). Toxic turn: no attack, so deal damage but clear the Toxics before ending your turn. Block Bites.",
+      "rationale": "Killed a run at floor 21 (jev-act2-push-04) and cost 27 HP in another. Read from Myte.cs.",
+      "category": "Normal encounter prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "myte"
+    },
+    {
+      "id": "combat.normal.louse-progenitor",
+      "name": "Louse Progenitor",
+      "version": "1.1.10",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "LOUSE_PROGENITOR"
+        ]
+      },
+      "prompt": "Louse Progenitor (~135 HP) alternates Web Cannon (~9 and makes you Frail: your Block cards give 25% less), Pounce (~14) and Curl and Grow (Block, Curl Up, +5 Strength; no attack). It grows +5 Strength each cycle, so this fight must be ended fast \u2014 Curl turns are free damage turns (hit through its Block). Block Pounces fully; Frail makes blocking weaker, so plan for it.",
+      "rationale": "Cost 10-34 HP in Act 2 runs. Read from LouseProgenitor.cs.",
+      "category": "Normal encounter prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "louse-progenitor"
+    },
+    {
+      "id": "combat.normal.thieving-hopper",
+      "name": "Thieving Hopper",
+      "version": "1.1.10",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "THIEVING_HOPPER"
+        ]
+      },
+      "prompt": "Thieving Hopper (~79 HP) opens with Thievery (~17 and steals a card), then Flutter (Buff: halves damage it takes from attacks, one stack removed per attack that gets through), then hits ~21 and ~14, and eventually Escapes with the stolen card. Many cheap hits strip Flutter faster than one big hit. Kill it before it escapes to get the card back; block its 17/21 hits.",
+      "rationale": "Read from ThievingHopper.cs (FlutterPower 50% reduction; EscapeArtist).",
+      "category": "Normal encounter prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "thieving-hopper"
+    },
+    {
+      "id": "combat.normal.bowlbugs",
+      "name": "Bowlbugs / Slumbering Beetle",
+      "version": "1.1.12",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "BOWLBUG_NECTAR",
+          "BOWLBUG_ROCK",
+          "BOWLBUG_SILK",
+          "SLUMBERING_BEETLE"
+        ]
+      },
+      "prompt": "Bowlbug Nectar: attacks, then on its 2nd turn gains +15 Strength, then attacks every turn after \u2014 KILL NECTAR FIRST, ideally before that buff. Bowlbug Rock: Headbutt; if its attack is FULLY blocked it becomes off-balance and loses a turn, so fully blocking the Rock is worth it. Bowlbug Silk: 2 small hits or makes you Weak. Slumbering Beetle (~86 HP, Plating 15) starts ASLEEP and does nothing; 3 damaging hits wake it, after which it hits ~16 every turn and gains Strength \u2014 do not hit it until everything else is dead, then kill it while fresh.",
+      "rationale": "Bowlbug group with Slumbering Beetle cost 39 HP in one Act 2 fight. Mechanics from BowlbugNectar/Rock/Silk.cs, ImbalancedPower, SlumberPower.",
+      "category": "Normal encounter prompts",
+      "act": 2,
+      "region": "Hive",
+      "encounter": "bowlbugs"
+    },
+    {
+      "id": "combat.normal.slimes",
+      "name": "Slimes",
+      "version": "1.1.12",
+      "priority": 60,
+      "match": {
+        "kind": [
+          "combat"
+        ],
+        "enemy_any": [
+          "LEAF_SLIME_M",
+          "TWIG_SLIME_M",
+          "LEAF_SLIME_S",
+          "TWIG_SLIME_S"
+        ]
+      },
+      "prompt": "Medium slimes hit hardest (Twig M ~11, Leaf M ~8 alternating with adding statuses to your deck); small slimes hit for 3-4. Kill the medium slimes first, then the small ones; area damage is ideal. Block only when the combined visible attacks are large.",
+      "rationale": "Slime groups cost 12-18 HP in several Act 1 fights. Moves from LeafSlimeM/TwigSlimeM/LeafSlimeS/TwigSlimeS.cs.",
+      "category": "Normal encounter prompts",
+      "act": 1,
+      "region": "Overgrowth",
+      "encounter": "slimes"
+    }
+  ],
+  "prompt_format": "decision-v3",
+  "character_advice": {
+    "ironclad": {
+      "potion_policy": "Take free potions into empty slots. On turn 1 of an elite or boss fight, before your first attack, drink your best lasting Strength/Dexterity potion (Fysh Oil, Strength Potion, Dexterity Potion) if you hold one \u2014 do not carry it unused into a fight you might lose. Spend potions to prevent 10+ HP loss or secure kills; if currently safe, you may reserve one useful boss answer, but never hoard through death or a full-belt replacement.",
+      "groups": [
+        {
+          "ids": [
+            "STRENGTH_POTION",
+            "FYSH_OIL",
+            "DEXTERITY_POTION"
+          ],
+          "priority": 1,
+          "when": "hard-fight setup",
+          "advice": "Lasting Strength/Dexterity/Fysh Oil: use early in elites/bosses, before affected cards."
+        },
+        {
+          "ids": [
+            "FIRE_POTION",
+            "EXPLOSIVE_AMPOULE",
+            "BLOCK_POTION",
+            "VULNERABLE_POTION"
+          ],
+          "priority": 1,
+          "when": "immediate HP saved",
+          "advice": "Damage/Block/Vulnerable: prioritize threat-removing kills and HP saved; Vulnerable before damage."
+        },
+        {
+          "ids": [
+            "SPEED_POTION",
+            "FLEX_POTION"
+          ],
+          "priority": 2,
+          "when": "matching hand",
+          "advice": "Temporary Strength/Dexterity: use before matching cards; expires this turn."
+        },
+        {
+          "ids": [
+            "ATTACK_POTION",
+            "POWER_POTION"
+          ],
+          "priority": 2,
+          "when": "free-card payoff",
+          "advice": "Attack/Power potion cards are free this turn, even at zero energy. Power is better early in long fights."
+        },
+        {
+          "ids": [
+            "SWIFT_POTION",
+            "GAMBLERS_BREW",
+            "LIQUID_MEMORIES"
+          ],
+          "priority": 3,
+          "when": "usable follow-up",
+          "advice": "Draw/retrieval: use when energy or free effects let you play the result."
+        }
+      ]
+    }
+  },
+  "compression_contract": {
+    "target": "Under 1000 measured input tokens per model decision on average, not a hard truncation cap.",
+    "combat": "Current hand/effects once, indexed enemies, powers and intents; compact legal actions; unordered pile name/count summaries. Effects of offered retrieval cards remain in actions. No hidden draw order.",
+    "other": "Retain deck effects for drafting, shop, route and rest decisions; retain selection constraints and event rules.",
+    "limits": "Pile cards not currently actionable have names/counts only during combat. Unknown interactions may need targeted expansion. Actual provider token counts and performance must be measured after approval."
+  },
+  "observation_policy": "observed-history-v1",
+  "combat_basics": "Goal: minimize total HP lost this whole run, not just this fight. HP saved now is HP (or a future rest-site heal) you still have later. Turn count itself has no value. Finishing a fight sooner usually reduces total damage taken because most enemies' output escalates turn over turn and your Block draw is not guaranteed \u2014 so prefer the faster kill when every turn along the way is safely survivable. But if this turn's queued damage threatens to overwhelm you, block first regardless of tempo: a fight you die in is always worse than a slower win, with no exception. Never take free/affordable Block-worthy damage you could have prevented before spending on pure offense that has no defensive value and doesn't secure a kill this turn. Enemy powers override generic card sequencing.",
+  "turn_advice": {
+    "no_incoming": "No enemy attacks now: spend energy on damage/setup, not ordinary Block. Do not end with useful attacks available.",
+    "one_energy": "With 1 energy: take a kill if possible; otherwise useful Block, otherwise ATTACK. If no Block can be played, damage is better than wasting energy.",
+    "under_attack": "Compare kill/Weak/Block prevention; avoid buying small chip damage with large HP loss when defense is available. After defensive plays, spend leftover energy on attacks \u2014 this turn's damage is within a safe margin, so taking some of it is not a reason to pass on progress.",
+    "bash_setup": "",
+    "no_block": "No playable card here grants Block. Use attacks/setup with remaining energy rather than End Turn; nonlethal attacks are useful. Check potions too.",
+    "slippery": "Slippery: each HP-damaging hit removes ONE stack and deals 1 HP. Cheap/multihit attacks are progress, not wasted damage. Strip stacks with spare energy EVERY turn. Do not save attacks only for lethal. Prefer cheap hits over Bash while capped; defend major hits but keep making progress.",
+    "lethal_risk": "LETHAL THIS TURN AS QUEUED: incoming damage {incoming} vs your HP {hp} and current Block {block} (deficit {deficit}). Unless you raise Block by at least {deficit} before ending turn, this attack kills you. Block is mandatory before any attack that doesn't secure a kill right now. Potions held: {potions}. If one can raise Block, prevent damage, restore HP, or fetch a playable card (a Skill Potion can pull a Block card from nothing even with no Block card in hand right now), use it this turn \u2014 do not save it into a fight you lose.",
+    "severe_risk": "SEVERE: incoming damage {incoming} vs your HP {hp} and current Block {block} (deficit {deficit}) would take you below half HP this turn. Prioritize Block up to what you can afford; only spend leftover energy on damage that secures a kill or clearly shortens the fight. Potions held: {potions}. A held defensive or card-fetching potion is worth using here rather than saving it further."
+  },
+  "planning_context": true,
+  "boss_plans": {
+    "VANTOM_BOSS": "Vantom: remove 8 Slippery stacks with cheap/multihit attacks, then burst. Draft a few 0-cost/multihit attacks (e.g. Anger), draw and defense; avoid only expensive single hits. Save a useful attack/draw potion if current fights are safe. Do not refuse a life-saving potion now.",
+    "CEREMONIAL_BEAST_BOSS": "Ceremonial Beast: build enough burst to cross its Plow HP threshold and stun it; strong single-card effects matter when Ringing restricts follow-up plays. Preserve a useful burst potion if safe.",
+    "THE_KIN_BOSS": "The Kin: efficient attacks/area damage remove followers; secure damage before Ritual Strength ramps, and enough defense for the priest. Keep a useful damage potion if current fights are safe."
+  },
+  "mechanic_hints": [
+    {
+      "id": "weak",
+      "terms": [
+        "weak",
+        "weak_power",
+        "weak_potion"
+      ],
+      "text": "Weak: normally 25% less Attack damage, rounded down per hit. Stacks are duration, not stronger reduction. Use Weak before a large incoming attack; a potion costs no energy, so consider it even just before End Turn. Saving ~7+ HP now is valuable; do not hoard it through the boss.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "vulnerable",
+      "terms": [
+        "vulnerable",
+        "vulnerable_power"
+      ],
+      "text": "Vulnerable: normally 50% more Attack damage taken; stacks extend duration. Apply BEFORE follow-up attacks (including free Anger) if the target is not already Vulnerable. Existing debuffs are already included in attack previews: do not multiply twice. Bash setup is not mandatory: prefer immediate lethal or needed Block over setup that exposes you to a huge hit. Slippery caps override this.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "temporary-dex",
+      "terms": [
+        "speed_potion"
+      ],
+      "text": "Speed Potion: temporary Dexterity boosts Block from cards THIS turn, then expires. Use before useful Block cards; save it if you cannot play any. Energy 0 with no free Block card means no benefit.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "temporary-strength",
+      "terms": [
+        "flex_potion"
+      ],
+      "text": "Flex Potion: temporary Strength adds damage to EACH Attack hit this turn. Drink before attacks; save it if no attacks remain playable. Slippery can nullify the extra damage.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "exhaust",
+      "terms": [
+        "exhaust",
+        "burning_pact",
+        "true_grit"
+      ],
+      "text": "Exhaust removes a card for this combat; discarding only delays its redraw. For chosen exhaust, prefer an unusable Wound or other low-value card, preserving needed defense/lethal attacks. Exhaust-draw can find answers but consumes energy; do not spend your last energy cycling when a known useful play is better.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "wound",
+      "terms": [
+        "wound"
+      ],
+      "text": "Wound is unplayable and clogs future draws. Good chosen-exhaust target; drawing one does not itself hurt HP.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "dazed",
+      "terms": [
+        "dazed"
+      ],
+      "text": "Dazed is unplayable and Ethereal: if held at end of turn it exhausts automatically.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "slimed",
+      "terms": [
+        "slimed"
+      ],
+      "text": "Slimed costs 1, draws 1, and Exhausts. Useful cleanup with spare energy; do not sacrifice necessary defense or lethal for it.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "frail",
+      "terms": [
+        "frail",
+        "frail_power"
+      ],
+      "text": "Frail normally reduces Block gained from cards by 25%. Read current card effects; do not apply the reduction twice.",
+      "kinds": [
+        "combat",
+        "card_selection"
+      ]
+    },
+    {
+      "id": "plating",
+      "terms": [
+        "plating",
+        "plating_power"
+      ],
+      "text": "Plating grants its current amount of Block at end of your turn and loses 1 on following turns. Free helpful relics are worth collecting.",
+      "kinds": [
+        "combat",
+        "rewards",
+        "relic_reward"
+      ]
+    }
+  ],
+  "current_turn_hints": {
+    "no_speed_target": "CURRENT TURN: no Block card is playable. Speed Potion cannot help now: SAVE it. If no useful card or other potion is available, End Turn.",
+    "large_attack_weak": "CURRENT TURN: at least 20 damage exceeds your Block, and you hold Weak Potion. Use Weak Potion on the major attacker NOW before spending energy on damage; it reduces this attack and later attacks during its duration."
+  },
+  "multi_enemy_template": "MULTI-ENEMY: {count} enemies alive. {top_name} currently queues the most damage ({top_dmg}, {top_hp} HP left). All else equal, remove or block against the biggest current threat first; take a cheap kill on a different enemy only if it's actually available this turn. Prefer an attack that hits all enemies when one is affordable and enemies are roughly even health.",
+  "community_card_stats": true,
+  "end_turn_guard": true
+}

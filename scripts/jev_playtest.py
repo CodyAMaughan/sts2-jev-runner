@@ -63,6 +63,20 @@ def fingerprint(observation):
     return hashlib.sha256(json.dumps(observation, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
 
 
+def _zero_out_preview_damage(value):
+    # Damage-preview for companion/Osty-linked cards (e.g. Right Hand Hand)
+    # comes back as 0 instead of null depending on an internal calc path that
+    # doesn't affect the card's real variables or legality — only ever seen
+    # with SnapshotResume, where the combat state was injected rather than
+    # played into naturally. Not worth chasing further: normalize both to
+    # null before comparing, same spirit as the map/shop text stripping below.
+    if isinstance(value, dict):
+        return {k: (None if k == 'preview_damage_per_hit' and v in (0, None) else _zero_out_preview_damage(v)) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_zero_out_preview_damage(v) for v in value]
+    return value
+
+
 def replay_fingerprint(observation):
     # The map's decorative act title fades in asynchronously. It is duplicated
     # by structured act/room/map data and does not change legal decisions.
@@ -71,6 +85,12 @@ def replay_fingerprint(observation):
     state = observation.get('state', {})
     if state.get('screen') == 'NMapScreen' or observation.get('kind')=='shop':
         observation = {**observation, 'state': {k:v for k,v in state.items() if k != 'text'}}
+    # decision_id is this process's own sequence number, not semantic state —
+    # a fresh process always restarts it at 1, matching a from-the-seed replay
+    # by coincidence (decision 1 there is also id 1) but never a resumed one
+    # landing mid-run, where the original recording's id is unrelated to 1.
+    observation = {**observation, 'decision_id': None}
+    observation = _zero_out_preview_damage(observation)
     return fingerprint(observation)
 
 
@@ -97,6 +117,34 @@ def parse_answer(response, obs):
     if answer.get('type') != 'choice' or answer.get('choice') not in {a['id'] for a in obs['actions']}:
         raise ValueError('Model returned an unoffered action; refusing to act')
     return answer['choice']
+
+
+REACTIVE_POWERS={'THORNS_POWER','PERSONAL_HIVE_POWER','VITAL_SPARK_POWER','SANDPIT_POWER','FLAME_BARRIER_POWER','CURL_UP_POWER','REFLECT_POWER'}
+
+
+def wasted_energy_note(obs, chosen):
+    """End-turn guard: when Jev ends a combat turn with energy left and a card that would
+    still help (Block against an incoming attack, or an attack when no enemy punishes
+    attacking), return a note for one re-ask with End Turn withheld; else None.
+    Uses only what the prompt already shows (energy, hand, visible intents, powers)."""
+    if obs.get('kind')!='combat':return None
+    acts={a['id']:a['option'] for a in obs['actions']}
+    if acts.get(chosen,{}).get('action')!='end_turn':return None
+    st=obs.get('state') or {};energy=st.get('energy') or 0
+    if energy<=0:return None
+    incoming=sum(i.get('total_damage') or 0 for e in st.get('enemies') or [] for i in e.get('intents') or [] if i.get('type')=='Attack')
+    uncovered=incoming-((st.get('player') or {}).get('block') or 0)
+    reactive=any(p.get('id') in REACTIVE_POWERS for e in st.get('enemies') or [] for p in (e.get('creature') or {}).get('powers') or [])
+    useful=[]
+    for a in obs['actions']:
+        o=a['option'];c=o.get('card') or {}
+        if o.get('action')!='play_card' or not isinstance(c.get('cost'),int) or c['cost']<0 or c['cost']>energy:continue
+        if uncovered>0 and 'Block' in (c.get('text') or ''):useful.append(a['id'])
+        elif c.get('type')=='Attack' and not reactive:useful.append(a['id'])
+    if not useful:return None
+    return (f'Controller check: you chose End Turn with {energy} energy unspent'
+            +(f' while {uncovered} incoming attack damage is still unblocked' if uncovered>0 else '')
+            +'. End Turn is withheld for this one choice: play the most useful card now (Block first if the hit matters, otherwise damage).')
 
 
 def mock_choice(obs):
@@ -131,6 +179,7 @@ def main():
                           'already lands the live game at this exact position — replaying decisions '
                           '0..N-1 first would be redundant (and diverge, since they never happened '
                           'in this process).')
+    ap.add_argument('--stop-after-combat', action='store_true', help='Stop once the first combat seen is over (fight benchmarks from a resumed snapshot)')
     ap.add_argument('--decision-delay', type=float, default=0, help='Seconds to pause before each action')
     args = ap.parse_args()
     if not args.model:
@@ -180,6 +229,8 @@ def main():
             log.write(json.dumps({'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()), **data})+'\n'); log.flush()
         record({'kind':'controller', 'mode':'replay' if replay else 'mock_transport_test' if args.mock else args.backend, 'backend':args.backend, 'prompt_version':strategy_package.packet.get('prompt_format','decision-v2'), 'model':args.model, 'strategy':strategy, 'character':args.character, 'decision_delay_seconds':args.decision_delay,'planning_context':strategy_package.packet.get('planning_context',False),'strategy_packet_sha256':strategy_package.sha256 if not args.replay else None})
         seen = set()
+        seen_combat=False
+        skipped_card_reward=False
         count=args.replay_start_index
         while count < args.max_decisions:
             while True:
@@ -194,6 +245,10 @@ def main():
                 if obs.get('status') in ('stopped','terminal'):
                     record({'kind':'stopped','state':obs}); return
                 time.sleep(.1)
+            if args.stop_after_combat:
+                if obs['kind'] in ('combat','card_selection'):seen_combat=True
+                elif seen_combat:
+                    record({'kind':'stopped','reason':'combat_complete','observation':obs});return
             if os.environ.get('DEALMAKER_ACT1_OVERGROWTH')=='1':
                 game=obs['state'].get('game',obs['state'])
                 if game.get('act',1)>1:
@@ -203,6 +258,11 @@ def main():
             digest = fingerprint(obs)
             model_obs=memory.enrich(obs) if context_policy else obs
             if context_policy:model_obs['context_policy']=context_policy
+            if skipped_card_reward and obs['kind']=='rewards':
+                # Skipping a card reward leaves it claimable; without this Jev can re-claim and
+                # re-skip the same reward forever (jev-ironclad-1111-02 looped ~70 times on floor 30).
+                kept=[a for a in model_obs['actions'] if not (a['option'].get('action')=='claim_reward' and a['option'].get('type')=='CardReward')]
+                if kept and len(kept)<len(model_obs['actions']):model_obs=dict(model_obs,actions=kept)
             active_strategy,strategy_selection=strategy_package.prompt(model_obs,args.character)
             payload = None
             before = time.monotonic()
@@ -231,8 +291,8 @@ def main():
             elif args.mock:
                 chosen = mock_choice(obs); response = None
                 source = 'mock'
-            elif len(obs['actions']) == 1:
-                chosen = obs['actions'][0]['id']; response = None
+            elif len(model_obs['actions']) == 1:
+                chosen = model_obs['actions'][0]['id']; response = None
                 source = 'sole_legal_action'
             else:
                 payload = make_request(model_obs, active_strategy, args.model, args.character, strategy_package.packet.get('prompt_format'))
@@ -241,6 +301,18 @@ def main():
                 except InvalidDecision as error:
                     record({'kind':'model_failure','decision_id':obs['decision_id'],'attempts':error.attempts})
                     raise
+                note=strategy_package.packet.get('end_turn_guard') and wasted_energy_note(model_obs,chosen)
+                if note:
+                    guarded=dict(model_obs,actions=[a for a in model_obs['actions'] if a['option'].get('action')!='end_turn'])
+                    retry_payload=make_request(guarded,active_strategy,args.model,args.character,strategy_package.packet.get('prompt_format'))
+                    retry_payload['questions']['action']['instructions']+='\n'+note
+                    try:retry_choice,retry_response,retry_meta=adapter.decide(retry_payload)
+                    except InvalidDecision as error:
+                        record({'kind':'model_failure','decision_id':obs['decision_id'],'attempts':error.attempts})
+                        raise
+                    record({'kind':'end_turn_guard','decision_id':obs['decision_id'],'first_choice':chosen,'first_response':response,'note':note})
+                    chosen,response,payload,source=retry_choice,retry_response,retry_payload,'jev_end_turn_guard'
+                    model_meta=dict(retry_meta,cost_usd=(model_meta.get('cost_usd') or 0)+(retry_meta.get('cost_usd') or 0))
             if chosen not in {a['id'] for a in obs['actions']}:
                 raise ValueError('Replay selected an unoffered action')
             record({'kind':'decision','decision_id':obs['decision_id'],'observation_sha256':digest,'observation':obs,
@@ -251,6 +323,8 @@ def main():
             if not ack.get('accepted'):
                 raise RuntimeError('Game rejected action')
             memory.observe(obs,chosen)
+            if obs['kind']=='card_reward':skipped_card_reward=any(a['id']==chosen and a['option'].get('action')=='reward_alternative' for a in obs['actions'])
+            elif obs['kind']!='rewards':skipped_card_reward=False
             seen.add(obs['decision_id'])
             print(f"{count+1}: {obs['kind']} {chosen}", flush=True)
             count+=1
