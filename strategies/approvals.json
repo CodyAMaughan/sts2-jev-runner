@@ -148,5 +148,15 @@
     "version": "1.1.27",
     "status": "approved",
     "reason": "Session 4 max-wins hybrid: Act 1 drafting scored end-to-end (hallway HP loss + Vantom)."
+  },
+  "87578727fdb2df9c0b47a093d06a6dd7793d1014a3c792ee6c4039f2fd6e293f": {
+    "version": "1.1.28",
+    "status": "approved",
+    "reason": "Session 5: user asked for more Act 2 success across the whole act; Act 2 drafting/upgrades/rest scored end to end by a simulator."
+  },
+  "3df0fff42c4abb6396d0c4fc0ea2e7ceb9d32282c5725c968ff825ef12972ca8": {
+    "version": "1.1.29",
+    "status": "approved",
+    "reason": "Session 5: relic acquisition (more Act 1 elites when healthy, shop relics)."
   }
 }

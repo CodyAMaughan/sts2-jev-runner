@@ -173,7 +173,8 @@ def vantom_choice(obs, chosen, cfg, upgrades_seen):
     option with the best simulated Vantom win rate replaces Jev's pick when it is better by
     at least cfg margin; otherwise Jev decides. Returns (choice, info or None)."""
     st=obs.get('state') or {};game=st.get('game',st)
-    if game.get('act')!=1 or 'VANTOM' not in str(game.get('known_boss') or ''):return chosen,None
+    act2=game.get('act')==2 and 'INSATIABLE' in str(game.get('known_boss') or '') and cfg.get('act2_outlook')
+    if not act2 and (game.get('act')!=1 or 'VANTOM' not in str(game.get('known_boss') or '')):return chosen,None
     deck=list(game.get('deck') or []);player=game.get('player') or {};hp=player.get('hp') or 0;max_hp=player.get('max_hp') or hp
     if not deck or not hp:return chosen,None
     if obs['kind']=='rest' and st.get('upgrades'):upgrades_seen=st['upgrades']  # this screen lists them itself
@@ -203,6 +204,10 @@ def vantom_choice(obs, chosen, cfg, upgrades_seen):
     act1=cfg.get('act1_outlook') and floor<15  # the whole rest of Act 1 (it assumes a pre-boss rest itself)
     relics=[r.get('id') for r in game.get('relics') or []]
     def score(deck_,hp_):
+        if act2:
+            from act2_sim import outlook as outlook2
+            w,_,prog=outlook2(deck_,hp_,max_hp,floor,relics,sims=cfg.get('act2_sims',100),seed=11,pre_boss_rest=floor<31)
+            return (w+0.3*prog,w)
         if act1:
             from act1_sim import outlook
             w,_,prog=outlook(deck_,hp_,max_hp,floor,relics,sims=cfg.get('act1_sims',150),seed=11)
@@ -213,7 +218,7 @@ def vantom_choice(obs, chosen, cfg, upgrades_seen):
         if opt[0]=='smith':res[aid]=max((score(d,opt[2]) for d in opt[1]),key=lambda r:r[0])
         else:res[aid]=score(opt[0],opt[1])
     best=max(res,key=lambda a:res[a][0])
-    info={'kind':obs['kind'],'jev_choice':chosen,'sim':{a:[round(r[0],3),round(r[1],3)] for a,r in res.items()},'best':best,'mode':'act1_outlook' if act1 else 'vantom'}
+    info={'kind':obs['kind'],'jev_choice':chosen,'sim':{a:[round(r[0],3),round(r[1],3)] for a,r in res.items()},'best':best,'mode':'act2_outlook' if act2 else 'act1_outlook' if act1 else 'vantom'}
     if res[best][0]-res[chosen][0]>=cfg.get('margin',0.03):
         info['override']=True;return best,info
     return chosen,info
