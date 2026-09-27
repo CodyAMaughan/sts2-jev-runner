@@ -143,5 +143,10 @@
     "version": "1.1.26",
     "status": "approved",
     "reason": "Session 4 max-wins hybrid: planner rev 6 (scaling powers), min_prob 0, rest-site simulator fix."
+  },
+  "9413294562709ecd6f4d102b48f4b5fb873131e60c9fe67e3e70ca515af0c551": {
+    "version": "1.1.27",
+    "status": "approved",
+    "reason": "Session 4 max-wins hybrid: Act 1 drafting scored end-to-end (hallway HP loss + Vantom)."
   }
 }

@@ -199,13 +199,21 @@ def vantom_choice(obs, chosen, cfg, upgrades_seen):
     if len(options)<2 or chosen not in options:return chosen,None
     from vantom_sim import simulate
     sims=cfg.get('sims',300);res={}
+    floor=game.get('floor') or 1
+    act1=cfg.get('act1_outlook') and floor<15  # the whole rest of Act 1 (it assumes a pre-boss rest itself)
+    relics=[r.get('id') for r in game.get('relics') or []]
+    def score(deck_,hp_):
+        if act1:
+            from act1_sim import outlook
+            w,_,prog=outlook(deck_,hp_,max_hp,floor,relics,sims=cfg.get('act1_sims',150),seed=11)
+            return (w+0.3*prog,w)
+        w,l,_=simulate(deck_,hp_,sims=sims,seed=11)
+        return (w-0.001*l,w)
     for aid,opt in options.items():
-        if opt[0]=='smith':
-            best=max((simulate(d,opt[2],sims=sims,seed=11) for d in opt[1]),key=lambda r:(r[0],-r[1]))
-            res[aid]=best
-        else:res[aid]=simulate(opt[0],opt[1],sims=sims,seed=11)
-    best=max(res,key=lambda a:(res[a][0],-res[a][1]))
-    info={'kind':obs['kind'],'jev_choice':chosen,'sim':{a:[round(r[0],3),round(r[1],1)] for a,r in res.items()},'best':best}
+        if opt[0]=='smith':res[aid]=max((score(d,opt[2]) for d in opt[1]),key=lambda r:r[0])
+        else:res[aid]=score(opt[0],opt[1])
+    best=max(res,key=lambda a:res[a][0])
+    info={'kind':obs['kind'],'jev_choice':chosen,'sim':{a:[round(r[0],3),round(r[1],3)] for a,r in res.items()},'best':best,'mode':'act1_outlook' if act1 else 'vantom'}
     if res[best][0]-res[chosen][0]>=cfg.get('margin',0.03):
         info['override']=True;return best,info
     return chosen,info
