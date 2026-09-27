@@ -12,6 +12,7 @@ def main():
     p.add_argument('--first-index', type=int, default=1, help='Number the first run id from this (to extend a batch split across invocations)')
     p.add_argument('--slots', nargs='+', default=['', '2'])
     p.add_argument('--timeout', type=int, default=1500)
+    p.add_argument('--startup-timeout', type=int, default=150, help='Kill and retry once if no decision arrives within this many seconds')
     p.add_argument('extra', nargs=argparse.REMAINDER, help='passed through to run_jev.py after --')
     a = p.parse_args()
     extra = a.extra[1:] if a.extra[:1] == ['--'] else a.extra
@@ -29,10 +30,28 @@ def main():
             env = os.environ.copy(); env['DEALMAKER_SLOT'] = slot
             cmd = [sys.executable, str(ROOT/'scripts/run_jev.py'), '--id', run_id, '--seed', seed, '--port', str(port),
                    '--timeout', str(a.timeout), '--headless', *extra]
-            with lock: print(f'{time.strftime("%H:%M:%S")} START {run_id} {seed} slot={slot or 1}', flush=True)
-            log = (ROOT/'docs/playtests/runs'/f'.{run_id}.batch.log')
-            with log.open('w') as out: code = subprocess.run(cmd, cwd=ROOT, env=env, stdout=out, stderr=subprocess.STDOUT).returncode
-            with lock: print(f'{time.strftime("%H:%M:%S")} END {run_id} exit={code}', flush=True)
+            for attempt in range(2):
+                rid = run_id if attempt == 0 else run_id + '-retry'
+                cmd[cmd.index('--id') + 1] = rid
+                with lock: print(f'{time.strftime("%H:%M:%S")} START {rid} {seed} slot={slot or 1}', flush=True)
+                log = (ROOT/'docs/playtests/runs'/f'.{rid}.batch.log')
+                with log.open('w') as out:
+                    proc = subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=out, stderr=subprocess.STDOUT)
+                    hung = False; start = time.monotonic()
+                    while proc.poll() is None:
+                        time.sleep(5)
+                        # Startup watchdog: headless Godot sometimes stalls at launch (null texture)
+                        # and never offers a first decision; the run would sit until --timeout.
+                        if not hung and time.monotonic() - start > a.startup_timeout:
+                            trace = ROOT/'docs/playtests/runs'/rid/'jev-decisions.jsonl'
+                            if not trace.exists() or '"kind": "decision"' not in trace.read_text():
+                                hung = True
+                                subprocess.run(['pkill', '-f', f'jev_playtest.py --port {port}'])
+                    code = proc.wait()
+                with lock: print(f'{time.strftime("%H:%M:%S")} END {rid} exit={code}' + (' STARTUP_HANG' if hung else ''), flush=True)
+                if not hung: break
+                hung_dir = ROOT/'docs/playtests/runs'/rid
+                if hung_dir.exists(): hung_dir.rename(hung_dir.with_name('aborted-' + rid))
     threads = [threading.Thread(target=worker, args=(slot, 18765 + 10*(int(slot or 1)-1))) for slot in a.slots]
     for t in threads: t.start(); time.sleep(3)
     for t in threads: t.join()

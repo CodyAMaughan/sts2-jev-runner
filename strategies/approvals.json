@@ -128,5 +128,20 @@
     "version": "1.1.24",
     "status": "approved",
     "reason": "Session 3: planner rev 5 + shop/removal fixes, without the Elo/deck-math card notes."
+  },
+  "5bdcb14d6cafd07f0ee17fb12e06d8bdac027825664e6bd08bdabef3cb81dd89": {
+    "version": "1.1.25",
+    "status": "approved",
+    "reason": "User chose max-wins hybrid; Act 1 drafting/upgrades guided by a Vantom fight simulator (visible deck only)."
+  },
+  "da22afd6ba72fbb6986bc6d7fad2ae8d7b94b9386c0171fb360bddde01ec1192": {
+    "version": "1.1.93",
+    "status": "approved",
+    "reason": "Session 4 experiment: user-proposed ratio objective, fight benches only."
+  },
+  "42cc74803c2365904700de281d1253c6b39b7ed610fe59a5e655d500302b1ade": {
+    "version": "1.1.26",
+    "status": "approved",
+    "reason": "Session 4 max-wins hybrid: planner rev 6 (scaling powers), min_prob 0, rest-site simulator fix."
   }
 }

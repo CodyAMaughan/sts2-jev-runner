@@ -75,7 +75,7 @@ def expected_damage_per_turn(state):
 class Line:
     __slots__ = ('energy', 'used', 'hp', 'block', 'vuln', 'slip', 'artifact', 'pblock', 'hploss', 'thorns_taken',
                  'strength', 'draws', 'opaque', 'plan', 'inflame', 'dex', 'potions', 'weakened', 'shackle', 'sandpit',
-                 'free_attack', 'dazed')
+                 'free_attack', 'dazed', 'demon', 'block_per_turn', 'block_total', 'boulder')
 
     def copy(self):
         n = Line()
@@ -97,7 +97,7 @@ def _num(text, default=0):
     return int(m.group(1)) if m else default
 
 
-def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
+def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='additive'):
     st = obs.get('state') or {}
     if obs.get('kind') != 'combat': return {'supported': False, 'reason': 'not combat'}
     player = st.get('player') or {}
@@ -155,6 +155,7 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
     sandpits = [p.get('SANDPIT_POWER') for p in ep if 'SANDPIT_POWER' in p]
     base.sandpit = min(sandpits) if sandpits else None
     base.free_attack = 'FREE_ATTACK_POWER' in ppow; base.dazed = 0
+    base.demon = 0; base.block_per_turn = 0; base.block_total = 0; base.boulder = 0
     tender = 'TENDER_POWER' in ppow
     hive = ['PERSONAL_HIVE_POWER' in p for p in ep]
     illusion = ['ILLUSION_POWER' in p for p in ep]
@@ -270,6 +271,13 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
             for k in vt:
                 if n.artifact[k] > 0: n.artifact[k] -= 1
                 else: n.vuln[k] += vp
+        if rev >= 6:  # scaling powers, valued over the rest of the fight in score()
+            if cid == 'DEMON_FORM': n.demon += v.get('StrengthPower') or 2
+            elif cid == 'STONE_ARMOR':
+                pl = v.get('PlatingPower') or 4; n.pblock += pl; n.block_total += pl * (pl - 1) / 2
+            elif cid == 'CRIMSON_MANTLE': n.block_per_turn += (v.get('CrimsonMantlePower') or 8) - 1
+            elif cid == 'ROLLING_BOULDER': n.boulder += v.get('RollingBoulderPower') or 5
+            elif cid == 'TORIC_TOUGHNESS': n.block_total += 2 * (v.get('Block') or 5)
         if tender:  # Tender: every card played costs 1 Strength and 1 Dexterity this turn
             n.strength -= 1; n.dex -= 1
         sl = v.get('StrengthLoss') or 0  # Dark Shackles: the target hits for less this turn
@@ -293,6 +301,12 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
         block = line.pblock + plating
         hp_now = max(0, incoming - block) + line.hploss
         p = P + 3 * line.inflame
+        if line.demon or line.boulder:
+            # Turns left at the current pace; Strength gained each turn (Demon Form) or a growing
+            # start-of-turn hit (Rolling Boulder) raises the average damage over those turns.
+            h_all = sum(line.hp[k] + line.block[k] for k in alive if line.hp[k] > 0)
+            T = min(10.0, h_all / p) if p else 10.0
+            p = p + 2.5 * line.demon * (T + 1) / 2 + line.boulder * (T + 1) / 2
         future = 0.0
         rate = sum(X[k] for k in alive if k not in dead) / p
         if not combat_over:
@@ -311,6 +325,11 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
                 if imbalanced[k] and _intent_damage(enemies[k]) > 0 and block >= incoming: future -= X[k]  # stunned a turn
                 if line.weakened[k] and not already_weak[k]: future -= 0.25 * X[k] * min(2.0, h / p)
         future -= line.draws * draw_value * rate
+        if line.block_per_turn or line.block_total:
+            h_all = sum(line.hp[k] + line.block[k] for k in alive if line.hp[k] > 0)
+            T = min(10.0, h_all / p) if p else 0.0
+            x_all = sum(X[k] for k in alive if k not in dead)
+            future -= min(line.block_per_turn, x_all) * T + min(line.block_total, x_all * T)
         # HP is not linear at zero: a line that dies this turn loses the run, so any
         # surviving line must beat it regardless of the damage math.
         death = DEATH_PENALTY if hp_now >= (player.get('hp') or 0) else 0.0
@@ -319,6 +338,18 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3):
             # Surplus Sandpit is a future Frantic Escape (and its energy) not needed later.
             else: future -= (line.sandpit - 2) * (p / 3.0) * rate
         future += DAZED_HIT_COST * line.dazed
+        if objective == 'ratio':
+            # The user's alternative: effective damage dealt / (HP lost this turn + 1), maximized.
+            dealt = 0.0
+            for k in alive:
+                before = base.hp[k] + base.block[k] + SLIPPERY_HIT_VALUE * base.slip[k]
+                after = max(0, line.hp[k]) + line.block[k] + SLIPPERY_HIT_VALUE * line.slip[k]
+                dealt += before - after
+                extra_vuln = max(0, min(line.vuln[k], 3) - max(start_vuln[k] - 1, 0) - 1)
+                dealt += 0.5 * p * extra_vuln / max(1, len(alive))
+            dealt += line.draws * draw_value
+            if combat_over: dealt += 1000
+            return -dealt / (hp_now + potion_cost * line.potions + 1) + death, hp_now, future
         return hp_now + future + potion_cost * line.potions + death, hp_now, future
 
     best = {}

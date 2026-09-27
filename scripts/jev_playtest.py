@@ -151,7 +151,7 @@ def planner_hint(obs, history, cfg=None):
     """The planner's numbers as one prompt line, so Jev sees the HP-exchange math too."""
     from turn_planner import plan
     cfg=cfg or {}
-    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3))
+    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3),objective=cfg.get('objective','additive'))
     if not res.get('supported') or not res.get('best_plan'):return ''
     acts={a['id']:a['option'] for a in obs['actions']}
     def name(a):
@@ -159,9 +159,56 @@ def planner_hint(obs, history, cfg=None):
         return (c.get('name') or c.get('id') or o.get('action','?'))+(f" -> e{o['enemy_index']}" if c and o.get('enemy_index',-1)>=0 else '')
     rates='; '.join(f"{n} deals ~{x:g}/turn" for n,x in res['X'].items())
     end=next((v for k,v in res['scores'].items() if acts.get(k,{}).get('action')=='end_turn'),None)
+    if cfg.get('objective')=='ratio':
+        return (f"Turn math (goal: most damage dealt per HP lost: damage / (HP lost this turn + 1)). Best line: {', '.join(name(a) for a in res['best_plan'])} "
+                f"(about {res['best_hp_now']:g} HP lost this turn, ratio {-res['best_score']:.1f}). Potions and card effects the math can't see (draw results, powers) are yours to weigh.")
     return (f"Turn math (goal: least total HP lost this fight = HP lost now + enemy damage/turn x turns left; you deal ~{res['P']:g}/turn; {rates}). "
             f"Best line by this math: {', '.join(name(a) for a in res['best_plan'])} (about {res['best_hp_now']:g} HP lost this turn, expected fight cost {res['best_score']:g}"
             +(f"; ending the turn now costs {end:g}" if end is not None else '')+"). Potions and card effects the math can't see (draw results, powers) are yours to weigh.")
+
+
+def vantom_choice(obs, chosen, cfg, upgrades_seen):
+    """Act 1 drafting/upgrade/rest choices scored by a Vantom fight simulator (vantom_sim.py):
+    each option's deck is played through the same simulated fights (paired shuffles). The
+    option with the best simulated Vantom win rate replaces Jev's pick when it is better by
+    at least cfg margin; otherwise Jev decides. Returns (choice, info or None)."""
+    st=obs.get('state') or {};game=st.get('game',st)
+    if game.get('act')!=1 or 'VANTOM' not in str(game.get('known_boss') or ''):return chosen,None
+    deck=list(game.get('deck') or []);player=game.get('player') or {};hp=player.get('hp') or 0;max_hp=player.get('max_hp') or hp
+    if not deck or not hp:return chosen,None
+    if obs['kind']=='rest' and st.get('upgrades'):upgrades_seen=st['upgrades']  # this screen lists them itself
+    options={}
+    for a in obs['actions']:
+        o=a['option']
+        if obs['kind']=='card_reward':
+            if o.get('action')=='select_card' and o.get('card'):options[a['id']]=(deck+[o['card']],hp)
+            elif o.get('action')=='reward_alternative':options[a['id']]=(deck,hp)
+        elif obs['kind']=='rest' and o.get('action')=='rest_option':
+            if o.get('text')=='Rest':options[a['id']]=(deck,min(max_hp,hp+round(0.3*max_hp)))
+            elif o.get('text')=='Smith' and upgrades_seen:
+                best=None
+                for u in upgrades_seen:
+                    i=next((k for k,c in enumerate(deck) if c.get('id')==u['before'].get('id') and c.get('upgraded')==u['before'].get('upgraded')),None)
+                    if i is None:continue
+                    d=list(deck);d[i]=u['after'];best=best or [];best.append(d)
+                if best:options[a['id']]=('smith',best,hp)
+        elif obs['kind']=='card_selection' and 'upgrade' in str(st.get('prompt') or '').lower() and o.get('action')=='select_card' and o.get('card'):
+            c=o['card'];u=next((u for u in upgrades_seen or [] if u['before'].get('id')==c.get('id') and u['before'].get('upgraded')==c.get('upgraded')),None)
+            i=next((k for k,x in enumerate(deck) if x.get('id')==c.get('id') and x.get('upgraded')==c.get('upgraded')),None)
+            if u and i is not None:d=list(deck);d[i]=u['after'];options[a['id']]=(d,hp)
+    if len(options)<2 or chosen not in options:return chosen,None
+    from vantom_sim import simulate
+    sims=cfg.get('sims',300);res={}
+    for aid,opt in options.items():
+        if opt[0]=='smith':
+            best=max((simulate(d,opt[2],sims=sims,seed=11) for d in opt[1]),key=lambda r:(r[0],-r[1]))
+            res[aid]=best
+        else:res[aid]=simulate(opt[0],opt[1],sims=sims,seed=11)
+    best=max(res,key=lambda a:(res[a][0],-res[a][1]))
+    info={'kind':obs['kind'],'jev_choice':chosen,'sim':{a:[round(r[0],3),round(r[1],1)] for a,r in res.items()},'best':best}
+    if res[best][0]-res[chosen][0]>=cfg.get('margin',0.03):
+        info['override']=True;return best,info
+    return chosen,info
 
 
 def planner_override(obs, chosen, response, history, cfg, source):
@@ -170,7 +217,7 @@ def planner_override(obs, chosen, response, history, cfg, source):
     minimizes expected fight HP loss, overriding Jev only when that saves >= cfg margin.
     Potions, powers and cards the simulator cannot price stay Jev's call."""
     from turn_planner import plan, OPAQUE
-    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3))
+    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3),objective=cfg.get('objective','additive'))
     info={'supported':res.get('supported'),'reason':res.get('reason'),'jev_choice':chosen}
     if not res.get('supported'):return chosen,source,info
     acts={a['id']:a['option'] for a in obs['actions']}
@@ -278,6 +325,7 @@ def main():
         skipped_card_reward=False
         last_sphere_size=False
         intent_hist={};hist_turn=None
+        last_upgrades=None
         count=args.replay_start_index
         while count < args.max_decisions:
             while True:
@@ -369,6 +417,12 @@ def main():
                 planner_cfg=strategy_package.packet.get('turn_planner')
                 if planner_cfg and obs['kind']=='combat':
                     chosen,source,planner_info=planner_override(model_obs,chosen,response,intent_hist,planner_cfg,source)
+                vcfg=strategy_package.packet.get('vantom_sim')
+                if vcfg and obs['kind'] in ('card_reward','rest','card_selection'):
+                    new,vinfo=vantom_choice(model_obs,chosen,vcfg,last_upgrades)
+                    if vinfo:
+                        planner_info=dict(vinfo,vantom_sim=True)
+                        if new!=chosen:chosen,source=new,'jev+vantom_sim'
                 note=strategy_package.packet.get('end_turn_guard') and not (planner_info or {}).get('decided') and wasted_energy_note(model_obs,chosen)
                 if note:
                     guarded=dict(model_obs,actions=[a for a in model_obs['actions'] if a['option'].get('action')!='end_turn'])
@@ -391,6 +445,8 @@ def main():
             if not ack.get('accepted'):
                 raise RuntimeError('Game rejected action')
             memory.observe(obs,chosen)
+            if obs['kind']=='rest' and (obs.get('state') or {}).get('upgrades'):last_upgrades=obs['state']['upgrades']
+            elif obs['kind'] not in ('rest','card_selection'):last_upgrades=None
             if obs['kind']=='card_reward':skipped_card_reward=any(a['id']==chosen and a['option'].get('action')=='reward_alternative' for a in obs['actions'])
             elif obs['kind']!='rewards':skipped_card_reward=False
             last_sphere_size=obs['kind']=='crystal_sphere' and any(a['id']==chosen and a['option'].get('action')=='divination_size' for a in obs['actions'])
