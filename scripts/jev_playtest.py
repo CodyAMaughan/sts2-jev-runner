@@ -151,7 +151,7 @@ def planner_hint(obs, history, cfg=None):
     """The planner's numbers as one prompt line, so Jev sees the HP-exchange math too."""
     from turn_planner import plan
     cfg=cfg or {}
-    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3),objective=cfg.get('objective','additive'))
+    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3),objective=cfg.get('objective','additive'),sandpit_buffer=cfg.get('sandpit_buffer',False))
     if not res.get('supported') or not res.get('best_plan'):return ''
     acts={a['id']:a['option'] for a in obs['actions']}
     def name(a):
@@ -230,7 +230,7 @@ def planner_override(obs, chosen, response, history, cfg, source):
     minimizes expected fight HP loss, overriding Jev only when that saves >= cfg margin.
     Potions, powers and cards the simulator cannot price stay Jev's call."""
     from turn_planner import plan, OPAQUE
-    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3),objective=cfg.get('objective','additive'))
+    res=plan(obs,history=history,potion_cost=cfg.get('potion_cost',9.0),rev=cfg.get('rev',3),objective=cfg.get('objective','additive'),sandpit_buffer=cfg.get('sandpit_buffer',False))
     info={'supported':res.get('supported'),'reason':res.get('reason'),'jev_choice':chosen}
     if not res.get('supported'):return chosen,source,info
     acts={a['id']:a['option'] for a in obs['actions']}

@@ -100,7 +100,7 @@ def _num(text, default=0):
     return int(m.group(1)) if m else default
 
 
-def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='additive'):
+def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='additive', sandpit_buffer=False):
     st = obs.get('state') or {}
     if obs.get('kind') != 'combat': return {'supported': False, 'reason': 'not combat'}
     player = st.get('player') or {}
@@ -373,7 +373,7 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='
             if after < floor_hp: death += LOW_HP_WEIGHT * (floor_hp - after) ** 2 / floor_hp
         if line.sandpit is not None and not combat_over:
             if line.sandpit < 2: death = DEATH_PENALTY
-            elif rev >= 9:
+            elif rev >= 9 or sandpit_buffer:
                 # Rev 9: ending at exactly 2 means next turn's hand MUST hold a Frantic Escape
                 # (about 1 hand in 4 has none with 6 in a ~26-card deck): price that risk.
                 future += SANDPIT_BUFFER_COST.get(line.sandpit, 0.0)

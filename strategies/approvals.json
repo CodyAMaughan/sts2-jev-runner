@@ -173,5 +173,10 @@
     "version": "1.1.32",
     "status": "approved",
     "reason": "Session 6: Sandpit buffer risk in the turn planner."
+  },
+  "995169cc6618f3022053515f7a43f63059a4eef223c72707f0289c925d821077": {
+    "version": "1.1.33",
+    "status": "approved",
+    "reason": "Session 6: best version 1.1.27 plus the boss-only Sandpit buffer."
   }
 }
