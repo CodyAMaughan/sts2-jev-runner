@@ -35,6 +35,9 @@ MAX_NODES = 40000
 ENEMY_DPT = {"ASSASSIN_RUBY_RAIDER": 10.0, "AXE_RUBY_RAIDER": 6.7, "BOWLBUG_EGG": 7.0, "BOWLBUG_NECTAR": 7.7, "BOWLBUG_ROCK": 12.1, "BOWLBUG_SILK": 3.6, "BRUTE_RUBY_RAIDER": 5.2, "BYRDONIS": 17.5, "CHOMPER": 8.0, "CROSSBOW_RUBY_RAIDER": 5.5, "CUBEX_CONSTRUCT": 8.9, "DECIMILLIPEDE_SEGMENT_BACK": 9.2, "DECIMILLIPEDE_SEGMENT_FRONT": 9.3, "DECIMILLIPEDE_SEGMENT_MIDDLE": 9.0, "EXOSKELETON": 4.9, "EYE_WITH_TEETH": 0.0, "FLYCONID": 8.7, "FOGMOG": 9.3, "FUZZY_WURM_CRAWLER": 7.1, "HUNTER_KILLER": 16.4, "INFESTED_PRISM": 12.4, "INKLET": 5.3, "LEAF_SLIME_M": 3.4, "LEAF_SLIME_S": 1.6, "LOUSE_PROGENITOR": 10.3, "MAWLER": 9.9, "MYTE": 6.1, "NIBBIT": 7.1, "OVICOPTER": 11.2, "PARAFRIGHT": 18.2, "PHROG_PARASITE": 7.4, "SHRINKER_BEETLE": 6.4, "SLITHERING_STRANGLER": 4.5, "SLUMBERING_BEETLE": 10.8, "SNAPPING_JAXFRUIT": 7.0, "SPINY_TOAD": 11.8, "THE_INSATIABLE": 15.8, "THE_OBSCURA": 6.1, "THIEVING_HOPPER": 10.8, "TOUGH_EGG": 3.1, "TRACKER_RUBY_RAIDER": 5.1, "TUNNELER": 13.1, "TWIG_SLIME_M": 5.2, "TWIG_SLIME_S": 4.0, "VANTOM": 13.1, "VINE_SHAMBLER": 11.4, "WRIGGLER": 3.5}
 PRIOR_WEIGHT = 3
 DEATH_PENALTY = 1000.0
+LOW_HP_FRACTION = 0.35
+LOW_HP_WEIGHT = 1.0
+SANDPIT_BUFFER_COST = {2: 60.0, 3: 15.0}
 SLIPPERY_HIT_VALUE = 5.0
 
 
@@ -75,7 +78,7 @@ def expected_damage_per_turn(state):
 class Line:
     __slots__ = ('energy', 'used', 'hp', 'block', 'vuln', 'slip', 'artifact', 'pblock', 'hploss', 'thorns_taken',
                  'strength', 'draws', 'opaque', 'plan', 'inflame', 'dex', 'potions', 'weakened', 'shackle', 'sandpit',
-                 'free_attack', 'dazed', 'demon', 'block_per_turn', 'block_total', 'boulder')
+                 'free_attack', 'dazed', 'demon', 'block_per_turn', 'block_total', 'boulder', 'wake_hits')
 
     def copy(self):
         n = Line()
@@ -108,6 +111,7 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='
     for e in enemies:
         bad = (DEFER_ENEMY_POWERS | ({'SANDPIT_POWER'} if rev < 4 else set())).intersection(_powers(e.get('creature')))
         if rev >= 5: bad -= REV5_HANDLED
+        if rev >= 8: bad -= {'HATCH_POWER'}  # Ovicopter's eggs: minions that hatch into attackers; the leader rule prices them
         if bad: return {'supported': False, 'reason': 'enemy power ' + ','.join(sorted(bad))}
     bad = DEFER_PLAYER_POWERS.intersection(ppow)
     if rev >= 5: bad -= REV5_HANDLED
@@ -156,9 +160,18 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='
     base.sandpit = min(sandpits) if sandpits else None
     base.free_attack = 'FREE_ATTACK_POWER' in ppow; base.dazed = 0
     base.demon = 0; base.block_per_turn = 0; base.block_total = 0; base.boulder = 0
+    base.wake_hits = [0] * len(enemies)
+    # Rev 7: a sleeping enemy (Slumber) wakes one turn sooner per HP-damaging hit; its awake
+    # damage is higher than the average that includes its sleeping zeros. Enemy Plating
+    # regrows Block every turn, so it is extra effective HP.
+    slumber = [(p.get('SLUMBER_POWER') or 0) if rev >= 7 else 0 for p in ep]
+    enemy_plating = [(p.get('PLATING_POWER') or 0) if rev >= 7 else 0 for p in ep]
+    AWAKE_DPT = {'SLUMBERING_BEETLE': 18.0}
     tender = 'TENDER_POWER' in ppow
     hive = ['PERSONAL_HIVE_POWER' in p for p in ep]
     illusion = ['ILLUSION_POWER' in p for p in ep]
+    if rev >= 8:  # minions a leader keeps re-summoning (Ovicopter's eggs) last as long as the leader
+        illusion = [illusion[k] or ('MINION_POWER' in ep[k] and bool([j for j in range(len(enemies)) if 'MINION_POWER' not in ep[j] and (enemies[j].get('creature') or {}).get('hp', 0) > 0])) for k in range(len(enemies))]
     imbalanced = ['IMBALANCED_POWER' in p for p in ep]
     toxic_in_hand = sum(1 for h in hand_ids if h == 'TOXIC')
     plating = ppow.get('PLATING_POWER') or 0
@@ -184,6 +197,7 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='
         if line.slip[k] > 0: line.slip[k] -= 1; dmg = 1
         if htk[k] is not None: dmg = min(dmg, htk[k])
         dmg = min(dmg, line.hp[k]); line.hp[k] -= dmg
+        if slumber[k]: line.wake_hits[k] += 1
         return dmg
 
     def drink(line, aid, hidx, target, c):
@@ -309,6 +323,7 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='
             p = p + 2.5 * line.demon * (T + 1) / 2 + line.boulder * (T + 1) / 2
         future = 0.0
         rate = sum(X[k] for k in alive if k not in dead) / p
+        queue = []
         if not combat_over:
             for k in alive:
                 if k in dead:
@@ -321,9 +336,26 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='
                     h = sum(line.hp[j] + line.block[j] for j in leaders if j not in dead) or h
                 extra_vuln = max(0, min(line.vuln[k], 3) - max(start_vuln[k] - 1, 0) - 1)
                 h = max(0.0, h - 0.5 * p * extra_vuln / max(1, len(alive) - len(dead)))
-                future += X[k] * h / p
+                if rev >= 7 and not illusion[k]:
+                    # Sequential kills: collected here, priced below in kill order.
+                    x = AWAKE_DPT.get(enemies[k]['creature'].get('name'), X[k]) if slumber[k] else X[k]
+                    queue.append((h + enemy_plating[k], x, max(0, slumber[k] - line.wake_hits[k]), k))
+                else:
+                    future += X[k] * h / p
                 if imbalanced[k] and _intent_damage(enemies[k]) > 0 and block >= incoming: future -= X[k]  # stunned a turn
+                if rev < 7 and slumber[k]:
+                    awake = AWAKE_DPT.get(enemies[k]['creature'].get('name'), X[k])
+                    future += awake * min(line.wake_hits[k], slumber[k]) + (awake - X[k]) * h / p
+                if rev < 7 and enemy_plating[k]: future += X[k] * enemy_plating[k] / p
                 if line.weakened[k] and not already_weak[k]: future -= 0.25 * X[k] * min(2.0, h / p)
+            # Rev 7: enemies die one after another, each attacking until its own kill; the order
+            # that minimizes total damage kills the best damage-per-HP targets first (sleepers,
+            # doing nothing yet, naturally go last). A sleeper attacks only once awake.
+            queue.sort(key=lambda q: (q[0] / q[1]) if q[1] > 0 else 1e9)
+            t = 0.0
+            for h_q, x_q, sleep_q, k in queue:
+                t += h_q / p
+                future += x_q * max(0.0, t - sleep_q)
         future -= line.draws * draw_value * rate
         if line.block_per_turn or line.block_total:
             h_all = sum(line.hp[k] + line.block[k] for k in alive if line.hp[k] > 0)
@@ -333,8 +365,18 @@ def plan(obs, history=None, draw_value=None, potion_cost=9.0, rev=3, objective='
         # HP is not linear at zero: a line that dies this turn loses the run, so any
         # surviving line must beat it regardless of the damage math.
         death = DEATH_PENALTY if hp_now >= (player.get('hp') or 0) else 0.0
+        if rev >= 8 and not death:
+            # Rev 8: HP is worth more when little is left (the next fights can kill a run that
+            # ends a fight nearly empty), so HP pushed below ~35% of max costs extra, quadratically.
+            floor_hp = LOW_HP_FRACTION * (player.get('max_hp') or 80)
+            after = (player.get('hp') or 0) - hp_now
+            if after < floor_hp: death += LOW_HP_WEIGHT * (floor_hp - after) ** 2 / floor_hp
         if line.sandpit is not None and not combat_over:
             if line.sandpit < 2: death = DEATH_PENALTY
+            elif rev >= 9:
+                # Rev 9: ending at exactly 2 means next turn's hand MUST hold a Frantic Escape
+                # (about 1 hand in 4 has none with 6 in a ~26-card deck): price that risk.
+                future += SANDPIT_BUFFER_COST.get(line.sandpit, 0.0)
             # Surplus Sandpit is a future Frantic Escape (and its energy) not needed later.
             else: future -= (line.sandpit - 2) * (p / 3.0) * rate
         future += DAZED_HIT_COST * line.dazed

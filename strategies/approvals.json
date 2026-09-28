@@ -158,5 +158,20 @@
     "version": "1.1.29",
     "status": "approved",
     "reason": "Session 5: relic acquisition (more Act 1 elites when healthy, shop relics)."
+  },
+  "77ebf940061780964535b15f467e3c0f8374715aedbf6140b5837ee67c9d719e": {
+    "version": "1.1.30",
+    "status": "approved",
+    "reason": "Session 6 (Act 2 fight work): sequential-kill pricing, sleepers, enemy Plating."
+  },
+  "14631178ce045f924c08ce377bdcf30c65714278edad2c130986f22d7044ac87": {
+    "version": "1.1.31",
+    "status": "approved",
+    "reason": "Session 6: low-HP risk aversion in the turn planner."
+  },
+  "b8e1a5239a4b8f93bd65372c7a337e1e84b2c78698b0573487530433f34df7ca": {
+    "version": "1.1.32",
+    "status": "approved",
+    "reason": "Session 6: Sandpit buffer risk in the turn planner."
   }
 }
