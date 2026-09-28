@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Local Mission Control: run evidence, exact Jev requests, launches and replay transport."""
 import argparse,json,os,re,secrets,signal,subprocess,sys,threading,time
+from collections import OrderedDict
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
@@ -16,7 +17,12 @@ STRATEGIES=['balanced','boast','wall','favor','bargain']
 TOKEN=secrets.token_hex(24)
 LOCK=threading.RLock()
 JOBS=[]
-CACHE={}
+# Parsed decision logs are large (every observation and Jev request): keep only the few runs
+# most recently opened in detail. The runs list uses SUMMARIES, one small dict per run, so
+# listing hundreds of runs never holds their logs in memory (it used to grow to ~9 GB).
+CACHE=OrderedDict()
+CACHE_RUNS=3
+SUMMARIES={}
 
 def read_json(path,default=None):
     try:return json.loads(path.read_text())
@@ -33,12 +39,24 @@ def records(path):
     stamp=(path.stat().st_mtime_ns,path.stat().st_size)
     with LOCK:
         cached=CACHE.get(str(path))
-        if cached and cached[0]==stamp:return cached[1]
+        if cached and cached[0]==stamp:
+            CACHE.move_to_end(str(path));return cached[1]
     data=[]
     for line in path.read_text().splitlines():
         try:data.append(json.loads(line))
         except json.JSONDecodeError:continue # live writer may have a partial last line
-    with LOCK:CACHE[str(path)]=(stamp,data)
+    with LOCK:
+        CACHE[str(path)]=(stamp,data);CACHE.move_to_end(str(path))
+        while len(CACHE)>CACHE_RUNS:CACHE.popitem(last=False)
+    return data
+
+def _parse(path):
+    """Uncached parse for one-off summaries (the parsed log is dropped afterwards)."""
+    if not path.is_file():return []
+    data=[]
+    for line in path.read_text().splitlines():
+        try:data.append(json.loads(line))
+        except json.JSONDecodeError:continue
     return data
 
 def action_label(option):
@@ -58,9 +76,20 @@ def step_summary(row):
         skipped=[a['option'].get('text','') for a in obs['actions'] if a['option'].get('action')=='claim_reward'] if selected.get('action')=='proceed' else [])
 
 def run_summary(path):
+    log_path=path/'jev-decisions.jsonl'
+    try:stamp=tuple((f.stat().st_mtime_ns,f.stat().st_size) if f.exists() else None for f in (log_path,path/'result.json',path/'manifest.json'))
+    except OSError:stamp=None
+    with LOCK:
+        cached=SUMMARIES.get(str(path))
+    if cached and stamp and cached[0]==stamp and cached[1].get('outcome')!='running':return cached[1]
+    summary=_run_summary(path,log_path)
+    with LOCK:SUMMARIES[str(path)]=(stamp,summary)
+    return summary
+
+def _run_summary(path,log_path):
     manifest=read_json(path/'manifest.json',{})
     result=read_json(path/'result.json',{})
-    log=records(path/'jev-decisions.jsonl');header=next((r for r in log if r.get('kind')=='controller'),{})
+    log=_parse(log_path);header=next((r for r in log if r.get('kind')=='controller'),{})
     decisions=[r for r in log if r.get('kind')=='decision']
     steps=[step_summary(r) for r in decisions];last=steps[-1] if steps else {}
     elapsed=result.get('elapsed_seconds')
